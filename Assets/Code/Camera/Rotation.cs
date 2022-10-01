@@ -1,17 +1,20 @@
 using UnityEngine;
 
-public class Rotation : MonoBehaviour {
+public class Rotation : MonoBehaviour
+{
 
     public float mouseSensitivity;
     public Transform playerBody;
 
     public float yRot;
 
-    public void Start() {
+    public void Start()
+    {
         Cursor.lockState = CursorLockMode.Locked;
     }
     
-    public void Update() {
+    public void Update()
+    {
         float mouseX = Input.GetAxis("Mouse X") * this.mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * this.mouseSensitivity * Time.deltaTime;
 
