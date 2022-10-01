@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Rotation : MonoBehaviour{
+public class Rotation : MonoBehaviour {
 
     public float mouseSensitivity;
     public Transform playerBody;
