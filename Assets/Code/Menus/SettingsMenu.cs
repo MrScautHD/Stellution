@@ -29,7 +29,7 @@ public class SettingsMenu : MonoBehaviour
             string option = resolutions[i].width + " x " + resolutions[i].height;
             options.Add(option);
         }
-        
+
         resolutionsDropdown.AddOptions(options);
     }
 
