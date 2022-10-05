@@ -154,28 +154,19 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 0
     directLightAngleOffset: 0
-    ambientMode: 0
+    ambientMode: 3
     ambientIntensity:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: -0.0029258728
-        value: 0.8001703
+        time: 0
+        value: 0.750625
         inSlope: 0
         outSlope: 0
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 0.5020522
-        value: 0.76157326
-        inSlope: -0.04149552
-        outSlope: -0.04149552
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0.19977511
-        outWeight: 0.10541473
       - serializedVersion: 3
         time: 1
         value: 0.750625
@@ -570,7 +561,7 @@ MonoBehaviour:
       m_NumAlphaKeys: 4
     indirectLightingUpdateMode: 0
   reflectionSettings:
-    globalReflections: 1
+    globalReflections: 0
     globalReflectionCustomRendering: 1
     globalReflectionUseFog: 0
     globalReflectionTimeSlicing: 1
@@ -584,10 +575,10 @@ MonoBehaviour:
     globalReflectionLayers:
       serializedVersion: 2
       m_Bits: 0
-    updateDefaultEnvironmentReflections: 1
+    updateDefaultEnvironmentReflections: 0
     reflectionCloudsQuality: {fileID: 0}
   volumeLightSettings:
-    Resolution: 0
+    Resolution: 1
     dirVolumeLighting: 1
     SampleCount: 12
     ScatteringCoef:
@@ -1151,8 +1142,8 @@ MonoBehaviour:
     cloudsDetailWindIntensity: 0.03
     cloudsUpwardsWindIntensity: 0.031
     cirrusWindIntensity: 0.032
-    cloudsWindDirectionX: -0.9925462
-    cloudsWindDirectionY: -0.121869266
+    cloudsWindDirectionX: 0
+    cloudsWindDirectionY: -1
     attenuationClamp:
       serializedVersion: 2
       m_Curve:
@@ -1419,8 +1410,7 @@ MonoBehaviour:
     locationOffset: {x: 0, y: 0}
     weatherAnimSpeedScale: 0
     globalCloudCoverage: 1
-    cirrusCloudsTexture: {fileID: 2800000, guid: 724998a51cd1bcf438cdc5ca572beef4,
-      type: 3}
+    cirrusCloudsTexture: {fileID: 2800000, guid: 724998a51cd1bcf438cdc5ca572beef4, type: 3}
     cirrusCloudsColor:
       serializedVersion: 2
       key0: {r: 0.09019608, g: 0.09019608, b: 0.101960786, a: 1}
@@ -1451,11 +1441,9 @@ MonoBehaviour:
       m_NumColorKeys: 6
       m_NumAlphaKeys: 2
     cirrusCloudsAltitude: 10
-    flatCloudsBaseTexture: {fileID: 2800000, guid: 9b9ac0c14a0678d498b26fb2486005f1,
-      type: 3}
+    flatCloudsBaseTexture: {fileID: 2800000, guid: 9b9ac0c14a0678d498b26fb2486005f1, type: 3}
     flatCloudsBaseTextureTiling: 2
-    flatCloudsDetailTexture: {fileID: 2800000, guid: 3904de3fb7c0ff1419fd3064f8114c90,
-      type: 3}
+    flatCloudsDetailTexture: {fileID: 2800000, guid: 3904de3fb7c0ff1419fd3064f8114c90, type: 3}
     flatCloudsDetailTextureTiling: 12
     flatCloudsDirectLightColor:
       serializedVersion: 2
@@ -1583,21 +1571,20 @@ MonoBehaviour:
     dualLayerParticleClouds: 1
   weatherSettings:
     useTag: 0
-    wetnessAccumulationSpeed: 0.05
-    wetnessDryingSpeed: 0.05
-    snowAccumulationSpeed: 0.05
-    snowMeltingSpeed: 0.05
+    wetnessAccumulationSpeed: 4
+    wetnessDryingSpeed: 4
+    snowAccumulationSpeed: 4
+    snowMeltingSpeed: 4
     snowMeltingTresholdTemperature: 1
-    cloudTransitionSpeed: 1
-    fogTransitionSpeed: 1
-    windIntensityTransitionSpeed: 1
-    effectTransitionSpeed: 1
+    cloudTransitionSpeed: 4
+    fogTransitionSpeed: 4
+    windIntensityTransitionSpeed: 4
+    effectTransitionSpeed: 4
     audioTransitionSpeed: 0.1
-    lightningEffect: {fileID: 1573907201630640, guid: 044a06c0461cf464dbd3727572a70d42,
-      type: 3}
+    lightningEffect: {fileID: 1573907201630640, guid: 044a06c0461cf464dbd3727572a70d42, type: 3}
     lightningRange: 500
     lightningHeight: 750
-    temperatureChangingSpeed: 1
+    temperatureChangingSpeed: 4
   fogSettings:
     Fogmode: 2
     useSimpleFog: 0
@@ -1647,7 +1634,7 @@ MonoBehaviour:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    skyFogIntensity: 1
+    skyFogIntensity: 0.09
     fogExposure: 1
     useEnviroGroundFog: 0
     useHDRPFog: 1
@@ -1744,8 +1731,8 @@ MonoBehaviour:
       m_NumAlphaKeys: 2
     thresholdColorSun:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.11372549, g: 0.11372549, b: 0.11372549, a: 1}
+      key1: {r: 0.11372549, g: 0.11372549, b: 0.11372549, a: 1}
       key2: {r: 0.6509804, g: 0.6509804, b: 0.6509804, a: 0}
       key3: {r: 0.8156863, g: 0.8156863, b: 0.8156863, a: 0}
       key4: {r: 0.7647059, g: 0.7647059, b: 0.7647059, a: 0}
@@ -1773,8 +1760,8 @@ MonoBehaviour:
       m_NumAlphaKeys: 2
     thresholdColorMoon:
       serializedVersion: 2
-      key0: {r: 1, g: 1, b: 1, a: 1}
-      key1: {r: 1, g: 1, b: 1, a: 1}
+      key0: {r: 0.17647058, g: 0.17647058, b: 0.17647058, a: 1}
+      key1: {r: 0.31617647, g: 0.31617647, b: 0.31617647, a: 1}
       key2: {r: 0.7205882, g: 0.7205882, b: 0.7205882, a: 0}
       key3: {r: 0.9117647, g: 0.9117647, b: 0.9117647, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
@@ -2003,13 +1990,13 @@ MonoBehaviour:
     auroraLayer2Settings: {x: 5, y: 5, z: 0, w: 0.5}
     auroraColorshiftSettings: {x: 0.05, y: 0.05, z: 0, w: 5}
     auroraSpeed: 0.005
-  viewMode: 1
+  viewMode: 5
   viewModeLW: 1
-  showPlayerSetup: 0
-  showRenderingSetup: 0
-  showComponentsSetup: 0
+  showPlayerSetup: 1
+  showRenderingSetup: 1
+  showComponentsSetup: 1
   showTimeUI: 1
   showWeatherUI: 1
-  showAudioUI: 0
-  showEffectsUI: 0
+  showAudioUI: 1
+  showEffectsUI: 1
   modified: 1
