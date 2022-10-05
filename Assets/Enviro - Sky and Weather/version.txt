@@ -1,0 +1,702 @@
+Enviro - Sky and Weather 2.4.2
+
+Thanks for buying Enviro! 
+
+----------------------------------------------------------------------------------
+v1.0.0			Initial release...
+----------------------------------------------------------------------------------
+v1.0.1			
+			* New Feature: Stars at night!
+			* New Feature: SunLightMod for different WeatherTypes.
+			* New Feature: Clouds casting shadows!
+			* AmbientLightIntensity Setting in EnviroSky for more realistic result!
+			* Fixed Deffered render-mode!
+			* new advanced rain and snow particleeffect!
+----------------------------------------------------------------------------------
+v1.0.2			
+			* EnviroTerrainSeasons can handle normalMaps now if wished.
+			* Better WeatherChange (Lerp between changes)!
+
+----------------------------------------------------------------------------------
+v 1.1			
+			* New Feature: EnviroWeatherShaders
+			* New Feature: Enviro dynamic puddles with shader and ReflectionProbe script.
+			* New Feature: Support for Relief Terrain Shaders (Dynamic wetness, snow and seasons with RTP Presets)
+			* New Sample Scene and a GUI for changing time, weather and seasons.
+			* Define the lenght of seasons in days.
+			* Some minor fixes and improvements.
+----------------------------------------------------------------------------------
+v 1.2			
+			* Fixed some problems with "EnviroSurfaceShaders" specular PBL workflow.
+			* Added metallic workflow shaders.
+			* Added tesslation emission shaders.
+			* Fixed a bug when using dayLenght lower than one minute.
+			* Added option to define different ambient sounds for different seasons.
+----------------------------------------------------------------------------------
+v 1.3
+			General:
+			* Easiest possible setup. Just drag and drop prefab and assign your player. Done!
+			* Added some "Playmaker Actions" for setting and getting weather,time and seasons in runtime.
+			* New texture-based stars night sky
+			
+			Surface Shaders:
+			* rework of the surface shaders 
+			* added wetness to the mask
+			* added detail albedo and normal using one of the mask channels.
+			* added Occlusion Maps
+
+			Clouds:
+			* New advanced cloud shader faking volumetric clouds with nice lighting.
+			* New mobile shader for clouds
+
+			Weather:
+			* Weatherpresets can be saved as prefabs now. Just copy a prefab, alter it and add it to the list to create a new weathertype!
+			* Weather sfx fades smoothly in and out.
+			* Lit Alpha-Blended Particle Shader
+			* Rework of all Particle Effects
+			
+----------------------------------------------------------------------------------
+v 1.3.1
+			General:
+			* Added quality setting for changing particle emission rates in runtime.
+			* fixed a bug calculating time, caused problems with growing vegetation.
+			
+			Vegetation Growth:
+			* Better, easier growingSpeed/Scale handling taking maxAge into account. Only one "speedMod" now to make very fast or slow growing vegetation possible.
+
+			Playmaker Integration:
+			* added "every frame" checkbox on "set" actions.
+			* fixed a problem with "SetWeather" action.
+		
+			
+----------------------------------------------------------------------------------
+v 1.3.2
+			General:
+			* Fixed clipping artifacts with high view distances.
+			* More realistic stars movement.
+			* Fixed shaders to work with 5.3.
+
+----------------------------------------------------------------------------------
+v 1.4
+			General:
+			* New feature: c# event system your scripts can listen to.
+			* "EnviroEvents" script for adding your own functions via inspector.
+			* Updated season and terrain scripts to use new events.
+			* Audio Sources will be instatiated with a prefab now. You can alter settings and add mixers now.
+			* New Setting for fixed sky height.
+
+			Fog:
+			* New feature: (Not finished!) Atmospheric fog implementation with scattering based off Unity's GlobalFog Image Effect. 
+
+			Shaders:
+			* Moon: Added adjustable brightness.
+
+			Clouds:
+			* Changed Cloudsdome scaling.
+			* Added a scale/tiling value for changing clouds scale.
+			* Better lighting of flat clouds on evenings.
+
+			Weather:
+			* Adjustable scattering settings for new fog image effect.
+			* Optimized weather effects for mobiles. 
+
+----------------------------------------------------------------------------------
+v 1.5
+
+			General:
+			* Major system rewrite to let you customize the visuals the way you want. To many changes to list here sorry ;)
+			* New Feature: You can add additional sattelite objects like other planets now.
+			* Syntax update for newer unity versions.
+
+			Clouds:
+			* New Feature: Cloud meshes will be generated from system. You can define the quality, curvate an thickness. This way you gain more controll over the visuals and performance.
+			* Better volume clouds shading and shader optimizations.
+
+			Fog:
+			* New Feature: A new fog image effect completly integrated with Enviro weather system! No additional setup required!
+			* Supports distance and height Fog with noise to simulate wind, sky fogging, scattering and weather conditions.
+
+			Sky:
+			* New Feature: A dynamic skybox atmospheric scattering shader with sun and stars. You have complete control on visuals now and can create great realistic skies or groovy alien planet atmospheres!
+			* New Feature: A God Rays Image Effect. It is completly integrated with Enviro day and night system. No additional setup required!
+
+			Weather:
+			* You can now define the speed of water and snow accumulation.
+			* A new Particle Shader to match current time lighting conditions.
+
+			Integration:
+			* A new component to integrate UBER Shader Asset. This will sync the current weather with you UBER materials! 
+			* A new component to integrate LUX Shader Framework. This will sync the current weather with you LUX materials!
+
+----------------------------------------------------------------------------------
+v 1.6
+
+			General:
+			* New Feature: Added tooltips!
+			* New Feature: Added optional runtime assign for player and camera.
+			* New Feature: Added function to change focus. When player or camera changed on runtime.
+			* Removed EnviroMgr completly! Use EnviroSky.instance now!
+			* Fixed some possible compilation errors on build.
+
+			Sky:
+			* Better atmospheric sunset rendering
+			* new default settings
+
+			Zones:
+			* New Feature: Enviro Zones. Add unlimited zones to your scene with their own weather!
+
+			Integration:
+			* New Feature: Photon PUN Network Integration. Simply add this component to all your zones to sync weather in multiplayer rooms.
+
+----------------------------------------------------------------------------------
+v 1.6.1
+
+			* Fixed issues with assign on runtime.
+			* Fixed issues and improved satellites.
+			* Fixed skyfogging calculations in Unity 5.5
+			* Stopped time progressing in edit mode.
+			* Fixed a few issues that could lead to errors.
+			* Added simple Demo FPS Controller.
+			* You do not need to have Unitys Standard Assets imported anymore.
+----------------------------------------------------------------------------------
+v 1.7.1
+			* Great performance and graphic quality increase in cloud rendering! 
+			* Added Gaia extension. One-click setup within Gaia!
+			* Added first version of MegaSplat Integration.
+			* Added UNet Integration. Finally :D
+			* Added global reflections with time based updates.
+			* Added function for simple save/load time and current weather in playerprefs.
+			* Added option for instant starting weather and function to instantly change weather without any transitions.
+			* Added automatic effect camera setup. Assign layer 31 to your transparent fx or change effect layer in EnviroSky component.
+			* Added simple replacement shader for terrain grass for dynamic snow. (Just unpack the archive to add)
+			* Improved Envrio Fog effct. Limited maximum fog strenght, do sky fogging in skybox shader and added option to block or show sundisk.
+			* Improved weather particle effects.
+			* Improved direct and ambient light configuration.
+			* Improved time of day features. You can use DateInfo Class and Systemtime now. Added support for minutes and seconds and added function to get a nice time string.
+			* Improved stars intensity based on time of day.
+			* Updated sample UI.
+			* Various small fixes and improvements.
+
+----------------------------------------------------------------------------------
+v 1.7.2
+			* Rewritten UNet Integration and added network sample scene.
+			* Rewritten Clouds wind animation. You can now globaly change speed, timescale and direction. You also can use the direction of your WindZone.
+			* Tweaked a few weather presets.
+			* Added option to enabled/disbale rendering weather effects with a second camera.
+			* Added new EnviroSky prefab for gamma colorspace. Update gaia Integration to choose correct one.
+			* Added Worldscale feature for clouds. This way you can enlargen the viewdistance of clouds without changing you maincamera farclip.
+			* You can define ambient sounds for each weather preset now. Leave empty to play nothing.
+			* Exposed maximum fog density in EnviroSky component.
+			* Fixed graphic problem in Unity 5.6.
+			* Fixes for gamma colorspace.
+			* Fixed wrong played ambient audio on start.
+			* Fixed a few problems with AssignOnRuntime and missing shaders. (If you only Update package move EnviroClouds adn EnviroCloudsShadow shaders in "Ressource" folder.)
+
+----------------------------------------------------------------------------------
+v 1.8
+			* Option to choose for realistic and simple sun and moon calculations.
+			* Added earth based location support by defining your longitude and latitude.
+			* All graphes and gradients will use calculated solar and lunar time based on position in sky instead of current time of day.
+			* Improved moon rendering, added glow, new moon shader and moon light shafts and full resolution rendering.
+			* Improved clouds rendering. Add Sun and Moon highlight, improved overall visual.
+			* Improved fog, added option to increase inscattering.
+			* Improved weather control over sky, light and fog by adding three different gradients.
+			* All materials will be generated on startup to fix issues with version control.
+			* Added new start function to start enviro in minimal mode for server only. This way only weather type and time will be calculated no visuals at all!
+			* Added new AudioZone component. Use this to modify ambient and weather sound volume when entering interiors for example!
+			* Added option to use custom skybox material or solid color instead of enviro skybox.
+			* Fixed problems with rendering sky when far away from zero point.
+			* Fixed incorrect clouds reflections issue.
+			* Fixed hour events not beeing triggered correctly.
+			* Fixed ambient and weather sound runtime volume controls.
+
+----------------------------------------------------------------------------------
+v 1.8.1
+			* Added option for HDR Rendering. Fixed a few problems with hdr.
+			* Added optional background rendering feature.
+			* Added Curves for Sky Luminance and Color Power based on sun position. This will allow for more bright blueish nights if wished.
+			* Added OnZoneChanged event.
+			* Added curve for changing moon glow based on sun position.
+			* Added option to Zones to not switch back to Default zone on exit. This is usefull when using overlapping zones only.
+			* Added a simple shader to render depth only to fix fog issues with many water assets.
+			* Fixed stars still showing behind moon and in glow area.
+			* Fixed legacy cloud mode.
+			* Fixed a few issues that could lead to errors if weather have no proper setup.
+			* Fixed clouds not rendering when changeing sky layer.
+			* Fixed and improved clouds thunder effect.
+			* Tweaked stars rendering.
+			* Renamed Effect Camera to Satellite Camera.
+
+----------------------------------------------------------------------------------
+v 1.9.0
+
+			* Enviro settings and weather presets are now using scriptable objects! 
+			  You can now load and save from and to profiles. In runtime and design time. Tweak your settings in runtime hit save to profile. When back in design time just hit load from profile to apply your tweaks!
+			* You can easily create new fully setup profiles and weather presets!
+			* Added custom inspectors for EnviroSky control component, Enviro Zone and Weather Presets!
+			* New integration components for CTS - Complete Terrain Shader and Pegasus from Adam Goodrich!
+			* Realistic and accurate stars and night sky rotation.
+			* Rewritten additional satellites orbit calculations.
+			* Added different minutes settings for day and night.
+			* Added UTC Offset slider for timezones.
+			* Exposed Fog Dithering settings to reduce color banding.
+			* Fixed enviro vr issues. Enviro supports single and multipass VR now. Tested on HTC Vive.
+			* Fixed thunder when already in another preset.
+			* Fixed ugly moon clouds highlights on daytime.
+			* Fixed an issue on deferred when not using HDR option.
+			* Fixed error on startup when using root object as camera. Enviro Cameras will be spawned only once 			  and put on root to not destroy connections of your controller prefabs.
+
+----------------------------------------------------------------------------------
+v 1.9.1
+
+		* Added AQUAS Integration! Requires AQUAS v1.4.2!
+		* Added FogVolume 3 Integration! (early version! FogVolume can be setup in a lot of different ways, what make 		  it hard to create an easy to use intgration component. Please let me hear your feedback and ideas for 		  improvement!)
+		* Added a new component to support fog on a lot of other water packages. For example Unity Water4.
+		* Added two new options to GAIA Integration. Add AQUAS Integration and Fog support.
+		* Added Thunder SFX volume can be controlled with the weather sfx volume controls now.
+		* Added new TimeProgress mode that will only simulate 24 hours without progressing to next day.
+		* Added new option to choose whether the weather updated in realtime minutes or gametime hours.
+		* Added audio transition speed slider and improved timing of first thunder when weather changed.
+		* Added interval setting in weatherpresets to control lightning interval.
+		* Improved: Fog will now be influenced by lightnings!
+		* Fixed issue with singlepass VR when background rendering was activated.
+		* Fixed issue in singlepass with VRTK asset.
+		* Fixed black sky issue when switching rendering path in runtime.
+		* Fixed Photon Integration component compile errors.
+		* Fixed headless server mode.
+		* Fixed issues with weather, vegetation growth and reflection updates.
+		* Fixed a lot of (hopefully all) compiler warnings for now.
+
+----------------------------------------------------------------------------------
+v 2.0.0
+	* New Feature: Volumetric lighting with volume shadows! Support one directional and multiple point and spot lights.
+	* New Feature: New raymarching cloud solution + flat clouds. You can mix both or use one at the time. Raymarching clouds can be expensive to render! If you need best performance use the flat clouds only.
+	* Rewritten fog solution and added function to do proper transparent fog. You have to use Enviro Transparent shaders for fog or modify your custom ones.
+	* Added a bunch of new transparent shaders with fog support on objects and particles.
+	* Added seperate curves for sun and moon direct light intensity and curve for shadow intensity based on sun position.
+	* Added option for moon color and moon glow color.
+ 	* Added an UpdateProfile option.
+	* Added new component for interiors or undergrounds. Features lighting, weather and audio modifications. Add triggers for your doors/entry/exit with one click.
+	* No additional cameras needed anymore = improved performance!
+	* Improved performance when using skybox ambient mode.
+	* Fixed StartAsServer function.
+	* Fixed issue that Unity sometimes not save the profile when closing Unity.
+	* Plenty small improvements and optimizations.
+	
+----------------------------------------------------------------------------------
+v 2.0.1
+
+	* Fixed rendering issues in OpenGL and DX9. Please note that volume lighting requires at least shadermodel 3.5 and will be deactivated on dx9.
+	* Fixed some shader errors on ps4.
+	* Fixed a few issues with auto assignment, ChangeFocus function and possible null expection in EnviroSkyRendering component.
+	* Fixed issue with clouds shadow mesh could be visible in sky.
+	* Fixed multiple elements edititing for volume lights. (Thanks to rasto61 for the fix)
+	* Switched back to cutout cloud shadows for now as dithering doesn't worked well in that usecase. Will work on another improved solution in a later update.. 
+	* Added simple fog mode without scattering for low end devices.
+	* Added option for setting don't destroy flag.
+	* Added component to render multiple cameras with enviro effects at the same time.
+	* Added addional galaxy rendering to skyboxes.
+	* Added fade speed and skybox modification to interior component.
+	* Scene lighting will be updated without the need of player or camera assigned now.
+	* Deactivated weathermap rendering when it isn't required.
+
+----------------------------------------------------------------------------------
+v 2.0.2
+
+	* Fixed a few more shader errors on ps4.
+	* Fixed clouds wind direction was off from windzone direction.
+	* Fixed issue with transparent fog support when volume lighting is deactivated.
+	* Fixed issue with interior zones when walking into multiple zones in short time.
+	* Fixed issues with non working interior zone features.
+	* Fixed ambient lighting modification in interior zones.
+	* Fixed an issue with unity post processing bloom + enviro. Maybe need some more testing!
+	* Fixed volume lighting not showing up in builds.
+	* Fixed ambient audio replay issue on weather changes.
+	* Fixed metal issue with volume clouds. (Pink Sky)
+	* Fixed issue that messed up sun and moon set/rise times.
+	* Improved particle effects to use external forces to simulate wind and improved effect performance.
+	* Improved cloud shadows using light cookie. Early work in progress version!
+	* Improved volume clouds performance. Added temporal remprojetion, lod option and slider to configure sample count behind objects.
+	* Improved volume cloud blending with sky at dawn and dusk.
+	* Improved performance by not re-rendering moon on every frame.
+	* Improved Weather SFX looping.
+	* Added height fog noise for non simple fog modes.
+	* Added multiple new features and new trigger type for interior zones.
+	* Added black ground color option in skybox.
+	* Added new snow particle effect.
+	* Added new sample scene.
+	* Removed old enviro surface shaders. I will provide download link in new documentation, but better use overall better free LUX shaderframework!
+
+	VR Improvments:
+	* Note: Singlepass VR for enviro is only working in Unity 2017+ versions for now!
+	* Fixed an issue that will output image in desktop resolution in VR mode.
+	* Fixed Lightshafts in singlepass VR.
+	* Fixed volume lighting singlepass mode at half/quarter resolution in Unity 2017.2/3.
+	* Added volume clouds VR quality presets.
+	* Added weather presets and particle effect more suitable for VR.
+	* Added demo scene and envirosky prefab for VR to quickstart.
+	
+	
+----------------------------------------------------------------------------------
+v 2.0.3
+
+	* Fixed issue that changing clouds downsampling not correctly applied in runtime.
+	* Fixed issue that could break interior zone editor when loosing a trigger.
+	* Fixed an issue that the default weather zone not getting a weather selected when starting in an additional zone.
+	* Improved performance when searching for player and camera with auto assignment mode in big scenes.
+	* Improved and fixed issues with WAPI Integration weather changing.
+	* Exposed flat clouds morphing speed modifier in profiles.
+	
+
+----------------------------------------------------------------------------------
+v 2.0.4
+	* Support for OpenGLES3 added.
+	* Fixed a possible compile error in Unity 2018.
+	* Fixed compiler errors in newer Unity 2017.1 versions.
+	* Fixed issue with singlepass rendering in Unity 2017.4+ and Unity 2018.
+	* Fixed issues in UWP with Mixed Reality VR SDK.
+	* Fixed issue with weather synchronizatiuon in network integration.
+	* Fixed Megasplat Integration.
+	* Fixed various smaller bugs.
+	* Added lightning strike effect. Next update will include procedural effect.
+	* Added Microsplat Integration.
+	* Added a few different profiles to choose from.
+	* Improved volume clouds lod system. Better visual and more fps!
+	* Updated pdf guides.
+	* Removed fog in edit mode on modified materials.
+		
+
+v 2.0.5
+----------------------------------------------------------------------------------
+	* Fixed transparent fog support.
+	* Fixed temporal reprojection of volume clouds in multi-pass rendering.
+	* Fixed wrong rendering of none stereo camera while rendering in stereo mode. 
+	* Fixed volume clouds reflection component.
+	* Send moon render texture to skybox when using custom skybox mode.
+
+----------------------------------------------------------------------------------
+v 2.1.0
+
+ATTENTION! Major Update, you NEED to delete old enviro folder before import!
+
+	General:
+	* Complete restructuring of asset. Standard and Lite(Mobile) Version are now using same core code and can be used in same project.
+	* Complete rewrite of Lite(Mobile) version.
+	* Preperation for future SRP support upgrade.
+
+	Enviro Sky Manager:
+	* A new component, the Enviro Sky Manager was added. You can add different preconfigured instaces of standard and lite version from here. You also can switch between those with one click/line of code.
+	* EnviroSky Manager has a complete API that can be used with both versions. So when switching between lite/standard you don't have to worry about your custom scripts.
+	* EnviroSKy Manager also got a new interface to manage and add third party integrations. No more manual unpacking and adding.
+	
+	Third Party Integrations:
+	* Integrations can be activated and added over the new interface in Enviro Sky Manager now.
+	* Rewrite of UBER, LUX, Relief Terrain Integration.
+	* Added Vegetation Studio Pro Integration.
+	* Added Mirror Networking Support Integration.
+	* Updated GAIA Integration.
+	* Fixes for Microsplat Integration.
+	* LUX Water out of the box support in enviro fog shaders.
+
+	Enviro Lite:
+	* Old mobile version got depricated and a new version was created based on the codebase of standard.
+	* New lite version uses same profiles and weather presets like standard version and following same interface design.
+	* New very lite skybox shader.
+	* New particle base cloud system.
+	* Fog image effect with advanced scattering or simple color modes.
+	* Lightshafts added to lite version aswell.
+	* Lite version works on GLES2.0 and up.
+	* Lite version support all third party integration like standard and can be controlled with same API.
+
+	Enviro Standard:
+	* New additional particle based cloud system. Can be switched on for each weather preset. For example Storm weather to enhance details.
+	* New temperature system with support for seasonal and time base temperatures. (WIP)
+	* New optional distance blur effect. (WIP)
+	* New scene view preview of all enviro effects, lighting and reflections. Can be toggled on and off for each effect individually.
+	* New weather effects particle shader that support realtime lighting.
+	* Improved volume clouds visuals with improved ambient lighting, detail sampling and distance rendering.
+	* Improved season system to be realistic.
+	* Improved night sky rendering with twinkling stars and a new rendering of moon. Instead of camera the rendering will be done completly in skybox now.
+	* Improved global reflection with new update methods and scene view compability.
+	* Improved Skybox and Fog dithering.
+	* Rewrite of lightshafts component to have both sun and moon in one component.
+	* Exposed a few more options that may could be usefull for some projects.
+	* Extensive internal code cleanups and improvements.
+	* Fixed moon glow not in right spot sometimes.
+	* Fixed some other smaller issues.
+
+----------------------------------------------------------------------------------
+v 2.1.1
+
+	* Fixed Gaia Integration.
+	* Fixed Fog Volume 3 Integration.
+	* Fixed rare issue where skybox colors are blown out in combination with some shaders.
+	* Fixed default settings of VR and Standard Instance.
+	* Fixed clouds projection when far away from zero origin.
+	* First part of fixes for moon phases not correct.
+	* Fixed issue where enviro still tries to set Unity RenderSettings even when it is stopped.
+	* Added new starting option. This way you can add enviro without beeing started in your first scene and start whenever you really need.
+	* Added a few missing API commands in Enviro Sky Manager.
+	* Changed shader names for better ordering in shader list.
+	* Tweaked some weather preset and profile settings.
+	* Updated included Enviro Lite to 2.1.1 standalone release.
+
+	----------------------------------------------------------------------------------
+v 2.1.2
+
+	---- Fixes
+	* Fixed issue that resetts the "progress time" mode.
+	* Fixed issue that destroys the weather effects causing a null reference error.
+	* Fixed incorrect moon phases finally.
+	* Fixed moon light rotation.
+	---- Volume Clouds:
+	* Greatly improved volume clouds performance.
+	* Greatly improved lighting and visuals of volume clouds.
+	* Greatly improved weather map generation speed.
+	* Added more control over weather map generation. This brings more different cloud formations.	
+	* Added mip levels to volume clouds 3D textures.	
+	* Added new slider to control the clouds height.
+	* Added new options for clouds formation control in weather presets.
+	* Minor changes in volume clouds interface.
+	---- General
+	* Reworked all standard weather profiles.
+	* Reworked standard profiles sky and lighting settings.
+	* Some code rework in EnviroSkyRendering script.
+	* Added new option to set speed of directional light changes.
+	* Added a post effect stack v2 profile I used while developing.
+	* Added a new setting to define a temperature when snow starts to melt.
+	* Disabled stars twinkling when setting stars twinkling rate to "0".
+
+	----------------------------------------------------------------------------------
+v 2.1.3
+
+	* Fixed errors in Fog Volume 3 Integration.
+	* Fixed errors in Pegasus Integration.
+	* Fixed issue where flat clouds skybox will be regenerated on every frame.
+	* Fixed issue that volume lighting downsampling not got applied correctly.
+	* Fixed compiler symbols define setting for non main platform.
+	* Fixed slightly wrong fog scattering computation for transparent fog support.
+	* Fixed a few warnings.
+    
+	* Added Aura 2 Integration.
+	* Added new feature to render your sky into a high-res hdr cubemap. (Standard version only!)
+	* Added Aurora effect in skybox! (Standard version only!)
+	* Added component to render enviro effects in reflection probes in realtime. (Standard version only!)
+	* Added new global reflection interface.
+	* Added new preset based clouds quality settings.
+	* Added optional dual directional light mode for sun and moon.
+	* Added option to use different quality settings for additional cameras. (Standard version only!)
+	* Added new component "EnviroWindSynchronize" to synchronize terrain grass and Nature Manufacture custom Wind solution. (Need to uncomment NW_WIND define in script!)
+
+	* Improved weather particle effects.
+	* Improved volume clouds visuals.
+	* Improved wind speed transitions.
+	
+		----------------------------------------------------------------------------------
+v 2.1.4
+
+	* Fixed possible issue that can break custom scripts not compiling anymore.
+	* Fixed issue that custom reflection updates sometime not worked and improved the time slicing.
+	* Fixed issue in Gaia Integration.
+	* Fixed one broken Playmaker action with outdated API.
+	* Fixed issue with Aura 2 Integration when no base setting is applied in aura camera component.
+	* Added a "use fog" option to custom reflections.
+	* Added Aura 2 support for dual lighting mode.
+
+			----------------------------------------------------------------------------------
+v 2.1.5
+
+	* Fixed possible error in volume light component in Unity 2018+.
+	* Fixed possible artifacts caused by custom rendered reflection probes on startup.
+	* Fixed a possible artifact in VR rendering.
+	* Fixed rendering of weather particles against the particle clouds. (Changed the weather particle render queue)
+	* Fixed lunarTime calculation in "Simple" moon position mode.
+	* Fixed bug where the current selected clouds quality settings not applied on startup. That one could lead to very bad performance and incorrect clouds positions.
+	* Fixed nightime volume clouds lighting in dual light mode.
+	* Improved the default VR weather presets.
+	* Improved cirrus and volume clouds wind controls.
+	* Improved moon and moon glow. Moon should render more crisp now.
+	* Added additional brighter moon texture for standard version.
+	* Added option to stop the directional light at certain altitude to further rotate. 
+
+	 	----------------------------------------------------------------------------------
+
+v 2.2.0
+
+	* (WIP) Added LWRP/URP support.  No volumetric lighting right now!
+	* (WIP) Adde support for blending clouds with your scene.
+	* Changed sky fog calcualtions to allow for views of clouds from top.
+	* Improved weather map generation for better looking clouds.
+	* Improved clouds rendering and lighting.
+	* Added custom reflection probe convolution.
+	* Added GetToD function + Fix in DemoUI
+	* Added temperature support to WAPI integration.
+	* Added GetMonth function.
+	* Fixed Pegasus integration.
+	* Fixed null reference error in Unity 2017.2.
+	* Fixed possible issues with Mirror Network integration in builds.
+	* Fixed error spam in satellites rendering when no prefab was assigned.
+	* Fixed constant reloading when showing the enviro sky prefab inspector in Unity 2019.2+.
+	* Fixed issue with lightning in singlepass vr. (Unity 2019+)
+	* Fixed possible error spam when loosing the assigned camera/player.
+	* Fixed possible error with a not activate instance.
+	* Fixed possible visible rain splash over player.
+	* Fixed a few smaller issues and cleanups.
+
+
+
+v 2.2.1
+	* Improved performance of volume clouds and added a new option to improve performance in quality settings.
+	* Added option to add additional curl noise to detail erode of volume clouds.
+	* Added new optional halton sequence raymarching offset for volume clouds that can be used toegther with TAA to improve quality or performance. (WIP)
+	* Added new function to reset the hour events timer. Use this if you change the date (days).
+	* Fixed double function call that was not needed Enviro Sky Rendering component.
+	* Fixed singlepass rendering when both sun and moon lightshafts are enabled.
+	* Fixed possible error in Mirror Integration setup.
+
+	Lite Only:
+	* Fixed ambient sounds not playing after you stopped instance.
+	
+
+v 2.3.0
+	* Added clouds variance lighting feature. 
+	* Added new buttons to add required defines when those are missing after you switched build target.
+	* Added experimental singlepass instanced support. (May not work correctly on every Unity Version / Renderpipeline)
+	* Added scene preview of effects in LWRP/URP.
+	* Added fog scene preview for lite instances.
+	* Added black ground toggle for lite instances.
+	* Added new simple gradient based skybox.
+	* Added a few more references in EnviroSkyMgr.
+	* Added a temperature modifier float. Use that to modify the temperature for your own game logic.
+	* Added support for Global Snow from Kronnect.
+
+	* Fixed offset frame in clouds reprojection.
+	* Fixed Volume Lighting in OpenGLES 3.
+	* Fixed Volume Lighting in Singlepass in Unity 2019.3.
+	* Fixed VR rendering in URP builds.
+	* Fixed possible error spam in Post Effects in URP.
+	* Fixed compile error in EnviroPostProcessing component for lite only version.
+	* Fixed hdr format in sky baking.
+	* Fixed ChangeSeason function checking for last and not current season.
+	* Fixed issue that breaks skybox when changing scenes.
+	* Fixed issue that changing the skybox mode would not be applied correctly.
+	* Fixed custom moon phase resetting.
+
+	* Improved whole volumetric clouds lod system. Smooth transitions, new option and generally better performance.
+	* Improved whole UI to be cleaner and also to better work with new Unity 2019.3 editor skin.
+	* Improved enviro resource managment.
+	* Improved render logic in standard pipeline. Improves performance when not all effects activated.
+	* Improved URP render feature scripts.
+	* Changed the day length settings to be easier to use and understand.
+	* Changed a lot of gradients to use HDR color picker in Unity 2018.3+.
+	* Changed some core parts for upcoming HDRP support in Enviro Pro.
+
+v 2.3.1
+	* Added new 2D cloud system. Old flat clouds are removed in enviro standard. The new system wil be default cloud system in lite instances.
+	* Added new option to only use one layer of particle clouds to save performance.
+	* Added new option in Enviro Zones to force changing weather. With that enabled it always will choose a different weather type when tries to change weather.
+	* Added global tonemapping option in "Rendering Setup" section. Only new instances will have that one enabled. Disable and use a third party tonemapper for best results!
+	* Added a floating point origin system support. You can assign a anchor gameobject with your offset in "Rendering Setup" section now to have clouds move with your scene offset.
+	* Fixed issue with clouds lod system when over the clouds.
+	* Fixed issue in Multi-Pass VR for volumetric clouds.
+	* Fixed rendering issue in OpenGL.
+	* Fixed missing seconds in SetTime function.
+	* Fixed possible issue with clouds shaking when camera rotates in URP/HDRP
+	* Fixed possible issues with define handling and multiple build targets.
+	* Fixed Gaia Integration to work with latest Gaia Pro and Gaia 2 releases.
+	* Fixed issue with cubemap baking where first side sometimes has missing/messed up effect.
+	* Fixed clouds depth blending option in LWRP/URP.
+	* Fixed possible inspector error with Aura2 Integration and deactivated enviro instance.
+	* Fixed build error for lite version instances.
+	* Fixed problem in Interior Zone Inspector not saving changes correctly.
+	* Fixed multiple poissible rendering issues in LWRP/URP.
+	* Fixed possible error in bilateral blur shader on metal.
+	* Improved dithering at night, please note that you need way lower sky and fog dithering settings now!
+	* Some small optimizations in volume clouds raymarch shader.
+	* Optimizations for time slice rendered reflection probes.
+	* More work for upcoming HDRP support.
+
+
+v 2.3.1
+	* Added the correct moon texture for enviro lite version.
+	* Reworked volume clouds nosie textures. Should look a bit better now!
+	* More work for upcoming HDRP support.
+
+v 2.3.2
+	* Fixed Enviro URP support for URP 10+.
+	* Fixed issue with stars/galaxy blending with moon.
+	* Fixed clouds rendering single pass instanced mode in new plugin xr system. (Builtin and URP)
+	* Fixed XR singlepass instanced issue in lite fog rendering.
+	* Fixed possible errors from post processing effects in URP.
+	* Fixed issues with materials lost in URP.
+	* Fixed an issue with fog missing when changing scenes in URP.
+	* Rewritten clouds and distance blur rendering scripts in URP.
+	* Fixed an issue with skybox not showing correctly when additional load scenes.
+	* Fixed possible issue where volume clouds not blending with sky in builtin and urp. (Missing alpha channel of generated default render textures)
+	* Fixed issues with new Unity UI system.
+	* Fixed weather zone gizmo not show the rotation of weather zone object.
+	* Changed URP setup. You no longer need to import a package.
+	* Updated MicroSplat Integration. 
+	* Added optimized VSP integration script based on work from Enviro user Meishin.
+
+v 2.3.3
+	* Fixed issue with spot and point light volumetric lighting without shadows in Unity 2019.2 singlepass rendering.
+	* Fixed issue with volumetric lighting not working correctly like in 2.3.1.
+	* Fixed issue in dual lighting mode. Moon intensity will be set correctly now.
+	* Fixed singlepass instanced rendering for clouds in URP. Included wrong script...
+	* Fixed missing shadow intensity curve in Enviro Sky inspector.
+	* Fixed curl noise option in Volumetric Clouds.
+
+v 2.4.0
+	* Added HDRP support for standard and lite:
+	    Currently no HDRP VR and MSAA support for Enviro post processing effects.
+		Depth Blending for volumetric clouds will be added very soon in 2.4.1
+	* Added option to update the default environment reflection cubemap with the texture of global reflection probe. (For instanced indirect rendered material reflections)
+	* Added a new list for additional cameras for URP and HDRP. You need to add your cameras here if your want to render Enviro effects on these.
+	* Added Enviro clouds shadow cookies for latest URP versions.
+	* Fixed URP 10+ singlepass instanced rendering.(grey eye)
+	* Fixed multiple issues with volumetric ligting singlepass instanced rendering.
+	* Fixed volumetric lighting may dissapear when no shadows are rendered.
+	* Fixed custom mesh weather zone gizmos.
+	* Fixed cirrus clouds alpha in Unity 2020+.
+	* Fixed warnings related to Enviro in URP and HDRP.
+	* Fixed wetness update for microsplat integration.
+	* Fixed OnDay/OnNight event not triggered on start.
+	* Fixed issue with duplicates of SFX Effects are created when instances get deactivated and activated again.
+	* Fixed possible stuttering in clouds movement.
+	* Fixed additional satellites render in URP.
+	* Fixed bad performance for Aura 2 integration code in larger scenes.
+	* New sample scenes for all render pipelines.
+
+v 2.4.0a
+
+	* Fixed distance blur effect in URP.
+	* Improved code in HDRP support that should result in better performance in big scenes.
+
+v 2.4.1
+
+	* Fixed possible errors that could break builds.
+	* Fixed possible issue with hourly time event on start. (It should trigger the event now correctly in all cases)
+	* Fixed issue with default environment reflection not updating when using don't destroy on load. 
+	* Fixed issue with simple sky mode in URP.
+	* Fixed issue with volumetric clouds not rendering correctly in scene and reflection cameras in URP SPI VR.
+	* Fixed compile issue in URP 11 and cloud shadow light cookie.
+	* Fixed small issue in built-in standard sample scene.
+
+v 2.4.2
+
+	* Fixed render features for URP 13+.
+	* Fixed possible errors when no thunder sfx audio is assigned. (Thanks to fendercodes)
+	* Fixed possible issue where fog will flip the image in rare conditions.
+	* Fixed issues with Lightshafts effect in URP. 
+	* Fixed particle clouds shader in URP 12+.
+	* Fixed issue with volumetric clouds bilateral upsampling in URP.
+	* Fixed multiple issues with URP multi pass VR rendering.
+	* Fixed rare issue where sky HDRP volume modules might lost after editor restart.
+	* Fixed issue with rain splash effect may be rendered underneath the collider.
+	* Fixed cubemap baking not includes Enviro effect in URP and HDRP.
+	* Fixed shader build issue on xbox platform.
+	* Fixed issue where multiple custom timesliced reflection probe updates could be triggered and get executed where only one is needed.
+	* Fixed issue for volumetric clouds with dynamic resolution in HDRP.
+	* Improvement for custom rendered reflection probe "convolution". Still not correct and very hacky, but should be a step nearer to unity realtime reflection probes.
+	* Improved directional volumetric light to not shine through objects in certain situation and settings.
