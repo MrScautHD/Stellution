@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DebugOverlay : MonoBehaviour
 {
-
+    
     public TMP_Text fpsText;
     public TMP_Text systemInfoText;
     private FpsCounter FpsCounter = new();

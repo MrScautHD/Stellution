@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class FpsCounter : MonoBehaviour
 {
+    
     private float t;
     private long lastTicks = DateTime.Now.Ticks;
     private int count;
