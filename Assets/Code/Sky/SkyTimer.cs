@@ -6,7 +6,7 @@ public class SkyTimer : MonoBehaviour
 
     public AtmosPad atmosPad;
     public float time;
-
+    
     public void Update()
     {
         float deltaTime = Time.deltaTime;

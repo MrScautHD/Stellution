@@ -1267,7 +1267,6 @@ GameObject:
   - component: {fileID: 1415325875}
   - component: {fileID: 1415325876}
   - component: {fileID: 1415325877}
-  - component: {fileID: 1415325878}
   m_Layer: 0
   m_Name: SunLight
   m_TagString: Untagged
@@ -1308,7 +1307,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 0
+    m_Type: 2
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1367,18 +1366,6 @@ MonoBehaviour:
   referenceCamera: {fileID: 963194227}
   rotRoot: {fileID: 1415325875}
   directionalLight: {fileID: 1415325876}
---- !u!114 &1415325878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1415325874}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab291e2f4a1f4313a8546884c18d342d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1556901426 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 50e8e5ee085e8a74a82860aa7cd487e6, type: 3}
@@ -1724,6 +1711,10 @@ PrefabInstance:
       propertyPath: sun
       value: 
       objectReference: {fileID: 1415325876}
+    - target: {fileID: 8599883643876097168, guid: 629cad388f083d34ab5a70dd50c77a7e, type: 3}
+      propertyPath: enableSunControl
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8599883643876097168, guid: 629cad388f083d34ab5a70dd50c77a7e, type: 3}
       propertyPath: updateEnvironmentOnChange
       value: 1
