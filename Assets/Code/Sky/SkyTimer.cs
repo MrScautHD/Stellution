@@ -11,6 +11,11 @@ public class SkyTimer : MonoBehaviour
     {
         float deltaTime = Time.deltaTime;
         this.timer += deltaTime / 30;
+
+        if (this.atmosPad.Hour > 24)
+        {
+            this.timer = 0;
+        }
         
         this.atmosPad.SetHour(this.timer);
     }
