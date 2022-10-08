@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319875530bb349f0bd89b0139f1c908c, type: 3}
+  m_Name: High - Night1
+  m_EditorClassIdentifier: 
+  displayName: Night
+  labelColor: {r: 0, g: 0, b: 0, a: 1}
+  position: {x: 0.22414918, y: 0.797}
+  mainCloud:
+    profile: {fileID: 11400000, guid: 04d0bb67eeb8d1a4986b522533666e07, type: 2}
+    densityAdjustment: 0
+    scattering:
+      IsOverride: 1
+      Value: 0.554
+    shading:
+      IsOverride: 1
+      Value: 0.721
+    shadingDistance:
+      IsOverride: 1
+      Value: 0.653
+  layeredCloud:
+    profile: {fileID: 11400000, guid: 46cde27715387424c8eba906aa54f3e9, type: 2}
+    densityAdjustment: 0
+    scattering:
+      IsOverride: 0
+      Value: 0
+    shading:
+      IsOverride: 0
+      Value: 0
+    shadingDistance:
+      IsOverride: 0
+      Value: 0
+  cloudIntensityAdjustment: -0.22
+  intensityOverride: 1
+  intensity: 0.16
+  lightColor: {r: 0.048549946, g: 0.04579032, b: 0.1981132, a: 0}
+  moonIntensity: 1
+  moonLightColor: {r: 0.17328231, g: 0.2919881, b: 0.6226415, a: 0}
+  temperature: 1000
+  ambientOverride: 0
+  ambient:
+    mode: 0
+    skyColor: {r: 0, g: 0, b: 0.122641504, a: 1}
+    equatorColor: {r: 0, g: 0, b: 0.05660379, a: 1}
+    groundColor: {r: 0, g: 0, b: 0, a: 1}
+    pivot: 0.3
+    luminanceFix: 0
+  atmosphere:
+    atmosphere: 0.41
+    atmosphereColoring: 0.636
+    atmosphereColor: {r: 0, g: 0.043117847, b: 0.5283019, a: 0}
+    atmosphereHighLightColoring: 0.809
+    atmosphereHighLightColor: {r: 1, g: 0.9371458, b: 0.7877358, a: 0}
+    cloudOcclusion: 0
+    cloudAtmospheric: 1
+    godRay: 1
+    godRayStartDistance: 100
+    shadow: 0
+    sunShaft: 0.048
+  fog:
+    groundHeight: -703
+    range: 1304
+    density: 0.145
+    coloring: 0
+    color: {r: 0.2389261, g: 0.1682983, b: 0.5849056, a: 0}
+    scattering: 0.044
+  sky:
+    SkyExposure: 0
+    GroundColor: {r: 0, g: 0, b: 0, a: 0}
+    GroundScattering: 0
+    SunSize: 0.494
+    SunSizeConvergence: 0
+    Saturation: 0
+    AtmosphereThickness: 0
+    Gradation: 0

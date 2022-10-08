@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cc665d8f4824635820c3d72582ffdd, type: 3}
+  m_Name: Authentic Sky - Cumulus A
+  m_EditorClassIdentifier: 
+  Parameter:
+    VolumeTexture: {fileID: 11700000, guid: 8a3769d6c92258a45b8a1c8840707eb5, type: 2}
+    Tiling: {x: 1, y: 1}
+    Octave: 16.5
+    Sculpture: 0.418
+    Sculpture2: 0
+    Phase: -0.87
+    DetailDistance: 1043
+    Renderer: 4
+    Ramp: 0
+    RampTexture: {fileID: 0}
+    RampScale: 0
+    RampOffset: 0
+    RampStrength: 0
+    Softness: 0.69
+    Density: 0.224
+    Dissolve: 0
+    FarDissolve: 0
+    Transparency: 0
+    Scale: 2.77
+    ScrollVelocity: {x: 500, y: 0, z: 500}
+    Lighting: 0.789
+    DirectLight: 0.423
+    Ambient: 1
+    LightingQuality: 0.115
+    LightSmoothness: 0
+    LightScattering: 0.526
+    Shading: 0.399
+    EdgeLighting: 1
+    GlobalLighting: 0.015
+    GlobalLightingRange: 0
+    Shadow: 1
+    ShadowSoftness: 0.016
+    ShadowQuality: 0
+    ShadowStrength: 0.721
+    ShadowThreshold: 0
+    VolumetricShadow: 0
+    VolumetricShadowDensity: 0.139
+    VolumetricShadowStrength: 1
+    Brightness: 0
+    Contrast: 0
+    Horizontal: 1
+    RelativeHeight: 0
+    HorizontalSoftnessTop: 0.838
+    HorizontalSoftnessBottom: 0.064
+    HorizontalSoftnessFigure: 0.189
+    FromHeight: 1357
+    ToHeight: 2943
+    Thickness: 1048
+    FromDistance: 0
+    MaxDistance: 48125
+    Iteration: 129
+    Fade: 0.83
+    Optimize: 0.551

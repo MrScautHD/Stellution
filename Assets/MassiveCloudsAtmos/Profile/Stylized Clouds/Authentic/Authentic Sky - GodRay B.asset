@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cc665d8f4824635820c3d72582ffdd, type: 3}
+  m_Name: Authentic Sky - GodRay B
+  m_EditorClassIdentifier: 
+  Parameter:
+    VolumeTexture: {fileID: 11700000, guid: 8a3769d6c92258a45b8a1c8840707eb5, type: 2}
+    Tiling: {x: 1, y: 1}
+    Octave: 11.1
+    Sculpture: 0.331
+    Phase: -0.75
+    DetailDistance: 1
+    Renderer: 4
+    Ramp: 0
+    RampTexture: {fileID: 0}
+    RampScale: 0
+    RampOffset: 0
+    RampStrength: 0
+    Softness: 0.739
+    Density: 0.346
+    Dissolve: 0
+    Transparency: 0
+    Scale: 1.58
+    ScrollVelocity: {x: 500, y: 0, z: 500}
+    Lighting: 0.774
+    DirectLight: 0.487
+    Ambient: 1
+    LightingQuality: 0
+    LightSmoothness: 0.772
+    LightScattering: 0.472
+    Shading: 0.886
+    EdgeLighting: 1
+    GlobalLighting: -0.29
+    GlobalLightingRange: 0.785
+    Shadow: 1
+    ShadowSoftness: 0.027
+    ShadowQuality: 0
+    ShadowStrength: 0.241
+    ShadowThreshold: 0
+    VolumetricShadow: 1
+    VolumetricShadowDensity: 0.363
+    VolumetricShadowStrength: 0.415
+    Brightness: -0.2
+    Contrast: -0.04
+    Horizontal: 1
+    RelativeHeight: 0
+    HorizontalSoftnessTop: 0.93
+    HorizontalSoftnessBottom: 1
+    HorizontalSoftnessFigure: 0.642
+    FromHeight: 1357
+    ToHeight: 1810
+    Thickness: 1048
+    FromDistance: 0
+    MaxDistance: 48125
+    Iteration: 129
+    Fade: 0.83
+    Optimize: 0
+    HeightFog: 1
+    GroundHeight: -262
+    HeightFogFromDistance: 4623
+    HeightFogRange: 1428

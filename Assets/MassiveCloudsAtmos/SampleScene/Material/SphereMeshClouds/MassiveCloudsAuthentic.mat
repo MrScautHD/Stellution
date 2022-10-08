@@ -1,0 +1,98 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MassiveCloudsAuthentic
+  m_Shader: {fileID: 4800000, guid: 6d05cb459a8c33f4fa0b2ba430980ae9, type: 3}
+  m_ShaderKeywords: _HEIGHTFOG_ON _HORIZONTAL_ON _RENDERER_AUTHENTIC _SHADOW_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _RampTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _VolumeTex:
+        m_Texture: {fileID: 11700000, guid: 8a3769d6c92258a45b8a1c8840707eb5, type: 2}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - _Ambient: 1
+    - _Brightness: -0.03
+    - _Contrast: -0.46
+    - _Density: 0.252
+    - _DetailDistance: 1043
+    - _DirectLight: 0
+    - _Dissolve: 0
+    - _EdgeLighting: 1
+    - _Fade: 1
+    - _FarHeightFogRange: 1041
+    - _FromDistance: 0
+    - _FromHeight: 1357
+    - _GlobalLighting: 0.1
+    - _GlobalLightingRange: 0
+    - _GroundHeight: 122
+    - _HEIGHTFOG: 1
+    - _HORIZONTAL: 1
+    - _HeightFogDensity: 0.631
+    - _HeightFogFromDistance: 1111
+    - _HeightFogRange: 5267
+    - _HorizontalSoftnessBottom: 0.064
+    - _HorizontalSoftnessFigure: 0.327
+    - _HorizontalSoftnessTop: 0.799
+    - _IsLinear: 0
+    - _Iteration: 129
+    - _LightScattering: 0.223
+    - _LightSmoothness: 0
+    - _Lighting: 0.522
+    - _LightingQuality: 0
+    - _MaxDistance: 22362
+    - _Octave: 11.9
+    - _Optimize: 0.364
+    - _Phase: 0.37
+    - _RAMP: 0
+    - _RENDERER: 0
+    - _RampOffset: 0
+    - _RampScale: 0.1
+    - _RampStrength: 0
+    - _RelativeHeight: 0
+    - _SHADOW: 1
+    - _Scale: 5
+    - _Sculpture: 0.696
+    - _Shading: 0.707
+    - _ShadowQuality: 0
+    - _ShadowSoftness: 0
+    - _ShadowStrength: 0.23
+    - _ShadowThreshold: 0
+    - _Softness: 0.75
+    - _Thickness: 573
+    - _Transparency: 0
+    m_Colors:
+    - _AmbientBottomColor: {r: 0, g: 0.041717697, b: 0.2735849, a: 1}
+    - _AmbientMidColor: {r: 0.3234247, g: 0.5134837, b: 0.8679245, a: 1}
+    - _AmbientTopColor: {r: 0.4669811, g: 0.583579, b: 1, a: 1}
+    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FogColor: {r: 0.46739838, g: 0.5829639, b: 0.6985294, a: 1}
+    - _MCFogColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MassiveCloudsMoonLightColor: {r: 0.60294116, g: 0.735294, b: 1, a: 1}
+    - _MassiveCloudsMoonLightDirection: {r: -0.000000061239625, g: 0.7136528, b: -0.70049965,
+        a: 0}
+    - _MassiveCloudsSunLightColor: {r: 1, g: 1, b: 1, a: 1}
+    - _MassiveCloudsSunLightDirection: {r: 0, g: -0.7136527, b: 0.7004998, a: 0}
+    - _ScrollVelocity: {r: 500, g: 0, b: 500, a: 0}
+    - _ShadowColor: {r: 0, g: 0, b: 0, a: 0}

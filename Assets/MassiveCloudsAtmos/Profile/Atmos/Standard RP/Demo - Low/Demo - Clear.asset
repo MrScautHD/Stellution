@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319875530bb349f0bd89b0139f1c908c, type: 3}
+  m_Name: Demo - Clear
+  m_EditorClassIdentifier: 
+  displayName: Clear
+  labelColor: {r: 1, g: 1, b: 1, a: 1}
+  position: {x: 0.502545, y: 0.96542555}
+  mainCloud:
+    profile: {fileID: 11400000, guid: 8310f06feef64744f8874637087be25c, type: 2}
+    densityAdjustment: -0.29
+    scattering:
+      IsOverride: 1
+      Value: 0
+    shading:
+      IsOverride: 1
+      Value: 0
+    shadingDistance:
+      IsOverride: 1
+      Value: 0
+  layeredCloud:
+    profile: {fileID: 0}
+    densityAdjustment: -0.32
+    scattering:
+      IsOverride: 0
+      Value: 0
+    shading:
+      IsOverride: 0
+      Value: 0
+    shadingDistance:
+      IsOverride: 0
+      Value: 0
+  cloudIntensityAdjustment: -0.35
+  intensityOverride: 0
+  intensity: 2
+  lightColor: {r: 0, g: 0, b: 0, a: 0}
+  moonIntensity: 1
+  moonLightColor: {r: 0.24065503, g: 0.27306485, b: 0.3018868, a: 0}
+  temperature: 12376
+  ambientOverride: 0
+  ambient:
+    mode: 0
+    skyColor: {r: 0, g: 0, b: 1, a: 1}
+    equatorColor: {r: 0, g: 1, b: 1, a: 1}
+    groundColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    pivot: 0.3
+    luminanceFix: 0
+  atmosphere:
+    atmosphere: 0
+    atmosphereColoring: 0
+    atmosphereColor: {r: 0, g: 0.13657379, b: 1, a: 0}
+    atmosphereHighLightColoring: 0
+    atmosphereHighLightColor: {r: 0, g: 0, b: 0, a: 0}
+    cloudOcclusion: 0
+    cloudAtmospheric: 0
+    godRay: 0
+    godRayStartDistance: 1000
+    shadow: 0
+    sunShaft: 0
+  fog:
+    groundHeight: 0
+    range: 200
+    density: 0
+    coloring: 0
+    color: {r: 0, g: 0, b: 0, a: 0}
+    scattering: 0
+  sky:
+    SkyExposure: 2
+    GroundColor: {r: 1, g: 1, b: 1, a: 1}
+    GroundScattering: 1
+    SunSize: 0.494
+    SunSizeConvergence: 2.97
+    Saturation: 0
+    AtmosphereThickness: 0.97
+    Gradation: 0

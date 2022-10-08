@@ -1,0 +1,316 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!200 &20000000
+ShaderVariantCollection:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: MassiveCloudsShaderVariants
+  m_Shaders:
+  - first: {fileID: 4800000, guid: 4fe8106ec698ac04d9a3cdf494375b50, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _RENDERER_SURFACE
+        passType: 0
+      - keywords: _HORIZONTAL_ON _RENDERER_SURFACE
+        passType: 0
+      - keywords: _RAMP_ON _RENDERER_SURFACE
+        passType: 0
+      - keywords: _HORIZONTAL_ON _RAMP_ON _RENDERER_SURFACE
+        passType: 0
+      - keywords: _RENDERER_LUCID
+        passType: 0
+      - keywords: _HORIZONTAL_ON _RENDERER_LUCID
+        passType: 0
+      - keywords: _RAMP_ON _RENDERER_LUCID
+        passType: 0
+      - keywords: _HORIZONTAL_ON _RAMP_ON _RENDERER_LUCID
+        passType: 0
+      - keywords: _RENDERER_SOLID
+        passType: 0
+      - keywords: _HORIZONTAL_ON _RENDERER_SOLID
+        passType: 0
+      - keywords: _RAMP_ON _RENDERER_SOLID
+        passType: 0
+      - keywords: _HORIZONTAL_ON _RAMP_ON _RENDERER_SOLID
+        passType: 0
+      - keywords: _RENDERER_AUTHENTIC
+        passType: 0
+      - keywords: _HORIZONTAL_ON _RENDERER_AUTHENTIC
+        passType: 0
+      - keywords: _RAMP_ON _RENDERER_AUTHENTIC
+        passType: 0
+      - keywords: _HORIZONTAL_ON _RAMP_ON _RENDERER_AUTHENTIC
+        passType: 0
+  - first: {fileID: 4800000, guid: 5f6c4032d8654150aafe33f7b72eab58, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _MASSIVE_CLOUDS_HDRP
+        passType: 0
+  - first: {fileID: 4800000, guid: 90d37c3de60da7c48854ed600a4770fc, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _HORIZONTAL_ON
+        passType: 0
+      - keywords: _HDRP_AMBIENT
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HORIZONTAL_ON
+        passType: 0
+      - keywords: _HDRP_SHADOW_AMBIENT
+        passType: 0
+      - keywords: _HDRP_SHADOW_AMBIENT _HORIZONTAL_ON
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_SHADOW_AMBIENT
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_SHADOW_AMBIENT _HORIZONTAL_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: 955667555e1ffb7499a23fc41950a2a1, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _HEIGHTFOG_ON
+        passType: 0
+      - keywords: _HDRP_AMBIENT
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HEIGHTFOG_ON
+        passType: 0
+      - keywords: _HDRP_FOG_AMBIENT
+        passType: 0
+      - keywords: _HDRP_FOG_AMBIENT _HEIGHTFOG_ON
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_FOG_AMBIENT
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_FOG_AMBIENT _HEIGHTFOG_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: b6d560996ed0b43fd8b48eeab74ad1f2, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _HORIZONTAL_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: d3dad11b6332e934fb227ff7953c26e0, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _HORIZONTAL_ON
+        passType: 0
+      - keywords: _SHADOW_ON
+        passType: 0
+      - keywords: _HORIZONTAL_ON _SHADOW_ON
+        passType: 0
+      - keywords: MASSIVE_CLOUDS_HDRP
+        passType: 0
+      - keywords: MASSIVE_CLOUDS_HDRP _HORIZONTAL_ON
+        passType: 0
+      - keywords: MASSIVE_CLOUDS_HDRP _SHADOW_ON
+        passType: 0
+      - keywords: MASSIVE_CLOUDS_HDRP _HORIZONTAL_ON _SHADOW_ON
+        passType: 0
+      - keywords: _HDRP_AMBIENT
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HORIZONTAL_ON
+        passType: 0
+      - keywords: _HDRP_AMBIENT _SHADOW_ON
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HORIZONTAL_ON _SHADOW_ON
+        passType: 0
+      - keywords: _HDRP_SHADOW_AMBIENT
+        passType: 0
+      - keywords: _HDRP_SHADOW_AMBIENT _HORIZONTAL_ON
+        passType: 0
+      - keywords: _HDRP_SHADOW_AMBIENT _SHADOW_ON
+        passType: 0
+      - keywords: _HDRP_SHADOW_AMBIENT _HORIZONTAL_ON _SHADOW_ON
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_SHADOW_AMBIENT
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_SHADOW_AMBIENT _HORIZONTAL_ON
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_SHADOW_AMBIENT _SHADOW_ON
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_SHADOW_AMBIENT _HORIZONTAL_ON _SHADOW_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: d8c2895e285dbc84b9d86640453619e0, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _HORIZONTAL_ON
+        passType: 0
+      - keywords: _SkyEnabled
+        passType: 0
+      - keywords: _HORIZONTAL_ON _SkyEnabled
+        passType: 0
+  - first: {fileID: 4800000, guid: dd1a6bb7b63241ad903981b19f397872, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _HORIZONTAL_ON
+        passType: 0
+      - keywords: _ADAPTIVE_PASS
+        passType: 0
+      - keywords: _ADAPTIVE_PASS _HORIZONTAL_ON
+        passType: 0
+  - first: {fileID: 4800000, guid: ec313f03d37429d45915acb588811589, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _RENDERER_SURFACE
+        passType: 0
+      - keywords: _HORIZONTAL_ON _RENDERER_SURFACE
+        passType: 0
+      - keywords: _RAMP_ON _RENDERER_SURFACE
+        passType: 0
+      - keywords: _HORIZONTAL_ON _RAMP_ON _RENDERER_SURFACE
+        passType: 0
+      - keywords: _RENDERER_LUCID
+        passType: 0
+      - keywords: _HORIZONTAL_ON _RENDERER_LUCID
+        passType: 0
+      - keywords: _RAMP_ON _RENDERER_LUCID
+        passType: 0
+      - keywords: _HORIZONTAL_ON _RAMP_ON _RENDERER_LUCID
+        passType: 0
+      - keywords: _RENDERER_XRAY
+        passType: 0
+      - keywords: _HORIZONTAL_ON _RENDERER_XRAY
+        passType: 0
+      - keywords: _RAMP_ON _RENDERER_XRAY
+        passType: 0
+      - keywords: _HORIZONTAL_ON _RAMP_ON _RENDERER_XRAY
+        passType: 0
+      - keywords: _RENDERER_SOLID
+        passType: 0
+      - keywords: _HORIZONTAL_ON _RENDERER_SOLID
+        passType: 0
+      - keywords: _RAMP_ON _RENDERER_SOLID
+        passType: 0
+      - keywords: _HORIZONTAL_ON _RAMP_ON _RENDERER_SOLID
+        passType: 0
+      - keywords: _RENDERER_AUTHENTIC
+        passType: 0
+      - keywords: _HORIZONTAL_ON _RENDERER_AUTHENTIC
+        passType: 0
+      - keywords: _RAMP_ON _RENDERER_AUTHENTIC
+        passType: 0
+      - keywords: _HORIZONTAL_ON _RAMP_ON _RENDERER_AUTHENTIC
+        passType: 0
+      - keywords: _HDRP_AMBIENT _RENDERER_SURFACE
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HORIZONTAL_ON _RENDERER_SURFACE
+        passType: 0
+      - keywords: _HDRP_AMBIENT _RAMP_ON _RENDERER_SURFACE
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HORIZONTAL_ON _RAMP_ON _RENDERER_SURFACE
+        passType: 0
+      - keywords: _HDRP_AMBIENT _RENDERER_LUCID
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HORIZONTAL_ON _RENDERER_LUCID
+        passType: 0
+      - keywords: _HDRP_AMBIENT _RAMP_ON _RENDERER_LUCID
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HORIZONTAL_ON _RAMP_ON _RENDERER_LUCID
+        passType: 0
+      - keywords: _HDRP_AMBIENT _RENDERER_SOLID
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HORIZONTAL_ON _RENDERER_SOLID
+        passType: 0
+      - keywords: _HDRP_AMBIENT _RAMP_ON _RENDERER_SOLID
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HORIZONTAL_ON _RAMP_ON _RENDERER_SOLID
+        passType: 0
+      - keywords: _HDRP_AMBIENT _RENDERER_AUTHENTIC
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HORIZONTAL_ON _RENDERER_AUTHENTIC
+        passType: 0
+      - keywords: _HDRP_AMBIENT _RAMP_ON _RENDERER_AUTHENTIC
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HORIZONTAL_ON _RAMP_ON _RENDERER_AUTHENTIC
+        passType: 0
+      - keywords: _HDRP_CLOUD_AMBIENT _RENDERER_SURFACE
+        passType: 0
+      - keywords: _HDRP_CLOUD_AMBIENT _HORIZONTAL_ON _RENDERER_SURFACE
+        passType: 0
+      - keywords: _HDRP_CLOUD_AMBIENT _RAMP_ON _RENDERER_SURFACE
+        passType: 0
+      - keywords: _HDRP_CLOUD_AMBIENT _HORIZONTAL_ON _RAMP_ON _RENDERER_SURFACE
+        passType: 0
+      - keywords: _HDRP_CLOUD_AMBIENT _RENDERER_LUCID
+        passType: 0
+      - keywords: _HDRP_CLOUD_AMBIENT _HORIZONTAL_ON _RENDERER_LUCID
+        passType: 0
+      - keywords: _HDRP_CLOUD_AMBIENT _RAMP_ON _RENDERER_LUCID
+        passType: 0
+      - keywords: _HDRP_CLOUD_AMBIENT _HORIZONTAL_ON _RAMP_ON _RENDERER_LUCID
+        passType: 0
+      - keywords: _HDRP_CLOUD_AMBIENT _RENDERER_SOLID
+        passType: 0
+      - keywords: _HDRP_CLOUD_AMBIENT _HORIZONTAL_ON _RENDERER_SOLID
+        passType: 0
+      - keywords: _HDRP_CLOUD_AMBIENT _RAMP_ON _RENDERER_SOLID
+        passType: 0
+      - keywords: _HDRP_CLOUD_AMBIENT _HORIZONTAL_ON _RAMP_ON _RENDERER_SOLID
+        passType: 0
+      - keywords: _HDRP_CLOUD_AMBIENT _RENDERER_AUTHENTIC
+        passType: 0
+      - keywords: _HDRP_CLOUD_AMBIENT _HORIZONTAL_ON _RENDERER_AUTHENTIC
+        passType: 0
+      - keywords: _HDRP_CLOUD_AMBIENT _RAMP_ON _RENDERER_AUTHENTIC
+        passType: 0
+      - keywords: _HDRP_CLOUD_AMBIENT _HORIZONTAL_ON _RAMP_ON _RENDERER_AUTHENTIC
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_CLOUD_AMBIENT _RENDERER_SURFACE
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_CLOUD_AMBIENT _HORIZONTAL_ON _RENDERER_SURFACE
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_CLOUD_AMBIENT _RAMP_ON _RENDERER_SURFACE
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_CLOUD_AMBIENT _HORIZONTAL_ON _RAMP_ON _RENDERER_SURFACE
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_CLOUD_AMBIENT _RENDERER_LUCID
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_CLOUD_AMBIENT _HORIZONTAL_ON _RENDERER_LUCID
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_CLOUD_AMBIENT _RAMP_ON _RENDERER_LUCID
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_CLOUD_AMBIENT _HORIZONTAL_ON _RAMP_ON _RENDERER_LUCID
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_CLOUD_AMBIENT _RENDERER_SOLID
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_CLOUD_AMBIENT _HORIZONTAL_ON _RENDERER_SOLID
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_CLOUD_AMBIENT _RAMP_ON _RENDERER_SOLID
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_CLOUD_AMBIENT _HORIZONTAL_ON _RAMP_ON _RENDERER_SOLID
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_CLOUD_AMBIENT _RENDERER_AUTHENTIC
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_CLOUD_AMBIENT _HORIZONTAL_ON _RENDERER_AUTHENTIC
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_CLOUD_AMBIENT _RAMP_ON _RENDERER_AUTHENTIC
+        passType: 0
+      - keywords: _HDRP_AMBIENT _HDRP_CLOUD_AMBIENT _HORIZONTAL_ON _RAMP_ON _RENDERER_AUTHENTIC
+        passType: 0
+  - first: {fileID: 4800000, guid: f82409524fd3cb44cb236dfddc835a20, type: 3}
+    second:
+      variants:
+      - keywords: 
+        passType: 0
+      - keywords: _HORIZONTAL_ON
+        passType: 0
+      - keywords: _DEFERRED_SHADING
+        passType: 0
+      - keywords: _DEFERRED_SHADING _HORIZONTAL_ON
+        passType: 0

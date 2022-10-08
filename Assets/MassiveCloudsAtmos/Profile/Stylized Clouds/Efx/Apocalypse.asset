@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cc665d8f4824635820c3d72582ffdd, type: 3}
+  m_Name: Apocalypse
+  m_EditorClassIdentifier: 
+  Parameter:
+    VolumeTexture: {fileID: 11700000, guid: 8a3769d6c92258a45b8a1c8840707eb5, type: 2}
+    Tiling: {x: 1, y: 1}
+    Octave: 5.9
+    Sculpture: 1
+    Phase: -0.97
+    DetailDistance: 0
+    Renderer: 0
+    Ramp: 1
+    RampTexture: {fileID: 2800000, guid: 597980311d4c66d4d93d5b84eea17f16, type: 3}
+    RampScale: 0.646
+    RampOffset: 4
+    RampStrength: 0.34
+    Softness: 0.563
+    Density: 0.558
+    Dissolve: 0
+    Transparency: 0
+    Scale: 4.87
+    ScrollVelocity: {x: 3000, y: 0, z: 3000}
+    Lighting: 1
+    DirectLight: 0
+    Ambient: 0
+    LightingQuality: 0.044
+    LightSmoothness: 0
+    LightScattering: 0.11
+    Shading: 0.137
+    EdgeLighting: 0.118
+    GlobalLighting: -0.36
+    GlobalLightingRange: 0.944
+    Shadow: 0
+    ShadowSoftness: 0
+    ShadowQuality: 0
+    ShadowStrength: 0
+    ShadowThreshold: 0
+    VolumetricShadow: 0
+    VolumetricShadowDensity: 0
+    VolumetricShadowStrength: 0
+    Brightness: -0.394
+    Contrast: 0.467
+    Horizontal: 1
+    RelativeHeight: 0
+    HorizontalSoftnessTop: 1
+    HorizontalSoftnessBottom: 1
+    HorizontalSoftnessFigure: 0.503
+    FromHeight: 500
+    ToHeight: 2075
+    Thickness: 1153
+    FromDistance: 0
+    MaxDistance: 13953
+    Iteration: 61
+    Fade: 1.26
+    Optimize: 0
+    HeightFog: 1
+    GroundHeight: 811
+    HeightFogFromDistance: 195
+    HeightFogRange: 1000

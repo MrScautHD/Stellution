@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cc665d8f4824635820c3d72582ffdd, type: 3}
+  m_Name: Cumulonimbus HD
+  m_EditorClassIdentifier: 
+  Parameter:
+    VolumeTexture: {fileID: 11700000, guid: 8a3769d6c92258a45b8a1c8840707eb5, type: 2}
+    Tiling: {x: 2, y: 2}
+    Octave: 12.6
+    Sculpture: 0.657
+    Phase: -0.51
+    DetailDistance: 0
+    Renderer: 0
+    Ramp: 0
+    RampTexture: {fileID: 0}
+    RampScale: 0
+    RampOffset: 0
+    RampStrength: 0
+    Softness: 0.3
+    Density: 0.412
+    Dissolve: 0.577
+    Transparency: 0
+    Scale: 2.51
+    ScrollVelocity: {x: 500, y: 0, z: 500}
+    Lighting: 0.346
+    DirectLight: 0
+    Ambient: 0
+    LightingQuality: 1
+    ConstantLightPower: 0
+    LightSmoothness: 0.126
+    LightScattering: 0.971
+    Shading: 0.596
+    EdgeLighting: 0.511
+    GlobalLighting: -0.57
+    GlobalLightingRange: 0.362
+    Shadow: 1
+    ShadowSoftness: 0.46
+    ShadowQuality: 0.52
+    ShadowStrength: 0.35
+    ShadowThreshold: 0
+    VolumetricShadow: 0
+    VolumetricShadowDensity: 0
+    VolumetricShadowStrength: 0
+    Brightness: -0.185
+    Contrast: 0.483
+    Horizontal: 1
+    RelativeHeight: 0
+    HorizontalSoftnessTop: 0
+    HorizontalSoftnessBottom: 0
+    HorizontalSoftnessFigure: 1
+    FromHeight: 701
+    ToHeight: 2670
+    Thickness: 1048
+    FromDistance: 0
+    MaxDistance: 60000
+    Iteration: 400
+    Fade: 2.11
+    Optimize: 0.408
+    HeightFog: 1
+    GroundHeight: 49
+    HeightFogFromDistance: 1200
+    HeightFogRange: 1000

@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cc665d8f4824635820c3d72582ffdd, type: 3}
+  m_Name: StylizedDemoProfile
+  m_EditorClassIdentifier: 
+  Parameter:
+    VolumeTexture: {fileID: 11700000, guid: d5cc17a88749b437fbb80539e85294d7, type: 2}
+    Tiling: {x: 0.92, y: 1.5}
+    Octave: 5.9
+    Sculpture: 0.173
+    Phase: -0.28
+    DetailDistance: 0
+    Renderer: 0
+    Ramp: 0
+    RampTexture: {fileID: 0}
+    RampScale: 0.428
+    RampOffset: -0.4
+    RampStrength: 0.513
+    Softness: 0.145
+    Density: 0.431
+    Dissolve: 0
+    Transparency: 0
+    Scale: 0.75
+    ScrollVelocity: {x: 2050.5, y: 0, z: 2035}
+    Lighting: 0.656
+    DirectLight: 0
+    Ambient: 1
+    LightingQuality: 0.146
+    LightSmoothness: 0
+    LightScattering: 0.789
+    Shading: 0.696
+    EdgeLighting: 0
+    GlobalLighting: 0
+    GlobalLightingRange: 0.75
+    Shadow: 1
+    ShadowSoftness: 0.266
+    ShadowQuality: 0.077
+    ShadowStrength: 0.245
+    ShadowThreshold: 0
+    VolumetricShadow: 0
+    VolumetricShadowDensity: 0
+    VolumetricShadowStrength: 0
+    Brightness: -0.09
+    Contrast: -0.11
+    Horizontal: 1
+    RelativeHeight: 0
+    HorizontalSoftnessTop: 0.232
+    HorizontalSoftnessBottom: 0
+    HorizontalSoftnessFigure: 0
+    FromHeight: 882
+    ToHeight: 1603.54
+    Thickness: 1048
+    FromDistance: 0
+    MaxDistance: 17557
+    Iteration: 137
+    Fade: 1.9
+    Optimize: 0.366
+    HeightFog: 0
+    GroundHeight: 49
+    HeightFogFromDistance: 100
+    HeightFogRange: 1000

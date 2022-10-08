@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cc665d8f4824635820c3d72582ffdd, type: 3}
+  m_Name: Cumulus Lucid B
+  m_EditorClassIdentifier: 
+  Parameter:
+    VolumeTexture: {fileID: 11700000, guid: 8a3769d6c92258a45b8a1c8840707eb5, type: 2}
+    Tiling: {x: 1, y: 1}
+    Octave: 8.4
+    Sculpture: 0.422
+    Phase: -0.376
+    DetailDistance: 0
+    Renderer: 2
+    Ramp: 0
+    RampTexture: {fileID: 0}
+    RampScale: 0
+    RampOffset: 0
+    RampStrength: 0
+    Softness: 0.367
+    Density: 0.417
+    Dissolve: 0
+    Transparency: 0.274
+    Scale: 1.5
+    ScrollVelocity: {x: 500, y: 0, z: 500}
+    Lighting: 0.228
+    DirectLight: 0.401
+    Ambient: 1
+    LightingQuality: 0
+    LightSmoothness: 0
+    LightScattering: 0
+    Shading: 0.235
+    EdgeLighting: 1
+    GlobalLighting: -0.43
+    GlobalLightingRange: 0.6
+    Shadow: 1
+    ShadowSoftness: 0.22
+    ShadowQuality: 0
+    ShadowStrength: 0.43
+    ShadowThreshold: 0
+    VolumetricShadow: 0
+    VolumetricShadowDensity: 0
+    VolumetricShadowStrength: 0
+    Brightness: -0.04
+    Contrast: -0
+    Horizontal: 1
+    RelativeHeight: 0
+    HorizontalSoftnessTop: 0.441
+    HorizontalSoftnessBottom: 0.868
+    HorizontalSoftnessFigure: 1
+    FromHeight: 1131
+    ToHeight: 1732
+    Thickness: 1048
+    FromDistance: 0
+    MaxDistance: 16579
+    Iteration: 91
+    Fade: 1.25
+    Optimize: 0.229
+    HeightFog: 1
+    GroundHeight: 49
+    HeightFogFromDistance: 1200
+    HeightFogRange: 1000

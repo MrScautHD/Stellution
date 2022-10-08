@@ -1,0 +1,121 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667aa1502d5ca4c47a1f7efa9cd80f44, type: 3}
+  m_Name: StylizedCloudRenderer
+  m_EditorClassIdentifier: 
+  sunIntensityScale: 1
+  cloudIntensityAdjustment: -0.13
+  sun:
+    mode: 0
+    rotation: {x: 47.652596, y: 299.2412, z: 37.142788}
+    intensity: 2
+    color: {r: 0.85, g: 0.9, b: 1, a: 1}
+  moon:
+    mode: 0
+    rotation: {x: 47.652596, y: 299.2412, z: 217.14278}
+    intensity: 0.35
+    color: {r: 0, g: 0.11642957, b: 1, a: 1}
+  ambient:
+    mode: 0
+    skyColor: {r: 0.85, g: 0.9, b: 1, a: 1}
+    equatorColor: {r: 0.111051895, g: 0.18712077, b: 0.34624317, a: 1}
+    groundColor: {r: 0.027762974, g: 0.04678019, b: 0.08656079, a: 0.25}
+    pivot: 0.241
+    luminanceFix: 0
+  skyPass:
+    Enabled: 1
+    SkyParameter:
+      SkyExposure: 0
+      GroundColor: {r: 0, g: 0, b: 0, a: 0}
+      GroundScattering: 0
+      SunSize: 0
+      SunSizeConvergence: 0
+      Saturation: 0
+      AtmosphereThickness: 0
+      Gradation: 0
+  profiles:
+  - {fileID: 11400000, guid: 0d897d99cc7cb0341913bfbfe35b3107, type: 2}
+  resolution: 0.217
+  lerp: 0
+  duration: 0.98
+  save: 0
+  shadowColorMode: 2
+  shadowColor: {r: 0.78431374, g: 0.78431374, b: 0.9019608, a: 1}
+  cloudColorMode: 2
+  cloudColor: {r: 0.78431374, g: 0.78431374, b: 0.9019608, a: 1}
+  cloudLuminanceFix: -1.82
+  parameters:
+  - VolumeTexture: {fileID: 11700000, guid: 8a3769d6c92258a45b8a1c8840707eb5, type: 2}
+    Tiling: {x: 1, y: 1}
+    Octave: 14.2
+    Sculpture: 0.413
+    Sculpture2: 0
+    Phase: -0.43
+    DetailDistance: 0
+    Renderer: 0
+    Ramp: 0
+    RampTexture: {fileID: 0}
+    RampScale: 0
+    RampOffset: 0
+    RampStrength: 0
+    Softness: 0.408
+    Density: 0.422
+    Dissolve: 0
+    FarDissolve: 0
+    Transparency: 0
+    Scale: 1.67
+    ScrollVelocity: {x: 500, y: 0, z: 500}
+    Lighting: 0.582
+    DirectLight: 0.292
+    Ambient: 1
+    LightingQuality: 0.131
+    LightSmoothness: 0
+    LightScattering: 0.224
+    Shading: 0.507
+    EdgeLighting: 0.34
+    GlobalLighting: -0.3
+    GlobalLightingRange: 0.292
+    Shadow: 1
+    ShadowSoftness: 0.21
+    ShadowQuality: 0
+    ShadowStrength: 0.402
+    ShadowThreshold: 0
+    VolumetricShadow: 0
+    VolumetricShadowDensity: 0
+    VolumetricShadowStrength: 0
+    Brightness: -0.09
+    Contrast: -0.11
+    Horizontal: 1
+    RelativeHeight: 0
+    HorizontalSoftnessTop: 1
+    HorizontalSoftnessBottom: 0.31
+    HorizontalSoftnessFigure: 0.742
+    FromHeight: 1316
+    ToHeight: 1796
+    Thickness: 1048
+    FromDistance: 0
+    MaxDistance: 60000
+    Iteration: 159
+    Fade: 2.39
+    Optimize: 0.574
+  fogPass:
+    fogColorMode: 2
+    fogColor: {r: 0.78431374, g: 0.78431374, b: 0.9019608, a: 1}
+    fogLuminanceFix: 0.52
+    heightFog: 1
+    groundHeight: 0
+    heightFogFromDistance: 297
+    heightFogRange: 2148
+    farHeightFogRange: 704
+    heightFogDensity: 0.539
+  volumetricShadowPass:
+    volumetricShadowResolution: 0.5

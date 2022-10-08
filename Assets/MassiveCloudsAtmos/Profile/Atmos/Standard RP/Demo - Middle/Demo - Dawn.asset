@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319875530bb349f0bd89b0139f1c908c, type: 3}
+  m_Name: Demo - Dawn
+  m_EditorClassIdentifier: 
+  displayName: Dawn
+  labelColor: {r: 1, g: 0.6593663, b: 0.4009434, a: 1}
+  position: {x: 0.2707063, y: 0.72606385}
+  mainCloud:
+    profile: {fileID: 11400000, guid: 0a75bc554252c874d8da78b37754966f, type: 2}
+    densityAdjustment: 0
+    scattering:
+      IsOverride: 1
+      Value: 0.5
+    shading:
+      IsOverride: 1
+      Value: 0.657
+    shadingDistance:
+      IsOverride: 1
+      Value: 0.65
+  layeredCloud:
+    profile: {fileID: 11400000, guid: 46cde27715387424c8eba906aa54f3e9, type: 2}
+    densityAdjustment: 0
+    scattering:
+      IsOverride: 0
+      Value: 0
+    shading:
+      IsOverride: 0
+      Value: 0
+    shadingDistance:
+      IsOverride: 0
+      Value: 0
+  cloudIntensityAdjustment: 0.21
+  intensityOverride: 1
+  intensity: 2
+  lightColor: {r: 0.6886792, g: 0.33450288, b: 0, a: 0}
+  moonIntensity: 1
+  moonLightColor: {r: 0.24065503, g: 0.27306485, b: 0.3018868, a: 0}
+  temperature: 7457
+  ambientOverride: 1
+  ambient:
+    mode: 0
+    skyColor: {r: 13.233126, g: 4.9785995, b: 2.434396, a: 1}
+    equatorColor: {r: 0.6698113, g: 0.00950856, b: 0.0031594948, a: 1}
+    groundColor: {r: 0.0778747, g: 0.09019306, b: 0.13207549, a: 1}
+    pivot: 0.3
+    luminanceFix: 0
+  atmosphere:
+    atmosphere: 0.759
+    atmosphereColoring: 0.532
+    atmosphereColor: {r: 0.4653075, g: 0.44964492, b: 1.9454024, a: 0}
+    atmosphereHighLightColoring: 1
+    atmosphereHighLightColor: {r: 0.8301887, g: 0.32053766, b: 0.090067655, a: 0}
+    cloudOcclusion: 0.583
+    cloudAtmospheric: 1
+    godRay: 1
+    godRayStartDistance: 100
+    shadow: 0.317
+    sunShaft: 0
+  fog:
+    groundHeight: 0
+    range: 368
+    density: 0.145
+    coloring: 1
+    color: {r: 0.38679248, g: 0.13322943, b: 0.009122463, a: 0}
+    scattering: 0
+  sky:
+    SkyExposure: 2.24
+    GroundColor: {r: 0.7735849, g: 0, b: 0.024752185, a: 0}
+    GroundScattering: 0
+    SunSize: 0.494
+    SunSizeConvergence: 3.78
+    Saturation: 0
+    AtmosphereThickness: 0.69
+    Gradation: 0.118

@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cc665d8f4824635820c3d72582ffdd, type: 3}
+  m_Name: InnerCloud Surface
+  m_EditorClassIdentifier: 
+  Parameter:
+    VolumeTexture: {fileID: 11700000, guid: 48147a3c8a20b3541ba27f9c67e124bd, type: 2}
+    Tiling: {x: 20, y: 20}
+    Octave: 6.6
+    Sculpture: 0.383
+    Phase: -0.457
+    DetailDistance: 0
+    Renderer: 0
+    Ramp: 0
+    RampTexture: {fileID: 2800000, guid: 88e9b2b6a6458484998e691106885a1f, type: 3}
+    RampScale: 1
+    RampOffset: 0
+    RampStrength: 0
+    Softness: 0.684
+    Density: 0.292
+    Dissolve: 0
+    Transparency: 0
+    Scale: 0.54
+    ScrollVelocity: {x: 50, y: 0, z: 50}
+    Lighting: 0.513
+    DirectLight: 0
+    Ambient: 0.394
+    LightingQuality: 0
+    LightSmoothness: 0.668
+    LightScattering: 0
+    Shading: 0.736
+    EdgeLighting: 0
+    GlobalLighting: 0.24
+    GlobalLightingRange: 0.911
+    Shadow: 0
+    ShadowSoftness: 0
+    ShadowQuality: 0
+    ShadowStrength: 0
+    ShadowThreshold: 0
+    VolumetricShadow: 0
+    VolumetricShadowDensity: 0
+    VolumetricShadowStrength: 0
+    Brightness: -0.2
+    Contrast: 1
+    Horizontal: 0
+    RelativeHeight: 0
+    HorizontalSoftnessTop: 0
+    HorizontalSoftnessBottom: 0
+    HorizontalSoftnessFigure: 0
+    FromHeight: 500
+    ToHeight: 0
+    Thickness: 60
+    FromDistance: 1
+    MaxDistance: 31517
+    Iteration: 101
+    Fade: 10
+    Optimize: 0
+    HeightFog: 1
+    GroundHeight: 47
+    HeightFogFromDistance: 100
+    HeightFogRange: 581

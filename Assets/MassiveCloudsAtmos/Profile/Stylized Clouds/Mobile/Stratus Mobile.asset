@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cc665d8f4824635820c3d72582ffdd, type: 3}
+  m_Name: Stratus Mobile
+  m_EditorClassIdentifier: 
+  Parameter:
+    VolumeTexture: {fileID: 11700000, guid: 8a3769d6c92258a45b8a1c8840707eb5, type: 2}
+    Tiling: {x: 3, y: 3}
+    Octave: 7.2
+    Sculpture: 1
+    Phase: -0.682
+    Renderer: 0
+    Ramp: 0
+    RampTexture: {fileID: 0}
+    RampScale: 0
+    RampOffset: 0
+    RampStrength: 0
+    Softness: 0.497
+    Density: 0.512
+    Dissolve: 0.078
+    Transparency: 0
+    Scale: 1.25
+    ScrollVelocity: {x: 500, y: 0, z: 500}
+    Lighting: 0.643
+    LightingQuality: 0.134
+    ConstantLightPower: 0
+    LightSmoothness: 0
+    LightScattering: 0.492
+    Shading: 1
+    EdgeLighting: 0
+    GlobalLighting: 0.29
+    GlobalLightingRange: 0.922
+    Shadow: 0
+    ShadowSoftness: 0.08
+    ShadowQuality: 0
+    ShadowStrength: 0.536
+    ShadowThreshold: 0
+    ShadowColor: {r: 0, g: 0, b: 0, a: 0}
+    Brightness: -0.31
+    Contrast: -0.11
+    Horizontal: 1
+    RelativeHeight: 0
+    HorizontalSoftnessTop: 0.478
+    HorizontalSoftnessBottom: 1
+    HorizontalSoftnessFigure: 1
+    FromHeight: 280
+    ToHeight: 310
+    Thickness: 1048
+    FromDistance: 0
+    MaxDistance: 3514
+    Iteration: 15
+    Fade: 0.52
+    Optimize: 0
+    HeightFog: 0
+    GroundHeight: -565
+    HeightFogFromDistance: 1441
+    HeightFogRange: 831

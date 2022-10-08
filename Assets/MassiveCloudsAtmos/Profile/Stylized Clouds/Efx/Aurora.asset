@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cc665d8f4824635820c3d72582ffdd, type: 3}
+  m_Name: Aurora
+  m_EditorClassIdentifier: 
+  Parameter:
+    VolumeTexture: {fileID: 11700000, guid: 8a3769d6c92258a45b8a1c8840707eb5, type: 2}
+    Tiling: {x: 2, y: 0.12}
+    Octave: 1.8
+    Sculpture: 0
+    Phase: -0.74
+    DetailDistance: 0
+    Renderer: 0
+    Ramp: 1
+    RampTexture: {fileID: 2800000, guid: 02ca1459653019a4497a6554c46844c0, type: 3}
+    RampScale: 0.724
+    RampOffset: 1.9
+    RampStrength: 1
+    Softness: 0.709
+    Density: 0.261
+    Dissolve: 0
+    Transparency: 0
+    Scale: 10
+    ScrollVelocity: {x: 5000, y: 80000, z: 5000}
+    Lighting: 1
+    DirectLight: 0
+    Ambient: 0
+    LightingQuality: 0
+    LightSmoothness: 0
+    LightScattering: 1
+    Shading: 0
+    EdgeLighting: 0
+    GlobalLighting: 0
+    GlobalLightingRange: 0
+    Shadow: 0
+    ShadowSoftness: 0
+    ShadowQuality: 0
+    ShadowStrength: 0
+    ShadowThreshold: 0
+    VolumetricShadow: 0
+    VolumetricShadowDensity: 0
+    VolumetricShadowStrength: 0
+    Brightness: 1
+    Contrast: -0.26
+    Horizontal: 1
+    RelativeHeight: 1
+    HorizontalSoftnessTop: 0.408
+    HorizontalSoftnessBottom: 0
+    HorizontalSoftnessFigure: 0.507
+    FromHeight: 1636
+    ToHeight: 10000
+    Thickness: 5714
+    FromDistance: 0
+    MaxDistance: 24925
+    Iteration: 30
+    Fade: 2.08
+    Optimize: 0
+    HeightFog: 1
+    GroundHeight: -163
+    HeightFogFromDistance: 1200
+    HeightFogRange: 1000

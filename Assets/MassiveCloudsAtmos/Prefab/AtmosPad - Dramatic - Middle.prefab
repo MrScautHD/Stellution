@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8599883643876097175
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8599883643876097169}
+  - component: {fileID: 8599883643876097168}
+  m_Layer: 0
+  m_Name: AtmosPad - Dramatic - Middle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8599883643876097169
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8599883643876097175}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.1509, y: 69.83778, z: -8.392148}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8599883643876097168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8599883643876097175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96b4663fc0694f49b559495aff512cc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  massiveClouds: {fileID: 11400000, guid: c2f7c8527a1b86b4b8608b3db31bc6c0, type: 2}
+  profiles:
+  - {fileID: 11400000, guid: 4fe1210106b542e4397d6a34e7eb13fb, type: 2}
+  - {fileID: 11400000, guid: a16e9945f01333848acecbc8a23f278d, type: 2}
+  - {fileID: 11400000, guid: b1375f18da9332046a87d6aeb5e922d9, type: 2}
+  - {fileID: 11400000, guid: cbf22c9099e2a5841890883c6c5cb807, type: 2}
+  - {fileID: 11400000, guid: 155d5c72617513645856e8f54e41b931, type: 2}
+  - {fileID: 11400000, guid: 7b9fb65bd96770942bf0f4ff5a777c5d, type: 2}
+  - {fileID: 11400000, guid: b65b3c4efea2c2f4ba0c2af4b6a95b13, type: 2}
+  - {fileID: 11400000, guid: 0fb44c2a3fe1fae4b9af8cb62af666ec, type: 2}
+  - {fileID: 11400000, guid: d3396bfdd276f1f48937a2dbdbe84ed6, type: 2}
+  - {fileID: 11400000, guid: 45397437a2f6f49409367ddba58466a0, type: 2}
+  pointer: {x: 0.28638685, y: 0.76861703}
+  sun: {fileID: 0}
+  updateEnvironmentOnChange: 1
+  enableSunControl: 1
+  enableSkyControl: 1
+  earthTilt: 23.4
+  earthAxis: 250
+  groups:
+  - profiles:
+    - {fileID: 11400000, guid: cbf22c9099e2a5841890883c6c5cb807, type: 2}
+    - {fileID: 11400000, guid: b1375f18da9332046a87d6aeb5e922d9, type: 2}
+    - {fileID: 11400000, guid: a16e9945f01333848acecbc8a23f278d, type: 2}
+  - profiles:
+    - {fileID: 11400000, guid: 7b9fb65bd96770942bf0f4ff5a777c5d, type: 2}
+    - {fileID: 11400000, guid: 155d5c72617513645856e8f54e41b931, type: 2}
+    - {fileID: 11400000, guid: b65b3c4efea2c2f4ba0c2af4b6a95b13, type: 2}
+    - {fileID: 11400000, guid: 45397437a2f6f49409367ddba58466a0, type: 2}
+    - {fileID: 11400000, guid: d3396bfdd276f1f48937a2dbdbe84ed6, type: 2}
+    - {fileID: 11400000, guid: 0fb44c2a3fe1fae4b9af8cb62af666ec, type: 2}
+  - profiles:
+    - {fileID: 11400000, guid: 4fe1210106b542e4397d6a34e7eb13fb, type: 2}

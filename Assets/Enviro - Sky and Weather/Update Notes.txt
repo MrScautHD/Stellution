@@ -1,2 +1,0 @@
-Please make sure to not override your modified weather presets profiles when importing new version!
-You can update your profiles to work with latest version anytime in Enviro Sky Instances.

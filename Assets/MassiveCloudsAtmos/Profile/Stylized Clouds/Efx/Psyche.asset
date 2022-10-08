@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cc665d8f4824635820c3d72582ffdd, type: 3}
+  m_Name: Psyche
+  m_EditorClassIdentifier: 
+  Parameter:
+    VolumeTexture: {fileID: 11700000, guid: d5cc17a88749b437fbb80539e85294d7, type: 2}
+    Tiling: {x: 50, y: 50}
+    Octave: 1
+    Sculpture: 0
+    Phase: 0.511
+    Renderer: 3
+    Ramp: 1
+    RampTexture: {fileID: 2800000, guid: 597980311d4c66d4d93d5b84eea17f16, type: 3}
+    RampScale: 0.1
+    RampOffset: -1.5
+    RampStrength: 0.659
+    Softness: 0.384
+    Density: 0.497
+    Dissolve: 1
+    Transparency: 0.682
+    Scale: 0.28
+    ScrollVelocity: {x: 10, y: 5, z: 10}
+    Lighting: 0.614
+    LightingQuality: 0
+    ConstantLightPower: 1
+    LightSmoothness: 0.073
+    LightScattering: 0
+    Shading: 0.068
+    EdgeLighting: 0
+    GlobalLighting: -0.06
+    GlobalLightingRange: 0.843
+    Shadow: 0
+    ShadowSoftness: 0
+    ShadowQuality: 0
+    ShadowStrength: 0
+    ShadowThreshold: 0
+    ShadowColor: {r: 0, g: 0, b: 0, a: 0}
+    Brightness: 0.15
+    Contrast: 0.36
+    Horizontal: 0
+    RelativeHeight: 0
+    HorizontalSoftnessTop: 0
+    HorizontalSoftnessBottom: 0
+    HorizontalSoftnessFigure: 0
+    FromHeight: 500
+    ToHeight: 0
+    Thickness: 93
+    FromDistance: 0
+    MaxDistance: 60000
+    Iteration: 25
+    Fade: 0.01
+    Optimize: 0
+    HeightFog: 0
+    GroundHeight: 381
+    HeightFogFromDistance: 25
+    HeightFogRange: 1000

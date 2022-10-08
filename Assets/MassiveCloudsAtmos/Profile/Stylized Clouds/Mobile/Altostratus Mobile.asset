@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cc665d8f4824635820c3d72582ffdd, type: 3}
+  m_Name: Altostratus Mobile
+  m_EditorClassIdentifier: 
+  Parameter:
+    VolumeTexture: {fileID: 11700000, guid: 8a3769d6c92258a45b8a1c8840707eb5, type: 2}
+    Tiling: {x: 0.7, y: 1}
+    Octave: 19
+    Sculpture: 0.469
+    Phase: -0.43
+    DetailDistance: 0
+    Renderer: 0
+    Ramp: 0
+    RampTexture: {fileID: 0}
+    RampScale: 0
+    RampOffset: 0
+    RampStrength: 0
+    Softness: 0.591
+    Density: 0.671
+    Dissolve: 0.291
+    Transparency: 0
+    Scale: 10
+    ScrollVelocity: {x: 500, y: 0, z: 500}
+    Lighting: 0.962
+    DirectLight: 0
+    Ambient: 0
+    LightingQuality: 0
+    LightSmoothness: 0
+    LightScattering: 0
+    Shading: 0.601
+    EdgeLighting: 0
+    GlobalLighting: -0.04
+    GlobalLightingRange: 0.126
+    Shadow: 0
+    ShadowSoftness: 0.08
+    ShadowQuality: 0
+    ShadowStrength: 0.333
+    ShadowThreshold: 0
+    VolumetricShadow: 0
+    VolumetricShadowDensity: 0
+    VolumetricShadowStrength: 0
+    Brightness: 0
+    Contrast: 0
+    Horizontal: 1
+    RelativeHeight: 0
+    HorizontalSoftnessTop: 1
+    HorizontalSoftnessBottom: 1
+    HorizontalSoftnessFigure: 0.709
+    FromHeight: 2500
+    ToHeight: 2600
+    Thickness: 1048
+    FromDistance: 0
+    MaxDistance: 60000
+    Iteration: 8
+    Fade: 1.6
+    Optimize: 0
+    HeightFog: 1
+    GroundHeight: 49
+    HeightFogFromDistance: 1149
+    HeightFogRange: 1000

@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6cc665d8f4824635820c3d72582ffdd, type: 3}
+  m_Name: Cumulus Toon
+  m_EditorClassIdentifier: 
+  Parameter:
+    VolumeTexture: {fileID: 11700000, guid: 8a3769d6c92258a45b8a1c8840707eb5, type: 2}
+    Tiling: {x: 1, y: 1}
+    Octave: 7.2
+    Sculpture: 0.462
+    Phase: -0.43
+    DetailDistance: 0
+    Renderer: 0
+    Ramp: 1
+    RampTexture: {fileID: 2800000, guid: 88e9b2b6a6458484998e691106885a1f, type: 3}
+    RampScale: 0.428
+    RampOffset: -0.4
+    RampStrength: 0.513
+    Softness: 0.131
+    Density: 0.445
+    Dissolve: 0.652
+    Transparency: 0
+    Scale: 2
+    ScrollVelocity: {x: 500, y: 0, z: 500}
+    Lighting: 0.766
+    DirectLight: 0
+    Ambient: 1
+    LightingQuality: 0.144
+    LightSmoothness: 0.586
+    LightScattering: 0.658
+    Shading: 0.441
+    EdgeLighting: 0
+    GlobalLighting: -0.18
+    GlobalLightingRange: 0.867
+    Shadow: 1
+    ShadowSoftness: 0.278
+    ShadowQuality: 0.237
+    ShadowStrength: 0.059
+    ShadowThreshold: 0
+    VolumetricShadow: 0
+    VolumetricShadowDensity: 0
+    VolumetricShadowStrength: 0
+    Brightness: -0.09
+    Contrast: -0.11
+    Horizontal: 1
+    RelativeHeight: 0
+    HorizontalSoftnessTop: 0.378
+    HorizontalSoftnessBottom: 0.671
+    HorizontalSoftnessFigure: 1
+    FromHeight: 1170
+    ToHeight: 1873.4
+    Thickness: 1048
+    FromDistance: 0
+    MaxDistance: 60000
+    Iteration: 100
+    Fade: 1.6
+    Optimize: 0.316
+    HeightFog: 0
+    GroundHeight: 49
+    HeightFogFromDistance: 100
+    HeightFogRange: 1000

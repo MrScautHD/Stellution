@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 319875530bb349f0bd89b0139f1c908c, type: 3}
+  m_Name: Middle - Dusk
+  m_EditorClassIdentifier: 
+  displayName: Dusk
+  labelColor: {r: 1, g: 0.80304027, b: 0.0141509175, a: 1}
+  position: {x: 0.72929376, y: 0.72606385}
+  mainCloud:
+    profile: {fileID: 11400000, guid: 0a75bc554252c874d8da78b37754966f, type: 2}
+    densityAdjustment: 0
+    scattering:
+      IsOverride: 1
+      Value: 0.533
+    shading:
+      IsOverride: 1
+      Value: 0.499
+    shadingDistance:
+      IsOverride: 1
+      Value: 0.814
+  layeredCloud:
+    profile: {fileID: 11400000, guid: 46cde27715387424c8eba906aa54f3e9, type: 2}
+    densityAdjustment: 0
+    scattering:
+      IsOverride: 0
+      Value: 0
+    shading:
+      IsOverride: 0
+      Value: 0
+    shadingDistance:
+      IsOverride: 0
+      Value: 0
+  cloudIntensityAdjustment: 0.901
+  intensityOverride: 1
+  intensity: 1
+  lightColor: {r: 1, g: 0.3420409, b: 0, a: 0}
+  moonIntensity: 1
+  moonLightColor: {r: 0.24065503, g: 0.27306485, b: 0.3018868, a: 0}
+  temperature: 1000
+  ambientOverride: 1
+  ambient:
+    mode: 0
+    skyColor: {r: 3.969629, g: 0.7235868, b: 0, a: 1}
+    equatorColor: {r: 0.1792453, g: 0.08695517, b: 0.07355821, a: 1}
+    groundColor: {r: 0.07449269, g: 0.09219233, b: 0.16981131, a: 1}
+    pivot: 0.3
+    luminanceFix: -0.65
+  atmosphere:
+    atmosphere: 0
+    atmosphereColoring: 0
+    atmosphereColor: {r: 0, g: 0.02451901, b: 0.77254903, a: 0}
+    atmosphereHighLightColoring: 0
+    atmosphereHighLightColor: {r: 1.0717735, g: 0.09124002, b: 0, a: 0}
+    cloudOcclusion: 0
+    cloudAtmospheric: 1
+    godRay: 1
+    godRayStartDistance: 100
+    shadow: 0.551
+    sunShaft: 0
+  fog:
+    groundHeight: 0
+    range: 426
+    density: 0.077
+    coloring: 0
+    color: {r: 1, g: 0.14817396, b: 0, a: 0}
+    scattering: 1
+  sky:
+    SkyExposure: 1
+    GroundColor: {r: 0.1509434, g: 0.053665757, b: 0.0035599852, a: 0}
+    GroundScattering: 0
+    SunSize: 0.494
+    SunSizeConvergence: 5.45
+    Saturation: -0.008
+    AtmosphereThickness: 1.267
+    Gradation: 0

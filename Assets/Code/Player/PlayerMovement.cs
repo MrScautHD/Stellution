@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private bool isOnGround;
     private bool isSprinthing;
 
-    void Update()
+    public void Update()
     {
         this.isOnGround = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
