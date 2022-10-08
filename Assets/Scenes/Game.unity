@@ -1712,6 +1712,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   atmosPad: {fileID: 1989741929}
+  time: 6
 --- !u!1001 &2058811913
 PrefabInstance:
   m_ObjectHideFlags: 0
