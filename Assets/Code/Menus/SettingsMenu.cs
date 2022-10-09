@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using TMPro;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class SettingsMenu : MonoBehaviour
-{
+public class SettingsMenu : MonoBehaviour {
 
     public AudioMixer audioMixer;
 
@@ -12,13 +12,13 @@ public class SettingsMenu : MonoBehaviour
     
     private Resolution[] resolutions;
     
-    public void Start()
-    {
+    [ClientRpc]
+    public void Start() {
         this.SetUpResolution();
     }
 
-    private void SetUpResolution()
-    {
+    [ClientRpc]
+    private void SetUpResolution() {
         this.resolutions = Screen.resolutions;
         
         resolutionsDropdown.ClearOptions();
@@ -33,24 +33,24 @@ public class SettingsMenu : MonoBehaviour
         resolutionsDropdown.AddOptions(options);
     }
 
-    public void SetResolution(int resolutionsIndex)
-    {
+    [ClientRpc]
+    public void SetResolution(int resolutionsIndex) {
         Resolution resolution = this.resolutions[resolutionsIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
     
-    public void SetVolume(float volume)
-    {
+    [ClientRpc]
+    public void SetVolume(float volume) {
         this.audioMixer.SetFloat("volume", volume);
     }
 
-    public void SetQuality(int qualityIndex)
-    {
+    [ClientRpc]
+    public void SetQuality(int qualityIndex) {
         QualitySettings.SetQualityLevel(qualityIndex);
     }
 
-    public void SetFullscreen(bool isFullscreen)
-    {
+    [ClientRpc]
+    public void SetFullscreen(bool isFullscreen) {
         Screen.fullScreen = isFullscreen;
     }
 }

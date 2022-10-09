@@ -1,14 +1,14 @@
 using Mewlist.MassiveClouds;
+using Unity.Netcode;
 using UnityEngine;
 
-public class SkyTimer : MonoBehaviour
-{
+public class SkyTimer : MonoBehaviour {
 
     public AtmosPad atmosPad;
     public float time;
     
-    public void Update()
-    {
+    [ClientRpc] //TODO CREATE A SERVER DAY TIMER THAT BINDED TO THIS
+    public void Update() {
         float deltaTime = Time.deltaTime;
         this.time += deltaTime / 30;
 

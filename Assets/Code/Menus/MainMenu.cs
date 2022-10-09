@@ -1,16 +1,15 @@
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
-{
+public class MainMenu : MonoBehaviour {
 
-    public void PlayGame()
-    {
-        SceneManager.LoadScene("Game");
+    private void PlayGame() {
+        NetworkManager.Singleton.StartHost();
+        NetworkManager.Singleton.SceneManager.LoadScene("Game", LoadSceneMode.Single);
     }
 
-    public void QuitGame()
-    {
+    private void QuitGame() {
         Debug.Log("QUIT!");
         Application.Quit();
     }

@@ -1,21 +1,21 @@
 using TMPro;
+using Unity.Netcode;
 using UnityEngine;
 
-public class DebugOverlay : MonoBehaviour
-{
+public class DebugOverlay : MonoBehaviour {
     
     public TMP_Text fpsText;
     public TMP_Text systemInfoText;
     private FpsCounter FpsCounter = new();
     
-    public void Start()
-    {
+    [ClientRpc]
+    public void Start() {
         // SYSTEM INFO
         this.systemInfoText.text = "System Info: " + SystemInfo.graphicsDeviceName;
     }
 
-    public void Update()
-    {
+    [ClientRpc]
+    public void Update() {
         // FPS
         this.FpsCounter.Update();
         this.fpsText.text = "FPS: " + this.FpsCounter.GetFps();

@@ -1,7 +1,7 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
-{
+public class PlayerMovement : NetworkBehaviour {
 
     public CharacterController controller;
     
@@ -18,12 +18,12 @@ public class PlayerMovement : MonoBehaviour
     private bool isOnGround;
     private bool isSprinthing;
 
-    public void Update()
-    {
+    public void Update() {
+        if (!this.IsOwner) return;
+        
         this.isOnGround = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
-        if (this.isOnGround && vec.y < 0)
-        {
+        if (this.isOnGround && vec.y < 0) {
             vec.y = -2F;
         }
         
@@ -31,19 +31,15 @@ public class PlayerMovement : MonoBehaviour
         float z = Input.GetAxis("Vertical");
 
         // JUMP
-        if (Input.GetButton("Jump") && isOnGround)
-        {
+        if (Input.GetButton("Jump") && isOnGround) {
             vec.y = Mathf.Sqrt(jumpHeight * -2F * gravity);
         }
         
         // SPRINTHING
-        if (Input.GetKey(KeyCode.LeftShift) && isOnGround)
-        {
+        if (Input.GetKey(KeyCode.LeftShift) && isOnGround) {
             this.isSprinthing = true;
             this.speed = 16;
-        }
-        else
-        {
+        } else {
             this.isSprinthing = false;
             this.speed = 12;
         }

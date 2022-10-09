@@ -1,20 +1,20 @@
+using Unity.Netcode;
 using UnityEngine;
 
-public class Rotation : MonoBehaviour
-{
+public class PlayerRotation : NetworkBehaviour {
 
-    public float mouseSensitivity;
-    public Transform playerBody;
+    public Transform camera;
+    
+    public float mouseSensitivity; //TODO ADD TO SETTINGS
+    private float yRot;
 
-    public float yRot;
-
-    public void Start()
-    {
+    public void Start() {
         Cursor.lockState = CursorLockMode.Locked;
     }
     
-    public void Update()
-    {
+    public void Update() {
+        if (!this.IsOwner) return;
+        
         float mouseX = Input.GetAxis("Mouse X") * this.mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * this.mouseSensitivity * Time.deltaTime;
 
@@ -22,9 +22,9 @@ public class Rotation : MonoBehaviour
         this.yRot -= mouseY;
         this.yRot = Mathf.Clamp(this.yRot, -90F, 90F);
         
-        transform.localRotation = Quaternion.Euler(this.yRot, 0F, 0F);
+        this.camera.localRotation = Quaternion.Euler(this.yRot, 0F, 0F);
         
         // X ROT
-        this.playerBody.Rotate(Vector3.up * mouseX);
+        this.transform.Rotate(Vector3.up * mouseX);
     }
 }
