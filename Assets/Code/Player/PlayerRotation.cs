@@ -3,18 +3,20 @@ using UnityEngine;
 
 public class PlayerRotation : NetworkBehaviour {
 
-    public Transform camera;
+    [SerializeField] private Transform camera;
+    [SerializeField] private float mouseSensitivity; //TODO ADD TO SETTINGS
     
-    public float mouseSensitivity; //TODO ADD TO SETTINGS
     private float yRot;
 
     public void Start() {
         Cursor.lockState = CursorLockMode.Locked;
     }
     
+    public override void OnNetworkSpawn() {
+        if (!this.IsOwner) Destroy(this);
+    }
+    
     public void Update() {
-        if (!this.IsOwner) return;
-        
         float mouseX = Input.GetAxis("Mouse X") * this.mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * this.mouseSensitivity * Time.deltaTime;
 
