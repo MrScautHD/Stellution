@@ -24,7 +24,6 @@ public class PlayerRotation : NetworkBehaviour {
         this.yRot -= mouseY;
         this.yRot = Mathf.Clamp(this.yRot, -90F, 90F);
         
-        
         this.camera.localRotation = Quaternion.Euler(this.yRot, 0F, 0F);
         
         // X ROT
