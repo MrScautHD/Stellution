@@ -3,9 +3,8 @@ using UnityEngine;
 
 public class PlayerMovement : NetworkBehaviour {
 
-    [SerializeField] private  CharacterController controller;
+    [SerializeField] private CharacterController controller;
 
-    [SerializeField] private Transform groundCheck;
     [SerializeField] private float groundDistance = 0.4F;
     [SerializeField] private LayerMask groundMask;
 
@@ -15,17 +14,14 @@ public class PlayerMovement : NetworkBehaviour {
 
     private Vector3 vec;
 
-    private bool isOnGround;
-    private bool isSprinthing;
+    private bool isSprinting;
 
     public override void OnNetworkSpawn() {
         if (!this.IsOwner) Destroy(this);
     }
 
     public void Update() {
-        this.isOnGround = Physics.CheckSphere(this.groundCheck.position, this.groundDistance, this.groundMask);
-
-        if (this.isOnGround && vec.y < 0) {
+        if (this.controller.isGrounded && vec.y < 0) {
             vec.y = -2F;
         }
 
@@ -33,17 +29,16 @@ public class PlayerMovement : NetworkBehaviour {
         float z = Input.GetAxis("Vertical");
 
         // JUMP
-        if (Input.GetButton("Jump") && this.isOnGround) {
+        if (Input.GetButton("Jump") && this.controller.isGrounded) {
             vec.y = Mathf.Sqrt(this.jumpHeight * -2F * this.gravity);
         }
 
         // SPRINTHING
-        if (Input.GetKey(KeyCode.LeftShift) && this.isOnGround) {
-            this.isSprinthing = true;
+        if (Input.GetKey(KeyCode.LeftShift) && this.controller.isGrounded) {
+            this.isSprinting = true;
             this.speed = 16;
-        }
-        else {
-            this.isSprinthing = false;
+        } else {
+            this.isSprinting = false;
             this.speed = 12;
         }
 
@@ -57,10 +52,10 @@ public class PlayerMovement : NetworkBehaviour {
     }
 
     public bool IsOnGround() {
-        return this.isOnGround;
+        return this.controller.isGrounded;
     }
 
     public bool IsSprinting() {
-        return this.isSprinthing;
+        return this.isSprinting;
     }
 }
