@@ -29,12 +29,12 @@ public class PlayerMovement : NetworkBehaviour {
         float z = Input.GetAxis("Vertical");
 
         // JUMP
-        if (Input.GetButton("Jump") && this.controller.isGrounded) {
+        if (Input.GetButton("Jump") && this.IsOnGround()) {
             vec.y = Mathf.Sqrt(this.jumpHeight * -2F * this.gravity);
         }
 
         // SPRINTHING
-        if (Input.GetKey(KeyCode.LeftShift) && this.controller.isGrounded) {
+        if (Input.GetKey(KeyCode.LeftShift) && this.IsOnGround()) {
             this.isSprinting = true;
             this.speed = 16;
         } else {

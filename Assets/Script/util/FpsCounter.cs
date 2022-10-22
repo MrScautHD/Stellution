@@ -1,15 +1,17 @@
 using System;
 using Unity.Netcode;
-using UnityEngine;
 
-public class FpsCounter : MonoBehaviour {
+public class FpsCounter : NetworkBehaviour {
     
     private float t;
     private long lastTicks = DateTime.Now.Ticks;
     private int count;
     private int frames;
-    
-    [ClientRpc]
+
+    public override void OnNetworkSpawn() {
+        if (!this.IsClient) return;
+    }
+
     public void Update () {
         long ticks = DateTime.Now.Ticks;
         this.t += (ticks - this.lastTicks);
@@ -22,8 +24,7 @@ public class FpsCounter : MonoBehaviour {
             this.t %= 10000000;
         }
     }
-
-    [ClientRpc]
+    
     public int GetFps() {
         return this.frames;
     }

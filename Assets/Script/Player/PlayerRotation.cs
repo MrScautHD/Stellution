@@ -9,10 +9,6 @@ public class PlayerRotation : NetworkBehaviour {
     private Vector3 xRot;
     private float yRot;
 
-    public void Start() {
-        Cursor.lockState = CursorLockMode.Locked; //TODO CHANGE IT LAITER FOR CHATS AND GUIS...
-    }
-    
     public override void OnNetworkSpawn() {
         if (!this.IsOwner) Destroy(this);
     }

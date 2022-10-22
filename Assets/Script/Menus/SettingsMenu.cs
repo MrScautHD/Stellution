@@ -4,7 +4,7 @@ using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class SettingsMenu : MonoBehaviour {
+public class SettingsMenu : NetworkBehaviour {
 
     public AudioMixer audioMixer;
 
@@ -12,12 +12,14 @@ public class SettingsMenu : MonoBehaviour {
     
     private Resolution[] resolutions;
     
-    [ClientRpc]
+    public override void OnNetworkSpawn() {
+        if (!this.IsClient) OnDestroy();
+    }
+    
     public void Start() {
         this.SetUpResolution();
     }
-
-    [ClientRpc]
+    
     private void SetUpResolution() {
         this.resolutions = Screen.resolutions;
         
@@ -32,24 +34,20 @@ public class SettingsMenu : MonoBehaviour {
 
         resolutionsDropdown.AddOptions(options);
     }
-
-    [ClientRpc]
+    
     public void SetResolution(int resolutionsIndex) {
         Resolution resolution = this.resolutions[resolutionsIndex];
         Screen.SetResolution(resolution.width, resolution.height, Screen.fullScreen);
     }
     
-    [ClientRpc]
     public void SetVolume(float volume) {
         this.audioMixer.SetFloat("volume", volume);
     }
-
-    [ClientRpc]
+    
     public void SetQuality(int qualityIndex) {
         QualitySettings.SetQualityLevel(qualityIndex);
     }
-
-    [ClientRpc]
+    
     public void SetFullscreen(bool isFullscreen) {
         Screen.fullScreen = isFullscreen;
     }
