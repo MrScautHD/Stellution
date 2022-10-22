@@ -34,7 +34,7 @@ public class PlayerRotation : NetworkBehaviour {
         this.transform.Rotate(this.xRot);
         
         if (this.cam != null) {
-            this.cam.localRotation = Quaternion.Euler(this.xRot.x, this.yRot, 0);
+            this.cam.localRotation = this.transform.rotation;
         }
     }
 
