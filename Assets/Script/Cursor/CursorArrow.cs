@@ -11,6 +11,7 @@ public class CursorArrow : NetworkBehaviour {
     }
 
     private void Start() {
+        DontDestroyOnLoad(this);
         Cursor.SetCursor(CURSOR_TEXTURE, Vector2.zero, CursorMode.ForceSoftware);
     }
     
