@@ -9,6 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Old Pine Leaves
   m_Shader: {fileID: 4800000, guid: 0387fced4e5af52489a926de35a15715, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
@@ -17,6 +19,7 @@ Material:
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -108,7 +111,7 @@ Material:
     - _BottomColor: {r: 0.4433962, g: 0.4433962, b: 0.4433962, a: 0}
     - _Color: {r: 0.28970483, g: 0.8000001, b: 0.23995335, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FilterColor: {r: 0.26291537, g: 0.76057756, b: 0.33506668, a: 1}
+    - _FilterColor: {r: 0.23796056, g: 0.7791054, b: 0.35635766, a: 1}
     - _SnowColor1: {r: 1, g: 1, b: 1, a: 0}
     - _TopColor: {r: 1, g: 0.90971917, b: 0.25943398, a: 0}
     - _WindDirection: {r: 1, g: 0, b: 1, a: 0}
