@@ -6,7 +6,9 @@ public class PlayerRotation : NetworkBehaviour {
     [SerializeField] private float mouseSensitivity; //TODO ADD TO SETTINGS
     private Transform cam;
     
-    private Vector3 xRot;
+    private Vector3 Rotation;
+
+    private float xRot;
     private float yRot;
 
     public override void OnNetworkSpawn() {
@@ -18,9 +20,7 @@ public class PlayerRotation : NetworkBehaviour {
         float mouseY = Input.GetAxis("Mouse Y") * this.mouseSensitivity * Time.deltaTime;
         
         this.SetupCamera();
-        
-        this.SetXRot(mouseX);
-        this.SetYRot(mouseY);
+        this.SetupRotation(mouseX, mouseY);
     }
 
     private void SetupCamera() {
@@ -29,21 +29,21 @@ public class PlayerRotation : NetworkBehaviour {
         }
     }
 
-    private void SetXRot(float mouseX) {
-        this.xRot = Vector3.up * mouseX;
-        this.transform.Rotate(this.xRot);
+    private void SetupRotation(float mouseX, float mouseY) {
+        Vector3 xVec = Vector3.up * mouseX;
+        this.xRot += xVec.y;
+        this.transform.Rotate(xVec);
         
-        if (this.cam != null) {
-            this.cam.localRotation = this.transform.rotation;
-        }
-    }
-
-    private void SetYRot(float mouseY) {
         this.yRot -= mouseY;
         this.yRot = Mathf.Clamp(this.yRot, -90F, 90F);
-        
-        if (this.cam != null) {
-            this.cam.localRotation = Quaternion.Euler(this.yRot, 0F, 0F);
+
+        this.Rotation = new Vector3(this.yRot, this.xRot, 0);
+        this.RotateCam(Quaternion.Euler(this.Rotation));
+    }
+
+    private void RotateCam(Quaternion quaternion) {
+        if (this.cam != null && this.IsClient) {
+            this.cam.localRotation = quaternion;
         }
     }
 }
