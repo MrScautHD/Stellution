@@ -9,7 +9,7 @@ public class FpsCounter : NetworkBehaviour {
     private int frames;
 
     public override void OnNetworkSpawn() {
-        if (!this.IsClient) return;
+        if (!this.IsClient) OnDestroy();
     }
 
     public void Update () {

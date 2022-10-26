@@ -7,7 +7,7 @@ public class CursorArrow : NetworkBehaviour {
     public Texture2D CURSOR_TEXTURE;
 
     public override void OnNetworkSpawn() {
-        if (!this.IsClient) return;
+        if (!this.IsClient) OnDestroy();
     }
 
     private void Start() {

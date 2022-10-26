@@ -18,7 +18,6 @@ public class DebugOverlay : NetworkBehaviour {
     }
     
     public void Update() {
-        this.fpsCounter.Update();
         this.fpsText.text = "FPS: " + this.fpsCounter.GetFps();
     }
 }

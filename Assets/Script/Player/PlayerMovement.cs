@@ -17,7 +17,7 @@ public class PlayerMovement : NetworkBehaviour {
     private bool isSprinting;
 
     public override void OnNetworkSpawn() {
-        if (!this.IsOwner) Destroy(this);
+        if (!this.IsOwner) OnDestroy();
     }
 
     public void Update() {

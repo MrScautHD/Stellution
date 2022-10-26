@@ -215,12 +215,12 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _MainCloudWindDir: {r: 0.3, g: 0.1, b: 0, a: 0}
     - _MainCloudWindDir1: {r: 0.1, g: 0.2, b: 0, a: 0}
-    - _MoonColor: {r: 0.046451613, g: 0.06862599, b: 0.07430562, a: 1}
+    - _MoonColor: {r: 0.061571725, g: 0.09253849, b: 0.10060055, a: 1}
     - _MoonDirection: {r: 7.628955e-10, g: 0.99996185, b: 0.008726478, a: 0}
     - _SecondLayer: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 0}
     - _SecondLayer1: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 0}
     - _ShadowDirection: {r: 0, g: 0, b: 0, a: 0}
-    - _StormDirection: {r: 0.3620751, g: -0, b: -0.93214893, a: 0}
+    - _StormDirection: {r: -0.37568414, g: -0, b: -0.9267478, a: 0}
     - _SunDirection: {r: 0.021961212, g: 0.9569714, b: 0.28935018, a: 0}
     - _SunDirection1: {r: 0, g: 0, b: 0, a: 0}
     - _TexturePanDirection: {r: 0.1, g: 1, b: 0.1, a: 0}

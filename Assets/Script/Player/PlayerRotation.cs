@@ -10,7 +10,7 @@ public class PlayerRotation : NetworkBehaviour {
     private float yRot;
 
     public override void OnNetworkSpawn() {
-        if (!this.IsOwner) Destroy(this);
+        if (!this.IsOwner) OnDestroy();
     }
     
     public void Update() {

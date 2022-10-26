@@ -6,9 +6,7 @@ public class CameraFollow : NetworkBehaviour {
     private Transform player;
     
     public override void OnNetworkSpawn() {
-        if (!this.IsClient) {
-            this.OnDestroy();
-        }
+        if (!this.IsClient) OnDestroy();
         
         this.player = NetworkManager.LocalClient.PlayerObject.transform;
     }
