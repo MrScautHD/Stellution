@@ -90,7 +90,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _LightFalloff: 11.18791
+    - _LightFalloff: 11.178888
     - _LightFalloff1: 10
     - _LightIntensity: 1
     - _Metallic: 0
@@ -114,6 +114,6 @@ Material:
     - _FogSquish: {r: 1, g: 3.93, b: 0, a: 0}
     - _LightColor: {r: 0.2943663, g: 0.831844, b: 0.990566, a: 1}
     - _LightColor1: {r: 11.924528, g: 32, b: 29.818542, a: 0}
-    - _SunDirection: {r: -0.077040225, g: -0.9657037, b: -0.2479546, a: 0}
+    - _SunDirection: {r: -0.27429992, g: -0.93856835, b: -0.2094018, a: 0}
     - _SunDirection1: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
