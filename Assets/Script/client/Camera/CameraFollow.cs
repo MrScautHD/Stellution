@@ -12,8 +12,10 @@ public class CameraFollow : NetworkBehaviour {
     }
     
     private void Update() {
-        Vector3 playerPos = this.player.position;
-            
-        this.transform.position = new Vector3(playerPos.x, playerPos.y + 2, playerPos.z);
+        if (player != null) {
+            Vector3 playerPos = this.player.position;
+
+            this.transform.position = new Vector3(playerPos.x, playerPos.y + 2, playerPos.z);
+        }
     }
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6470213063425316056}
-  - component: {fileID: 6470213063425316058}
+  - component: {fileID: 8299115816595551693}
   - component: {fileID: 3279275813814298390}
   - component: {fileID: 6470213063425316057}
   - component: {fileID: -493380203281553884}
@@ -37,7 +37,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!143 &6470213063425316058
+--- !u!143 &8299115816595551693
 CharacterController:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -80,13 +80,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b59e77749206fc449dbae841d42d025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  controller: {fileID: 6470213063425316058}
-  groundDistance: 0.4
-  groundMask:
-    serializedVersion: 2
-    m_Bits: 8
+  controller: {fileID: 8299115816595551693}
   speed: 12
-  gravity: -19.62
+  gravity: -9.81
   jumpHeight: 3
 --- !u!114 &-493380203281553884
 MonoBehaviour:

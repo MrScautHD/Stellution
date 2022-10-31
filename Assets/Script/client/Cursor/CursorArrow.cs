@@ -1,6 +1,5 @@
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class CursorArrow : NetworkBehaviour {
 
@@ -12,16 +11,16 @@ public class CursorArrow : NetworkBehaviour {
 
     private void Start() {
         DontDestroyOnLoad(this);
-        Cursor.SetCursor(CURSOR_TEXTURE, Vector2.zero, CursorMode.ForceSoftware);
+        //Cursor.SetCursor(CURSOR_TEXTURE, Vector2.zero, CursorMode.ForceSoftware);
     }
     
     private void Update() {
-        if (SceneManager.GetActiveScene().name.Equals("Game")) {
+        if (Methods.IsInGame()) {
             Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
+            //Cursor.visible = false;
         } else {
             Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
+            //Cursor.visible = true;
         }
     }
 }

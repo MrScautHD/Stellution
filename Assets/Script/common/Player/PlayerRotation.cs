@@ -15,7 +15,7 @@ public class PlayerRotation : NetworkBehaviour {
         if (!this.IsOwner) OnDestroy();
     }
     
-    public void Update() {
+    private void Update() {
         float mouseX = Input.GetAxis("Mouse X") * this.mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * this.mouseSensitivity * Time.deltaTime;
         

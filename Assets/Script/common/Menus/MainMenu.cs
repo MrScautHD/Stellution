@@ -1,12 +1,11 @@
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour {
-
+public class MainMenu : LoadingScene {
+    
     private void PlayGame() {
         NetworkManager.Singleton.StartHost();
-        NetworkManager.Singleton.SceneManager.LoadScene("Game", LoadSceneMode.Single);
+        this.LoadScene("Game");
     }
 
     private void QuitGame() {

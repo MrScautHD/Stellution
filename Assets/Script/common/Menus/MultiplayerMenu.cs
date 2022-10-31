@@ -1,25 +1,19 @@
 using Unity.Netcode;
-using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class MultiplayerMenu : MonoBehaviour {
+public class MultiplayerMenu : LoadingScene {
 
     private void Host() {
         NetworkManager.Singleton.StartHost();
-        this.LoadScene();
+        this.LoadScene("Game");
     }
 
     private void Server() {
         NetworkManager.Singleton.StartServer();
-        this.LoadScene();
+        this.LoadScene("Game");
     }
     
     private void Client() {
         NetworkManager.Singleton.StartClient();
-        this.LoadScene();
-    }
-
-    private void LoadScene() {
-        NetworkManager.Singleton.SceneManager.LoadScene("Game", LoadSceneMode.Single);
+        this.LoadScene("Game");
     }
 }
