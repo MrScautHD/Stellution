@@ -1,7 +1,7 @@
 using Unity.Netcode;
 using UnityEngine;
 
-public class CameraFollow : NetworkBehaviour {
+public class Camera : NetworkBehaviour {
     
     private Transform player;
     
@@ -12,10 +12,8 @@ public class CameraFollow : NetworkBehaviour {
     }
     
     private void Update() {
-        if (player != null) {
-            Vector3 playerPos = this.player.position;
+        Vector3 playerPos = this.player.position;
 
-            this.transform.position = new Vector3(playerPos.x, playerPos.y + 2, playerPos.z);
-        }
+        this.transform.position = new Vector3(playerPos.x, playerPos.y + 2, playerPos.z);
     }
 }
