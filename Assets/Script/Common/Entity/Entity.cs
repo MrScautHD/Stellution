@@ -34,7 +34,7 @@ public abstract class Entity : NetworkBehaviour {
         if (!this.IsOwner) OnDestroy();
     }
 
-    public virtual void Interact(bool ray, RaycastHit hit) {
+    protected virtual void Interact(bool ray, RaycastHit hit) {
         
     }
 

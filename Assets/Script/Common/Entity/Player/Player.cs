@@ -33,7 +33,7 @@ public class Player : LivingEntity {
         if (!this.IsOwner) OnDestroy();
     }
 
-    public override void Interact(bool ray, RaycastHit hit) {
+    protected override void Interact(bool ray, RaycastHit hit) {
         base.Interact(ray, hit);
 
         if (ray) {
