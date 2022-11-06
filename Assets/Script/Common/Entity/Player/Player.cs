@@ -1,3 +1,4 @@
+using Unity.Netcode;
 using UnityEngine;
 
 public class Player : LivingEntity {
@@ -10,7 +11,7 @@ public class Player : LivingEntity {
     [SerializeField] private float jumpHeight = 3F;
     
     private Transform cam;
-    private Vector3 vec;
+    private Vector3 movement;
 
     private bool isSprinting;
 
@@ -22,10 +23,30 @@ public class Player : LivingEntity {
         
         this.Move(horizontalInput, verticalInput);
         this.SetupCamera();
+
+        if (Input.GetKey(KeyCode.LeftShift) && this.IsPassanger()) {
+            this.RemovePassanger(this);
+        }
     }
     
     public override void OnNetworkSpawn() {
         if (!this.IsOwner) OnDestroy();
+    }
+
+    public override bool Interact(bool ray, RaycastHit hit) {
+        base.Interact(ray, hit);
+
+        if (ray) {
+            FlyingCar flyingCar = hit.collider.gameObject.GetComponent<FlyingCar>();
+            
+            if (flyingCar != null) {
+                if (Input.GetKey(KeyCode.E)) {
+                    flyingCar.AddPassanger(this);
+                }
+            }
+        }
+
+        return ray;
     }
 
     private void Move(float horizontalInput, float verticalInput) {
@@ -33,7 +54,7 @@ public class Player : LivingEntity {
         
         // JUMP
         if (Input.GetButton("Jump") && this.IsOnGround()) {
-            this.vec.y = Mathf.Sqrt(this.jumpHeight * -2F * this.gravity);
+            this.movement.y = Mathf.Sqrt(this.jumpHeight * -2F * this.gravity);
         }
 
         // SPRINTING
@@ -50,8 +71,8 @@ public class Player : LivingEntity {
         this.controller.Move(move * this.speed * Time.deltaTime);
         
         // GRAVITY
-        this.vec.y += (this.gravity - 2) * Time.deltaTime;
-        this.controller.Move(vec * Time.deltaTime);
+        this.movement.y += (this.gravity - 2) * Time.deltaTime;
+        this.controller.Move(movement * Time.deltaTime);
     }
     
     protected override void SetupRotation() {

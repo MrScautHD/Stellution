@@ -5,6 +5,6 @@ public abstract class LivingEntity : Entity {
         base.Update();
         this.SetupRotation();
     }
-    
+
     protected abstract void SetupRotation();
 }
