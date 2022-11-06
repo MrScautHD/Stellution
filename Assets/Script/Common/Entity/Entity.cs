@@ -39,20 +39,20 @@ public abstract class Entity : NetworkBehaviour {
     }
 
     public void AddPassenger(Entity passenger, Entity vehicle) {
-        passenger.isPassenger = true;
-
         if (!vehicle.passengers.Contains(passenger)) {
             vehicle.passengers.Add(passenger);
-            vehicle.SetVehicle(passenger, passenger.vehicle);
+            
+            passenger.SetVehicle(passenger, vehicle);
+            passenger.isPassenger = true;
         }
     }
 
     public void RemovePassenger(Entity passenger, Entity vehicle) {
-        passenger.isPassenger = false;
-
         if (vehicle.passengers.Contains(passenger)) {
             vehicle.passengers.Remove(passenger);
-            vehicle.SetVehicle(passenger, null);
+            
+            passenger.SetVehicle(passenger, null);
+            passenger.isPassenger = false;
         }
     }
     

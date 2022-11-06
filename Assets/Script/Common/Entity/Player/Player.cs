@@ -43,7 +43,7 @@ public class Player : LivingEntity {
                 this.islookingOnVehicle = true;
                 
                 if (Input.GetKey(KeyCode.E)) {
-                    vehicle.AddPassenger(this, this.GetVehicle());
+                    vehicle.AddPassenger(this, vehicle);
                 }
                 
                 return;
