@@ -1,4 +1,3 @@
-using Unity.Netcode;
 using UnityEngine;
 
 public class Player : LivingEntity {
@@ -14,6 +13,7 @@ public class Player : LivingEntity {
     private Vector3 movement;
 
     private bool isSprinting;
+    private bool islookingOnVehicle;
 
     public void Update() {
         base.Update();
@@ -24,8 +24,8 @@ public class Player : LivingEntity {
         this.Move(horizontalInput, verticalInput);
         this.SetupCamera();
 
-        if (Input.GetKey(KeyCode.LeftShift) && this.IsPassanger()) {
-            this.RemovePassanger(this);
+        if (Input.GetKey(KeyCode.LeftShift) && this.IsPassenger()) {
+            this.RemovePassenger(this, this.GetVehicle());
         }
     }
     
@@ -33,25 +33,29 @@ public class Player : LivingEntity {
         if (!this.IsOwner) OnDestroy();
     }
 
-    public override bool Interact(bool ray, RaycastHit hit) {
+    public override void Interact(bool ray, RaycastHit hit) {
         base.Interact(ray, hit);
 
         if (ray) {
-            FlyingCar flyingCar = hit.collider.gameObject.GetComponent<FlyingCar>();
+            AbstractVehicle vehicle = hit.collider.gameObject.GetComponent<AbstractVehicle>();
             
-            if (flyingCar != null) {
+            if (vehicle != null) {
+                this.islookingOnVehicle = true;
+                
                 if (Input.GetKey(KeyCode.E)) {
-                    flyingCar.AddPassanger(this);
+                    vehicle.AddPassenger(this, this.GetVehicle());
                 }
+                
+                return;
             }
         }
-
-        return ray;
+        
+        this.islookingOnVehicle = false;
     }
 
     private void Move(float horizontalInput, float verticalInput) {
-        if (this.IsPassanger()) return;
-        
+        if (this.IsPassenger()) return;
+
         // JUMP
         if (Input.GetButton("Jump") && this.IsOnGround()) {
             this.movement.y = Mathf.Sqrt(this.jumpHeight * -2F * this.gravity);
@@ -80,15 +84,15 @@ public class Player : LivingEntity {
         float mouseY = Input.GetAxis("Mouse Y") * this.mouseSensitivity * Time.deltaTime;
         
         Vector3 xVec = Vector3.up * mouseX;
-        
-        this.SetXRot(this.GetXRot() + xVec.y);
+
+        this.xRot += xVec.y;
         this.transform.Rotate(xVec);
         
-        this.SetYRot(this.GetYRot() - mouseY);
-        this.SetYRot(Mathf.Clamp(this.GetYRot(), -90F, 90F));
+        this.yRot -= mouseY;
+        this.yRot = Mathf.Clamp(this.yRot, -90F, 90F);
 
-        this.SetRot(new Vector3(this.GetYRot(), this.GetXRot(), 0));
-        this.RotateCam(Quaternion.Euler(this.GetRot()));
+        this.rotation = new Vector3(this.yRot, this.xRot, 0);
+        this.RotateCam(Quaternion.Euler(this.rotation));
     }
     
     private void SetupCamera() {
@@ -109,5 +113,9 @@ public class Player : LivingEntity {
 
     public bool IsSprinting() {
         return this.isSprinting;
+    }
+
+    public bool IslookingOnVehicle() {
+        return this.islookingOnVehicle;
     }
 }

@@ -13,12 +13,12 @@ public class FlyingCar : AbstractVehicle {
         this.PassangerMovement();
     }
 
-    private void Move() {
-        Vector3 pos = this.transform.position;
+    public override float SeatHeight() {
+        return 1.6F;
+    }
 
-        this.transform.position = new Vector3(pos.x, pos.y, pos.z);
-        
-        if (this.GetMainPassanger() != null) {
+    private void Move() {
+        if (this.GetMainPassenger() != null) {
             float horizontalInput = Input.GetAxis("Vertical");
             
             Vector3 move = this.transform.right * horizontalInput;
@@ -27,9 +27,9 @@ public class FlyingCar : AbstractVehicle {
     }
 
     private void PassangerMovement() {
-        if (this.GetMainPassanger() == null) return;
-        
-        this.GetMainPassanger().transform.position = this.transform.position;
-        this.GetMainPassanger().transform.rotation = this.transform.rotation;
+        if (this.GetMainPassenger() == null) return;
+
+        this.GetMainPassenger().transform.position = new Vector3(this.GetPos().x, this.GetPos().y + this.SeatHeight());;
+        this.GetMainPassenger().transform.rotation = this.transform.rotation;
     }
 }

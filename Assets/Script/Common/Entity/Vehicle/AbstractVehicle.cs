@@ -8,4 +8,6 @@ public abstract class AbstractVehicle : Entity {
     private void Update() {
         base.Update();
     }
+
+    public abstract float SeatHeight();
 }

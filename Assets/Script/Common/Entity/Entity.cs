@@ -5,13 +5,13 @@ using UnityEngine;
 
 public abstract class Entity : NetworkBehaviour {
 
-    public List<Entity> passangers = new List<Entity>();
-    private Vector3 rotation;
+    private List<Entity> passengers = new List<Entity>();
+    public Vector3 rotation;
 
-    private float xRot;
-    private float yRot;
+    public float xRot;
+    public float yRot;
     
-    private bool isPassanger;
+    private bool isPassenger;
     private bool isVehicle;
     
     private Entity vehicle;
@@ -34,39 +34,51 @@ public abstract class Entity : NetworkBehaviour {
         if (!this.IsOwner) OnDestroy();
     }
 
-    public virtual bool Interact(bool ray, RaycastHit hit) {
-        return ray;
-    }
-
-    public void AddPassanger(Entity passanger) {
-        passanger.isPassanger = true;
-
-        if (!this.passangers.Contains(passanger)) {
-            this.passangers.Add(passanger);
-            this.SetVehicle(passanger, vehicle);
-        }
-    }
-
-    public void RemovePassanger(Entity passanger) {
-        passanger.isPassanger = false;
+    public virtual void Interact(bool ray, RaycastHit hit) {
         
-        if (this.passangers.Contains(passanger)) {
-            this.passangers.Remove(passanger);
-            this.SetVehicle(passanger, null);
+    }
+
+    public void AddPassenger(Entity passenger, Entity vehicle) {
+        passenger.isPassenger = true;
+
+        if (!vehicle.passengers.Contains(passenger)) {
+            vehicle.passengers.Add(passenger);
+            vehicle.SetVehicle(passenger, passenger.vehicle);
+        }
+    }
+
+    public void RemovePassenger(Entity passenger, Entity vehicle) {
+        passenger.isPassenger = false;
+
+        if (vehicle.passengers.Contains(passenger)) {
+            vehicle.passengers.Remove(passenger);
+            vehicle.SetVehicle(passenger, null);
         }
     }
     
-    public Entity GetMainPassanger() {
-        return this.passangers.FirstOrDefault();
-    }
-    
-    public bool IsPassanger() {
-        return this.isPassanger;
+    public Entity GetMainPassenger() {
+        return this.passengers.FirstOrDefault();
     }
 
-    public void SetVehicle(Entity passanger ,Entity vehicle) {
-        passanger.vehicle = vehicle;
-        this.isVehicle = vehicle != null;
+    public List<Entity> GetAllPassengers() {
+        return this.passengers;
+    }
+    
+    public bool IsPassenger() {
+        return this.isPassenger;
+    }
+
+    public void SetVehicle(Entity passenger ,Entity vehicle) {
+        passenger.vehicle = vehicle;
+        vehicle.isVehicle = vehicle != null;
+    }
+
+    public void SetPos(Vector3 pos) {
+        this.transform.position = pos;
+    }
+
+    public Vector3 GetPos() {
+        return this.transform.position;
     }
 
     public Entity GetVehicle() {
@@ -75,29 +87,5 @@ public abstract class Entity : NetworkBehaviour {
 
     public bool IsVehicle() {
         return this.isVehicle;
-    }
-
-    public void SetRot(Vector3 rotation) {
-        this.rotation = rotation;
-    }
-
-    public Vector3 GetRot() {
-        return this.rotation;
-    }
-
-    public void SetXRot(float rotation) {
-        this.xRot = rotation;
-    }
-
-    public float GetXRot() {
-        return this.xRot;
-    }
-    
-    public void SetYRot(float rotation) {
-        this.yRot = rotation;
-    }
-    
-    public float GetYRot() {
-        return this.yRot;
     }
 }
