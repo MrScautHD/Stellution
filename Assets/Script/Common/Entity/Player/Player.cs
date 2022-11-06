@@ -28,10 +28,6 @@ public class Player : LivingEntity {
             this.RemovePassenger(this, this.GetVehicle());
         }
     }
-    
-    public override void OnNetworkSpawn() {
-        if (!this.IsOwner) OnDestroy();
-    }
 
     protected override void Interact(bool ray, RaycastHit hit) {
         base.Interact(ray, hit);
