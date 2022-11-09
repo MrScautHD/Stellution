@@ -5,10 +5,10 @@ public class FlyingCar : AbstractVehicle {
     [SerializeField] private Rigidbody carBody;
     
     [SerializeField] private Transform[] hoverPoints;
-    [SerializeField] private float hoverForce = 65;
+    [SerializeField] private float hoverForce = 12.0F;
     [SerializeField] private float hoverHeight = 6.5F;
     
-    [SerializeField] private float speed = 20;
+    [SerializeField] private float speed = 20.0F;
 
     private void Update() {
         base.Update();

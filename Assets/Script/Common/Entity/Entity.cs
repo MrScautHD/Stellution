@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.Netcode;
@@ -6,10 +7,10 @@ using UnityEngine;
 public abstract class Entity : NetworkBehaviour {
 
     private List<Entity> passengers = new List<Entity>();
-    public Vector3 rotation;
+    [NonSerialized] public Vector3 rotation;
 
-    public float xRot;
-    public float yRot;
+    [NonSerialized] public float xRot;
+    [NonSerialized] public float yRot;
     
     private bool isPassenger;
     private bool isVehicle;
