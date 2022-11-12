@@ -6,7 +6,4 @@
   </p>
 </a>
 
-Game Engine:
-![grafik](https://user-images.githubusercontent.com/65916181/201466310-ca434184-6e60-4896-a1db-ecb320287ae4.png)
-
 Work in Progress..!
