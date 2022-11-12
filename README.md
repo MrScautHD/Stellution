@@ -1,4 +1,4 @@
-![graphic](Assets/Textures/logos/white_logo.png)
+![graphic](Assets/Textures/logos/WhiteLogo.png)
 
 <a href="https://discord.gg/7XKw6YQa76">
   <p align="left">
