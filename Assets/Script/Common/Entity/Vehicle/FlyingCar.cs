@@ -1,34 +1,37 @@
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class FlyingCar : AbstractVehicle {
-
-    [SerializeField] private Rigidbody carBody;
     
+    private Rigidbody carBody;
+
     [SerializeField] private Transform[] hoverPoints;
     [SerializeField] private float hoverForce = 12.0F;
     [SerializeField] private float hoverHeight = 6.5F;
     
     [SerializeField] private float speed = 20.0F;
 
+    private void Awake() {
+        this.carBody = this.GetComponent<Rigidbody>();
+    }
+
     private void Update() {
         base.Update();
-        
-        this.Move();
-        this.PassangerMovement();
     }
 
     public void FixedUpdate() {
-        base.FixedUpdate();
+        //base.FixedUpdate();
         
-        this.HoverForce();
+        this.Movement();
+        this.PassangerMovement();
     }
 
     public override float SeatHeight() {
         return 1.6F;
     }
 
-    private void Move() {
-
+    private void Movement() {
+        this.HoverForce();
     }
 
     private void HoverForce() {

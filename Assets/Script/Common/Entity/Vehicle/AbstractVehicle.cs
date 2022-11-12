@@ -9,5 +9,9 @@ public abstract class AbstractVehicle : Entity {
         base.Update();
     }
 
+    private void FixedUpdate() {
+        base.FixedUpdate();
+    }
+
     public abstract float SeatHeight();
 }

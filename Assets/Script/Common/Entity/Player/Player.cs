@@ -24,8 +24,8 @@ public class Player : LivingEntity {
         this.Move(horizontalInput, verticalInput);
         this.SetupCamera();
 
-        if (Input.GetKey(KeyCode.LeftShift) && this.IsPassenger()) {
-            this.RemovePassenger(this, this.GetVehicle());
+        if (Input.GetKey(KeyCode.LeftShift) && this.isPassenger) {
+            this.RemovePassenger(this, this.vehicle);
         }
     }
 
@@ -50,7 +50,7 @@ public class Player : LivingEntity {
     }
 
     private void Move(float horizontalInput, float verticalInput) {
-        if (this.IsPassenger()) return;
+        if (this.isPassenger) return;
 
         // JUMP
         if (Input.GetButton("Jump") && this.IsOnGround()) {

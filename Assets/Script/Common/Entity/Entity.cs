@@ -7,15 +7,16 @@ using UnityEngine;
 public abstract class Entity : NetworkBehaviour {
 
     private List<Entity> passengers = new List<Entity>();
+    
     [NonSerialized] public Vector3 rotation;
 
     [NonSerialized] public float xRot;
     [NonSerialized] public float yRot;
     
-    private bool isPassenger;
-    private bool isVehicle;
+    public bool isPassenger { get; private set; }
+    public bool isVehicle { get; private set; }
     
-    private Entity vehicle;
+    public Entity vehicle { get; private set; }
 
     public void Start() {
         
@@ -64,10 +65,6 @@ public abstract class Entity : NetworkBehaviour {
     public List<Entity> GetAllPassengers() {
         return this.passengers;
     }
-    
-    public bool IsPassenger() {
-        return this.isPassenger;
-    }
 
     public void SetVehicle(Entity passenger ,Entity vehicle) {
         passenger.vehicle = vehicle;
@@ -80,13 +77,5 @@ public abstract class Entity : NetworkBehaviour {
 
     public Vector3 GetPos() {
         return this.transform.position;
-    }
-
-    public Entity GetVehicle() {
-        return this.vehicle;
-    }
-
-    public bool IsVehicle() {
-        return this.isVehicle;
     }
 }

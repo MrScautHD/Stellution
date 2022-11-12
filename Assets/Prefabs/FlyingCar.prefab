@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 102990504165125365}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.1970434, y: -0.47673225, z: 0.2108407}
+  m_LocalPosition: {x: 0.4, y: 0, z: -1.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -49,7 +49,7 @@ GameObject:
   - component: {fileID: 4828058358488868926}
   - component: {fileID: 514258949112130192}
   m_Layer: 0
-  m_Name: Car
+  m_Name: FlyingCar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,7 +100,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 043eef067de942042935ac5c3003c8ec, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carBody: {fileID: 867683852747971453}
   hoverPoints:
   - {fileID: 3912046137705037794}
   - {fileID: 5903925551302553231}
@@ -226,7 +225,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2089979408505365065}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.1970434, y: 1.1329823, z: -2.2108407}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -261,7 +260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2860116321196782305}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.19704342, y: -0.47673225, z: 4.2108407}
+  m_LocalPosition: {x: 0.4, y: 0, z: 1.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -292,7 +291,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2960941426354216464}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.19704342, y: -1.1329823, z: 0.2108407}
+  m_LocalPosition: {x: -0.4, y: 0, z: -1.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -323,7 +322,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3469661558953264321}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 2.1970434, y: -0.47673225, z: 4.2108407}
+  m_LocalPosition: {x: -0.4, y: 0, z: 1.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -384,7 +383,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 9b5de4fd43d8436439bacf2755b3fba8, type: 3}
       propertyPath: m_Name
-      value: CarModel
+      value: FlyingCarModel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
