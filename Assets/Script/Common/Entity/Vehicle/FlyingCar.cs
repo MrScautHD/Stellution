@@ -39,7 +39,7 @@ public class FlyingCar : AbstractVehicle {
             Ray ray = new Ray(hoverPoint.position, -hoverPoint.up);
 
             if (Physics.Raycast(ray, out var hit, this.hoverHeight)) {
-                float proportionalHeight = (this.hoverHeight = hit.distance) / this.hoverHeight;
+                float proportionalHeight = (this.hoverHeight - hit.distance) / this.hoverHeight;
                 Vector3 appliedHoverForce = Vector3.up * proportionalHeight * this.hoverForce;
                 carBody.AddForceAtPosition(appliedHoverForce, hoverPoint.position, ForceMode.Acceleration);
             }
