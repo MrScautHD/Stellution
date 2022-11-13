@@ -15,12 +15,8 @@ public class FlyingCar : AbstractVehicle {
         this.carBody = this.GetComponent<Rigidbody>();
     }
 
-    private void Update() {
-        base.Update();
-    }
-
     public void FixedUpdate() {
-        //base.FixedUpdate();
+        base.FixedUpdate();
         
         this.Movement();
         this.PassangerMovement();
@@ -37,7 +33,7 @@ public class FlyingCar : AbstractVehicle {
     private void HoverForce() {
         foreach (Transform hoverPoint in this.hoverPoints) {
             Ray ray = new Ray(hoverPoint.position, -hoverPoint.up);
-
+            
             if (Physics.Raycast(ray, out var hit, this.hoverHeight)) {
                 float proportionalHeight = (this.hoverHeight - hit.distance) / this.hoverHeight;
                 Vector3 appliedHoverForce = Vector3.up * proportionalHeight * this.hoverForce;
@@ -49,7 +45,7 @@ public class FlyingCar : AbstractVehicle {
     private void PassangerMovement() {
         if (this.GetMainPassenger() == null) return;
 
-        this.GetMainPassenger().transform.position = new Vector3(this.GetPos().x, this.GetPos().y + this.SeatHeight());;
-        this.GetMainPassenger().transform.rotation = this.transform.rotation;
+        this.GetMainPassenger().transform.position = this.GetSeatHeight();
+        this.SetRot(this.GetMainPassenger().GetRot());
     }
 }

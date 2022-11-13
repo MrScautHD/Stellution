@@ -18,11 +18,7 @@ public abstract class Entity : NetworkBehaviour {
     
     public Entity vehicle { get; private set; }
 
-    public void Start() {
-        
-    }
-
-    public void Update() {
+    private void Awake() {
         
     }
 
@@ -46,6 +42,7 @@ public abstract class Entity : NetworkBehaviour {
             
             passenger.SetVehicle(passenger, vehicle);
             passenger.isPassenger = true;
+            vehicle.isVehicle = true;
         }
     }
 
@@ -55,6 +52,7 @@ public abstract class Entity : NetworkBehaviour {
             
             passenger.SetVehicle(passenger, null);
             passenger.isPassenger = false;
+            vehicle.isVehicle = false;
         }
     }
     
@@ -68,7 +66,6 @@ public abstract class Entity : NetworkBehaviour {
 
     public void SetVehicle(Entity passenger ,Entity vehicle) {
         passenger.vehicle = vehicle;
-        vehicle.isVehicle = vehicle != null;
     }
 
     public void SetPos(Vector3 pos) {
@@ -77,5 +74,13 @@ public abstract class Entity : NetworkBehaviour {
 
     public Vector3 GetPos() {
         return this.transform.position;
+    }
+    
+    public void SetRot(Quaternion rot) {
+        this.transform.rotation = rot;
+    }
+
+    public Quaternion GetRot() {
+        return this.transform.rotation;
     }
 }
