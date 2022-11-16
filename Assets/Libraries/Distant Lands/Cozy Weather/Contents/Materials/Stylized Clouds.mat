@@ -103,12 +103,12 @@ Material:
     - _AltocumulusMultiplier: 0
     - _AltocumulusScale: 0.67
     - _BorderEffect: 1
-    - _BorderHeight: 0.56027555
+    - _BorderHeight: 0.5
     - _BorderSmoothness: 0.928
-    - _BorderVariation: 0.9221406
+    - _BorderVariation: 0.9
     - _BumpScale: 1
     - _ChemtrailsMoveSpeed: 0.5
-    - _ChemtrailsMultiplier: 0.8666282
+    - _ChemtrailsMultiplier: 0
     - _ChemtrialMoveSpeed: 1
     - _ChemtrialsMoveSpeed: 1
     - _CirrostratusMoveSpeed: 0.5
@@ -130,7 +130,7 @@ Material:
     - _Coverage: 0.61
     - _Coverage1: 0
     - _CumulusCoverage: 1
-    - _CumulusCoverageMultiplier: 0.19286199
+    - _CumulusCoverageMultiplier: 1
     - _CumulusCoverageMultiplier1: 1
     - _Cutoff: 0.5
     - _DetailAmount: 25
@@ -157,7 +157,7 @@ Material:
     - _NimbusHeight: 1
     - _NimbusHeightEffect: 1
     - _NimbusMultiplier: 0
-    - _NimbusVariation: 0.91652
+    - _NimbusVariation: 0.9
     - _NoiseScale: 0.1
     - _OcclusionStrength: 1
     - _Parallax: 0.02
@@ -173,7 +173,7 @@ Material:
     - _Spherize: 0.354
     - _Spherize1: 0.7351663
     - _SrcBlend: 1
-    - _SunFlareFalloff: 4.7253466
+    - _SunFlareFalloff: 14.9
     - _SunFlareFalloff1: 0.2
     - _TImeOffset: 0
     - _TextureAmount: 1.36
@@ -192,20 +192,20 @@ Material:
     m_Colors:
     - _ACWindSpeed: {r: -0.1, g: 0.5, b: 0, a: 0}
     - _AlphaRemap: {r: 0, g: 3, b: 0, a: 0}
-    - _AltoCloudColor: {r: 3.0023763, g: 1.3777612, b: 1.249042, a: 0}
+    - _AltoCloudColor: {r: 0.16678321, g: 0.2178393, b: 0.23712716, a: 0}
     - _AltoCloudColor1: {r: 0.8160377, g: 0.9787034, b: 1, a: 0}
     - _AltoCumulusWindSpeed: {r: -0.1, g: 0.5, b: 0, a: 0}
     - _AltocumulusWindSpeed: {r: -0.1, g: 0.5, b: 0, a: 0}
-    - _CloudColor: {r: 0.3672918, g: 0.23266847, b: 0.23642026, a: 0}
+    - _CloudColor: {r: 0.10508533, g: 0.1372543, b: 0.14940703, a: 0}
     - _CloudColor1: {r: 0.7264151, g: 0.7264151, b: 0.7264151, a: 0}
     - _CloudCoverageMovement: {r: 5, g: 20, b: 0, a: 0}
     - _CloudDetailColor: {r: 0.8867924, g: 0.8867924, b: 0.8867924, a: 0}
     - _CloudFlareColor: {r: 2.7294118, g: 2.3843138, b: 1.882353, a: 1}
-    - _CloudHighlightColor: {r: 2.3298879, g: 0.6475189, b: 0.5495065, a: 0}
+    - _CloudHighlightColor: {r: 0.8905089, g: 1.1631136, b: 1.2660977, a: 0}
     - _CloudHighlightColor1: {r: 1, g: 1, b: 1, a: 0}
     - _CloudHighlightColorr: {r: 1, g: 1, b: 1, a: 0}
     - _CloudScale: {r: 0.01, g: 0.05, b: 0.01, a: 0}
-    - _CloudTextureColor: {r: 0.6675392, g: 0.6675392, b: 0.6675392, a: 0}
+    - _CloudTextureColor: {r: 0.07998151, g: 0.10446564, b: 0.11371521, a: 0}
     - _CloudWind1: {r: 0.6, g: -0.8, b: 0, a: 0}
     - _CloudWind2: {r: 0.1, g: 0.2, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -215,12 +215,12 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _MainCloudWindDir: {r: 0.3, g: 0.1, b: 0, a: 0}
     - _MainCloudWindDir1: {r: 0.1, g: 0.2, b: 0, a: 0}
-    - _MoonColor: {r: 0.12652692, g: 0.19526525, b: 0.21356216, a: 1}
+    - _MoonColor: {r: 0, g: 0, b: 0, a: 1}
     - _MoonDirection: {r: 7.628955e-10, g: 0.99996185, b: 0.008726478, a: 0}
     - _SecondLayer: {r: 0.9056604, g: 0.9056604, b: 0.9056604, a: 0}
     - _SecondLayer1: {r: 0.8396226, g: 0.8396226, b: 0.8396226, a: 0}
     - _ShadowDirection: {r: 0, g: 0, b: 0, a: 0}
-    - _StormDirection: {r: 0.03037757, g: -0, b: 0.9995385, a: 0}
+    - _StormDirection: {r: 0.9973516, g: -0, b: -0.07273143, a: 0}
     - _SunDirection: {r: 0.021961212, g: 0.9569714, b: 0.28935018, a: 0}
     - _SunDirection1: {r: 0, g: 0, b: 0, a: 0}
     - _TexturePanDirection: {r: 0.1, g: 1, b: 0.1, a: 0}

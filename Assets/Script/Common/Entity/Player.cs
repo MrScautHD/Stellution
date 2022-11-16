@@ -1,3 +1,4 @@
+using Unity.Netcode;
 using UnityEngine;
 
 public class Player : LivingEntity {
@@ -26,6 +27,12 @@ public class Player : LivingEntity {
 
         if (Input.GetKey(KeyCode.LeftShift) && this.isPassenger) {
             this.RemovePassenger(this, this.vehicle);
+        }
+        
+        if (Input.GetKey(KeyCode.Z)) {
+            if (this.IsServer) {
+                Methods.Spawn(PrefabRegistry.FlyingCar, this.GetPos(), this.GetRot()); // TODO DO IT LAITER
+            }
         }
     }
 
