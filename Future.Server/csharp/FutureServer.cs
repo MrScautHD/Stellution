@@ -1,22 +1,14 @@
 using Future.Common.csharp.network;
-using Microsoft.Xna.Framework;
+using Future.Server.csharp.server;
 
 namespace Future.Server.csharp; 
 
-public class FutureServer {
+public class FutureServer : ServerTicker {
 
     private NetworkHandler _network;
     private ServerManager _serverManager;
-    
-    private double _timer;
-    private readonly double _delay = 1.0 / 60.0;
-    
-    public FutureServer() {
 
-        // START SERVER
-        Console.WriteLine("Press any KEY to start the Server!");
-        //Console.ReadKey(true);
-        
+    public FutureServer() {
         this._network = new NetworkHandler();
         this._network.CreateNetwork(true);
 
@@ -27,30 +19,6 @@ public class FutureServer {
     }
 
     public void Run() {
-        GameTime gameTime = new GameTime();
-        
-        while (this._serverManager.Network.IsRunning) {
-            // UPDATE
-            this.Update(gameTime);
-        }
-    }
-
-    // EVERY FRAME!
-    private void Update(GameTime gameTime) {
-
-        // FIXED UPDATE
-        this._timer += gameTime.ElapsedGameTime.TotalSeconds;
-        
-        Console.WriteLine(this._timer);
-
-        if (this._timer >= this._delay) {
-            this.FixedUpdate(gameTime);
-            this._timer -= this._delay;
-        }
-    }
-
-    // EVERY 60 TICKS PER SEC!
-    private void FixedUpdate(GameTime gameTime) {
-        Console.WriteLine("test");
+        this.RunTick(this._serverManager.Network.IsRunning);
     }
 }
