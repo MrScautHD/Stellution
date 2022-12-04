@@ -39,11 +39,11 @@
 
 <p align="center" style="margin-bottom: 0px !important;">
   
-   <a href="https://www.microsoft.com">
-    <img  src="https://user-images.githubusercontent.com/65916181/205486282-86cc03ab-d9d6-4e3e-8afa-a980cf0cc59e.png" alt="adf" align="center">
-  </a>
   <a href="https://www.apple.com/mac/">
     <img  src="https://user-images.githubusercontent.com/65916181/205486300-7f056c6c-23cc-4e21-b667-72d748e824ec.png" alt="adf" align="center">
+  </a>
+  <a href="https://www.microsoft.com">
+    <img  src="https://user-images.githubusercontent.com/65916181/205486282-86cc03ab-d9d6-4e3e-8afa-a980cf0cc59e.png" alt="adf" align="center">
   </a>
   
 </p>
