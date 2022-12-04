@@ -8,14 +8,11 @@
     </PropertyGroup>
     <PropertyGroup>
         <ApplicationManifest>app.manifest</ApplicationManifest>
-        <ApplicationIcon>Icon.ico</ApplicationIcon>
+        <ApplicationIcon>logo.ico</ApplicationIcon>
     </PropertyGroup>
     <ItemGroup>
         <None Remove="Icon.ico" />
         <None Remove="Icon.bmp" />
-    </ItemGroup>
-    <ItemGroup>
-        <EmbeddedResource Include="Icon.ico" />
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
