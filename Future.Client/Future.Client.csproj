@@ -5,10 +5,11 @@
         <RollForward>Major</RollForward>
         <PublishReadyToRun>false</PublishReadyToRun>
         <TieredCompilation>false</TieredCompilation>
+        <Authors>MrScautHD</Authors>
+        <ApplicationIcon>logo.ico</ApplicationIcon>
     </PropertyGroup>
     <PropertyGroup>
         <ApplicationManifest>app.manifest</ApplicationManifest>
-        <ApplicationIcon>logo.ico</ApplicationIcon>
     </PropertyGroup>
     <ItemGroup>
         <None Remove="Icon.ico" />
