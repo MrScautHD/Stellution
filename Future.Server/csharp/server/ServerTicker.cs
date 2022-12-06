@@ -19,36 +19,12 @@ public class ServerTicker {
     
     private double _timer;
     private readonly double _delay = 1.0 / 60.0;
-    
-    public TimeSpan InactiveSleepTime {
-        get => this._inactiveSleepTime;
-        set => this._inactiveSleepTime = !(value < TimeSpan.Zero) ? value : throw new ArgumentOutOfRangeException("The time must be positive.");
-    }
-
-    public TimeSpan TargetElapsedTime {
-        get => this._targetElapsedTime;
-        set {
-            if (value <= TimeSpan.Zero) {
-                throw new ArgumentOutOfRangeException("The time must be positive and non-zero.");
-            }
-
-            if (value > this._maxElapsedTime) {
-                throw new ArgumentOutOfRangeException("The time can not be larger than MaxElapsedTime");
-            }
-
-            if (!(value != this._targetElapsedTime)) {
-                return;
-            }
-            
-            this._targetElapsedTime = value;
-        }
-    }
 
     protected void RunTick(bool isRuning) { 
         while (true) {
             do {
-                if (this.InactiveSleepTime.TotalMilliseconds >= 1.0) {
-                    Thread.Sleep((int) this.InactiveSleepTime.TotalMilliseconds);
+                if (this._inactiveSleepTime.TotalMilliseconds >= 1.0) {
+                    Thread.Sleep((int) this._inactiveSleepTime.TotalMilliseconds);
                 }
             
                 if (this._gameTimer == null) {
@@ -60,17 +36,17 @@ public class ServerTicker {
                 this._accumulatedElapsedTime += TimeSpan.FromTicks(ticks - this._previousTicks);
                 this._previousTicks = ticks;
 
-                if (!(this._accumulatedElapsedTime < this.TargetElapsedTime)) {
+                if (!(this._accumulatedElapsedTime < this._targetElapsedTime)) {
                     if (this._accumulatedElapsedTime > this._maxElapsedTime) {
                        this._accumulatedElapsedTime = this._maxElapsedTime;
                     }
 
-                    this._gameTime.ElapsedGameTime = this.TargetElapsedTime;
+                    this._gameTime.ElapsedGameTime = this._targetElapsedTime;
       
                     int num = 0;
-                    while (this._accumulatedElapsedTime >= this.TargetElapsedTime && isRuning) {
-                        this._gameTime.TotalGameTime += this.TargetElapsedTime;
-                        this._accumulatedElapsedTime -= this.TargetElapsedTime;
+                    while (this._accumulatedElapsedTime >= this._targetElapsedTime && isRuning) {
+                        this._gameTime.TotalGameTime += this._targetElapsedTime;
+                        this._accumulatedElapsedTime -= this._targetElapsedTime;
                         ++num;
           
                         // UPDATE
@@ -100,11 +76,11 @@ public class ServerTicker {
                         --this._updateFrameLag;
                     }
 
-                    this._gameTime.ElapsedGameTime = TimeSpan.FromTicks(this.TargetElapsedTime.Ticks * (long) num);
+                    this._gameTime.ElapsedGameTime = TimeSpan.FromTicks(this._targetElapsedTime.Ticks * (long) num);
                 }
             }
         
-            while ((this.TargetElapsedTime - this._accumulatedElapsedTime).TotalMilliseconds < 2.0);
+            while ((this._targetElapsedTime - this._accumulatedElapsedTime).TotalMilliseconds < 2.0);
             Thread.Sleep(1);
         }
     }

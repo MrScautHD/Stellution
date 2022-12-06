@@ -1,5 +1,6 @@
 using Future.Common.csharp.network;
 using Future.Server.csharp.server;
+using Microsoft.Xna.Framework;
 
 namespace Future.Server.csharp; 
 
@@ -20,5 +21,13 @@ public class FutureServer : ServerTicker {
 
     public void Run() {
         this.RunTick(this._serverManager.Network.IsRunning);
+    }
+
+    protected override void Update(GameTime gameTime) {
+        Console.WriteLine("Update");
+    }
+
+    protected override void FixedUpdate(GameTime gameTime) {
+        Console.WriteLine("FixedUpdate");
     }
 }
