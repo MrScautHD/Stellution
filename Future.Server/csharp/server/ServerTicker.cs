@@ -28,8 +28,10 @@ public class ServerTicker {
     public TimeSpan MaxElapsedTime {
         get => this._maxElapsedTime;
         set {
-            if (value < TimeSpan.Zero)
+            if (value < TimeSpan.Zero) {
                 throw new ArgumentOutOfRangeException("The time must be positive.");
+            }
+            
             this._maxElapsedTime = !(value < this._targetElapsedTime) ? value : throw new ArgumentOutOfRangeException("The time must be at least TargetElapsedTime");
         }
     }
@@ -37,18 +39,24 @@ public class ServerTicker {
     public TimeSpan TargetElapsedTime {
         get => this._targetElapsedTime;
         set {
-            if (value <= TimeSpan.Zero)
+            if (value <= TimeSpan.Zero) {
                 throw new ArgumentOutOfRangeException("The time must be positive and non-zero.");
-            if (value > this._maxElapsedTime)
+            }
+
+            if (value > this._maxElapsedTime) {
                 throw new ArgumentOutOfRangeException("The time can not be larger than MaxElapsedTime");
-            if (!(value != this._targetElapsedTime))
+            }
+
+            if (!(value != this._targetElapsedTime)) {
                 return;
+            }
+            
             this._targetElapsedTime = value;
         }
     }
 
     protected void RunTick(bool isRuning) { 
-        while (true) { 
+        while (true) {
             do {
                 if (this._inactiveSleepTime.TotalMilliseconds >= 1.0) {
                     Thread.Sleep((int) this._inactiveSleepTime.TotalMilliseconds);
