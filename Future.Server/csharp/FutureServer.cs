@@ -1,5 +1,5 @@
 using Future.Common.csharp.network;
-using Future.Server.csharp.server;
+using Future.Server.csharp.ticker;
 using Microsoft.Xna.Framework;
 
 namespace Future.Server.csharp; 

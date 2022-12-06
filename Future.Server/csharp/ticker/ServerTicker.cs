@@ -1,7 +1,7 @@
 using System.Diagnostics;
 using Microsoft.Xna.Framework;
 
-namespace Future.Server.csharp.server;
+namespace Future.Server.csharp.ticker;
 
 public class ServerTicker {
     
