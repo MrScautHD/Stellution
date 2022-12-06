@@ -19,7 +19,7 @@ public class FutureServer : ServerTicker {
         this._serverManager = (ServerManager) this._network.GetNetwork(true);
         this._serverManager.Start("localhost", 4090);
         
-        Logger.Print("Server Started!");
+        Logger.Print("Server Started!", ConsoleColor.Green);
     }
 
     public void Run() {
@@ -27,10 +27,10 @@ public class FutureServer : ServerTicker {
     }
 
     protected override void Update(GameTime gameTime) {
-        Logger.Print("Update");
+        Logger.Print("Update", ConsoleColor.Magenta);
     }
 
     protected override void FixedUpdate(GameTime gameTime) {
-        Logger.Print("FixedUpdate");
+        Logger.Print("FixedUpdate", ConsoleColor.Red);
     }
 }

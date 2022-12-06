@@ -12,12 +12,18 @@ public class Logger {
         
         File.Create(this.GetName()).Close();
     }
+
+    public void Print(string message, ConsoleColor color) {
+        Console.ForegroundColor = color;
+        this.Print(message);
+        Console.ResetColor();
+    }
     
     public void Print(string message) {
         using (StreamWriter line = new StreamWriter(this.GetName(), true)) {
             line.WriteLine(message);
         }
-
+        
         Console.WriteLine(message);
     }
 
