@@ -24,7 +24,7 @@ public class ServerTicker {
         while (true) {
             do {
                 if (this._inactiveSleepTime.TotalMilliseconds >= 1.0) {
-                    Thread.Sleep((int)this._inactiveSleepTime.TotalMilliseconds);
+                    Thread.Sleep((int) this._inactiveSleepTime.TotalMilliseconds);
                 }
 
                 if (this._gameTimer == null) {
