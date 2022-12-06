@@ -26,9 +26,9 @@ public class DefaultRenderer {
 
     public void Draw(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, GameTime time) {
         this._camera.SetViewport();
-        
+
         spriteBatch.Begin(transformMatrix: this._camera.GetView3D());
-        this.DrawInWorld(graphicsDevice, spriteBatch, this._camera.GetView3D(), this._camera.GetProjection3D(), time);
+        this.DrawInWorld(graphicsDevice, spriteBatch, this._camera.GetView3D(), this._camera.GetProjection3D(1, 2), time);
         spriteBatch.End();
         
         this._camera.ResetViewport();
@@ -37,7 +37,7 @@ public class DefaultRenderer {
         this.DrawOnScreen(graphicsDevice, spriteBatch, this._camera.GetView3D(), this._camera.GetProjection3D(), time);
         
         // ANIMATIONS
-        this.Anim(graphicsDevice, spriteBatch, this._camera.GetView3D(), this._camera.GetProjection(), time);
+        this.Anim(graphicsDevice, spriteBatch, this._camera.GetView3D(), this._camera.GetProjection3D(), time);
     }
     
     protected void DrawModel(Model model, Texture2D texture, Matrix world, Matrix view, Matrix projection) {

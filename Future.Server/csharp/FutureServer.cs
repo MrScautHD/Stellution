@@ -26,9 +26,10 @@ public class FutureServer : ServerTicker {
         this.RunTick(this._serverManager.Network.IsRunning);
     }
 
+    /**
+     * The "Update" Method is limited to 60 FPS when "IsFixedTimeStep" (default) true.
+     */
     protected override void Update(GameTime gameTime) {
-        double fps = 1f / gameTime.ElapsedGameTime.TotalSeconds;
         
-        Logger.Print(fps.ToString(), ConsoleColor.Magenta);
     }
 }

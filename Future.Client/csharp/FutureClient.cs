@@ -19,18 +19,19 @@ public class FutureClient : Game {
 
     public FutureClient() {
         this._graphics = new GraphicsDeviceManager(this);
+        this.Content.RootDirectory = "content";
         
         this._graphics.SynchronizeWithVerticalRetrace = false; // Vysnc
         this.IsFixedTimeStep = false; // TICK
-
-        this.Content.RootDirectory = "content";
+        
+        
+        this.Window.AllowUserResizing = true;
         this.IsMouseVisible = true;
             
         this._graphics.PreferredBackBufferWidth = 1920;
         this._graphics.PreferredBackBufferHeight = 1080;
         
         //this._graphics.ToggleFullScreen();
-
         this._graphics.ApplyChanges();
         
         this._renderer = new StreetLightRenderer();

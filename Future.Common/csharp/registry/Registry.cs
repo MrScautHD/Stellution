@@ -21,7 +21,7 @@ public class Registry {
             case RegistryTypes.WorldType:
                 Worlds.Add(key, (AbstractWorld) registryObject);
                 break;
-            
+
             case RegistryTypes.ObjectType:
                 Objcets.Add(key, registryObject);
                 break;
