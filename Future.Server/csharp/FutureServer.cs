@@ -1,3 +1,4 @@
+using Future.Common.csharp.log;
 using Future.Common.csharp.network;
 using Future.Server.csharp.ticker;
 using Microsoft.Xna.Framework;
@@ -9,6 +10,8 @@ public class FutureServer : ServerTicker {
     private NetworkHandler _network;
     private ServerManager _serverManager;
 
+    public static Logger Logger = new Logger();
+
     public FutureServer() {
         this._network = new NetworkHandler();
         this._network.CreateNetwork(true);
@@ -16,7 +19,7 @@ public class FutureServer : ServerTicker {
         this._serverManager = (ServerManager) this._network.GetNetwork(true);
         this._serverManager.Start("localhost", 4090);
         
-        Console.WriteLine("Server Started!");
+        Logger.Print("Server Started!");
     }
 
     public void Run() {
@@ -24,10 +27,10 @@ public class FutureServer : ServerTicker {
     }
 
     protected override void Update(GameTime gameTime) {
-        Console.WriteLine("Update");
+        Logger.Print("Update");
     }
 
     protected override void FixedUpdate(GameTime gameTime) {
-        Console.WriteLine("FixedUpdate");
+        Logger.Print("FixedUpdate");
     }
 }

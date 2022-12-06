@@ -1,4 +1,5 @@
-﻿using Future.csharp.client.renderer.objects;
+﻿using Future.Common.csharp.log;
+using Future.csharp.client.renderer.objects;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -10,6 +11,8 @@ public class FutureClient : Game {
     private SpriteBatch _spriteBatch;
 
     private StreetLightRenderer _renderer;
+    
+    public static Logger Logger = new Logger();
 
     public FutureClient() {
         this._graphics = new GraphicsDeviceManager(this);
