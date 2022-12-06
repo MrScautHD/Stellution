@@ -10,10 +10,7 @@ public class FutureClient : Game {
     private SpriteBatch _spriteBatch;
 
     private StreetLightRenderer _renderer;
-    
-    private double _timer;
-    private double _delay = 1.0 / 60.0;
-    
+
     public FutureClient() {
         this._graphics = new GraphicsDeviceManager(this);
             
