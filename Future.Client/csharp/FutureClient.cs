@@ -1,5 +1,5 @@
-﻿using Future.Common.csharp.log;
-using Future.csharp.client.renderer.objects;
+﻿using Future.Client.csharp.renderer.objects;
+using Future.Common.csharp.log;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -13,10 +13,16 @@ public class FutureClient : Game {
     private StreetLightRenderer _renderer;
     
     public static Logger Logger = new Logger();
+    
+    private double _timer;
+    private readonly double _delay = 1.0 / 60.0;
 
     public FutureClient() {
         this._graphics = new GraphicsDeviceManager(this);
-            
+        
+        this._graphics.SynchronizeWithVerticalRetrace = false; // Vysnc
+        this.IsFixedTimeStep = false; // TICK
+
         this.Content.RootDirectory = "content";
         this.IsMouseVisible = true;
             
@@ -46,8 +52,34 @@ public class FutureClient : Game {
 
     protected override void Draw(GameTime gameTime) {
         this.GraphicsDevice.Clear(Color.CornflowerBlue);
-            
+
         // DEFAULT RENDERER
         this._renderer.Draw(this.GraphicsDevice, this._spriteBatch, gameTime);
+    }
+
+    /**
+     * "Update" Method is not Limited.
+     */
+    protected override void Update(GameTime gameTime) {
+        base.Update(gameTime);
+        
+        // FIXED UPDATE
+        this.FixedTimeCalculator(gameTime);
+    }
+
+    private void FixedTimeCalculator(GameTime gameTime) {
+        this._timer += gameTime.ElapsedGameTime.TotalSeconds;
+
+        if (this._timer >= this._delay) {
+            this.FixedUpdate(gameTime);
+            this._timer -= this._delay;
+        }
+    }
+
+    /**
+     * Limit "FixedUpdate" Method to 60 FPS.
+     */
+    private void FixedUpdate(GameTime gameTime) {
+        
     }
 }

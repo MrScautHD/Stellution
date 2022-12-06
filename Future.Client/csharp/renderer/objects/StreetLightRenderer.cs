@@ -1,9 +1,8 @@
-using Future.Client.csharp.renderer;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Future.csharp.client.renderer.objects;
+namespace Future.Client.csharp.renderer.objects;
 
 public class StreetLightRenderer : DefaultRenderer {
 
@@ -17,8 +16,8 @@ public class StreetLightRenderer : DefaultRenderer {
         this._texture = this.LoadTexture(content, "textures/objects/street_light");
     }
 
-    protected override void DrawForeground(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, Matrix view, Matrix projection, GameTime time) {
-        Matrix world = this.CreateMatrixPos(new Vector3(10, 0, 0));
+    protected override void DrawInWorld(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, Matrix view, Matrix projection, GameTime time) {
+        Matrix world = this.CreateMatrixPos(new Vector3(0, 0, 0));
 
         this.DrawModel(this._model, this._texture, world, view, projection);
     }

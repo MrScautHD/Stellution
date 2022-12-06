@@ -11,7 +11,7 @@ public class DefaultRenderer {
 
     private Camera _camera;
     private RenderTarget2D _renderTarget2D;
-
+    
     public virtual void Initialize(GraphicsDevice graphicsDevice, GameWindow window) {
         IVirtualViewport defaultViewport = new DefaultViewport(graphicsDevice, window);
         this._camera = new Camera(defaultViewport);
@@ -25,36 +25,30 @@ public class DefaultRenderer {
     }
 
     public void Draw(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, GameTime time) {
-        _camera.SetViewport();
-
-        spriteBatch.Begin(transformMatrix: _camera.GetView(-1));
-        this.DrawBackground(graphicsDevice, spriteBatch, _camera.GetView3D(), _camera.GetProjection3D(), time);
+        this._camera.SetViewport();
+        
+        spriteBatch.Begin(transformMatrix: this._camera.GetView3D());
+        this.DrawInWorld(graphicsDevice, spriteBatch, this._camera.GetView3D(), this._camera.GetProjection3D(), time);
         spriteBatch.End();
-
-        spriteBatch.Begin(transformMatrix: _camera.View);
-        this.DrawForeground(graphicsDevice, spriteBatch, _camera.GetView3D(), _camera.GetProjection3D(), time);
-        spriteBatch.End();
-
-        _camera.ResetViewport();
+        
+        this._camera.ResetViewport();
 
         // OVERLAYS, SCREENS...
-        this.DrawOnScreen(graphicsDevice, spriteBatch, _camera.GetView3D(), _camera.GetProjection3D(), time);
+        this.DrawOnScreen(graphicsDevice, spriteBatch, this._camera.GetView3D(), this._camera.GetProjection3D(), time);
         
         // ANIMATIONS
-        this.Anim(graphicsDevice, spriteBatch, _camera.GetView3D(), _camera.GetProjection(), time);
+        this.Anim(graphicsDevice, spriteBatch, this._camera.GetView3D(), this._camera.GetProjection(), time);
     }
     
     protected void DrawModel(Model model, Texture2D texture, Matrix world, Matrix view, Matrix projection) {
         foreach (ModelMesh mesh in model.Meshes) {
             foreach (BasicEffect effect in mesh.Effects) {
                 effect.Texture = texture;
-                effect.World = world;
-                effect.View = view;
-                effect.Projection = projection;
+                effect.TextureEnabled = true;
             }
- 
-            mesh.Draw();
         }
+        
+        model.Draw(world, view, projection);
     }
     
     protected void DrawSkinnedModel(SkinnedModel model, AnimationPlayer animationPlayer, SkinnedEffect effect) {
@@ -65,11 +59,7 @@ public class DefaultRenderer {
         }
     }
 
-    protected virtual void DrawBackground(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, Matrix view, Matrix projection, GameTime time) {
-
-    }
-
-    protected virtual void DrawForeground(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, Matrix view, Matrix projection, GameTime time) {
+    protected virtual void DrawInWorld(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, Matrix view, Matrix projection, GameTime time) {
 
     }
 
@@ -107,6 +97,10 @@ public class DefaultRenderer {
         sprite.Begin();
         sprite.Draw(this._renderTarget2D, new Vector2(0, 0), null, Color.White, 0.0F, Vector2.Zero, 1, SpriteEffects.None, 0.0F);
         sprite.End();
+    }
+
+    public double FpsCalculator(GameTime gameTime) {
+        return 1 / gameTime.ElapsedGameTime.TotalSeconds;
     }
     
     public Matrix CreateMatrixPos(Vector3 pos) {

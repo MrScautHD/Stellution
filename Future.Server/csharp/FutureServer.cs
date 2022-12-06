@@ -27,10 +27,8 @@ public class FutureServer : ServerTicker {
     }
 
     protected override void Update(GameTime gameTime) {
-        Logger.Print("Update", ConsoleColor.Magenta);
-    }
-
-    protected override void FixedUpdate(GameTime gameTime) {
-        Logger.Print("FixedUpdate", ConsoleColor.Red);
+        double fps = 1f / gameTime.ElapsedGameTime.TotalSeconds;
+        
+        Logger.Print(fps.ToString(), ConsoleColor.Magenta);
     }
 }
