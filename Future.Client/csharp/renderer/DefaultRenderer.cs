@@ -1,4 +1,3 @@
-using Apos.Camera;
 using Liru3D.Animations;
 using Liru3D.Models;
 using Microsoft.Xna.Framework;
@@ -9,12 +8,13 @@ namespace Future.Client.csharp.renderer;
 
 public class DefaultRenderer {
 
-    private Camera _camera;
+    private BasicCamera _camera;
     private RenderTarget2D _renderTarget2D;
     
     public virtual void Initialize(GraphicsDevice graphicsDevice, GameWindow window) {
-        IVirtualViewport defaultViewport = new DefaultViewport(graphicsDevice, window);
-        this._camera = new Camera(defaultViewport);
+        this._camera = new BasicCamera(graphicsDevice, window);
+        this._camera.Position = new Vector3(2, 10, 52);
+        this._camera.LookAtDirection = Vector3.Forward;
     }
 
     public virtual void LoadContent(GraphicsDevice graphicsDevice, ContentManager content) {
@@ -25,19 +25,17 @@ public class DefaultRenderer {
     }
 
     public void Draw(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, GameTime time) {
-        this._camera.SetViewport();
-
-        spriteBatch.Begin(transformMatrix: this._camera.GetView3D());
-        this.DrawInWorld(graphicsDevice, spriteBatch, this._camera.GetView3D(), this._camera.GetProjection3D(1, 2), time);
+        this._camera.Update(time);
+        
+        spriteBatch.Begin(transformMatrix: this._camera.View, samplerState: SamplerState.PointClamp, rasterizerState: RasterizerState.CullNone);
+        this.DrawInWorld(graphicsDevice, spriteBatch, this._camera.View, this._camera.Projection, time);
         spriteBatch.End();
         
-        this._camera.ResetViewport();
-
         // OVERLAYS, SCREENS...
-        this.DrawOnScreen(graphicsDevice, spriteBatch, this._camera.GetView3D(), this._camera.GetProjection3D(), time);
+        this.DrawOnScreen(graphicsDevice, spriteBatch, this._camera.View, this._camera.Projection, time);
         
         // ANIMATIONS
-        this.Anim(graphicsDevice, spriteBatch, this._camera.GetView3D(), this._camera.GetProjection3D(), time);
+        this.Anim(graphicsDevice, spriteBatch, this._camera.View, this._camera.Projection, time);
     }
     
     protected void DrawModel(Model model, Texture2D texture, Matrix world, Matrix view, Matrix projection) {
@@ -47,7 +45,7 @@ public class DefaultRenderer {
                 effect.TextureEnabled = true;
             }
         }
-        
+
         model.Draw(world, view, projection);
     }
     
@@ -83,13 +81,13 @@ public class DefaultRenderer {
         return content.Load<Texture2D>(texture);
     }
     
-    public void Begin2D(GraphicsDevice graphicsDevice, SpriteBatch sprite) {
+    protected void Begin2D(GraphicsDevice graphicsDevice, SpriteBatch sprite) {
         graphicsDevice.SetRenderTarget(this._renderTarget2D);
         graphicsDevice.Clear(Color.CornflowerBlue);
         sprite.Begin(samplerState: SamplerState.PointClamp, rasterizerState: RasterizerState.CullNone);
     }
 
-    public void End2D(GraphicsDevice graphicsDevice, SpriteBatch sprite) {
+    protected void End2D(GraphicsDevice graphicsDevice, SpriteBatch sprite) {
         sprite.End();
         
         graphicsDevice.SetRenderTarget(null);
@@ -103,15 +101,15 @@ public class DefaultRenderer {
         return 1 / gameTime.ElapsedGameTime.TotalSeconds;
     }
     
-    public Matrix CreateMatrixPos(Vector3 pos) {
+    protected Matrix CreateMatrixPos(Vector3 pos) {
         return Matrix.CreateTranslation(pos);
     }
 
-    public Viewport GetDisplayMode(GraphicsDevice graphicsDevice) {
+    protected Viewport GetDisplayMode(GraphicsDevice graphicsDevice) {
         return graphicsDevice.Viewport;
     }
 
-    public Camera GetCamera() {
+    public BasicCamera GetCamera() {
         return this._camera;
     }
 

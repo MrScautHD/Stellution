@@ -1,4 +1,5 @@
 ﻿using Future.Client.csharp.renderer.objects;
+using Future.Client.csharp.settings;
 using Future.Common.csharp.log;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,53 +10,50 @@ public class FutureClient : Game {
     
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
-
-    private StreetLightRenderer _renderer;
+    private GraphicSettings _graphicSettings;
     
     public static Logger Logger = new Logger();
     
+    // TICKER
     private double _timer;
     private readonly double _delay = 1.0 / 60.0;
 
     public FutureClient() {
         this._graphics = new GraphicsDeviceManager(this);
+        this._graphicSettings = new GraphicSettings(this._graphics, this.GraphicsDevice, this.Window);
+        
+        // GAME PROPERTIES
         this.Content.RootDirectory = "content";
-        
-        this._graphics.SynchronizeWithVerticalRetrace = false; // Vysnc
-        this.IsFixedTimeStep = false; // TICK
-        
-        
-        this.Window.AllowUserResizing = true;
+        this.IsFixedTimeStep = false;
         this.IsMouseVisible = true;
-            
-        this._graphics.PreferredBackBufferWidth = 1920;
-        this._graphics.PreferredBackBufferHeight = 1080;
         
-        //this._graphics.ToggleFullScreen();
-        this._graphics.ApplyChanges();
+        // GRAPHIC
+        this._graphicSettings.SetWindowSize(1920, 1080);
+        this._graphicSettings.SetVSync(false);
+        //this._graphicSettings.SetMultiSampling(true);
         
-        this._renderer = new StreetLightRenderer();
+        this._graphicSettings.Apply();
+        
+        _graphics.PreferMultiSampling = true;
+        _graphics.ApplyChanges();
     }
 
     protected override void Initialize() {
         base.Initialize();
         
-        // DEFAULT RENDERER
-        this._renderer.Initialize(this.GraphicsDevice, this.Window);
+        this._graphicSettings.SetMultiSamplingCount(8);
+        //this._graphicSettings.Apply();
+        
+        GraphicsDevice.PresentationParameters.MultiSampleCount = 8;
+        _graphics.ApplyChanges();
     }
 
     protected override void LoadContent() {
         this._spriteBatch = new SpriteBatch(this.GraphicsDevice);
-
-        // DEFAULT RENDERER
-        this._renderer.LoadContent(this.GraphicsDevice, this.Content);
     }
 
     protected override void Draw(GameTime gameTime) {
         this.GraphicsDevice.Clear(Color.CornflowerBlue);
-
-        // DEFAULT RENDERER
-        this._renderer.Draw(this.GraphicsDevice, this._spriteBatch, gameTime);
     }
 
     /**
