@@ -14,6 +14,9 @@
 
 #---------------------------------- Content ---------------------------------#
 
+#begin fonts/fontoe.ttf
+/copy:fonts/fontoe.ttf
+
 #begin models/objects/street_light.fbx
 /importer:FbxImporter
 /processor:ModelProcessor

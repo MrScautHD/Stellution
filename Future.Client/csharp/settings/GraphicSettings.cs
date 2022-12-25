@@ -16,6 +16,26 @@ public class GraphicSettings {
         this._graphicsDevice = graphicsDevice;
         this._graphics.GraphicsProfile = GraphicsProfile.HiDef;
         this._window.AllowUserResizing = true;
+        this.SetupDefaultSettingsOrSaved();
+    }
+
+    // ADD THE SAVE PART
+    private void SetupDefaultSettingsOrSaved() {
+        // GRAPHIC
+        this.SetWindowSize(1920, 1080);
+        this.SetVSync(false);
+
+        this.Apply();
+        
+        //this._graphics.PreferMultiSampling = true;
+        this._graphics.ApplyChanges();
+        
+        //this._graphicSettings.SetMultiSampling(true);
+        //this._graphicSettings.SetMultiSamplingCount(8);
+        //this._graphicSettings.Apply();
+        
+        //this.GraphicsDevice.PresentationParameters.MultiSampleCount = 8;
+        //this._graphics.ApplyChanges();
     }
 
     public void SetWindowSize(int width, int height) {

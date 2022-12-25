@@ -22,7 +22,6 @@
         <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
     </ItemGroup>
     <ItemGroup>
-      <Folder Include="csharp\registry" />
       <Folder Include="csharp\renderer\entity" />
       <Folder Include="csharp\renderer\gui" />
       <Folder Include="csharp\renderer\sky" />
