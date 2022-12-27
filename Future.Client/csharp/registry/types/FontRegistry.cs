@@ -5,11 +5,11 @@ using SpriteFontPlus;
 
 namespace Future.Client.csharp.registry.types; 
 
-public class FontClientRegistry : ClientRegistry {
+public class FontRegistry : IClientRegistry {
     
     public static SpriteFont Fontoe { get; private set; }
 
-    public override void LoadContent(GraphicsDevice graphicsDevice, ContentManager content) {
+    public void LoadContent(GraphicsDevice graphicsDevice, ContentManager content) {
         Fontoe = this.Register("fontoe", graphicsDevice, content);
     }
 

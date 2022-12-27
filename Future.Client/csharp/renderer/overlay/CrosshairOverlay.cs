@@ -18,7 +18,7 @@ public class CrosshairOverlay : DefaultRenderer {
         base.DrawOnScreen(graphicsDevice, spriteBatch, view, projection, time);
         
         this.Begin2D(graphicsDevice, spriteBatch);
-        spriteBatch.DrawString(FontClientRegistry.Fontoe, "Test", new Vector2(100, 100), Color.White);
+        spriteBatch.DrawString(FontRegistry.Fontoe, "Test", new Vector2(100, 100), Color.White);
         this.End2D(graphicsDevice, spriteBatch);
         
         int width = 30;

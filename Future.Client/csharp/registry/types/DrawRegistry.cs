@@ -7,7 +7,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Future.Client.csharp.registry.types; 
 
-public class DrawRegistry : ClientRegistry {
+public class DrawRegistry : IClientRegistry {
 
     // OBJECTS
     public static readonly StreetLightRenderer StreetLightRenderer = Register<StreetLightRenderer>("street_light", new StreetLightRenderer());
@@ -21,20 +21,20 @@ public class DrawRegistry : ClientRegistry {
         return (T) renderer;
     }
     
-    public override void Initialize(GraphicsDevice graphicsDevice, GameWindow window) {
-        foreach (var renderer in RegistryTypes.Renderers.Values) {
+    public void Initialize(GraphicsDevice graphicsDevice, GameWindow window) {
+        foreach (DefaultRenderer renderer in RegistryTypes.Renderers.Values) {
             renderer.Initialize(graphicsDevice, window);
         }
     }
 
-    public override void LoadContent(GraphicsDevice graphicsDevice, ContentManager content) {
-        foreach (var renderer in RegistryTypes.Renderers.Values) {
+    public void LoadContent(GraphicsDevice graphicsDevice, ContentManager content) {
+        foreach (DefaultRenderer renderer in RegistryTypes.Renderers.Values) {
             renderer.LoadContent(graphicsDevice, content);
         }
     }
 
-    public override void Draw(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, GameTime time) {
-        foreach (var renderer in RegistryTypes.Renderers.Values) {
+    public void Draw(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, GameTime time) {
+        foreach (DefaultRenderer renderer in RegistryTypes.Renderers.Values) {
             renderer.Draw(graphicsDevice, spriteBatch, time);
         }
     }

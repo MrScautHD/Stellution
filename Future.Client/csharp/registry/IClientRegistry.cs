@@ -5,9 +5,9 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Future.Client.csharp.registry; 
 
-public abstract class ClientRegistry {
+public interface IClientRegistry {
 
-     public static readonly List<ClientRegistry> Registries = new();
+     public static readonly List<IClientRegistry> Registries = new();
 
      public virtual void Initialize(GraphicsDevice graphicsDevice, GameWindow window) {
           

@@ -3,7 +3,7 @@ using Microsoft.Xna.Framework;
 
 namespace Future.Client.csharp.registry.types; 
 
-public class TickerRegistry : ClientRegistry {
+public class TickerRegistry : IClientRegistry {
 
     public static readonly ClientTicker ClientTicker = Register("client_ticker");
 
@@ -13,8 +13,10 @@ public class TickerRegistry : ClientRegistry {
         RegistryTypes.Ticker.Add(name, ticker);
         return ticker;
     }
-    
-    public override void Update(GameTime time) {
+
+    public void Update(GameTime time) {
+        FutureClient.Logger.Print("IT WORKS!");
+        
         foreach (ClientTicker ticker in RegistryTypes.Ticker.Values) {
             ticker.Update(time);
         }

@@ -25,16 +25,16 @@ public class FutureClient : Game {
         this.IsMouseVisible = true;
         
         // REGISTRY
-        ClientRegistry.Registries.Add(new DrawRegistry());
-        ClientRegistry.Registries.Add(new FontClientRegistry());
-        ClientRegistry.Registries.Add(new TickerRegistry());
+        IClientRegistry.Registries.Add(new DrawRegistry());
+        IClientRegistry.Registries.Add(new FontRegistry());
+        IClientRegistry.Registries.Add(new TickerRegistry());
     }
 
     protected override void Initialize() {
         base.Initialize();
         
         // INIT REGISTRY
-        foreach (ClientRegistry registry in ClientRegistry.Registries) {
+        foreach (IClientRegistry registry in IClientRegistry.Registries) {
             registry.Initialize(this.GraphicsDevice, this.Window);
         }
     }
@@ -43,7 +43,7 @@ public class FutureClient : Game {
         this._spriteBatch = new SpriteBatch(this.GraphicsDevice);
         
         // LOAD REGISTRY
-        foreach (ClientRegistry registry in ClientRegistry.Registries) {
+        foreach (IClientRegistry registry in IClientRegistry.Registries) {
             registry.LoadContent(this.GraphicsDevice, this.Content);
         }
     }
@@ -52,7 +52,7 @@ public class FutureClient : Game {
         this.GraphicsDevice.Clear(Color.CornflowerBlue);
         
         // DRAW REGISTRY
-        foreach (ClientRegistry registry in ClientRegistry.Registries) {
+        foreach (IClientRegistry registry in IClientRegistry.Registries) {
             registry.Draw(this.GraphicsDevice, this._spriteBatch, gameTime);
         }
     }
@@ -61,7 +61,7 @@ public class FutureClient : Game {
         base.Update(gameTime);
 
         // UPDATE REGISTRY
-        foreach (ClientRegistry registry in ClientRegistry.Registries) {
+        foreach (IClientRegistry registry in IClientRegistry.Registries) {
             registry.Update(gameTime);
         }
     }
