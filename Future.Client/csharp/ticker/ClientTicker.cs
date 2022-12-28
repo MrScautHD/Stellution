@@ -2,13 +2,12 @@ using Microsoft.Xna.Framework;
 
 namespace Future.Client.csharp.ticker; 
 
-public class ClientTicker {
+public class ClientTicker : IClientTicker {
     
     private double _timer;
     private readonly double _delay = 1.0 / 60.0;
     
     public virtual void Update(GameTime gameTime) {
-        
         // FIXED UPDATE
         this.FixedTimeCalculator(gameTime);
     }

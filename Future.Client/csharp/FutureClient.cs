@@ -11,6 +11,7 @@ public class FutureClient : Game {
     
     private GraphicsDeviceManager _graphics;
     private SpriteBatch _spriteBatch;
+    private RenderTarget2D _renderTarget2D;
     private GraphicSettings _graphicSettings;
     
     public static Logger Logger = new Logger();
@@ -33,6 +34,8 @@ public class FutureClient : Game {
     protected override void Initialize() {
         base.Initialize();
         
+        this._renderTarget2D = new RenderTarget2D(this.GraphicsDevice, 1920, 1080);
+        
         // INIT REGISTRY
         foreach (IClientRegistry registry in IClientRegistry.Registries) {
             registry.Initialize(this.GraphicsDevice, this.Window);
@@ -49,12 +52,24 @@ public class FutureClient : Game {
     }
 
     protected override void Draw(GameTime gameTime) {
+        this.GraphicsDevice.SetRenderTarget(this._renderTarget2D);
         this.GraphicsDevice.Clear(Color.CornflowerBlue);
+        
+        this._spriteBatch.Begin(samplerState: SamplerState.PointClamp, rasterizerState: RasterizerState.CullNone);
         
         // DRAW REGISTRY
         foreach (IClientRegistry registry in IClientRegistry.Registries) {
             registry.Draw(this.GraphicsDevice, this._spriteBatch, gameTime);
         }
+        
+        this._spriteBatch.End();
+        
+        this.GraphicsDevice.SetRenderTarget(null);
+        this.GraphicsDevice.Clear(Color.CornflowerBlue);
+        
+        this._spriteBatch.Begin(samplerState: SamplerState.PointClamp, rasterizerState: RasterizerState.CullNone);
+        this._spriteBatch.Draw(this._renderTarget2D, new Vector2(0, 0), null, Color.White, 0.0F, Vector2.Zero, 1, SpriteEffects.None, 1.0F);
+        this._spriteBatch.End();
     }
     
     protected override void Update(GameTime gameTime) {

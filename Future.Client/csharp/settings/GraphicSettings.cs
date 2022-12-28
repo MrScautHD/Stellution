@@ -21,12 +21,13 @@ public class GraphicSettings {
 
     // ADD THE SAVE PART
     private void SetupDefaultSettingsOrSaved() {
+
         // GRAPHIC
         this.SetWindowSize(1920, 1080);
         this.SetVSync(false);
 
         this.Apply();
-        
+
         //this._graphics.PreferMultiSampling = true;
         this._graphics.ApplyChanges();
         

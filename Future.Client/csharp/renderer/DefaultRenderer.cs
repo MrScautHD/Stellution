@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Future.Client.csharp.renderer;
 
-public class DefaultRenderer {
+public class DefaultRenderer : IRenderer {
 
     private BasicCamera _camera;
     private RenderTarget2D _renderTarget2D;
@@ -27,9 +27,9 @@ public class DefaultRenderer {
     public void Draw(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, GameTime time) {
         this._camera.Update(time);
         
-        spriteBatch.Begin(transformMatrix: this._camera.View, samplerState: SamplerState.PointClamp, rasterizerState: RasterizerState.CullNone);
+        //spriteBatch.Begin(transformMatrix: this._camera.View, samplerState: SamplerState.PointClamp, rasterizerState: RasterizerState.CullNone);
         this.DrawInWorld(graphicsDevice, spriteBatch, this._camera.View, this._camera.Projection, time);
-        spriteBatch.End();
+        //spriteBatch.End();
         
         // OVERLAYS, SCREENS...
         this.DrawOnScreen(graphicsDevice, spriteBatch, this._camera.View, this._camera.Projection, time);
@@ -58,7 +58,7 @@ public class DefaultRenderer {
     }
 
     protected virtual void DrawInWorld(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, Matrix view, Matrix projection, GameTime time) {
-
+        
     }
 
     protected virtual void DrawOnScreen(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, Matrix view, Matrix projection, GameTime time) {
@@ -79,22 +79,6 @@ public class DefaultRenderer {
 
     protected Texture2D LoadTexture(ContentManager content, string texture) {
         return content.Load<Texture2D>(texture);
-    }
-    
-    protected void Begin2D(GraphicsDevice graphicsDevice, SpriteBatch sprite) {
-        graphicsDevice.SetRenderTarget(this._renderTarget2D);
-        graphicsDevice.Clear(Color.CornflowerBlue);
-        sprite.Begin(samplerState: SamplerState.PointClamp, rasterizerState: RasterizerState.CullNone);
-    }
-
-    protected void End2D(GraphicsDevice graphicsDevice, SpriteBatch sprite) {
-        sprite.End();
-        
-        graphicsDevice.SetRenderTarget(null);
-        graphicsDevice.Clear(Color.CornflowerBlue);
-        sprite.Begin();
-        sprite.Draw(this._renderTarget2D, new Vector2(0, 0), null, Color.White, 0.0F, Vector2.Zero, 1, SpriteEffects.None, 0.0F);
-        sprite.End();
     }
 
     public double FpsCalculator(GameTime gameTime) {

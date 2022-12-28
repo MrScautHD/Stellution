@@ -10,31 +10,31 @@ namespace Future.Client.csharp.registry.types;
 public class DrawRegistry : IClientRegistry {
 
     // OBJECTS
-    public static readonly StreetLightRenderer StreetLightRenderer = Register<StreetLightRenderer>("street_light", new StreetLightRenderer());
+    public readonly StreetLightRenderer StreetLightRenderer = Register("street_light", new StreetLightRenderer());
     
     // OVERLAY
-    public static readonly CrosshairOverlay CrosshairOverlay = Register<CrosshairOverlay>("crosshair", new CrosshairOverlay());
-    
-    private static T Register<T>(string name, object renderer) {
-        RegistryTypes.Renderers.Add(name, (DefaultRenderer) renderer);
+    public readonly CrosshairOverlay CrosshairOverlay = Register("crosshair", new CrosshairOverlay());
 
-        return (T) renderer;
+    private static T Register<T>(string name, T renderer) {
+        RegistryTypes.Renderers.Add(name, (IRenderer) renderer);
+        
+        return renderer;
     }
     
     public void Initialize(GraphicsDevice graphicsDevice, GameWindow window) {
-        foreach (DefaultRenderer renderer in RegistryTypes.Renderers.Values) {
+        foreach (IRenderer renderer in RegistryTypes.Renderers.Values) {
             renderer.Initialize(graphicsDevice, window);
         }
     }
 
     public void LoadContent(GraphicsDevice graphicsDevice, ContentManager content) {
-        foreach (DefaultRenderer renderer in RegistryTypes.Renderers.Values) {
+        foreach (IRenderer renderer in RegistryTypes.Renderers.Values) {
             renderer.LoadContent(graphicsDevice, content);
         }
     }
 
     public void Draw(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, GameTime time) {
-        foreach (DefaultRenderer renderer in RegistryTypes.Renderers.Values) {
+        foreach (IRenderer renderer in RegistryTypes.Renderers.Values) {
             renderer.Draw(graphicsDevice, spriteBatch, time);
         }
     }
