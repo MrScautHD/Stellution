@@ -1,3 +1,4 @@
+using FontStashSharp;
 using Future.Client.csharp.registry.types;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
@@ -18,7 +19,7 @@ public class CrosshairOverlay : DefaultRenderer {
         base.DrawOnScreen(graphicsDevice, spriteBatch, view, projection, time);
         
         this.DefaultBegin(spriteBatch);
-        spriteBatch.DrawString(FontRegistry.Fontoe, "Test", new Vector2(100, 100), Color.White);
+        spriteBatch.DrawString(FontRegistry.Fontoe.GetFont(25), "WELCOME!!!!", new Vector2(100, 100), Color.White);
         this.DefaultEnd(spriteBatch);
         
         int width = 30;
