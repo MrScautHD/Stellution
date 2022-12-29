@@ -28,6 +28,7 @@ public class DefaultRenderer : IRenderer {
     public void Draw(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, GameTime time) {
         this._camera.Update(time);
         
+        // MODELS
         this.DrawInWorld(graphicsDevice, spriteBatch, this._camera.View, this._camera.Projection, time);
 
         // OVERLAYS, SCREENS...
