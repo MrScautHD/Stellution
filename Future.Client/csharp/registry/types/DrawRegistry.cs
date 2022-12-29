@@ -15,8 +15,8 @@ public class DrawRegistry : IClientRegistry {
     // OVERLAY
     public readonly CrosshairOverlay CrosshairOverlay = Register("crosshair", new CrosshairOverlay());
 
-    private static T Register<T>(string name, T renderer) {
-        RegistryTypes.Renderers.Add(name, (IRenderer) renderer);
+    private static T Register<T>(string name, T renderer) where T : IRenderer {
+        RegistryTypes.Renderers.Add(name, renderer);
         
         return renderer;
     }

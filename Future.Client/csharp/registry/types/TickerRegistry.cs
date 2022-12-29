@@ -7,8 +7,8 @@ public class TickerRegistry : IClientRegistry {
 
     public readonly ClientTicker ClientTicker = Register("client_ticker", new ClientTicker());
 
-    private static T Register<T>(string name, T ticker) {
-        RegistryTypes.Ticker.Add(name, (IClientTicker) ticker);
+    private static T Register<T>(string name, T ticker) where T : IClientTicker {
+        RegistryTypes.Ticker.Add(name, ticker);
         
         return ticker;
     }
