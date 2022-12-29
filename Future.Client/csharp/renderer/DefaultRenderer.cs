@@ -1,3 +1,4 @@
+using System;
 using Liru3D.Animations;
 using Liru3D.Models;
 using Microsoft.Xna.Framework;
@@ -27,10 +28,8 @@ public class DefaultRenderer : IRenderer {
     public void Draw(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, GameTime time) {
         this._camera.Update(time);
         
-        //spriteBatch.Begin(transformMatrix: this._camera.View, samplerState: SamplerState.PointClamp, rasterizerState: RasterizerState.CullNone);
         this.DrawInWorld(graphicsDevice, spriteBatch, this._camera.View, this._camera.Projection, time);
-        //spriteBatch.End();
-        
+
         // OVERLAYS, SCREENS...
         this.DrawOnScreen(graphicsDevice, spriteBatch, this._camera.View, this._camera.Projection, time);
         
@@ -67,6 +66,19 @@ public class DefaultRenderer : IRenderer {
 
     protected virtual void Anim(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, Matrix view, Matrix projection, GameTime time) {
         
+    }
+
+    protected void DefaultBegin(SpriteBatch spriteBatch, Matrix? view = null) {
+        if (view != null) {
+            spriteBatch.Begin(transformMatrix: view, samplerState: SamplerState.PointClamp, rasterizerState: RasterizerState.CullNone);
+            return;
+        }
+
+        spriteBatch.Begin(samplerState: SamplerState.PointClamp, rasterizerState: RasterizerState.CullNone);
+    }
+    
+    protected void DefaultEnd(SpriteBatch spriteBatch) {
+        spriteBatch.End();
     }
 
     protected Model LoadModel(ContentManager content, string model) {

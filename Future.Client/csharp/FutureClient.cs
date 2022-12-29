@@ -55,15 +55,11 @@ public class FutureClient : Game {
         this.GraphicsDevice.SetRenderTarget(this._renderTarget2D);
         this.GraphicsDevice.Clear(Color.CornflowerBlue);
         
-        this._spriteBatch.Begin(samplerState: SamplerState.PointClamp, rasterizerState: RasterizerState.CullNone);
-        
         // DRAW REGISTRY
         foreach (IClientRegistry registry in IClientRegistry.Registries) {
             registry.Draw(this.GraphicsDevice, this._spriteBatch, gameTime);
         }
-        
-        this._spriteBatch.End();
-        
+
         this.GraphicsDevice.SetRenderTarget(null);
         this.GraphicsDevice.Clear(Color.CornflowerBlue);
         

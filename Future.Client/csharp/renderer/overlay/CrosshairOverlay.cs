@@ -17,9 +17,9 @@ public class CrosshairOverlay : DefaultRenderer {
     protected override void DrawOnScreen(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, Matrix view, Matrix projection, GameTime time) {
         base.DrawOnScreen(graphicsDevice, spriteBatch, view, projection, time);
         
-        //this.Begin2D(graphicsDevice, spriteBatch);
+        this.DefaultBegin(spriteBatch);
         spriteBatch.DrawString(FontRegistry.Fontoe, "Test", new Vector2(100, 100), Color.White);
-        //this.End2D(graphicsDevice, spriteBatch);
+        this.DefaultEnd(spriteBatch);
         
         int width = 30;
         int height = 30;
@@ -27,8 +27,8 @@ public class CrosshairOverlay : DefaultRenderer {
         int x = (this.GetDisplayMode(graphicsDevice).Width / 2) - (width / 2);
         int y = (this.GetDisplayMode(graphicsDevice).Height / 2) - (height / 2);
 
-        //this.Begin2D(graphicsDevice, spriteBatch);
+        this.DefaultBegin(spriteBatch);
         spriteBatch.Draw(this._texture, new Rectangle(x, y, width, height), Color.White);
-        //this.End2D(graphicsDevice, spriteBatch);
+        this.DefaultEnd(spriteBatch);
     }
 }
