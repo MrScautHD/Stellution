@@ -8,11 +8,11 @@ namespace Future.Client.csharp.renderer;
 
 public class DefaultRenderer : IRenderer {
 
-    private BasicCamera _camera;
+    private Camera _camera;
     private RenderTarget2D _renderTarget2D;
     
     public virtual void Initialize(GraphicsDevice graphicsDevice, GameWindow window) {
-        this._camera = new BasicCamera(graphicsDevice, window);
+        this._camera = new Camera(graphicsDevice);
         this._camera.Position = new Vector3(2, 10, 52);
         this._camera.LookAtDirection = Vector3.Forward;
     }
@@ -25,10 +25,10 @@ public class DefaultRenderer : IRenderer {
     }
 
     public void Draw(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, GameTime time) {
-        this._camera.Update(time);
-        
         // MODELS
+        this.EnableDepth(graphicsDevice);
         this.DrawInWorld(graphicsDevice, spriteBatch, this._camera.View, this._camera.Projection, time);
+        this.DisableDepth(graphicsDevice);
 
         // OVERLAYS, SCREENS...
         this.DrawOnScreen(graphicsDevice, spriteBatch, this._camera.View, this._camera.Projection, time);
@@ -67,14 +67,34 @@ public class DefaultRenderer : IRenderer {
     protected virtual void Anim(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, Matrix view, Matrix projection, GameTime time) {
         
     }
+    
+    protected void EnableCull(GraphicsDevice graphicsDevice) {
+        RasterizerState rasterizerState = new RasterizerState();
+        rasterizerState.CullMode = CullMode.CullCounterClockwiseFace;
+        graphicsDevice.RasterizerState = rasterizerState;
+    }
+    
+    protected void DisableCull(GraphicsDevice graphicsDevice) {
+        RasterizerState rasterizerState = new RasterizerState();
+        rasterizerState.CullMode = CullMode.None;
+        graphicsDevice.RasterizerState = rasterizerState;
+    }
 
-    protected void DefaultBegin(SpriteBatch spriteBatch, Matrix? view = null) {
+    protected void EnableDepth(GraphicsDevice graphicsDevice) {
+        graphicsDevice.DepthStencilState = DepthStencilState.Default;
+    }
+
+    protected void DisableDepth(GraphicsDevice graphicsDevice) {
+        graphicsDevice.DepthStencilState = DepthStencilState.None;
+    }
+
+    protected void DefaultBegin(SpriteBatch spriteBatch, RasterizerState rasterizerState, Matrix? view = null) {
         if (view != null) {
-            spriteBatch.Begin(transformMatrix: view, samplerState: SamplerState.PointClamp, rasterizerState: RasterizerState.CullNone);
+            spriteBatch.Begin(transformMatrix: view, samplerState: SamplerState.PointClamp, rasterizerState: rasterizerState);
             return;
         }
 
-        spriteBatch.Begin(samplerState: SamplerState.PointClamp, rasterizerState: RasterizerState.CullNone);
+        spriteBatch.Begin(samplerState: SamplerState.PointClamp, rasterizerState: rasterizerState);
     }
     
     protected void DefaultEnd(SpriteBatch spriteBatch) {
@@ -105,7 +125,7 @@ public class DefaultRenderer : IRenderer {
         return graphicsDevice.Viewport;
     }
 
-    public BasicCamera GetCamera() {
+    public Camera GetCamera() {
         return this._camera;
     }
 

@@ -29,7 +29,7 @@ public class GraphicSettings {
         this.Apply();
 
         //this._graphics.PreferMultiSampling = true;
-        this._graphics.ApplyChanges();
+        //this._graphics.ApplyChanges();
         
         //this._graphicSettings.SetMultiSampling(true);
         //this._graphicSettings.SetMultiSamplingCount(8);
