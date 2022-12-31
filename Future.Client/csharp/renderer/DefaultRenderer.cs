@@ -13,7 +13,7 @@ public class DefaultRenderer : IRenderer {
     private RenderTarget2D _renderTarget2D;
     
     public virtual void Initialize(GraphicsDevice graphicsDevice, GameWindow window) {
-        this._camera = new Camera(graphicsDevice);
+        this._camera = new Camera(graphicsDevice, 80);
         this._camera.Position = new Vector3(2, 10, 52);
         this._camera.Forward = Vector3.Forward;
     }
@@ -26,8 +26,6 @@ public class DefaultRenderer : IRenderer {
     }
 
     public void Draw(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, GameTime time) {
-        this._camera.Move(time, false);
-        
         // MODELS
         this.EnableDepth(graphicsDevice);
         this.DrawInWorld(graphicsDevice, spriteBatch, this._camera.View, this._camera.Projection, time);

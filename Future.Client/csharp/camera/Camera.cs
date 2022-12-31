@@ -7,67 +7,89 @@ public class Camera {
     
     private GraphicsDevice _graphicsDevice;
 
-    public float FieldOfViewDegrees = 80f;
+    private float _fov;
 
     public Matrix View { get; private set; }
     public Matrix Projection { get; private set; }
-    public Matrix World;
+    private Matrix _world;
 
-    public Camera(GraphicsDevice graphicsDevice) {
+    public Camera(GraphicsDevice graphicsDevice, float fov) {
         this._graphicsDevice = graphicsDevice;
-        this.ReCreateWorldAndView();
-        this.ReCreateThePerspectiveProjectionMatrix(this.FieldOfViewDegrees);
+        this.FieldOfViewDegrees = fov;
+    }
+    
+    /**
+     * Get / Set FOV
+     */
+    public float FieldOfViewDegrees {
+        get => this._fov;
+
+        set {
+            this._fov = value;
+            this.UpdatePerspective(this.FieldOfViewDegrees);
+            this.SetWorldAndView(this.Forward);
+        }
     }
 
+    /**
+     * Get / Set Position
+     */
     public Vector3 Position {
-        get => this.World.Translation;
+        get => this._world.Translation;
 
         set {
-            this.World.Translation = value;
-            this.ReCreateWorldAndView();
+            this._world.Translation = value;
+            this.SetWorldAndView(this.Forward);
         }
     }
 
+    /**
+     * Get / Set Forward Vector
+     */
     public Vector3 Forward {
-        get => this.World.Forward;
+        get => this._world.Forward;
 
         set {
-            this.SetWorldAndView(Matrix.CreateWorld(this.World.Translation, value, Vector3.Up));
-            this.ReCreateWorldAndView();
+            this.SetWorldAndView(value);
         }
     }
-    
-    public void SetWorldAndView(Matrix world) {
-        this.World = world;
-        this.View = Matrix.CreateLookAt(this.World.Translation, this.World.Forward + this.World.Translation, this.World.Up);
-    }
-    
-    public void TargetPositionToLookAt(Vector3 targetPosition) {
-        this.SetWorldAndView(Matrix.CreateWorld(this.World.Translation, Vector3.Normalize(targetPosition - this.World.Translation), Vector3.Up));
-        this.ReCreateWorldAndView();
-    }
 
-    public void LookAtTheTargetMatrix(Matrix targetMatrix) {
-        this.SetWorldAndView(Matrix.CreateWorld(this.World.Translation, Vector3.Normalize(targetMatrix.Translation - this.World.Translation), Vector3.Up));
-        this.ReCreateWorldAndView();
-    }
-
-    private void ReCreateWorldAndView() {
-        this.SetWorldAndView(Matrix.CreateWorld(World.Translation, World.Forward, Vector3.Up));
-        this.View = Matrix.CreateLookAt(World.Translation, World.Forward + World.Translation, World.Up);
+    /**
+     * Set World and View Matrix
+     */
+    private void SetWorldAndView(Vector3 forward) {
+        this._world = Matrix.CreateWorld(this._world.Translation, forward, Vector3.Up);
+        this.View = Matrix.CreateLookAt(this._world.Translation, this._world.Forward + this._world.Translation, this._world.Up);
     }
     
-    public void ReCreateThePerspectiveProjectionMatrix(float fovInDegrees) {
+    /**
+     * Update FOV
+     */
+    private void UpdatePerspective(float fovInDegrees) {
         float aspectRatio = this._graphicsDevice.Viewport.Width / (float) this._graphicsDevice.Viewport.Height;
         this.Projection = Matrix.CreatePerspectiveFieldOfView(fovInDegrees * (3.14159265358f / 180f), aspectRatio, .05f, 1000f);
     }
 
-    public void Move(GameTime time, bool forward, int speed = 30) {
-        if (forward) {
-            this.Position += (this.World.Forward * speed) * (float) time.ElapsedGameTime.TotalSeconds;
-        }
-        else {
-            this.Position -= (this.World.Forward * speed) * (float) time.ElapsedGameTime.TotalSeconds;
-        }
+    /**
+     * Tag a Pos on that the Camera should look
+     */
+    public void TargetPositionToLookAt(Vector3 targetPosition) {
+        this.SetWorldAndView(Vector3.Normalize(targetPosition - this._world.Translation));
+    }
+    
+    /**
+     * Move Camera (Normally Tagged to the Player)
+     */
+    public void Move(GameTime time, int speed = 30) {
+        this.Position += (this._world.Forward * speed) * (float) time.ElapsedGameTime.TotalSeconds;
+    }
+
+    /**
+     * Rotate Camera (Normally Tagged to the Player)
+     */
+    public void Rotate(float yaw, float pitch) {
+        Matrix matrix = Matrix.CreateFromYawPitchRoll(yaw, pitch, 0);
+        this.Forward = Vector3.TransformNormal(this.Forward, matrix);
+        this.SetWorldAndView(this.Forward);
     }
 }
