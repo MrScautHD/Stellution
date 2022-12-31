@@ -25,6 +25,8 @@ public class DefaultRenderer : IRenderer {
     }
 
     public void Draw(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, GameTime time) {
+        this._camera.Move(time, false);
+        
         // MODELS
         this.EnableDepth(graphicsDevice);
         this.DrawInWorld(graphicsDevice, spriteBatch, this._camera.View, this._camera.Projection, time);

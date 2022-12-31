@@ -62,9 +62,12 @@ public class Camera {
         this.Projection = Matrix.CreatePerspectiveFieldOfView(fovInDegrees * (3.14159265358f / 180f), aspectRatio, .05f, 1000f);
     }
 
-    public float GetGimbleLockDangerValue() {
-        var c0 = Vector3.Dot(this.World.Forward, this.World.Up);
-        if (c0 < 0f) c0 = -c0;
-        return c0;
+    public void Move(GameTime time, bool forward, int speed = 30) {
+        if (forward) {
+            this.Position += (this.World.Forward * speed) * (float) time.ElapsedGameTime.TotalSeconds;
+        }
+        else {
+            this.Position -= (this.World.Forward * speed) * (float) time.ElapsedGameTime.TotalSeconds;
+        }
     }
 }
