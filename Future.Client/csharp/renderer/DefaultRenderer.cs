@@ -14,7 +14,7 @@ public class DefaultRenderer : IRenderer {
     public virtual void Initialize(GraphicsDevice graphicsDevice, GameWindow window) {
         this._camera = new Camera(graphicsDevice);
         this._camera.Position = new Vector3(2, 10, 52);
-        this._camera.LookAtDirection = Vector3.Forward;
+        this._camera.Forward = Vector3.Forward;
     }
 
     public virtual void LoadContent(GraphicsDevice graphicsDevice, ContentManager content) {
