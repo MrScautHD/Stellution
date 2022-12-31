@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Future.Client.csharp.renderer;
+namespace Future.Client.csharp.camera;
 
 public class Camera {
     
