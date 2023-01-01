@@ -24,11 +24,11 @@ public class StreetLightRenderer : DefaultRenderer {
         RasterizerState rasterizerState = new RasterizerState();
         rasterizerState.CullMode = CullMode.None;
         graphicsDevice.RasterizerState = rasterizerState;
-
+        
         this.DefaultBegin(spriteBatch, RasterizerState.CullNone, view);
         this.DrawModel(this._model, this._texture, world, view, projection);
         this.DefaultEnd(spriteBatch);
-     
+
         graphicsDevice.RasterizerState = originalState;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -7,11 +8,15 @@ public class Camera {
     
     private GraphicsDevice _graphicsDevice;
 
-    private float _fov;
-
     public Matrix View { get; private set; }
     public Matrix Projection { get; private set; }
     private Matrix _world;
+    
+    private float _fov;
+    
+    public float Yaw { get; private set; }
+    public float Pitch { get; private set; }
+    public float Roll { get; private set; }
 
     public Camera(GraphicsDevice graphicsDevice, float fov) {
         this._graphicsDevice = graphicsDevice;
@@ -67,7 +72,7 @@ public class Camera {
      */
     private void UpdatePerspective(float fovInDegrees) {
         float aspectRatio = this._graphicsDevice.Viewport.Width / (float) this._graphicsDevice.Viewport.Height;
-        this.Projection = Matrix.CreatePerspectiveFieldOfView(fovInDegrees * (3.14159265358f / 180f), aspectRatio, .05f, 1000f);
+        this.Projection = Matrix.CreatePerspectiveFieldOfView(fovInDegrees * (3.14159265358f / 180f), aspectRatio, 0.05f, 1000f);
     }
 
     /**
@@ -78,18 +83,41 @@ public class Camera {
     }
     
     /**
-     * Move Camera (Normally Tagged to the Player)
+     * To stop Rendering things that not watchable
+     */
+    public BoundingFrustum GetBoundingFrustum() { //TODO FIX THIS
+        return new BoundingFrustum(this.Projection);
+    }
+    
+    /**
+     * Move Camera (Normally Tagged to the Player with Position)
      */
     public void Move(GameTime time, int speed = 30) {
         this.Position += (this._world.Forward * speed) * (float) time.ElapsedGameTime.TotalSeconds;
     }
 
     /**
-     * Rotate Camera (Normally Tagged to the Player)
+     * Rotate Camera
      */
     public void Rotate(float yaw, float pitch) {
-        Matrix matrix = Matrix.CreateFromYawPitchRoll(yaw, pitch, 0);
-        this.Forward = Vector3.TransformNormal(this.Forward, matrix);
-        this.SetWorldAndView(this.Forward);
+        this.Yaw = yaw % 360;
+        this.Pitch = Math.Clamp(pitch % 360, -90, 90);
+        
+        Matrix rotation = Matrix.CreateFromYawPitchRoll(MathHelper.ToRadians(this.Yaw), MathHelper.ToRadians(this.Pitch), 0);
+
+        this.Forward = Vector3.TransformNormal(this.Forward, rotation);
+        this.SetWorldAndView(rotation.Forward);
+    }
+
+    /**
+     * Roll Camera
+     */
+    public void RollZ(GameTime time, float roll) {
+        var radians = -roll * (float) time.ElapsedGameTime.TotalSeconds;
+        var pos = this._world.Translation;
+        Matrix test = this._world;
+        test *= Matrix.CreateFromAxisAngle(test.Forward, MathHelper.ToRadians(radians));
+        test.Translation = pos;
+        this.SetWorldAndView(test.Forward);
     }
 }

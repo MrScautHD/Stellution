@@ -4,18 +4,20 @@ using Liru3D.Models;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using MonoGame.Extended;
 
 namespace Future.Client.csharp.renderer;
 
 public class DefaultRenderer : IRenderer {
-
-    private Camera _camera;
+    
     private RenderTarget2D _renderTarget2D;
     
+    protected Camera Camera { get; private set; }
+    
     public virtual void Initialize(GraphicsDevice graphicsDevice, GameWindow window) {
-        this._camera = new Camera(graphicsDevice, 80);
-        this._camera.Position = new Vector3(2, 10, 52);
-        this._camera.Forward = Vector3.Forward;
+        this.Camera = new Camera(graphicsDevice, 80);
+        this.Camera.Position = new Vector3(2, 10, 52);
+        this.Camera.Forward = Vector3.Forward;
     }
 
     public virtual void LoadContent(GraphicsDevice graphicsDevice, ContentManager content) {
@@ -26,27 +28,37 @@ public class DefaultRenderer : IRenderer {
     }
 
     public void Draw(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, GameTime time) {
+        
+        //this.Camera.RollZ(40);
+        this.Camera.Rotate(0, this.Camera.Pitch + 0.01F);
+        
         // MODELS
         this.EnableDepth(graphicsDevice);
-        this.DrawInWorld(graphicsDevice, spriteBatch, this._camera.View, this._camera.Projection, time);
+        this.DrawInWorld(graphicsDevice, spriteBatch, this.Camera.View, this.Camera.Projection, time);
         this.DisableDepth(graphicsDevice);
 
         // OVERLAYS, SCREENS...
-        this.DrawOnScreen(graphicsDevice, spriteBatch, this._camera.View, this._camera.Projection, time);
+        this.DrawOnScreen(graphicsDevice, spriteBatch, this.Camera.View, this.Camera.Projection, time);
         
         // ANIMATIONS
-        this.Anim(graphicsDevice, spriteBatch, this._camera.View, this._camera.Projection, time);
+        this.Anim(graphicsDevice, spriteBatch, this.Camera.View, this.Camera.Projection, time);
     }
     
     protected void DrawModel(Model model, Texture2D texture, Matrix world, Matrix view, Matrix projection) {
         foreach (ModelMesh mesh in model.Meshes) {
-            foreach (BasicEffect effect in mesh.Effects) {
-                effect.Texture = texture;
-                effect.TextureEnabled = true;
-            }
+            
+            //if (this.GetContainingBoundingFrustumMesh(mesh, mesh.BoundingSphere.Radius) == ContainmentType.Contains) {
+                foreach (BasicEffect effect in mesh.Effects) {
+                    effect.Texture = texture;
+                    effect.TextureEnabled = true;
+                    effect.World = world;
+                    effect.View = view;
+                    effect.Projection = projection;
+                }
+                
+                mesh.Draw();
+           // }
         }
-
-        model.Draw(world, view, projection);
     }
     
     protected void DrawSkinnedModel(SkinnedModel model, AnimationPlayer animationPlayer, SkinnedEffect effect) {
@@ -114,6 +126,21 @@ public class DefaultRenderer : IRenderer {
         return content.Load<Texture2D>(texture);
     }
 
+    protected ContainmentType GetContainingBoundingFrustumMesh(ModelMesh mesh) {
+        return this.Camera.GetBoundingFrustum().Contains(mesh.BoundingSphere);
+    }
+    
+    //TODO Wait when Liru Added this to his lib (or try other ways to get it)
+    protected ContainmentType GetContainingBoundingFrustumSkinnedMesh(SkinnedMesh effect) {
+        return ContainmentType.Disjoint;
+    }
+    
+    public ContainmentType Contains(Rectangle rectangle) {
+        Vector3 max = new Vector3((float) (rectangle.X + rectangle.Width), (float) (rectangle.Y + rectangle.Height), 0.5f);
+        BoundingBox box = new BoundingBox(new Vector3((float) rectangle.X, (float) rectangle.Y, 0.5f), max);
+        return this.Camera.GetBoundingFrustum().Contains(box);
+    }
+
     public double FpsCalculator(GameTime gameTime) {
         return 1 / gameTime.ElapsedGameTime.TotalSeconds;
     }
@@ -127,7 +154,7 @@ public class DefaultRenderer : IRenderer {
     }
 
     public Camera GetCamera() {
-        return this._camera;
+        return this.Camera;
     }
 
     public RenderTarget2D GetRenderTarget2D() {
