@@ -101,7 +101,7 @@ public class Camera {
      */
     public void Rotate(float yaw, float pitch) {
         this.Yaw = yaw % 360;
-        this.Pitch = Math.Clamp(pitch % 360, -90, 90);
+        this.Pitch = Math.Clamp(pitch, -90, 90);
         
         Matrix rotation = Matrix.CreateFromYawPitchRoll(MathHelper.ToRadians(this.Yaw), MathHelper.ToRadians(this.Pitch), 0);
 
@@ -113,6 +113,8 @@ public class Camera {
      * Roll Camera
      */
     public void RollZ(GameTime time, float roll) {
+        
+        // TESTING
         var radians = -roll * (float) time.ElapsedGameTime.TotalSeconds;
         var pos = this._world.Translation;
         Matrix test = this._world;
