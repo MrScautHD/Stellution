@@ -29,7 +29,7 @@ public class DefaultRenderer : IRenderer {
 
     public void Draw(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, GameTime time) {
         
-        //this.Camera.RollZ(40);
+        //this.Camera.RollZ(40); // this.Camera.Pitch + 0.01F
         this.Camera.Rotate(0, this.Camera.Pitch + 0.01F);
         
         // MODELS

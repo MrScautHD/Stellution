@@ -103,7 +103,11 @@ public class Camera {
         this.Yaw = yaw % 360;
         this.Pitch = Math.Clamp(pitch, -90, 90);
         
+        Console.WriteLine(this.Pitch);
+        
         Matrix rotation = Matrix.CreateFromYawPitchRoll(MathHelper.ToRadians(this.Yaw), MathHelper.ToRadians(this.Pitch), 0);
+
+        //Matrix rotation = Matrix.CreateRotationZ(MathHelper.ToRadians(10));
 
         this.Forward = Vector3.TransformNormal(this.Forward, rotation);
         this.SetWorldAndView(rotation.Forward);
