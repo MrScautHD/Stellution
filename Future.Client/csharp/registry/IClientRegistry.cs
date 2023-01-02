@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Future.Client.csharp.camera;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,7 +10,7 @@ public interface IClientRegistry {
 
      public static readonly List<IClientRegistry> Registries = new();
 
-     public virtual void Initialize(GraphicsDevice graphicsDevice, GameWindow window) {
+     public virtual void Initialize(GraphicsDevice graphicsDevice, GameWindow window, Camera camera) {
           
      }
      

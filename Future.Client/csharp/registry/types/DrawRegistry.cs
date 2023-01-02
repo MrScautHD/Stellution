@@ -1,3 +1,4 @@
+using Future.Client.csharp.camera;
 using Future.Client.csharp.renderer;
 using Future.Client.csharp.renderer.objects;
 using Future.Client.csharp.renderer.overlay;
@@ -14,6 +15,7 @@ public class DrawRegistry : IClientRegistry {
     
     // OVERLAY
     public readonly CrosshairOverlay CrosshairOverlay = Register("crosshair", new CrosshairOverlay());
+    public readonly DebugOverlay DebugOverlay = Register("debug", new DebugOverlay());
 
     private static T Register<T>(string name, T renderer) where T : IRenderer {
         RegistryTypes.Renderers.Add(name, renderer);
@@ -21,9 +23,9 @@ public class DrawRegistry : IClientRegistry {
         return renderer;
     }
     
-    public void Initialize(GraphicsDevice graphicsDevice, GameWindow window) {
+    public void Initialize(GraphicsDevice graphicsDevice, GameWindow window, Camera camera) {
         foreach (IRenderer renderer in RegistryTypes.Renderers.Values) {
-            renderer.Initialize(graphicsDevice, window);
+            renderer.Initialize(graphicsDevice, window, camera);
         }
     }
 

@@ -1,4 +1,5 @@
-﻿using Future.Client.csharp.registry;
+﻿using Future.Client.csharp.camera;
+using Future.Client.csharp.registry;
 using Future.Client.csharp.registry.types;
 using Future.Client.csharp.settings;
 using Future.Common.csharp.log;
@@ -14,11 +15,14 @@ public class FutureClient : Game {
     private RenderTarget2D _renderTarget2D;
     private GraphicSettings _graphicSettings;
     
+    private readonly Camera _camera;
+    
     public static Logger Logger = new Logger();
 
     public FutureClient() {
         this._graphics = new GraphicsDeviceManager(this);
         this._graphicSettings = new GraphicSettings(this._graphics, this.GraphicsDevice, this.Window);
+        this._camera = new Camera(this.GraphicsDevice, 80, Vector3.Zero, Vector3.Forward);
 
         // GAME PROPERTIES
         this.Content.RootDirectory = "content";
@@ -38,7 +42,7 @@ public class FutureClient : Game {
         
         // INIT REGISTRY
         foreach (IClientRegistry registry in IClientRegistry.Registries) {
-            registry.Initialize(this.GraphicsDevice, this.Window);
+            registry.Initialize(this.GraphicsDevice, this.Window, this._camera);
         }
     }
 

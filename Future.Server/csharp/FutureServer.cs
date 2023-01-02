@@ -3,7 +3,7 @@ using Future.Common.csharp.network;
 using Future.Server.csharp.ticker;
 using Microsoft.Xna.Framework;
 
-namespace Future.Server.csharp; 
+namespace Future.Server.csharp;
 
 public class FutureServer : ServerTicker {
 
