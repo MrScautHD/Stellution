@@ -22,8 +22,12 @@
     </EmbeddedResource>
   </ItemGroup>
     <ItemGroup>
+        <PackageReference Include="Apos.Input" Version="2.4.2" />
+        <PackageReference Include="FontStashSharp.MonoGame" Version="1.2.8" />
+        <PackageReference Include="Lovebirb.MonoGame.SkinnedMeshImporter" Version="1.0.2" />
         <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
         <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
+        <PackageReference Include="MonoSound" Version="1.6.1" />
     </ItemGroup>
     <ItemGroup>
       <Folder Include="csharp\renderer\entity" />
