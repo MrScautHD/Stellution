@@ -5,7 +5,7 @@ namespace Future.Client.csharp.registry.types;
 
 public class TickerRegistry : IClientRegistry {
 
-    public readonly ClientTicker ClientTicker = Register("client_ticker", new ClientTicker());
+    //public readonly AbstractClientTicker AbstractClientTicker = Register("client_ticker", new AbstractClientTicker());
 
     private static T Register<T>(string name, T ticker) where T : IClientTicker {
         RegistryTypes.Ticker.Add(name, ticker);

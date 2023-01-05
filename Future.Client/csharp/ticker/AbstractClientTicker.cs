@@ -2,7 +2,7 @@ using Microsoft.Xna.Framework;
 
 namespace Future.Client.csharp.ticker; 
 
-public class ClientTicker : IClientTicker {
+public abstract class AbstractClientTicker : IClientTicker {
     
     private double _timer;
     private readonly double _delay = 1.0 / 60.0;

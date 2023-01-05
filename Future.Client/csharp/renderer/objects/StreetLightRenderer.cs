@@ -19,8 +19,10 @@ public class StreetLightRenderer : DefaultRenderer {
     protected override void DrawInWorld(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, Matrix view, Matrix projection, GameTime time) {
         Matrix world = this.CreateMatrixPos(new Vector3(0, 0, 0));
 
-        this.DefaultBegin(spriteBatch, graphicsDevice, RasterizerState.CullNone, view);
+        //this.DefaultBegin(spriteBatch, RasterizerState.CullNone, view);
+        spriteBatch.Begin();
         this.DrawModel(this._model, this._texture, world, view, projection);
-        this.DefaultEnd(spriteBatch, graphicsDevice);
+        spriteBatch.End();
+        //this.DefaultEnd(spriteBatch);
     }
 }

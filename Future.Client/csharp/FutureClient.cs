@@ -10,7 +10,7 @@ namespace Future.Client.csharp;
 
 public class FutureClient : Game {
     
-    private GraphicsDeviceManager _graphics;
+    private GraphicsDeviceManager _graphicDeviceManager;
     private SpriteBatch _spriteBatch;
     private RenderTarget2D _renderTarget2D;
     private GraphicSettings _graphicSettings;
@@ -20,8 +20,8 @@ public class FutureClient : Game {
     public static Logger Logger = new Logger();
 
     public FutureClient() {
-        this._graphics = new GraphicsDeviceManager(this);
-        this._graphicSettings = new GraphicSettings(this._graphics, this.GraphicsDevice, this.Window);
+        this._graphicDeviceManager = new GraphicsDeviceManager(this);
+        this._graphicSettings = new GraphicSettings(this._graphicDeviceManager, this.GraphicsDevice, this.Window);
         this._camera = new Camera(this.GraphicsDevice, 80, Vector3.Zero, Vector3.Forward);
 
         // GAME PROPERTIES

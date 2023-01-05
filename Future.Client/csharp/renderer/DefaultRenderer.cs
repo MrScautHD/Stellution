@@ -9,13 +9,13 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Future.Client.csharp.renderer;
 
-public class DefaultRenderer : IRenderer {
+public abstract class DefaultRenderer : IRenderer {
     
     protected Camera Camera { get; private set; }
     
     public bool Visible;
 
-    public DefaultRenderer() {
+    protected DefaultRenderer() {
         this.Visible = true;
     }
 
@@ -90,11 +90,6 @@ public class DefaultRenderer : IRenderer {
     protected virtual void KeyToggle(Keys key, bool down) {
         
     }
-    
-    protected void SetCull(GraphicsDevice graphicsDevice, RasterizerState rasterizerState) {
-        //rasterizerState.CullMode = CullMode.CullCounterClockwiseFace;
-        graphicsDevice.RasterizerState = rasterizerState;
-    }
 
     protected void EnableDepth(GraphicsDevice graphicsDevice) {
         graphicsDevice.DepthStencilState = DepthStencilState.Default;
@@ -104,25 +99,17 @@ public class DefaultRenderer : IRenderer {
         graphicsDevice.DepthStencilState = DepthStencilState.None;
     }
 
-    protected void DefaultBegin(SpriteBatch spriteBatch, GraphicsDevice graphicsDevice, RasterizerState rasterizerState, Matrix? view = null) {
-        if (RasterizerState.CullCounterClockwise != rasterizerState) {
-            this.SetCull(graphicsDevice, rasterizerState);
-        }
-
+    protected void DefaultBegin(SpriteBatch spriteBatch, Matrix? view = null) {
         if (view != null) {
-            spriteBatch.Begin(transformMatrix: view, samplerState: SamplerState.PointClamp, rasterizerState: rasterizerState);
+            spriteBatch.Begin(transformMatrix: view, samplerState: SamplerState.PointClamp);
             return;
         }
 
-        spriteBatch.Begin(samplerState: SamplerState.PointClamp, rasterizerState: rasterizerState);
+        spriteBatch.Begin(samplerState: SamplerState.PointClamp);
     }
     
-    protected void DefaultEnd(SpriteBatch spriteBatch, GraphicsDevice graphicsDevice) {
+    protected void DefaultEnd(SpriteBatch spriteBatch) {
         spriteBatch.End();
-        
-        if (graphicsDevice.RasterizerState != RasterizerState.CullCounterClockwise) {
-            this.SetCull(graphicsDevice, RasterizerState.CullCounterClockwise);
-        }
     }
 
     protected Model LoadModel(ContentManager content, string model) {
