@@ -9,7 +9,7 @@ using Microsoft.Xna.Framework.Graphics;
 namespace Future.Client.csharp.registry.types; 
 
 public class DrawRegistry : IClientRegistry {
-
+    
     // OBJECTS
     public readonly StreetLightRenderer StreetLightRenderer = Register("street_light", new StreetLightRenderer());
     

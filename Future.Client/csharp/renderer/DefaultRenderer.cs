@@ -46,8 +46,7 @@ public abstract class DefaultRenderer : IRenderer {
     
     protected void DrawModel(Model model, Texture2D texture, Matrix world, Matrix view, Matrix projection) {
         foreach (ModelMesh mesh in model.Meshes) {
-            
-            //if (this.GetContainingBoundingFrustumMesh(mesh, mesh.BoundingSphere.Radius) == ContainmentType.Contains) {
+            if (this.GetContainingBoundingFrustumMesh(mesh) != ContainmentType.Disjoint) {
                 foreach (BasicEffect effect in mesh.Effects) {
                     effect.Texture = texture;
                     effect.TextureEnabled = true;
@@ -57,15 +56,17 @@ public abstract class DefaultRenderer : IRenderer {
                 }
                 
                 mesh.Draw();
-           // }
+            }
         }
     }
     
     protected void DrawSkinnedModel(SkinnedModel model, AnimationPlayer animationPlayer, SkinnedEffect effect) {
         foreach (SkinnedMesh mesh in model.Meshes) {
-            animationPlayer.SetEffectBones(effect);
-            effect.CurrentTechnique.Passes[0].Apply();
-            mesh.Draw();
+            if (this.GetContainingBoundingFrustumSkinnedMesh(mesh) != ContainmentType.Disjoint) {
+                animationPlayer.SetEffectBones(effect);
+                effect.CurrentTechnique.Passes[0].Apply();
+                mesh.Draw();
+            }
         }
     }
     
@@ -128,15 +129,8 @@ public abstract class DefaultRenderer : IRenderer {
         return this.Camera.GetBoundingFrustum().Contains(mesh.BoundingSphere);
     }
     
-    //TODO Wait when Liru Added this to his lib (or try other ways to get it)
-    protected ContainmentType GetContainingBoundingFrustumSkinnedMesh(SkinnedMesh effect) {
-        return ContainmentType.Disjoint;
-    }
-    
-    public ContainmentType Contains(Rectangle rectangle) {
-        Vector3 max = new Vector3((float) (rectangle.X + rectangle.Width), (float) (rectangle.Y + rectangle.Height), 0.5f);
-        BoundingBox box = new BoundingBox(new Vector3((float) rectangle.X, (float) rectangle.Y, 0.5f), max);
-        return this.Camera.GetBoundingFrustum().Contains(box);
+    protected ContainmentType GetContainingBoundingFrustumSkinnedMesh(SkinnedMesh mesh) {
+        return this.Camera.GetBoundingFrustum().Contains(mesh.BoundingSphere);
     }
 
     public double FpsCalculator(GameTime gameTime) {

@@ -87,8 +87,8 @@ public class Camera {
     /**
      * To stop Rendering things that not watchable
      */
-    public BoundingFrustum GetBoundingFrustum() { //TODO FIX THIS
-        return new BoundingFrustum(this.Projection);
+    public BoundingFrustum GetBoundingFrustum() {
+        return new BoundingFrustum(this.View * this.Projection);
     }
     
     /**
