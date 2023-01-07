@@ -100,13 +100,8 @@ public abstract class DefaultRenderer : IRenderer {
         graphicsDevice.DepthStencilState = DepthStencilState.None;
     }
 
-    protected void DefaultBegin(SpriteBatch spriteBatch, Matrix? view = null) {
-        if (view != null) {
-            spriteBatch.Begin(transformMatrix: view, samplerState: SamplerState.PointClamp);
-            return;
-        }
-
-        spriteBatch.Begin(samplerState: SamplerState.PointClamp);
+    protected void DefaultBegin(SpriteBatch spriteBatch, Matrix? view = null, Effect effect = null) {
+        spriteBatch.Begin(transformMatrix: view, samplerState: SamplerState.PointClamp, effect: effect);
     }
     
     protected void DefaultEnd(SpriteBatch spriteBatch) {
