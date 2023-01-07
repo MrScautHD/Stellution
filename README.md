@@ -53,7 +53,7 @@
 - Apos.Input (Input System)
 - LiteNetLib (Network System)
 - BepuPhysics (Physic System)
-- FontStashSharp (Font Syste)
+- FontStashSharp (Font System)
 - Lovebirb.MonoGame.SkinnedMeshImporter (Animated FBX Model Support)
 - MonoSound (Sound System)
 
