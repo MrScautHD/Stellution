@@ -50,10 +50,10 @@
 
 ### Libraries (https://www.nuget.org/packages)
 - MonoGame (Main)
-- Apos.Camera (3D Camera System)
-- Apos.Gui (Gui System)
 - Apos.Input (Input System)
 - LiteNetLib (Network System)
+- BepuPhysics (Physic System)
+- FontStashSharp (Font Syste)
 - Lovebirb.MonoGame.SkinnedMeshImporter (Animated FBX Model Support)
 - MonoSound (Sound System)
 
