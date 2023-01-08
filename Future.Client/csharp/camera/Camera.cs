@@ -21,11 +21,11 @@ public class Camera {
     public float Pitch { get; private set; }
     public float Roll { get; private set; }
 
-    public Camera(GraphicsDevice graphicsDevice, float fov, Vector3 pos, Vector3 lookAt) {
+    public Camera(GraphicsDevice graphicsDevice, float fov, Vector3 pos, Vector3 lookDirection) {
         this._graphicsDevice = graphicsDevice;
         this.FieldOfViewDegrees = fov;
         this.Position = pos;
-        this.Forward = lookAt;
+        this.Forward = lookDirection;
     }
     
     /**
