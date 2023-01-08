@@ -32,6 +32,7 @@ public class FutureClient : Game {
         // REGISTRY
         IClientRegistry.Registries.Add(new DrawRegistry());
         IClientRegistry.Registries.Add(new FontRegistry());
+        IClientRegistry.Registries.Add(new SoundRegistry());
         IClientRegistry.Registries.Add(new TickerRegistry());
     }
 

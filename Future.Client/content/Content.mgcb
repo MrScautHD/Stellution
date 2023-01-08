@@ -55,6 +55,12 @@
 /processorParam:TextureFormat=Compressed
 /build:models/objects/testLightn.fbx
 
+#begin sounds/future.ogg
+/importer:OggImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:sounds/future.ogg
+
 #begin textures/objects/street_light.png
 /importer:TextureImporter
 /processor:TextureProcessor
