@@ -11,11 +11,15 @@ public class Camera {
     public Matrix View { get; private set; }
     public Matrix Projection { get; private set; }
     private Matrix _world;
+
+    private readonly float _nearPlaneDistance = 0.05f;
+    private readonly float _farPlaneDistance = 1000f;
     
     private float _fov;
-    
+
     public float Yaw { get; private set; }
     public float Pitch { get; private set; }
+    public float Roll { get; private set; }
 
     public Camera(GraphicsDevice graphicsDevice, float fov, Vector3 pos, Vector3 lookAt) {
         this._graphicsDevice = graphicsDevice;
@@ -70,7 +74,7 @@ public class Camera {
      */
     private void UpdatePerspective(float fovInDegrees) {
         float aspectRatio = this._graphicsDevice.Viewport.Width / (float) this._graphicsDevice.Viewport.Height;
-        this.Projection = Matrix.CreatePerspectiveFieldOfView(fovInDegrees * (3.14159265358f / 180f), aspectRatio, 0.05f, 1000f);
+        this.Projection = Matrix.CreatePerspectiveFieldOfView(fovInDegrees * (3.14159265358F / 180F), aspectRatio, this._nearPlaneDistance, this._farPlaneDistance);
     }
 
     /**
@@ -97,11 +101,14 @@ public class Camera {
     /**
      * Rotate Camera
      */
-    public void Rotate(float yaw, float pitch) {
+    public void Rotate(float yaw, float pitch, float roll) {
         this.Yaw = yaw % 360;
         this.Pitch = Math.Clamp(pitch, -90, 90);
+        this.Roll = roll % 360;
 
         Matrix rotation = Matrix.CreateFromYawPitchRoll(MathHelper.ToRadians(this.Yaw), MathHelper.ToRadians(this.Pitch), 0);
         this.SetWorldAndView(rotation.Forward);
+        
+        this.View *= Matrix.CreateRotationZ(MathHelper.ToRadians(this.Roll));
     }
 }
