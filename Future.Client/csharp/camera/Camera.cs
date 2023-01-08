@@ -16,13 +16,12 @@ public class Camera {
     
     public float Yaw { get; private set; }
     public float Pitch { get; private set; }
-    public float Roll { get; private set; }
 
-    public Camera(GraphicsDevice graphicsDevice, float fov, Vector3 pos, Vector3 view) {
+    public Camera(GraphicsDevice graphicsDevice, float fov, Vector3 pos, Vector3 lookAt) {
         this._graphicsDevice = graphicsDevice;
         this.FieldOfViewDegrees = fov;
         this.Position = pos;
-        this.Forward = view;
+        this.Forward = lookAt;
     }
     
     /**
@@ -55,10 +54,7 @@ public class Camera {
      */
     public Vector3 Forward {
         get => this._world.Forward;
-
-        set {
-            this.SetWorldAndView(value);
-        }
+        set => this.SetWorldAndView(value);
     }
 
     /**
@@ -104,24 +100,8 @@ public class Camera {
     public void Rotate(float yaw, float pitch) {
         this.Yaw = yaw % 360;
         this.Pitch = Math.Clamp(pitch, -90, 90);
-        
-        Matrix rotation = Matrix.CreateFromYawPitchRoll(MathHelper.ToRadians(this.Yaw), MathHelper.ToRadians(this.Pitch), 0);
-        
-        this.Forward = Vector3.TransformNormal(this.Forward, rotation);
-        this.SetWorldAndView(rotation.Forward);
-    }
 
-    /**
-     * Roll Camera
-     */
-    public void RollZ(GameTime time, float roll) {
-        
-        // TESTING
-        var radians = -roll * (float) time.ElapsedGameTime.TotalSeconds;
-        var pos = this._world.Translation;
-        Matrix test = this._world;
-        test *= Matrix.CreateFromAxisAngle(test.Forward, MathHelper.ToRadians(radians));
-        test.Translation = pos;
-        this.SetWorldAndView(test.Forward);
+        Matrix rotation = Matrix.CreateFromYawPitchRoll(MathHelper.ToRadians(this.Yaw), MathHelper.ToRadians(this.Pitch), 0);
+        this.SetWorldAndView(rotation.Forward);
     }
 }
