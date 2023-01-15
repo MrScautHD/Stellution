@@ -9,6 +9,7 @@
         <ApplicationIcon>Icon.ico</ApplicationIcon>
         <Title>Project-Future</Title>
         <LangVersion>11</LangVersion>
+        <AssemblyName>Future</AssemblyName>
     </PropertyGroup>
     <PropertyGroup>
         <ApplicationManifest>app.manifest</ApplicationManifest>

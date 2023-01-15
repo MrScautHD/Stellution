@@ -1,3 +1,4 @@
+using FontStashSharp;
 using Future.Client.csharp.registry.types;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -22,9 +23,12 @@ public class DebugOverlay : DefaultRenderer {
     }
 
     private void DrawDebugInfo(SpriteBatch spriteBatch, string debugInfo) {
+        DynamicSpriteFont font = FontRegistry.Fontoe;
+        
         this.DefaultBegin(spriteBatch);
-        this.DrawFont(FontRegistry.Fontoe.GetFont(20), spriteBatch, new Vector2(5, (this._lineDistance * 20) + 5), Color.White, debugInfo);
+        this.DrawFont(font, spriteBatch, new Vector2(5, (this._lineDistance * font.LineHeight) + 5), Color.White, debugInfo);
         this.DefaultEnd(spriteBatch);
+
         this._lineDistance += 1;
     }
 

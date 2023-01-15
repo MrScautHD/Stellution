@@ -14,10 +14,10 @@ public class FutureClient : Game {
     private SpriteBatch _spriteBatch;
     private RenderTarget2D _renderTarget2D;
     private GraphicSettings _graphicSettings;
-    
+
     private readonly Camera _camera;
     
-    public static Logger Logger = new Logger();
+    public static Logger Logger = new("log", "logs.txt");
 
     public FutureClient() {
         this._graphicDeviceManager = new GraphicsDeviceManager(this);

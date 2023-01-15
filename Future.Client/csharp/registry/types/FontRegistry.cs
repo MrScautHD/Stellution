@@ -7,17 +7,17 @@ namespace Future.Client.csharp.registry.types;
 
 public class FontRegistry : IClientRegistry {
     
-    public static FontSystem Fontoe { get; private set; }
+    public static DynamicSpriteFont Fontoe { get; private set; }
 
     public void LoadContent(GraphicsDevice graphicsDevice, ContentManager content) {
-        Fontoe = this.Register("fontoe", content);
+        Fontoe = this.Register("fontoe", content, 18);
     }
 
-    private FontSystem Register(string name, ContentManager content) {
+    private DynamicSpriteFont Register(string name, ContentManager content, int size) {
         FontSystem font = new FontSystem();
         font.AddFont(File.ReadAllBytes(content.RootDirectory + "/fonts/" + name + ".ttf"));
         
-        RegistryTypes.Fonts.Add(name, font);
-        return font;
+        RegistryTypes.Fonts.Add(name, font.GetFont(size));
+        return font.GetFont(size);
     }
 }

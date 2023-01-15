@@ -10,7 +10,7 @@ public class FutureServer : ServerTicker {
     private NetworkHandler _network;
     private ServerManager _serverManager;
 
-    public static Logger Logger = new Logger();
+    public static Logger Logger = new("log", "logs.txt");
 
     public FutureServer() {
         this._network = new NetworkHandler();

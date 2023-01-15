@@ -39,6 +39,16 @@ public class GraphicSettings {
         //this._graphics.ApplyChanges();
     }
 
+    public void CreateGraphicFile() {
+
+    }
+    
+    protected struct GraphicSettingConfig {
+        public int width;
+        public int height;
+        public bool vSync;
+    }
+
     public void SetWindowSize(int width, int height) {
         this._graphics.PreferredBackBufferWidth = width;
         this._graphics.PreferredBackBufferHeight = height;
@@ -87,7 +97,7 @@ public class GraphicSettings {
     public bool IsFullScreen() {
         return this._graphics.IsFullScreen;
     }
-    
+
     public void Apply() {
         this._graphics.ApplyChanges();
     }

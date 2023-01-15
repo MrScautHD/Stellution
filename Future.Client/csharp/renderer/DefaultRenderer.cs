@@ -70,9 +70,9 @@ public abstract class DefaultRenderer : IRenderer {
         }
     }
     
-    protected void DrawFont(DynamicSpriteFont font, SpriteBatch spriteBatch, Vector2 position, Color color, string debugInfo) {
-        spriteBatch.DrawString(font, debugInfo, new Vector2(position.X + 2, position.Y + 2), Color.Gray);
-        spriteBatch.DrawString(font, debugInfo, position, color);
+    protected void DrawFont(DynamicSpriteFont font, SpriteBatch spriteBatch, Vector2 position, Color color, string text, Vector2? scale = null) {
+        spriteBatch.DrawString(font, text, new Vector2(position.X, position.Y + 2), Color.Multiply(color, 0.2F), scale);
+        spriteBatch.DrawString(font, text, position, color, scale);
     }
 
 

@@ -66,7 +66,7 @@ public class Camera {
      */
     private void SetWorldAndView(Vector3 forward) {
         this._world = Matrix.CreateWorld(this._world.Translation, forward, Vector3.Up);
-        this.View = Matrix.CreateLookAt(this._world.Translation, this._world.Forward + this._world.Translation, this._world.Up);
+        this.View = Matrix.CreateLookAt(this._world.Translation, forward + this._world.Translation, this._world.Up);
     }
     
     /**

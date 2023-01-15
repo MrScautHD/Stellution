@@ -14,8 +14,9 @@ public class SoundRegistry : IClientRegistry {
     
     private SoundEffectInstance Register(ContentManager content, string name) {
         SoundEffect soundEffect = content.Load<SoundEffect>("sounds/" + name);
-
-        RegistryTypes.Sounds.Add(name, soundEffect);
-        return soundEffect.CreateInstance();
+        
+        SoundEffectInstance soundEffectInstance = soundEffect.CreateInstance();
+        RegistryTypes.Sounds.Add(name, soundEffectInstance);
+        return soundEffectInstance;
     }
 }
