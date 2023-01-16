@@ -6,7 +6,6 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <LangVersion>11</LangVersion>
-        <AssemblyName>Future</AssemblyName>
     </PropertyGroup>
 
     <ItemGroup>
