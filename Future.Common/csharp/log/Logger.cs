@@ -4,13 +4,16 @@ namespace Future.Common.csharp.log;
 
 public class Logger : FileManager {
     
-    public Logger(string directory, string fileName) : base(directory, fileName) {
+    public Logger(string directory, string name) : base(directory, name) {
         this.CreateFile();
     }
 
-    public void Print(string message, ConsoleColor color = ConsoleColor.White) {
+    /**
+     * Print in the console and in the .log file
+     */
+    public void Print(object? message, ConsoleColor color = ConsoleColor.White) {
         Console.ForegroundColor = color;
-        this.WriteTxt(message);
+        this.WriteLine(message);
         Console.WriteLine(message);
         Console.ResetColor();
     }

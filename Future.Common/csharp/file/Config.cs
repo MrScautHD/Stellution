@@ -2,17 +2,32 @@ namespace Future.Common.csharp.file;
 
 public class Config : FileManager {
     
-    public Config(string directory, string fileName) : base(directory, fileName) {
-        if (!File.Exists(this.GetPath())) {
-            this.CreateFile();
+    public Config() : base("config", "config.json") {
+        this.CreateFile();
+
+        this.WriteJson(new Customer() {
+            Age = 1,
+            CustomerName = "test",
+            CustomerEmail = "lolol.com",
+            TotalSales = 10,
+            Check = true
+        });
+        
+        Console.WriteLine(this.ReadJson()["CustomerName"]); // Get 1 value
+
+        if (this.ReadJson()["Check"].GetValue<bool>()) { // Convert it to the right Type like a bool
+            Console.WriteLine("CHECKED!!!!!");
         }
+        
+        Console.WriteLine(this.ReadJson()); // Get full list of values
     }
-
-    public void WriteConfig<T>(T configType) {
-        this.WriteJson(configType);
-    }
-
-    public T ReadConfig<T>(T configType) {
-        return this.ReadJson(configType);
+    
+    public class Customer {
+        public string CustomerName { get; set; }
+        public string CustomerEmail { get; set; }
+        public int Age { get; set; }
+        
+        public bool Check { get; set; }
+        public decimal TotalSales { get; set; }
     }
 }

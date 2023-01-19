@@ -1,4 +1,5 @@
-using System.Text.Json;
+using System.Text.Json.Nodes;
+using Newtonsoft.Json;
 
 namespace Future.Common.csharp.file; 
 
@@ -6,16 +7,16 @@ public class FileManager {
     
     public string FileDirectory { get; private set; }
     public string FileName { get; private set; }
-    
-    public FileManager(string directory, string fileName) {
+
+    public FileManager(string directory, string name) {
         this.FileDirectory = directory;
-        this.FileName = fileName;
+        this.FileName = name;
     }
 
     /**
      * Create File (Override it)
      */
-    public void CreateFile() {
+    protected void CreateFile() {
         if (!Directory.Exists(this.FileDirectory)) {
             Directory.CreateDirectory(this.FileDirectory);
         }
@@ -24,46 +25,41 @@ public class FileManager {
     }
 
     /**
-     * Write File (.txt)
+     * Write a line in the File
      */
-    public void WriteTxt(string message) {
+    public void WriteLine(object? message) {
         using (StreamWriter writer = new StreamWriter(this.GetPath(), true)) {
             writer.WriteLine(message);
         }
     }
+
+    /**
+     * Read File and return a list with all strings
+     */
+    public string[] ReadAllLines<T>() {
+        return File.ReadAllLines(this.GetPath());
+    }
     
     /**
-     * Read File (.txt)
+     * Write a object in the File
      */
-    public List<string> ReadTxt() {
-        using (StreamReader reader = new StreamReader(this.GetPath())) {
-            List<string> list = new();
-            list.Add(reader.ReadToEnd());
-
-            return list;
+    public void WriteJson<T>(T obj) {
+        using (StreamWriter writer = new StreamWriter(this.GetPath(), true)) {
+            writer.WriteLine(JsonConvert.DeserializeObject(JsonConvert.SerializeObject(obj)));
         }
     }
     
     /**
-     * Write Json File (.json)
+     * Read JSON File and return a list with all objects
      */
-    public void WriteJson<T>(T jsonType) {
-        string text = JsonSerializer.Serialize(jsonType);
-        
-        File.WriteAllText(this.GetPath(), text);
+    public JsonNode ReadJson() {
+        return JsonArray.Parse(File.ReadAllText(this.GetPath()));
     }
 
     /**
-     * Read Json File (.json)
+     * Get File path
      */
-    public T ReadJson<T>(T jsonType) {
-        string text = File.ReadAllText(this.GetPath());
-        T variableType = JsonSerializer.Deserialize<T>(text);
-        
-        return variableType;
-    }
-
-    protected string GetPath() {
+    public string GetPath() {
         return Path.Combine(this.FileDirectory, this.FileName);
     }
 }

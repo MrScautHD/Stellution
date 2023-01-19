@@ -2,6 +2,7 @@
 using Future.Client.csharp.registry;
 using Future.Client.csharp.registry.types;
 using Future.Client.csharp.settings;
+using Future.Common.csharp.file;
 using Future.Common.csharp.log;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -25,15 +26,18 @@ public class FutureClient : Game {
         this._camera = new Camera(this.GraphicsDevice, 80, Vector3.Zero, Vector3.Forward);
 
         // GAME PROPERTIES
+        this.Window.Title = "Future (WIP)";
         this.Content.RootDirectory = "content";
         this.IsFixedTimeStep = false;
         this.IsMouseVisible = true;
-        
+
         // REGISTRY
         IClientRegistry.Registries.Add(new DrawRegistry());
         IClientRegistry.Registries.Add(new FontRegistry());
         IClientRegistry.Registries.Add(new SoundRegistry());
         IClientRegistry.Registries.Add(new TickerRegistry());
+
+        new Config();
     }
 
     protected override void Initialize() {
