@@ -3,31 +3,28 @@ namespace Future.Common.csharp.file;
 public class Config : FileManager {
     
     public Config() : base("config", "config.json") {
-        this.CreateFile();
-
-        this.WriteJson(new Customer() {
-            Age = 1,
-            CustomerName = "test",
-            CustomerEmail = "lolol.com",
-            TotalSales = 10,
-            Check = true
-        });
+        this.CreateFile(false);
         
-        Console.WriteLine(this.ReadJson()["CustomerName"]); // Get 1 value
+        //this.WriteJson(new Customer() {
+        //    Age = 1,
+        //    CustomerName = "test",
+        //    CustomerEmail = "lolol.com",
+        //    TotalSales = 10,
+        //    Check = true
+        //});
 
-        if (this.ReadJson()["Check"].GetValue<bool>()) { // Convert it to the right Type like a bool
-            Console.WriteLine("CHECKED!!!!!");
+        foreach (var json in this.ReadJson().AsObject()) {
+            //if (json.Key == )
+            
+            Console.WriteLine(json);
         }
-        
-        Console.WriteLine(this.ReadJson()); // Get full list of values
     }
-    
-    public class Customer {
-        public string CustomerName { get; set; }
-        public string CustomerEmail { get; set; }
-        public int Age { get; set; }
-        
-        public bool Check { get; set; }
-        public decimal TotalSales { get; set; }
+
+    public struct Customer {
+        public string CustomerName;
+        public string CustomerEmail;
+        public int Age;
+        public bool Check;
+        public decimal TotalSales;
     }
 }

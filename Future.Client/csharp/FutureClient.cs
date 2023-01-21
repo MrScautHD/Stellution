@@ -3,7 +3,6 @@ using Future.Client.csharp.registry;
 using Future.Client.csharp.registry.types;
 using Future.Client.csharp.settings;
 using Future.Common.csharp.file;
-using Future.Common.csharp.log;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 

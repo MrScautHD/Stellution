@@ -1,11 +1,9 @@
-using Future.Common.csharp.file;
-
-namespace Future.Common.csharp.log; 
+namespace Future.Common.csharp.file; 
 
 public class Logger : FileManager {
     
     public Logger(string directory, string name) : base(directory, name) {
-        this.CreateFile();
+        this.CreateFile(true);
     }
 
     /**

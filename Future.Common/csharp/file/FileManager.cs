@@ -16,12 +16,14 @@ public class FileManager {
     /**
      * Create File (Override it)
      */
-    protected void CreateFile() {
+    protected void CreateFile(bool overrideExisting) {
         if (!Directory.Exists(this.FileDirectory)) {
             Directory.CreateDirectory(this.FileDirectory);
         }
 
-        File.Create(this.GetPath()).Close();
+        if (overrideExisting || !File.Exists(this.GetPath())) {
+            File.Create(this.GetPath()).Close();
+        }
     }
 
     /**
