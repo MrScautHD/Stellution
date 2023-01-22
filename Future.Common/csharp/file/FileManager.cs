@@ -1,5 +1,6 @@
 using System.Text.Json.Nodes;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace Future.Common.csharp.file; 
 
@@ -14,7 +15,7 @@ public class FileManager {
     }
 
     /**
-     * Create File (Override it)
+     * Create file (Override it)
      */
     protected void CreateFile(bool overrideExisting) {
         if (!Directory.Exists(this.FileDirectory)) {
@@ -27,7 +28,7 @@ public class FileManager {
     }
 
     /**
-     * Write a line in the File
+     * Write a line in the file
      */
     public void WriteLine(object? message) {
         using (StreamWriter writer = new StreamWriter(this.GetPath(), true)) {
@@ -36,14 +37,14 @@ public class FileManager {
     }
 
     /**
-     * Read File and return a list with all strings
+     * Read file and return a list with all strings
      */
     public string[] ReadAllLines<T>() {
         return File.ReadAllLines(this.GetPath());
     }
     
     /**
-     * Write a object in the File
+     * Write a object in the file
      */
     public void WriteJson<T>(T obj) {
         using (StreamWriter writer = new StreamWriter(this.GetPath(), true)) {
@@ -52,14 +53,51 @@ public class FileManager {
     }
     
     /**
-     * Read JSON File and return a list with all objects
+     * Read JSON file and return a list with all objects as JsonNode
      */
-    public JsonNode ReadJson() {
+    public JsonNode ReadJsonAsNode() {
         return JsonArray.Parse(File.ReadAllText(this.GetPath()));
+    }
+    
+    /**
+     * Read JSON file and return a list with all objects as JObject
+     */
+    public JObject ReadJsonAsObject() {
+        return JObject.Parse(File.ReadAllText(this.GetPath()));
     }
 
     /**
-     * Get File path
+     * Checks is file empty
+     */
+    public bool IsFileEmpty() {
+        return File.ReadAllText(this.GetPath()).Length == 0;
+    }
+
+    /**
+     * Checks is json file valid
+     */
+    public bool IsJsonValid() {
+        if (!File.Exists(this.GetPath())) {
+            return false;
+        }
+
+        try {
+            this.ReadJsonAsNode();
+            return true;
+        } catch (Exception) {
+            return false;
+        }
+    }
+
+    /**
+     * Clear file
+     */
+    public void ClearFile() {
+        File.WriteAllText(this.GetPath(), string.Empty);
+    }
+
+    /**
+     * Get file path
      */
     public string GetPath() {
         return Path.Combine(this.FileDirectory, this.FileName);
