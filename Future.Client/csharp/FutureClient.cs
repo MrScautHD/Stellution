@@ -1,8 +1,8 @@
 ﻿using Future.Client.csharp.camera;
+using Future.Client.csharp.config;
 using Future.Client.csharp.registry;
 using Future.Client.csharp.registry.types;
 using Future.Client.csharp.settings;
-using Future.Common.csharp.file;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -17,8 +17,6 @@ public class FutureClient : Game {
 
     private readonly Camera _camera;
     
-    public static Logger Logger = new("log", "logs.txt");
-
     public FutureClient() {
         this._graphicDeviceManager = new GraphicsDeviceManager(this);
         this._graphicSettings = new GraphicSettings(this._graphicDeviceManager, this.GraphicsDevice, this.Window);
@@ -36,7 +34,7 @@ public class FutureClient : Game {
         IClientRegistry.Registries.Add(new SoundRegistry());
         IClientRegistry.Registries.Add(new TickerRegistry());
 
-        new Config();
+        new GraphicConfig("config", "config.json");
     }
 
     protected override void Initialize() {

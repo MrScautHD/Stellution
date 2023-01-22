@@ -10,8 +10,6 @@ public class FutureServer : ServerTicker {
     private NetworkHandler _network;
     private ServerManager _serverManager;
 
-    public static Logger Logger = new("log", "logs.txt");
-
     public FutureServer() {
         this._network = new NetworkHandler();
         this._network.CreateNetwork(true);
@@ -19,7 +17,7 @@ public class FutureServer : ServerTicker {
         this._serverManager = (ServerManager) this._network.GetNetwork(true);
         this._serverManager.Start("localhost", 4090);
         
-        Logger.Print("Server Started!", ConsoleColor.Green);
+        Logger.Log.Print("Server Started!", ConsoleColor.Green);
     }
 
     public void Run() {

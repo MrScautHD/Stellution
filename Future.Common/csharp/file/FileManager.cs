@@ -51,7 +51,7 @@ public class FileManager {
     }
 
     /**
-     * Write a object in the file
+     * Write a value in the file
      */
     public void WriteJson<T>(T obj) {
         using (StreamWriter writer = new StreamWriter(this.GetPath(), true)) {
@@ -60,19 +60,19 @@ public class FileManager {
     }
     
     /**
-     * Read JSON file and return a list with all objects as JsonNode
+     * Read JSON file and return a list with all values as JsonNode
      */
     public JsonNode ReadJsonAsNode() {
         return JsonArray.Parse(File.ReadAllText(this.GetPath()));
     }
     
     /**
-     * Read JSON file and return a list with all objects as JObject
+     * Read JSON file and return a list with all values as JObject
      */
     public JObject ReadJsonAsObject() {
         return JObject.Parse(File.ReadAllText(this.GetPath()));
     }
-    
+
     /**
      * Checks is json file valid
      */

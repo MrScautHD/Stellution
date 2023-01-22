@@ -2,6 +2,8 @@ namespace Future.Common.csharp.file;
 
 public class Logger : FileManager {
     
+    public static readonly Logger Log = new("log", "logs.txt");
+    
     public Logger(string directory, string name) : base(directory, name) {
         this.CreateFile(true);
     }
