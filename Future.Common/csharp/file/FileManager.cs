@@ -44,6 +44,13 @@ public class FileManager {
     }
     
     /**
+     * Checks is file empty
+     */
+    public bool IsFileEmpty() {
+        return File.ReadAllText(this.GetPath()).Length == 0;
+    }
+
+    /**
      * Write a object in the file
      */
     public void WriteJson<T>(T obj) {
@@ -65,22 +72,11 @@ public class FileManager {
     public JObject ReadJsonAsObject() {
         return JObject.Parse(File.ReadAllText(this.GetPath()));
     }
-
-    /**
-     * Checks is file empty
-     */
-    public bool IsFileEmpty() {
-        return File.ReadAllText(this.GetPath()).Length == 0;
-    }
-
+    
     /**
      * Checks is json file valid
      */
     public bool IsJsonValid() {
-        if (!File.Exists(this.GetPath())) {
-            return false;
-        }
-
         try {
             this.ReadJsonAsNode();
             return true;
