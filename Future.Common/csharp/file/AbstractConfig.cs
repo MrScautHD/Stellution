@@ -1,3 +1,4 @@
+using System.Numerics;
 using Newtonsoft.Json.Linq;
 
 namespace Future.Common.csharp.file; 
@@ -35,7 +36,7 @@ public abstract class AbstractConfig : FileManager {
         else {
             this.ClearFile();
             this.WriteJson(this._dictionary);
-            Logger.Log.Print("Rewrote " + this.FileName, ConsoleColor.Yellow);
+            Logger.Log.Print("Re/Wrote " + this.FileName, ConsoleColor.Yellow);
         }
     }
 }
