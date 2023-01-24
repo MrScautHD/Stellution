@@ -6,7 +6,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Future.Client.csharp.renderer.overlay; 
 
-public class DebugOverlay : DefaultRenderer {
+public class DebugOverlay : AbstractRenderer {
 
     private int _lineDistance;
 

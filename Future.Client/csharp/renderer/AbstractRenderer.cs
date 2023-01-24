@@ -9,13 +9,13 @@ using Microsoft.Xna.Framework.Input;
 
 namespace Future.Client.csharp.renderer;
 
-public abstract class DefaultRenderer : IRenderer {
+public abstract class AbstractRenderer : IRenderer {
     
     protected Camera Camera { get; private set; }
     
     public bool Visible;
 
-    protected DefaultRenderer() {
+    protected AbstractRenderer() {
         this.Visible = true;
     }
 

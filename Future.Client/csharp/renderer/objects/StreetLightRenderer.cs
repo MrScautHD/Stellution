@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Future.Client.csharp.renderer.objects;
 
-public class StreetLightRenderer : DefaultRenderer {
+public class StreetLightRenderer : AbstractRenderer {
 
     private Model _model;
     private Texture2D _texture;

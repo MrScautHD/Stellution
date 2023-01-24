@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace Future.Client.csharp.renderer.overlay;
 
-public class CrosshairOverlay : DefaultRenderer {
+public class CrosshairOverlay : AbstractRenderer {
 
     private Texture2D _texture;
     
