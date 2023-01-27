@@ -1,3 +1,4 @@
+using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 
 namespace Future.Common.csharp.file; 
@@ -12,16 +13,6 @@ public abstract class AbstractConfig : FileManager {
 
     protected void WriteConfig() {
         if (this.IsJsonValid()) {
-            foreach (var dictionary in this._dictionary) {
-                if (!this.ReadJsonAsNode().AsObject().ContainsKey(dictionary.Key)) {
-                    JObject jsonObject = this.ReadJsonAsObject();
-
-                    jsonObject[dictionary.Key] = dictionary.Value.ToString();
-                    File.WriteAllText(this.GetPath(), jsonObject.ToString());
-                    Logger.Log.Print("File " + this.FileName + " added: " + dictionary.Key + " = " + dictionary.Value, ConsoleColor.Green);
-                }
-            }
-
             foreach (var jsonObjectPair in this.ReadJsonAsNode().AsObject()) {
                 if (!this._dictionary.ContainsKey(jsonObjectPair.Key)) {
                     JObject jsonObject = this.ReadJsonAsObject();
@@ -29,6 +20,16 @@ public abstract class AbstractConfig : FileManager {
                     
                     File.WriteAllText(this.GetPath(), jsonObject.ToString());
                     Logger.Log.Print("Value: " + jsonObjectPair.Key + " get removed! in " + "file " + this.FileName, ConsoleColor.Red);
+                }
+            }
+            
+            foreach (var dictionary in this._dictionary) {
+                if (!this.ReadJsonAsNode().AsObject().ContainsKey(dictionary.Key)) {
+                    JObject jsonObject = this.ReadJsonAsObject();
+
+                    jsonObject[dictionary.Key] = JToken.FromObject(dictionary.Value);
+                    File.WriteAllText(this.GetPath(), jsonObject.ToString());
+                    Logger.Log.Print("File " + this.FileName + " added: " + dictionary.Key + " = " + dictionary.Value, ConsoleColor.Green);
                 }
             }
         }

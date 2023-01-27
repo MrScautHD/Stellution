@@ -1,5 +1,4 @@
 ﻿using Future.Client.csharp.camera;
-using Future.Client.csharp.config;
 using Future.Client.csharp.registry;
 using Future.Client.csharp.registry.types;
 using Future.Client.csharp.settings;
@@ -33,8 +32,7 @@ public class FutureClient : Game {
         IClientRegistry.Registries.Add(new FontRegistry());
         IClientRegistry.Registries.Add(new SoundRegistry());
         IClientRegistry.Registries.Add(new TickerRegistry());
-
-        new GraphicConfig("config", "config.json");
+        IClientRegistry.Registries.Add(new ConfigRegistry());
     }
 
     protected override void Initialize() {

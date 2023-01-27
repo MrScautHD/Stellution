@@ -1,4 +1,6 @@
 using System.Collections.Generic;
+using System.Text.Json.Nodes;
+using Future.Client.csharp.registry.types;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -21,10 +23,12 @@ public class GraphicSettings {
 
     // ADD THE SAVE PART
     private void SetupDefaultSettingsOrSaved() {
+        JsonNode jsonNode = ConfigRegistry.GraphicConfig.ReadJsonAsNode();
 
         // GRAPHIC
         this.SetWindowSize(1920, 1080);
-        this.SetVSync(false);
+        //this.SetVSync(jsonNode["VSync"].GetValue<bool>());
+        //this._graphics.IsFullScreen = jsonNode["FullScreen"].GetValue<bool>();
 
         this.Apply();
 
