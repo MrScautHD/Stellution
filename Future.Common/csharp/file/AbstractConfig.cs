@@ -19,7 +19,7 @@ public abstract class AbstractConfig : FileManager {
                     jsonObject.Remove(jsonObjectPair.Key);
                     
                     File.WriteAllText(this.GetPath(), jsonObject.ToString());
-                    Logger.Log.Print("Value: " + jsonObjectPair.Key + " get removed! in " + "file " + this.FileName, ConsoleColor.Red);
+                    Logger.Log.Print("Value: " + jsonObjectPair.Key + " get removed! In file " + this.FileName, ConsoleColor.Red);
                 }
             }
             
