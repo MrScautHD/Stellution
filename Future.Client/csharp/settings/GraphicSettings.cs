@@ -38,17 +38,7 @@ public class GraphicSettings {
         //this.GraphicsDevice.PresentationParameters.MultiSampleCount = 8;
         //this._graphics.ApplyChanges();
     }
-
-    public void CreateGraphicFile() {
-
-    }
     
-    protected struct GraphicSettingConfig {
-        public int width;
-        public int height;
-        public bool vSync;
-    }
-
     public void SetWindowSize(int width, int height) {
         this._graphics.PreferredBackBufferWidth = width;
         this._graphics.PreferredBackBufferHeight = height;

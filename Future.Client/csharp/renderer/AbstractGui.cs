@@ -42,7 +42,7 @@ public abstract class AbstractGui : AbstractRenderer {
         
     }
 
-    public void RemoveSLot() {
+    public void RemoveSlot() {
         
     }
 
@@ -57,7 +57,7 @@ public abstract class AbstractGui : AbstractRenderer {
     /**
      * like in a pos or something...
      */
-    protected bool IsHovering() {
+    protected bool IsHovering(Rectangle rectangle) {
         return true;
     }
 
