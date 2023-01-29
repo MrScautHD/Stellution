@@ -10,6 +10,8 @@
     <ItemGroup>
       <PackageReference Include="BepuPhysics" Version="2.5.0-beta.10" />
       <PackageReference Include="LiteNetLib" Version="1.0.0-rc.3" />
+      <PackageReference Include="MonoGame.Content.Builder.Task" Version="3.8.1.303" />
+      <PackageReference Include="MonoGame.Framework.DesktopGL" Version="3.8.1.303" />
       <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     </ItemGroup>
 

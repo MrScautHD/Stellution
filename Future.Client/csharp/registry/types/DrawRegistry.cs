@@ -18,25 +18,25 @@ public class DrawRegistry : IClientRegistry {
     public readonly DebugOverlay DebugOverlay = Register("debug", new DebugOverlay());
 
     private static T Register<T>(string name, T renderer) where T : IRenderer {
-        RegistryTypes.Renderers.Add(name, renderer);
+        ClientRegistryTypes.Renderers.Add(name, renderer);
         
         return renderer;
     }
     
     public void Initialize(GraphicsDevice graphicsDevice, GameWindow window, Camera camera) {
-        foreach (IRenderer renderer in RegistryTypes.Renderers.Values) {
+        foreach (IRenderer renderer in ClientRegistryTypes.Renderers.Values) {
             renderer.Initialize(graphicsDevice, window, camera);
         }
     }
 
     public void LoadContent(GraphicsDevice graphicsDevice, ContentManager content) {
-        foreach (IRenderer renderer in RegistryTypes.Renderers.Values) {
+        foreach (IRenderer renderer in ClientRegistryTypes.Renderers.Values) {
             renderer.LoadContent(graphicsDevice, content);
         }
     }
 
     public void Draw(GraphicsDevice graphicsDevice, SpriteBatch spriteBatch, GameTime time) {
-        foreach (IRenderer renderer in RegistryTypes.Renderers.Values) {
+        foreach (IRenderer renderer in ClientRegistryTypes.Renderers.Values) {
             renderer.Draw(graphicsDevice, spriteBatch, time);
         }
     }

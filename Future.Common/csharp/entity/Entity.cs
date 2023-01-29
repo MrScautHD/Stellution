@@ -1,8 +1,10 @@
+using Future.Common.csharp.ticker;
 using Future.Common.csharp.world;
+using Microsoft.Xna.Framework;
 
 namespace Future.Common.csharp.entity;
 
-public abstract class Entity {
+public abstract class Entity : ITicker {
     
     private AbstractWorld _abstractWorld;
 
@@ -11,12 +13,8 @@ public abstract class Entity {
     public Entity(AbstractWorld abstractWorld) {
         this._abstractWorld = abstractWorld;
     }
-    
-    public virtual void Update() {
-        
-    }
 
-    public virtual void FixedUpdate() {
+    public virtual void FixedUpdate(GameTime time) {
         
     }
 

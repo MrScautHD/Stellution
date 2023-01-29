@@ -15,7 +15,7 @@ public abstract class AbstractClientTicker : IClientTicker {
     private void FixedTimeCalculator(GameTime gameTime) {
         this._timer += gameTime.ElapsedGameTime.TotalSeconds;
 
-        if (this._timer >= this._delay) {
+        while (this._timer >= this._delay) {
             this.FixedUpdate(gameTime);
             this._timer -= this._delay;
         }

@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Text.Json.Nodes;
 using Future.Client.csharp.registry.types;
@@ -16,17 +17,18 @@ public class GraphicSettings {
         this._graphics = graphics;
         this._window = window;
         this._graphicsDevice = graphicsDevice;
-        this._graphics.GraphicsProfile = GraphicsProfile.HiDef;
-        this._window.AllowUserResizing = true;
-        this.SetupDefaultSettingsOrSaved();
+        this.SetupGraphicSettings();
     }
 
-    // ADD THE SAVE PART
-    private void SetupDefaultSettingsOrSaved() {
-        JsonNode jsonNode = ConfigRegistry.GraphicConfig.ReadJsonAsNode();
-
-        // GRAPHIC
+    private void SetupGraphicSettings() {
+        this._graphics.GraphicsProfile = GraphicsProfile.HiDef;
+        this._graphics.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
+        this._window.AllowUserResizing = true;
+        
+        JsonNode jsonNode = ClientConfigRegistry.GraphicConfig.ReadJsonAsNode();
+        
         this.SetWindowSize(1920, 1080);
+        this._graphics.HardwareModeSwitch = false;
         //this.SetVSync(jsonNode["VSync"].GetValue<bool>());
         //this._graphics.IsFullScreen = jsonNode["FullScreen"].GetValue<bool>();
 
@@ -58,6 +60,14 @@ public class GraphicSettings {
 
     public int GetHeight() {
         return this._graphics.PreferredBackBufferHeight;
+    }
+
+    public void SetMaxFps(Game game, int frames) {
+        game.TargetElapsedTime = TimeSpan.FromSeconds(1d / MathHelper.Min(60, frames));
+        
+        this._graphics.PreparingDeviceSettings += (sender, e) => {
+            e.GraphicsDeviceInformation.PresentationParameters.PresentationInterval = PresentInterval.Two;
+        };
     }
 
     public void SetMultiSamplingCount(int sampleCount) {

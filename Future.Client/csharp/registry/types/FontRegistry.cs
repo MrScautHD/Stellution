@@ -17,7 +17,7 @@ public class FontRegistry : IClientRegistry {
         FontSystem font = new FontSystem();
         font.AddFont(File.ReadAllBytes(content.RootDirectory + "/fonts/" + name + ".ttf"));
         
-        RegistryTypes.Fonts.Add(name, font.GetFont(size));
+        ClientRegistryTypes.Fonts.Add(name, font.GetFont(size));
         return font.GetFont(size);
     }
 }

@@ -7,8 +7,7 @@ using Microsoft.Xna.Framework.Audio;
 
 namespace Future.Client.csharp.registry; 
 
-public class RegistryTypes {
-
+public class ClientRegistryTypes {
     public static readonly Dictionary<string, IRenderer> Renderers = new();
     public static readonly Dictionary<string, DynamicSpriteFont> Fonts = new();
     public static readonly Dictionary<string, SoundEffectInstance> Sounds = new();

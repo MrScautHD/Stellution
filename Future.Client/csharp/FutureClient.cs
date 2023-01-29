@@ -26,13 +26,13 @@ public class FutureClient : Game {
         this.Content.RootDirectory = "content";
         this.IsFixedTimeStep = false;
         this.IsMouseVisible = true;
-
+        
         // REGISTRY
         IClientRegistry.Registries.Add(new DrawRegistry());
         IClientRegistry.Registries.Add(new FontRegistry());
         IClientRegistry.Registries.Add(new SoundRegistry());
-        IClientRegistry.Registries.Add(new TickerRegistry());
-        IClientRegistry.Registries.Add(new ConfigRegistry());
+        IClientRegistry.Registries.Add(new ClientTickerRegistry());
+        IClientRegistry.Registries.Add(new ClientConfigRegistry());
     }
 
     protected override void Initialize() {
@@ -71,7 +71,7 @@ public class FutureClient : Game {
         this._spriteBatch.Draw(this._renderTarget2D, new Vector2(0, 0), null, Color.White, 0.0F, Vector2.Zero, 1, SpriteEffects.None, 1.0F);
         this._spriteBatch.End();
     }
-    
+
     protected override void Update(GameTime gameTime) {
         base.Update(gameTime);
 
