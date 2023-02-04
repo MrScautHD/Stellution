@@ -1,5 +1,7 @@
 using Future.Common.csharp.file;
 using Future.Common.csharp.network;
+using Future.Server.csharp.registry;
+using Future.Server.csharp.registry.types;
 using Future.Server.csharp.ticker;
 using Microsoft.Xna.Framework;
 
@@ -18,6 +20,10 @@ public class FutureServer : ServerTicker {
         this._serverManager.Start("localhost", 4090);
         
         Logger.Log.Print("Server Started!", ConsoleColor.Green);
+        
+        // REGISTRY
+        IRegistry.Registries.Add(new ConfigRegistry());
+        IRegistry.Registries.Add(new TickerRegistry());
     }
 
     public void Run() {

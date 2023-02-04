@@ -66,7 +66,7 @@ public class FutureClient : Game {
 
         this.GraphicsDevice.SetRenderTarget(null);
         this.GraphicsDevice.Clear(Color.CornflowerBlue);
-        
+
         this._spriteBatch.Begin(samplerState: SamplerState.PointClamp, rasterizerState: RasterizerState.CullCounterClockwise);
         this._spriteBatch.Draw(this._renderTarget2D, new Vector2(0, 0), null, Color.White, 0.0F, Vector2.Zero, 1, SpriteEffects.None, 1.0F);
         this._spriteBatch.End();

@@ -1,10 +1,11 @@
 using Future.Common.csharp.file;
+using Future.Server.csharp.config;
 
-namespace Future.Common.csharp.registry.types; 
+namespace Future.Server.csharp.registry.types; 
 
 public class ConfigRegistry : IRegistry {
 
-    //public static readonly GraphicConfig GraphicConfig = Register("client_ticker", new GraphicConfig("config", "graphic-config.json"));
+    public readonly ServerPropertyConfig GraphicConfig = Register("server_properties", new ServerPropertyConfig("config", "server-properties.json"));
 
     private static T Register<T>(string name, T config) where T : AbstractConfig {
         RegistryTypes.Configs.Add(name, config);

@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using System.Text.Json.Nodes;
+using Future.Client.csharp.config;
 using Future.Client.csharp.registry.types;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Future.Client.csharp.settings; 
+namespace Future.Client.csharp.settings;
 
 public class GraphicSettings {
     
@@ -25,12 +25,16 @@ public class GraphicSettings {
         this._graphics.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
         this._window.AllowUserResizing = true;
         
-        JsonNode jsonNode = ClientConfigRegistry.GraphicConfig.ReadJsonAsNode();
+        
+        GraphicConfig test = ClientConfigRegistry.GraphicConfig;
+        
+        
+        //JsonNode jsonNode = ClientConfigRegistry.GraphicConfig.ReadJsonAsNode();
         
         this.SetWindowSize(1920, 1080);
         this._graphics.HardwareModeSwitch = false;
-        //this.SetVSync(jsonNode["VSync"].GetValue<bool>());
-        //this._graphics.IsFullScreen = jsonNode["FullScreen"].GetValue<bool>();
+        this.SetVSync(false);// jsonNode["VSync"].GetValue<bool>()
+        this._graphics.IsFullScreen = false;//jsonNode["FullScreen"].GetValue<bool>()
 
         this.Apply();
 

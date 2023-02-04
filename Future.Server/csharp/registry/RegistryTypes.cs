@@ -1,7 +1,7 @@
 using Future.Common.csharp.file;
 using Future.Common.csharp.ticker;
 
-namespace Future.Common.csharp.registry; 
+namespace Future.Server.csharp.registry; 
 
 public class RegistryTypes {
     public static readonly Dictionary<string, ITicker> Ticker = new();

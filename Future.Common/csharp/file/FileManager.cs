@@ -1,3 +1,5 @@
+using System.Security.Cryptography;
+using System.Text;
 using System.Text.Json.Nodes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
@@ -8,10 +10,15 @@ public class FileManager {
     
     public string FileDirectory { get; private set; }
     public string FileName { get; private set; }
+    
+    private bool _encrypt;
+    private string _encryptKey;
 
-    public FileManager(string directory, string name) {
+    public FileManager(string directory, string name, string encryptKey = "") {
         this.FileDirectory = directory;
         this.FileName = name;
+        this._encrypt = encryptKey != string.Empty;
+        this._encryptKey = encryptKey;
     }
 
     /**
@@ -30,9 +37,9 @@ public class FileManager {
     /**
      * Write a line in the file
      */
-    public void WriteLine(object? message) {
+    public void WriteLine(object? obj) {
         using (StreamWriter writer = new StreamWriter(this.GetPath(), true)) {
-            writer.WriteLine(message);
+            writer.WriteLine(this.EncryptString(obj.ToString()));
         }
     }
 
@@ -54,23 +61,21 @@ public class FileManager {
      * Write a value in the file
      */
     public void WriteJson<T>(T obj) {
-        using (StreamWriter writer = new StreamWriter(this.GetPath(), true)) {
-            writer.WriteLine(JsonConvert.DeserializeObject(JsonConvert.SerializeObject(obj)));
-        }
+        this.WriteLine(JsonConvert.DeserializeObject(JsonConvert.SerializeObject(obj)));
     }
-    
+
     /**
      * Read JSON file and return a list with all values as JsonNode
      */
     public JsonNode ReadJsonAsNode() {
-        return JsonArray.Parse(File.ReadAllText(this.GetPath()));
+        return JsonArray.Parse(this.DecryptString(File.ReadAllText(this.GetPath())));
     }
     
     /**
      * Read JSON file and return a list with all values as JObject
      */
     public JObject ReadJsonAsObject() {
-        return JObject.Parse(File.ReadAllText(this.GetPath()));
+        return JObject.Parse(this.DecryptString(File.ReadAllText(this.GetPath())));
     }
 
     /**
@@ -83,6 +88,64 @@ public class FileManager {
         } catch (Exception) {
             return false;
         }
+    }
+    
+    /**
+     * Encrypt string
+     */
+    public string EncryptString(string text) {
+        if (this._encrypt) {
+            byte[] iv = new byte[16];
+            byte[] array;
+
+            using (Aes aes = Aes.Create()) {
+                aes.Key = Encoding.UTF8.GetBytes(this._encryptKey);
+                aes.IV = iv;
+
+                ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+
+                using (MemoryStream memoryStream = new MemoryStream()) {
+                    using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write)) {
+                        using (StreamWriter streamWriter = new StreamWriter(cryptoStream)) {
+                            streamWriter.Write(text);
+                        }
+
+                        array = memoryStream.ToArray();
+                    }
+                }
+            }
+
+            return Convert.ToBase64String(array);
+        }
+
+        return text;
+    }
+    
+    /**
+     * Decrypt string
+     */
+    public string DecryptString(string text) {
+        if (this._encrypt) {
+            byte[] iv = new byte[16];
+            byte[] buffer = Convert.FromBase64String(text);
+
+            using (Aes aes = Aes.Create()) {
+                aes.Key = Encoding.UTF8.GetBytes(this._encryptKey);
+                aes.IV = iv;
+                
+                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
+
+                using (MemoryStream memoryStream = new MemoryStream(buffer)) {
+                    using (CryptoStream cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read)) {
+                        using (StreamReader streamReader = new StreamReader(cryptoStream)) {
+                            return streamReader.ReadToEnd();
+                        }
+                    }
+                }
+            }
+        }
+
+        return text;
     }
 
     /**

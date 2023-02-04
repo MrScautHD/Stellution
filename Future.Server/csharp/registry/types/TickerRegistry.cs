@@ -1,7 +1,7 @@
 using Future.Common.csharp.ticker;
 using Microsoft.Xna.Framework;
 
-namespace Future.Common.csharp.registry.types; 
+namespace Future.Server.csharp.registry.types; 
 
 public class TickerRegistry : IRegistry {
 

@@ -1,6 +1,6 @@
 using Microsoft.Xna.Framework;
 
-namespace Future.Common.csharp.registry; 
+namespace Future.Server.csharp.registry; 
 
 public interface IRegistry {
 

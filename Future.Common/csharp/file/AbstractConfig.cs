@@ -5,8 +5,8 @@ namespace Future.Common.csharp.file;
 public abstract class AbstractConfig : FileManager {
 
     protected Dictionary<string, object> _dictionary = new();
-    
-    protected AbstractConfig(string directory, string name) : base(directory, name) {
+
+    protected AbstractConfig(string directory, string name, string encryptKey = "0856wjfgao8314asfrjtj2948tqapkgf") : base(directory, name, encryptKey) {
         this.CreateFile(false);
     }
 
@@ -17,7 +17,7 @@ public abstract class AbstractConfig : FileManager {
                     JObject jsonObject = this.ReadJsonAsObject();
                     jsonObject.Remove(jsonObjectPair.Key);
                     
-                    File.WriteAllText(this.GetPath(), jsonObject.ToString());
+                    File.WriteAllText(this.GetPath(), this.EncryptString(jsonObject.ToString()));
                     Logger.Log.Print("Value: " + jsonObjectPair.Key + " get removed! In file " + this.FileName, ConsoleColor.Red);
                 }
             }
@@ -27,7 +27,7 @@ public abstract class AbstractConfig : FileManager {
                     JObject jsonObject = this.ReadJsonAsObject();
 
                     jsonObject[dictionary.Key] = JToken.FromObject(dictionary.Value);
-                    File.WriteAllText(this.GetPath(), jsonObject.ToString());
+                    File.WriteAllText(this.GetPath(), this.EncryptString(jsonObject.ToString()));
                     Logger.Log.Print("File " + this.FileName + " added: " + dictionary.Key + " = " + dictionary.Value, ConsoleColor.Green);
                 }
             }

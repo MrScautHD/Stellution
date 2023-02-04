@@ -5,7 +5,7 @@ namespace Future.Client.csharp.registry.types;
 
 public class ClientConfigRegistry : IClientRegistry {
 
-    public static readonly GraphicConfig GraphicConfig = Register("client_ticker", new GraphicConfig("config", "graphic-config.json"));
+    public static readonly GraphicConfig GraphicConfig = Register("graphic_config", new GraphicConfig("config", "graphic-config.json"));
 
     private static T Register<T>(string name, T config) where T : AbstractConfig {
         ClientRegistryTypes.Configs.Add(name, config);
