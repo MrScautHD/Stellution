@@ -89,63 +89,49 @@ public class FileManager {
             return false;
         }
     }
-    
+
     /**
      * Encrypt string
      */
     public string EncryptString(string text) {
-        if (this._encrypt) {
-            byte[] iv = new byte[16];
-            byte[] array;
-
-            using (Aes aes = Aes.Create()) {
-                aes.Key = Encoding.UTF8.GetBytes(this._encryptKey);
-                aes.IV = iv;
-
-                ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
-
-                using (MemoryStream memoryStream = new MemoryStream()) {
-                    using (CryptoStream cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write)) {
-                        using (StreamWriter streamWriter = new StreamWriter(cryptoStream)) {
-                            streamWriter.Write(text);
-                        }
-
-                        array = memoryStream.ToArray();
-                    }
-                }
-            }
-
-            return Convert.ToBase64String(array);
+        if (!this._encrypt) {
+            return text;
         }
+        
+        using var aes = Aes.Create();
+        aes.Key = Encoding.UTF8.GetBytes(this._encryptKey);
+        aes.IV = new byte[16];
 
-        return text;
+        ICryptoTransform encryptor = aes.CreateEncryptor(aes.Key, aes.IV);
+        
+        using var memoryStream = new MemoryStream();
+        using var cryptoStream = new CryptoStream(memoryStream, encryptor, CryptoStreamMode.Write);
+        using (var streamWriter = new StreamWriter(cryptoStream)) {
+            streamWriter.Write(text);
+        }
+        
+        return Convert.ToBase64String(memoryStream.ToArray(), Base64FormattingOptions.InsertLineBreaks);
     }
     
     /**
      * Decrypt string
      */
     public string DecryptString(string text) {
-        if (this._encrypt) {
-            byte[] iv = new byte[16];
-            byte[] buffer = Convert.FromBase64String(text);
-
-            using (Aes aes = Aes.Create()) {
-                aes.Key = Encoding.UTF8.GetBytes(this._encryptKey);
-                aes.IV = iv;
-                
-                ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
-
-                using (MemoryStream memoryStream = new MemoryStream(buffer)) {
-                    using (CryptoStream cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read)) {
-                        using (StreamReader streamReader = new StreamReader(cryptoStream)) {
-                            return streamReader.ReadToEnd();
-                        }
-                    }
-                }
-            }
+        if (!this._encrypt) {
+            return text;
         }
+        
+        using var aes = Aes.Create();
+        aes.Key = Encoding.UTF8.GetBytes(this._encryptKey);
+        aes.IV = new byte[16];
+                
+        ICryptoTransform decryptor = aes.CreateDecryptor(aes.Key, aes.IV);
 
-        return text;
+        using var memoryStream = new MemoryStream(Convert.FromBase64String(text));
+        using var cryptoStream = new CryptoStream(memoryStream, decryptor, CryptoStreamMode.Read);
+        using var streamReader = new StreamReader(cryptoStream);
+        
+        return streamReader.ReadToEnd();
     }
 
     /**

@@ -6,7 +6,7 @@ public abstract class AbstractConfig : FileManager {
 
     protected Dictionary<string, object> _dictionary = new();
 
-    protected AbstractConfig(string directory, string name, string encryptKey = "0856wjfgao8314asfrjtj2948tqapkgf") : base(directory, name, encryptKey) {
+    protected AbstractConfig(string directory, string name, string encryptKey = "") : base(directory, name, encryptKey) {
         this.CreateFile(false);
     }
 
