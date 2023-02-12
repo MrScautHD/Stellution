@@ -1,3 +1,4 @@
+using System;
 using FontStashSharp;
 using Future.Client.csharp.camera;
 using Liru3D.Animations;
@@ -13,7 +14,7 @@ public abstract class AbstractRenderer : IRenderer {
     
     protected Camera Camera { get; private set; }
     
-    public bool Visible;
+    public bool Visible { get; protected set; }
 
     protected AbstractRenderer() {
         this.Visible = true;
@@ -90,6 +91,16 @@ public abstract class AbstractRenderer : IRenderer {
     
     protected virtual void KeyToggle(Keys key, bool down) {
         
+    }
+
+    protected Matrix Shake(Matrix world) {
+        float shakeX = Random.Shared.Next(2) == 1 ? 1 : -1;
+        float shakeY = Random.Shared.Next(2) == 1 ? 1 : -1;
+        float shakeZ = Random.Shared.Next(2) == 1 ? 1 : -1;
+        
+        world.Translation = new Vector3(shakeX, shakeY, shakeZ);
+
+        return world;
     }
 
     protected void EnableDepth(GraphicsDevice graphicsDevice) {

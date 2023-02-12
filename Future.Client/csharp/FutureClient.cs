@@ -19,7 +19,7 @@ public class FutureClient : Game {
     public FutureClient() {
         this._graphicDeviceManager = new GraphicsDeviceManager(this);
         this._graphicSettings = new GraphicSettings(this._graphicDeviceManager, this.GraphicsDevice, this.Window);
-        this._camera = new Camera(this.GraphicsDevice, 80, Vector3.Zero, Vector3.Forward);
+        this._camera = new Camera(this.GraphicsDevice, 80, new Vector3(0, 0, 100), Vector3.Forward);
 
         // GAME PROPERTIES
         this.Window.Title = "Future (WIP)";

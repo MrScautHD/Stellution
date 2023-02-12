@@ -111,4 +111,27 @@ public class Camera {
         
         this.View *= Matrix.CreateRotationZ(MathHelper.ToRadians(this.Roll));
     }
+    
+    /**
+     * Shake Camera smooth all time
+     */
+    public void SmoothShake(GameTime gameTime, float duration, int amount) {
+        
+    }
+
+    /**
+     * Shake Camera hard just by explosion...
+     */
+    public void Shake(GameTime time) {
+        float shakeX = Random.Shared.Next(2) == 1 ? 1 : -1;
+        float shakeY = Random.Shared.Next(2) == 1 ? 1 : -1;
+        float shakeZ = Random.Shared.Next(2) == 1 ? 1 : -1;
+        
+        //Console.WriteLine(shakeX);
+
+        //this._world.Translation = new Vector3(this.Position.X + shakeX, this.Position.Y + shakeY, this.Position.Z + shakeZ);
+        //this.SetWorldAndView(this.Forward);
+        
+        //this.Position = new Vector3(this.Position.X + shakeX, this.Position.Y + shakeY, this.Position.Z + shakeZ);
+    }
 }
