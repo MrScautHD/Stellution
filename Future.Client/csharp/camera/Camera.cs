@@ -120,7 +120,7 @@ public class Camera {
     }
 
     /**
-     * Shake Camera hard just by explosion...
+     * Shake Camera hard just by explosions...
      */
     public void Shake(GameTime time) {
         float shakeX = Random.Shared.Next(2) == 1 ? 1 : -1;
