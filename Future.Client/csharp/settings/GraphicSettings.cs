@@ -19,10 +19,10 @@ public class GraphicSettings {
         this._graphics = graphics;
         this._window = window;
         this._graphicsDevice = graphicsDevice;
-        this.ChangeAbleGraphicSettings();
+        this.SetGraphicSettings();
     }
 
-    private void ChangeAbleGraphicSettings() {
+    private void SetGraphicSettings() {
         this._graphics.GraphicsProfile = GraphicsProfile.HiDef;
         this._graphics.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
         this._window.AllowUserResizing = true;
