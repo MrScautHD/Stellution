@@ -12,43 +12,34 @@ public class GraphicSettings {
     private GraphicsDeviceManager _graphics;
     private GameWindow _window;
     private GraphicsDevice _graphicsDevice;
+    
+    public int MultiSampling { get; private set; }
 
     public GraphicSettings(GraphicsDeviceManager graphics, GraphicsDevice graphicsDevice, GameWindow window) {
         this._graphics = graphics;
         this._window = window;
         this._graphicsDevice = graphicsDevice;
-        this.SetupGraphicSettings();
+        this.ChangeAbleGraphicSettings();
     }
 
-    private void SetupGraphicSettings() {
+    private void ChangeAbleGraphicSettings() {
         this._graphics.GraphicsProfile = GraphicsProfile.HiDef;
         this._graphics.PreferredDepthStencilFormat = DepthFormat.Depth24Stencil8;
         this._window.AllowUserResizing = true;
-        
-        
+
         GraphicConfig test = ClientConfigRegistry.GraphicConfig;
         
-        
         //JsonNode jsonNode = ClientConfigRegistry.GraphicConfig.ReadJsonAsNode();
-        
+
+        this.MultiSampling = 32;
         this.SetWindowSize(1920, 1080);
         this._graphics.HardwareModeSwitch = false;
-        this.SetVSync(false);// jsonNode["VSync"].GetValue<bool>()
-        this._graphics.IsFullScreen = false;//jsonNode["FullScreen"].GetValue<bool>()
+        this.SetVSync(false); // jsonNode["VSync"].GetValue<bool>()
+        this._graphics.IsFullScreen = false; //jsonNode["FullScreen"].GetValue<bool>()
 
         this.Apply();
-
-        //this._graphics.PreferMultiSampling = true;
-        //this._graphics.ApplyChanges();
-        
-        //this._graphicSettings.SetMultiSampling(true);
-        //this._graphicSettings.SetMultiSamplingCount(8);
-        //this._graphicSettings.Apply();
-        
-        //this.GraphicsDevice.PresentationParameters.MultiSampleCount = 8;
-        //this._graphics.ApplyChanges();
     }
-    
+
     public void SetWindowSize(int width, int height) {
         this._graphics.PreferredBackBufferWidth = width;
         this._graphics.PreferredBackBufferHeight = height;

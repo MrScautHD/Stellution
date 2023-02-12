@@ -38,7 +38,7 @@ public class FutureClient : Game {
     protected override void Initialize() {
         base.Initialize();
 
-        this._renderTarget2D = new RenderTarget2D(this.GraphicsDevice, 1920, 1080, false, SurfaceFormat.Color, DepthFormat.Depth24Stencil8);
+        this._renderTarget2D = new RenderTarget2D(this.GraphicsDevice, 1920, 1080, false, SurfaceFormat.Color, DepthFormat.Depth24Stencil8, this._graphicSettings.MultiSampling, RenderTargetUsage.PlatformContents);
         
         // INIT REGISTRY
         foreach (IClientRegistry registry in IClientRegistry.Registries) {
