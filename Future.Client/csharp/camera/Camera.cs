@@ -126,7 +126,7 @@ public class Camera {
         float shakeX = Random.Shared.Next(2) == 1 ? 1 : -1;
         float shakeY = Random.Shared.Next(2) == 1 ? 1 : -1;
         float shakeZ = Random.Shared.Next(2) == 1 ? 1 : -1;
-        
+
         //Console.WriteLine(shakeX);
 
         //this._world.Translation = new Vector3(this.Position.X + shakeX, this.Position.Y + shakeY, this.Position.Z + shakeZ);
