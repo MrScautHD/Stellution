@@ -49,13 +49,9 @@
 </p>
 
 ### Libraries (https://www.nuget.org/packages)
-- MonoGame (Main)
-- Apos.Input (Input System)
+- Easel (Game Framework (Engine))
 - LiteNetLib (Network System)
-- BepuPhysics (Physic System)
-- FontStashSharp (Font System)
-- Lovebirb.MonoGame.SkinnedMeshImporter (Animated FBX Model Support)
-- MonoSound (Sound System)
+- Newtonsoft (Json System)
 
 ### Todo Lists
 🛠️ To-do-Dev
