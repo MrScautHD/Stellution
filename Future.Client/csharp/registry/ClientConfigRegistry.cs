@@ -14,6 +14,6 @@ public class ClientConfigRegistry : Registry {
     public static GraphicConfig GraphicConfig { get; private set; }
 
     public void Initialize() {
-        GraphicConfig = this.Register<>("graphic_config", Configs, new GraphicConfig("config", "graphic-config"));
+        GraphicConfig = this.Register("graphic_config", Configs, new GraphicConfig("config", "graphic-config"));
     }
 }

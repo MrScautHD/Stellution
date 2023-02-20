@@ -1,6 +1,7 @@
 using Easel;
 using Easel.Core;
 using Easel.Scenes;
+using Future.Common.csharp.registry;
 using LiteNetLib;
 
 namespace Future.Server.csharp; 
@@ -22,10 +23,20 @@ public class FutureServer : EaselGame {
 
     protected override void Initialize() {
         base.Initialize();
+        
+        // INIT REGISTRY
+        foreach (IRegistry registry in IRegistry.RegistryTypes) {
+            registry.Initialize();
+        }
     }
 
     protected override void Update() {
         base.Update();
+        
+        // UPDATE REGISTRY
+        foreach (IRegistry registry in IRegistry.RegistryTypes) {
+            registry.FixedUpdate();
+        }
     }
 
     /**

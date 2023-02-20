@@ -13,6 +13,6 @@ public class ServerConfigRegistry : Registry {
     public static ServerPropertyConfig ServerProperty { get; private set; }
 
     public void Initialize() {
-        ServerProperty = this.Register<>("server_properties", Configs, new ServerPropertyConfig("config", "server-properties"));
+        ServerProperty = this.Register("server_properties", Configs, new ServerPropertyConfig("config", "server-properties"));
     }
 }

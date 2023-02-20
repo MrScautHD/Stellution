@@ -7,4 +7,12 @@ public interface IRegistry {
     public virtual void Initialize() {
         
     }
+
+    public virtual void FixedUpdate() {
+        
+    }
+
+    public virtual void Draw() {
+        
+    }
 }
