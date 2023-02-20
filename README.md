@@ -49,7 +49,7 @@
 </p>
 
 ### Libraries (https://www.nuget.org/packages)
-- Easel (Game Framework (Engine))
+- Easel (Game Framework (Engine)) (Coming soon on nuget)
 - LiteNetLib (Network System)
 - Newtonsoft (Json System)
 
