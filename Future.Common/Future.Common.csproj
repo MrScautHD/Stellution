@@ -16,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="csharp" />
+      <Folder Include="csharp\registry\types" />
     </ItemGroup>
 
 </Project>

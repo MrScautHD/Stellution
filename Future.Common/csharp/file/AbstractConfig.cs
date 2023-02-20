@@ -7,7 +7,7 @@ public abstract class AbstractConfig : FileManager {
 
     protected Dictionary<string, object> _dictionary = new();
 
-    protected AbstractConfig(string directory, string name, string encryptKey = "") : base(directory, name, encryptKey) {
+    protected AbstractConfig(string directory, string name, string encryptKey = "") : base(directory, name + ".json", encryptKey) {
         this.CreateFile(false);
     }
 
