@@ -1,0 +1,4 @@
+[submodule "Easel"]
+	path = Easel
+	url = https://github.com/piegfx/Easel
+	branch = renderer-revamp

@@ -1,6 +1,9 @@
-﻿using Future.Server.csharp;
+﻿using Easel;
+using Future.Server.csharp;
+using Future.Server.csharp.scenes;
 
-Console.WriteLine("Press any KEY to start the Server!");
+GameSettings settings = new GameSettings();
+settings.Server = true;
 
-var server = new FutureServer();
-server.Run();
+using FutureServer server = new FutureServer(settings, new TestScene());
+server.StartServer();

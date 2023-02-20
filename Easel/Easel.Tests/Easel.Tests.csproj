@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\BulletSharpPInvoke\BulletSharp\BulletSharp.DotNetCore.csproj" />
+      <ProjectReference Include="..\Easel.ImGui\Easel.ImGui.csproj" />
+      <ProjectReference Include="..\Easel.Physics\Easel.Physics.csproj" />
+      <ProjectReference Include="..\Easel\Easel.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Content Include="Content/**/*">
+          <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+
+</Project>

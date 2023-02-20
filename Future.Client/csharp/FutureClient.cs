@@ -1,83 +1,31 @@
-﻿using Future.Client.csharp.camera;
-using Future.Client.csharp.registry;
-using Future.Client.csharp.registry.types;
-using Future.Client.csharp.settings;
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
+using Easel;
+using Easel.Core;
+using Easel.Scenes;
+using Future.Client.csharp.config;
+using Pie.Windowing;
 
-namespace Future.Client.csharp;
+namespace Future.Client.csharp; 
 
-public class FutureClient : Game {
+public class FutureClient : EaselGame {
+
+    protected GameSettings _settings;
     
-    private GraphicsDeviceManager _graphicDeviceManager;
-    private SpriteBatch _spriteBatch;
-    private RenderTarget2D _renderTarget2D;
-    private GraphicSettings _graphicSettings;
-
-    private readonly Camera _camera;
-    
-    public FutureClient() {
-        this._graphicDeviceManager = new GraphicsDeviceManager(this);
-        this._graphicSettings = new GraphicSettings(this._graphicDeviceManager, this.GraphicsDevice, this.Window);
-        this._camera = new Camera(this.GraphicsDevice, 80, new Vector3(0, 0, 100), Vector3.Forward);
-
-        // GAME PROPERTIES
-        this.Window.Title = "Future (WIP)";
-        this.Content.RootDirectory = "content";
-        this.IsFixedTimeStep = false;
-        this.IsMouseVisible = true;
-        
-        // REGISTRY
-        IClientRegistry.Registries.Add(new DrawRegistry());
-        IClientRegistry.Registries.Add(new FontRegistry());
-        IClientRegistry.Registries.Add(new SoundRegistry());
-        IClientRegistry.Registries.Add(new ClientTickerRegistry());
-        IClientRegistry.Registries.Add(new ClientConfigRegistry());
+    public FutureClient(GameSettings settings, Scene scene) : base(settings, scene) {
+        this._settings = settings;
     }
 
     protected override void Initialize() {
         base.Initialize();
 
-        this._renderTarget2D = new RenderTarget2D(this.GraphicsDevice, 1920, 1080, false, SurfaceFormat.Color, DepthFormat.Depth24Stencil8, this._graphicSettings.MultiSampling, RenderTargetUsage.PlatformContents);
+        // GAME PROPERTIES
+        this.Content.ContentRootDir = "content";
+        Input.MouseState = MouseState.Visible;
         
-        // INIT REGISTRY
-        foreach (IClientRegistry registry in IClientRegistry.Registries) {
-            registry.Initialize(this.GraphicsDevice, this.Window, this._camera);
-        }
-    }
+        // LOGGER
+        Logger.InitializeLogFile("logs");
+        Logger.UseConsoleLogs();
 
-    protected override void LoadContent() {
-        this._spriteBatch = new SpriteBatch(this.GraphicsDevice);
-        
-        // LOAD REGISTRY
-        foreach (IClientRegistry registry in IClientRegistry.Registries) {
-            registry.LoadContent(this.GraphicsDevice, this.Content);
-        }
-    }
-
-    protected override void Draw(GameTime gameTime) {
-        this.GraphicsDevice.SetRenderTarget(this._renderTarget2D);
-        this.GraphicsDevice.Clear(Color.CornflowerBlue);
-        
-        // DRAW REGISTRY
-        foreach (IClientRegistry registry in IClientRegistry.Registries) {
-            registry.Draw(this.GraphicsDevice, this._spriteBatch, gameTime);
-        }
-
-        this.GraphicsDevice.SetRenderTarget(null);
-        this.GraphicsDevice.Clear(Color.CornflowerBlue);
-
-        this._spriteBatch.Begin(samplerState: SamplerState.PointClamp, rasterizerState: RasterizerState.CullCounterClockwise);
-        this._spriteBatch.Draw(this._renderTarget2D, new Vector2(0, 0), null, Color.White, 0.0F, Vector2.Zero, 1, SpriteEffects.None, 1.0F);
-        this._spriteBatch.End();
-    }
-
-    protected override void Update(GameTime gameTime) {
-        base.Update(gameTime);
-
-        // UPDATE REGISTRY
-        foreach (IClientRegistry registry in IClientRegistry.Registries) {
-            registry.Update(gameTime);
-        }
+        // REGISTER SYSTEM (NOT DONE)
+        GraphicConfig graphicConfig = new GraphicConfig("config", "graphic-config.json");
     }
 }

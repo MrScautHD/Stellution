@@ -1,0 +1,43 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+    
+    <PropertyGroup>
+        <Version>1.0.0-pre</Version>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Easel.Core\Easel.Core.csproj" />
+      <ProjectReference Include="..\Easel.Graphics\Easel.Graphics.csproj" />
+      <ProjectReference Include="..\Easel.Math\Easel.Math.csproj" />
+      <ProjectReference Include="..\Pie\Pie.Freetype\Pie.Freetype.csproj" />
+      <ProjectReference Include="..\Pie\Pie.ShaderCompiler\Pie.ShaderCompiler.csproj" />
+      <ProjectReference Include="..\Pie\Pie.Utils\Pie.Utils.csproj" />
+      <ProjectReference Include="..\Pie\Pie.Windowing\Pie.Windowing.csproj" />
+      <ProjectReference Include="..\Pie\Pie\Pie.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Silk.NET.SDL" Version="2.16.0" />
+      <PackageReference Include="StbVorbisSharp" Version="1.22.4" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Include="EaselLogo.png" />
+      <EmbeddedResource Include="Roboto-Regular.ttf" />
+      <EmbeddedResource Include="Graphics\Shaders\**\*" />
+        
+      <None Update="libmixr.so">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+      <None Update="mixr.dll">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
+</Project>

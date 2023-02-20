@@ -1,39 +1,50 @@
-using Future.Common.csharp.file;
-using Future.Common.csharp.network;
-using Future.Server.csharp.registry;
-using Future.Server.csharp.registry.types;
-using Future.Server.csharp.ticker;
-using Microsoft.Xna.Framework;
+using Easel;
+using Easel.Core;
+using Easel.Scenes;
+using LiteNetLib;
 
-namespace Future.Server.csharp;
+namespace Future.Server.csharp; 
 
-public class FutureServer : ServerTicker {
-
-    private NetworkHandler _network;
-    private ServerManager _serverManager;
-
-    public FutureServer() {
-        this._network = new NetworkHandler();
-        this._network.CreateNetwork(true);
-
-        this._serverManager = (ServerManager) this._network.GetNetwork(true);
-        this._serverManager.Start("localhost", 4090);
+public class FutureServer : EaselGame {
+    
+    private NetManager _netManager;
+    protected EventBasedNetListener _listener;
+    
+    public FutureServer(GameSettings settings, Scene scene) : base(settings, scene) {
+        // NETWORK
+        this._listener = new EventBasedNetListener();
+        this._netManager = new NetManager(this._listener);
         
-        Logger.Log.Print("Server Started!", ConsoleColor.Green);
-        
-        // REGISTRY
-        IRegistry.Registries.Add(new ConfigRegistry());
-        IRegistry.Registries.Add(new TickerRegistry());
+        // LOGGER
+        Logger.InitializeLogFile("logs");
+        Logger.UseConsoleLogs();
     }
 
-    public void Run() {
-        this.RunTick(this._serverManager.Network.IsRunning);
+    protected override void Initialize() {
+        base.Initialize();
+    }
+
+    protected override void Update() {
+        base.Update();
     }
 
     /**
-     * The "Update" Method is limited to 60 FPS when "IsFixedTimeStep" (default) true.
+     * Don't use "Run"
      */
-    protected override void Update(GameTime gameTime) {
+    public void StartServer() {
+        Logger.Info("Server Starting!");
         
+        this._netManager.Start();
+        this.Run();
+    }
+
+    /**
+     * Don't use "Close"
+     */
+    public void StopServer() {
+        Logger.Info("Server Closed!");
+        
+        this._netManager.Stop();
+        this.Close();
     }
 }

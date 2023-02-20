@@ -1,3 +1,4 @@
+using Easel.Core;
 using Newtonsoft.Json.Linq;
 
 namespace Future.Common.csharp.file; 
@@ -18,7 +19,7 @@ public abstract class AbstractConfig : FileManager {
                     jsonObject.Remove(jsonObjectPair.Key);
                     
                     File.WriteAllText(this.GetPath(), this.EncryptString(jsonObject.ToString()));
-                    Logger.Log.Print("Value: " + jsonObjectPair.Key + " get removed! In file " + this.FileName, ConsoleColor.Red);
+                    Logger.Warn("Value: " + jsonObjectPair.Key + " get removed! In file " + this.FileName);
                 }
             }
             
@@ -28,14 +29,14 @@ public abstract class AbstractConfig : FileManager {
 
                     jsonObject[dictionary.Key] = JToken.FromObject(dictionary.Value);
                     File.WriteAllText(this.GetPath(), this.EncryptString(jsonObject.ToString()));
-                    Logger.Log.Print("File " + this.FileName + " added: " + dictionary.Key + " = " + dictionary.Value, ConsoleColor.Green);
+                    Logger.Info("File " + this.FileName + " added: " + dictionary.Key + " = " + dictionary.Value);
                 }
             }
         }
         else {
             this.ClearFile();
             this.WriteJson(this._dictionary);
-            Logger.Log.Print("Re/Wrote " + this.FileName, ConsoleColor.Yellow);
+            Logger.Warn("Re/Wrote " + this.FileName);
         }
     }
 }
