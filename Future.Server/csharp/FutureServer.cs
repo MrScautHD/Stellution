@@ -2,20 +2,18 @@ using Easel;
 using Easel.Core;
 using Easel.Scenes;
 using Future.Common.csharp.registry;
+using Future.Server.csharp.network;
 using Future.Server.csharp.registry;
-using LiteNetLib;
 
 namespace Future.Server.csharp; 
 
 public class FutureServer : EaselGame {
     
-    private NetManager _netManager;
-    protected EventBasedNetListener _listener;
-    
+    private ServerNetworkManager networkManager;
+
     public FutureServer(GameSettings settings, Scene scene) : base(settings, scene) {
         // NETWORK
-        this._listener = new EventBasedNetListener();
-        this._netManager = new NetManager(this._listener);
+        this.networkManager = new ServerNetworkManager();
         
         // LOGGER
         Logger.InitializeLogFile("logs");
@@ -50,7 +48,7 @@ public class FutureServer : EaselGame {
     public void StartServer() {
         Logger.Info("Server Starting!");
         
-        this._netManager.Start();
+        this.networkManager.Start("localhost", "");
         this.Run();
     }
 
@@ -60,7 +58,7 @@ public class FutureServer : EaselGame {
     public void StopServer() {
         Logger.Info("Server Closed!");
         
-        this._netManager.Stop();
+        this.networkManager.Stop();
         this.Close();
     }
 }

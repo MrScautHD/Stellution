@@ -1,6 +1,7 @@
 using Easel;
 using Easel.Core;
 using Easel.Scenes;
+using Future.Client.csharp.network;
 using Future.Client.csharp.registry;
 using Future.Common.csharp.registry;
 using Pie.Windowing;
@@ -10,9 +11,11 @@ namespace Future.Client.csharp;
 public class FutureClient : EaselGame {
 
     protected GameSettings _settings;
-    
+
     private double _timer;
     private readonly double _delay = 1.0 / 60.0;
+    
+    private ClientNetworkManager networkManager;
     
     public FutureClient(GameSettings settings, Scene scene) : base(settings, scene) {
         this._settings = settings;
@@ -25,6 +28,7 @@ public class FutureClient : EaselGame {
         IRegistry.RegistryTypes.Add(new ClientConfigRegistry());
         IRegistry.RegistryTypes.Add(new ClientFontRegistry());
         IRegistry.RegistryTypes.Add(new ClientTranslationRegistry());
+        IRegistry.RegistryTypes.Add(new ClientModelRegistry());
     }
 
     protected override void Initialize() {

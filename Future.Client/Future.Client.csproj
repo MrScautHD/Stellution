@@ -18,7 +18,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="csharp\renderer" />
+      <Folder Include="csharp\renderer\camera" />
       <Folder Include="csharp\util" />
     </ItemGroup>
 </Project>
