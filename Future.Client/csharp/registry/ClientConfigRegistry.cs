@@ -5,7 +5,7 @@ using Future.Common.csharp.registry;
 
 namespace Future.Client.csharp.registry; 
 
-public class ClientConfigRegistry : Registry {
+public class ClientConfigRegistry : Registry, IRegistry {
     
     // REGISTRY LIST
     public static readonly Dictionary<string, AbstractConfig> Configs = new();

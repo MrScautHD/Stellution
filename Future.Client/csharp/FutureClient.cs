@@ -11,6 +11,9 @@ public class FutureClient : EaselGame {
 
     protected GameSettings _settings;
     
+    private double _timer;
+    private readonly double _delay = 1.0 / 60.0;
+    
     public FutureClient(GameSettings settings, Scene scene) : base(settings, scene) {
         this._settings = settings;
         
@@ -20,28 +23,33 @@ public class FutureClient : EaselGame {
 
         // REGISTRY
         IRegistry.RegistryTypes.Add(new ClientConfigRegistry());
+        IRegistry.RegistryTypes.Add(new ClientFontRegistry());
     }
 
     protected override void Initialize() {
-        base.Initialize();
+        // INIT REGISTRY
+        foreach (IRegistry registry in IRegistry.RegistryTypes) {
+            registry.Initialize(this.Content);
+        }
         
+        // BASE INITIALIZE
+        base.Initialize();
+
         // GAME PROPERTIES
         this.Content.ContentRootDir = "content";
         Input.MouseState = MouseState.Visible;
-        
-        // INIT REGISTRY
-        foreach (IRegistry registry in IRegistry.RegistryTypes) {
-            registry.Initialize();
-        }
     }
 
     protected override void Update() {
         base.Update();
-        
+
+        this._timer += Time.DeltaTime;
+
         // UPDATE REGISTRY
-        if (Time.DeltaTime > 60.0F) {
+        if (this._timer >= this._delay) {
             foreach (IRegistry registry in IRegistry.RegistryTypes) {
                 registry.FixedUpdate();
+                this._timer -= this._delay;
             }
         }
     }

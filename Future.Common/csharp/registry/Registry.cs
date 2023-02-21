@@ -1,10 +1,19 @@
+using Easel.Content;
+
 namespace Future.Common.csharp.registry; 
 
-public class Registry : IRegistry {
+public class Registry {
 
-    protected T Register<T, B>(string name, Dictionary<string, B> registryList, T config) where T : B {
-        registryList.Add(name, config);
+    protected T Register<T, B>(string name, Dictionary<string, B> registryList, T type) where T : B {
+        registryList.Add(name, type);
         
-        return config;
+        return type;
+    }
+    
+    protected T RegisterLoad<T>(string name, Dictionary<string, T> registryList, ContentManager content, string path) {
+        T type = content.Load<T>(path);
+        registryList.Add(name, type);
+
+        return type;
     }
 }

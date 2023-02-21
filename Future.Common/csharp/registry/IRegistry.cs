@@ -1,18 +1,20 @@
+using Easel.Content;
+
 namespace Future.Common.csharp.registry; 
 
 public interface IRegistry {
     
     public static readonly List<IRegistry> RegistryTypes = new();
 
-    public virtual void Initialize() {
+    virtual void Initialize(ContentManager content) {
         
     }
 
-    public virtual void FixedUpdate() {
+    virtual void FixedUpdate() {
         
     }
 
-    public virtual void Draw() {
+    virtual void Draw() {
         
     }
 }
