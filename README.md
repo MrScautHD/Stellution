@@ -75,6 +75,6 @@ https://project-future.notion.site/Bugs-f2f38a456d9a44efb25b4e791d743650
 ### Features
 ![grafik](https://user-images.githubusercontent.com/65916181/220327726-9d2da55a-e85d-4dc6-a45c-d7b0bf479ff6.png)
 ![grafik](https://user-images.githubusercontent.com/65916181/220327780-328a50de-def5-485a-b769-1f98b5c292ad.png)
-https://cdn.discordapp.com/attachments/1026548238217650216/1070422624045371554/FnsPWW3aIAMX7Ux.jpg
+![grafik](https://user-images.githubusercontent.com/65916181/220328086-e538b03b-143b-47d0-b607-4ba06e95842e.png)
 ![grafik](https://user-images.githubusercontent.com/65916181/220327971-595f20f0-14c0-4639-a4df-c0d8ed9c5557.png)
 
