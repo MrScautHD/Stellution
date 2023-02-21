@@ -38,19 +38,19 @@ public class Menu : Scene {
         base.Update();
         
         if (Input.KeyDown(Key.A)) {
-            this.GetEntity("Main Camera").Transform.Position += new Vector3(+0.1F, 0, 0);
+            this.GetEntity("Main Camera").Transform.Position += new Vector3(+0.01F, 0, 0);
         }
         
         if (Input.KeyDown(Key.D)) {
-            this.GetEntity("Main Camera").Transform.Position += new Vector3(-0.1F, 0, 0);
+            this.GetEntity("Main Camera").Transform.Position += new Vector3(-0.01F, 0, 0);
         }
 
         if (Input.KeyDown(Key.W)) {
-            this.GetEntity("Main Camera").Transform.Position += new Vector3(0, 0, -0.1F);
+            this.GetEntity("Main Camera").Transform.Position += new Vector3(0, 0, -0.01F);
         }
         
         if (Input.KeyDown(Key.S)) {
-            this.GetEntity("Main Camera").Transform.Position += new Vector3(0, 0, +0.1F);
+            this.GetEntity("Main Camera").Transform.Position += new Vector3(0, 0, +0.01F);
         }
     }
 }
