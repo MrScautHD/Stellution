@@ -1,6 +1,6 @@
 ﻿using Easel;
+using Future.Common.csharp.scenes;
 using Future.Server.csharp;
-using Future.Server.csharp.scenes;
 
 GameSettings settings = new GameSettings();
 settings.TargetFps = 60;

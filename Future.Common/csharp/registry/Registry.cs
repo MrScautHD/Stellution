@@ -4,15 +4,15 @@ namespace Future.Common.csharp.registry;
 
 public class Registry {
 
-    protected T Register<T, B>(string name, Dictionary<string, B> registryList, T type) where T : B {
-        registryList.Add(name, type);
+    protected T Register<T, B>(string key, Dictionary<string, B> registryList, T type) where T : B {
+        registryList.Add(key, type);
         
         return type;
     }
     
-    protected T RegisterLoad<T>(string name, Dictionary<string, T> registryList, ContentManager content, string path) {
+    protected T RegisterLoad<T>(string key, Dictionary<string, T> registryList, ContentManager content, string path) {
         T type = content.Load<T>(path);
-        registryList.Add(name, type);
+        registryList.Add(key, type);
 
         return type;
     }

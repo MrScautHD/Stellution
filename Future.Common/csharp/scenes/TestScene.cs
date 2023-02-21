@@ -1,6 +1,6 @@
 using Easel.Scenes;
 
-namespace Future.Server.csharp.scenes; 
+namespace Future.Common.csharp.scenes; 
 
 public class TestScene : Scene {
     

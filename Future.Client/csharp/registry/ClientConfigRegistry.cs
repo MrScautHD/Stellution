@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Easel.Content;
 using Future.Client.csharp.config;
 using Future.Common.csharp.file;
 using Future.Common.csharp.registry;
@@ -13,7 +14,7 @@ public class ClientConfigRegistry : Registry, IRegistry {
     // REGISTRIES
     public static GraphicConfig GraphicConfig { get; private set; }
 
-    public void Initialize() {
+    public void Initialize(ContentManager content) {
         GraphicConfig = this.Register("graphic_config", Configs, new GraphicConfig("config", "graphic-config"));
     }
 }

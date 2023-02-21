@@ -24,9 +24,14 @@ public class FutureClient : EaselGame {
         // REGISTRY
         IRegistry.RegistryTypes.Add(new ClientConfigRegistry());
         IRegistry.RegistryTypes.Add(new ClientFontRegistry());
+        IRegistry.RegistryTypes.Add(new ClientTranslationRegistry());
     }
 
     protected override void Initialize() {
+        // GAME PROPERTIES
+        this.Content.ContentRootDir = "content";
+        Input.MouseState = MouseState.Visible;
+        
         // INIT REGISTRY
         foreach (IRegistry registry in IRegistry.RegistryTypes) {
             registry.Initialize(this.Content);
@@ -34,10 +39,6 @@ public class FutureClient : EaselGame {
         
         // BASE INITIALIZE
         base.Initialize();
-
-        // GAME PROPERTIES
-        this.Content.ContentRootDir = "content";
-        Input.MouseState = MouseState.Visible;
     }
 
     protected override void Update() {
