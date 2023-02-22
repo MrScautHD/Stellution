@@ -18,20 +18,14 @@ public class ClientSkyboxRegistry : Registry, IRegistry {
     }
 
     protected Skybox RegisterSkybox(string key, Dictionary<string, Skybox> registryList, ContentManager content, string path) {
-        string rightKey = key + "_" + "right";
-        string leftKey = key + "_" + "left";
+        string sideKey = key + "_" + "side";
         string topKey = key + "_" + "top";
         string bottomKey = key + "_" + "bottom";
-        string frontKey = key + "_" + "front";
-        string backKey = key + "_" + "back";
-        
-        Bitmap right = this.RegisterLoad(rightKey + "_map", ClientBitmapRegistry.Bitmaps, content, path + "/" + rightKey + ".bmp");
-        Bitmap left = this.RegisterLoad(leftKey + "_map", ClientBitmapRegistry.Bitmaps, content, path + "/" + leftKey + ".bmp");
+
+        Bitmap side = this.RegisterLoad(sideKey + "_map", ClientBitmapRegistry.Bitmaps, content, path + "/" + sideKey + ".bmp");
         Bitmap top = this.RegisterLoad(topKey + "_map", ClientBitmapRegistry.Bitmaps, content, path + "/" + topKey + ".bmp");
         Bitmap bottom = this.RegisterLoad(bottomKey + "_map", ClientBitmapRegistry.Bitmaps, content, path + "/" + bottomKey + ".bmp");
-        Bitmap front = this.RegisterLoad(frontKey + "_map", ClientBitmapRegistry.Bitmaps, content, path + "/" + frontKey + ".bmp");
-        Bitmap back = this.RegisterLoad(backKey + "_map", ClientBitmapRegistry.Bitmaps, content, path + "/" + backKey + ".bmp");
 
-        return EarthSkybox = this.Register(key + "_skybox", registryList, new Skybox(right, left, top, bottom, front, back));
+        return EarthSkybox = this.Register(key + "_skybox", registryList, new Skybox(side, side, top, bottom, side, side));
     }
 }

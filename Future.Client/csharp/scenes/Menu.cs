@@ -1,10 +1,8 @@
 using Easel.Entities;
 using Easel.Entities.Components;
 using Easel.GUI;
-using Easel.Math;
 using Easel.Scenes;
 using Future.Client.csharp.registry;
-using Future.Client.csharp.translation;
 using Future.Common.csharp.entity;
 
 namespace Future.Client.csharp.scenes;
@@ -23,14 +21,20 @@ public class Menu : Scene {
         //car.AddComponent(ClientRendererRegistry.CyberCarRenderer);
         
         
-        CyberCar car = new CyberCar();
-        this.AddEntity("cyber_car", car);
-        this.GetEntity("cyber_car").AddComponent(new ModelRenderer(ClientModelRegistry.CyberCarModel));
+       //CyberCar car = new CyberCar();
+        //this.AddEntity("cyber_car", car);
+        //this.GetEntity("cyber_car").AddComponent(new ModelRenderer(ClientModelRegistry.CyberCarModel));
 
         CyberCar car2 = new CyberCar();
         this.AddEntity("test", car2);
         this.GetEntity("test").AddComponent(new ModelRenderer(ClientModelRegistry.CyberCarModel));
 
+        //if (this.Game.IsServer)
+
+        //Entity sun = this.GetEntity("Sun");
+        //sun.AddComponent(new ModelRenderer(ClientModelRegistry.CyberCarModel));
+
+        
         Camera cam = this.GetEntity<Camera>("Main Camera");
         
         NoClipCamera noClip = new NoClipCamera();

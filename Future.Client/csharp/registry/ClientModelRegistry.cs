@@ -28,7 +28,7 @@ public class ClientModelRegistry : Registry, IRegistry {
 
             for (int j = 0; j < modelMesh.Meshes.Length; j++) {
                 ref Mesh mesh = ref modelMesh.Meshes[j];
-
+                
                 mesh.Material = material;
             }
         }
