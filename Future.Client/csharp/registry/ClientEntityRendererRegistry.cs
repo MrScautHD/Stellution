@@ -5,7 +5,7 @@ using Future.Common.csharp.registry;
 
 namespace Future.Client.csharp.registry; 
 
-public class ClientComponentRegistry : Registry, IRegistry {
+public class ClientEntityRendererRegistry : Registry, IRegistry {
 
     public void Initialize(ContentManager content) {
         ModifiedEntity.Constructing += (obj, args) => this.Event(args.Entity);
