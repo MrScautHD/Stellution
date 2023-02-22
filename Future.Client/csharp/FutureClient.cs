@@ -28,7 +28,10 @@ public class FutureClient : EaselGame {
         IRegistry.RegistryTypes.Add(new ClientConfigRegistry());
         IRegistry.RegistryTypes.Add(new ClientFontRegistry());
         IRegistry.RegistryTypes.Add(new ClientTranslationRegistry());
+        IRegistry.RegistryTypes.Add(new ClientBitmapRegistry());
+        IRegistry.RegistryTypes.Add(new ClientTextureRegistry());
         IRegistry.RegistryTypes.Add(new ClientModelRegistry());
+        IRegistry.RegistryTypes.Add(new ClientSkyboxRegistry());
     }
 
     protected override void Initialize() {

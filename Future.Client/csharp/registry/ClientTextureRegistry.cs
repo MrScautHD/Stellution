@@ -1,0 +1,27 @@
+using System.Collections.Generic;
+using Easel.Content;
+using Easel.Graphics;
+using Future.Common.csharp.registry;
+
+namespace Future.Client.csharp.registry; 
+
+public class ClientTextureRegistry : Registry, IRegistry {
+    
+    // REGISTRY LIST
+    public static readonly Dictionary<string, Texture2D> Textures = new();
+
+    // REGISTRIES
+    public static Texture2D CyberCarTexture { get; private set; }
+    
+    public void Initialize(ContentManager content) {
+        CyberCarTexture = this.LoadTexture("cyber_car", Textures, content, SamplerState.PointClamp, "textures/entity/vehicle/cyber_car.png");
+    }
+
+    protected Texture2D LoadTexture(string key, Dictionary<string, Texture2D> registryList, ContentManager content, SamplerState state, string path) {
+        Texture2D texture = content.Load<Texture2D>(path);
+        texture.SamplerState = state;
+        
+        registryList.Add(key, texture);
+        return texture;
+    }
+}

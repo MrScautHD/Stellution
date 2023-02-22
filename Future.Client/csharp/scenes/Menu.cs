@@ -1,3 +1,4 @@
+using Easel.Entities;
 using Easel.Entities.Components;
 using Easel.GUI;
 using Easel.Math;
@@ -30,10 +31,13 @@ public class Menu : Scene {
         this.AddEntity("test", car2);
         this.GetEntity("test").AddComponent(new ModelRenderer(ClientModelRegistry.CyberCarModel));
 
-        NoClipCamera camera = new NoClipCamera();
-        camera.MouseSensitivity = 0.01F;
+        Camera cam = this.GetEntity<Camera>("Main Camera");
         
-        this.GetEntity("Main Camera").AddComponent(camera);
+        NoClipCamera noClip = new NoClipCamera();
+        noClip.MouseSensitivity = 0.01F;
+
+        cam.AddComponent(noClip);
+        cam.Skybox = ClientSkyboxRegistry.EarthSkybox;
     }
 
     protected override void Update() {

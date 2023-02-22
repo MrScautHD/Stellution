@@ -15,16 +15,13 @@ public class ClientModelRegistry : Registry, IRegistry {
     public static Model CyberCarModel { get; private set; }
     
     public void Initialize(ContentManager content) {
-        CyberCarModel = this.LoadModel("cyber_car", Models, content, "models/entity/vehicle/cyber_car.gltf", "textures/entity/vehicle/cyber_car.png");
+        CyberCarModel = this.LoadModel("cyber_car", Models, content, "models/entity/vehicle/cyber_car.gltf", ClientTextureRegistry.CyberCarTexture);
     }
 
-    protected Model LoadModel(string key, Dictionary<string, Model> registryList, ContentManager content, string path, string texturePath, bool flipUvs = false) {
+    protected Model LoadModel(string key, Dictionary<string, Model> registryList, ContentManager content, string path, Texture2D texture, bool flipUvs = false) {
         Model model = new Model(content.GetFullPath(path), flipUvs);
 
-        Texture2D texture = content.Load<Texture2D>(texturePath);
-        texture.SamplerState = SamplerState.PointClamp;
-        
-        Material material = new StandardMaterial(texture);
+        Material material = new StandardMaterial(texture, Texture2D.EmptyNormal, Texture2D.White); //TODO play around with this Values
 
         for (int i = 0; i < model.Meshes.Length; i++) {
             ref ModelMesh modelMesh = ref model.Meshes[i];
