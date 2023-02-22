@@ -34,7 +34,7 @@ public class FutureClient : EaselGame {
     protected override void Initialize() {
         // GAME PROPERTIES
         this.Content.ContentRootDir = "content";
-        Input.MouseState = MouseState.Visible;
+        Input.MouseState = MouseState.Locked;
         
         // INIT REGISTRY
         foreach (IRegistry registry in IRegistry.RegistryTypes) {

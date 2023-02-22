@@ -1,5 +1,3 @@
-using System.Numerics;
-using Easel;
 using Easel.Entities.Components;
 using Easel.GUI;
 using Easel.Math;
@@ -7,7 +5,6 @@ using Easel.Scenes;
 using Future.Client.csharp.registry;
 using Future.Client.csharp.translation;
 using Future.Common.csharp.entity;
-using Pie.Windowing;
 
 namespace Future.Client.csharp.scenes;
 
@@ -32,25 +29,14 @@ public class Menu : Scene {
         CyberCar car2 = new CyberCar();
         this.AddEntity("test", car2);
         this.GetEntity("test").AddComponent(new ModelRenderer(ClientModelRegistry.CyberCarModel));
+
+        NoClipCamera camera = new NoClipCamera();
+        camera.MouseSensitivity = 0.01F;
+        
+        this.GetEntity("Main Camera").AddComponent(camera);
     }
 
     protected override void Update() {
         base.Update();
-        
-        if (Input.KeyDown(Key.A)) {
-            this.GetEntity("Main Camera").Transform.Position += new Vector3(+0.01F, 0, 0);
-        }
-        
-        if (Input.KeyDown(Key.D)) {
-            this.GetEntity("Main Camera").Transform.Position += new Vector3(-0.01F, 0, 0);
-        }
-
-        if (Input.KeyDown(Key.W)) {
-            this.GetEntity("Main Camera").Transform.Position += new Vector3(0, 0, -0.01F);
-        }
-        
-        if (Input.KeyDown(Key.S)) {
-            this.GetEntity("Main Camera").Transform.Position += new Vector3(0, 0, +0.01F);
-        }
     }
 }

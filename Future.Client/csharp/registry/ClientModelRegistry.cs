@@ -18,8 +18,8 @@ public class ClientModelRegistry : Registry, IRegistry {
         CyberCarModel = this.LoadModel("cyber_car", Models, content, "models/entity/vehicle/cyber_car.gltf", "textures/entity/vehicle/cyber_car.png");
     }
 
-    protected Model LoadModel(string key, Dictionary<string, Model> registryList, ContentManager content, string path, string texturePath) {
-        Model model = content.Load<Model>(path);
+    protected Model LoadModel(string key, Dictionary<string, Model> registryList, ContentManager content, string path, string texturePath, bool flipUvs = false) {
+        Model model = new Model(content.GetFullPath(path), flipUvs);
 
         Texture2D texture = content.Load<Texture2D>(texturePath);
         texture.SamplerState = SamplerState.PointClamp;
