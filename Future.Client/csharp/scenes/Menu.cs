@@ -16,8 +16,8 @@ public class Menu : Scene {
         
         UI.Theme.Font = ClientFontRegistry.Fontoe;
         
-        UI.Add("hello", new Label(new Position(Anchor.CenterCenter), Translation.Lang.Get("gui.idiot"), 18, Color.White));
-        UI.Add("test", new Button(new Position(Anchor.BottomCenter), new Size<int>(200, 50), Translation.Lang.Get("gui.fuck"), 10));
+        //UI.Add("hello", new Label(new Position(Anchor.CenterCenter), Translation.Lang.Get("gui.idiot"), 18, Color.White));
+        //UI.Add("test", new Button(new Position(Anchor.BottomCenter), new Size<int>(200, 50), Translation.Lang.Get("gui.fuck"), 10));
         //UI.Add("testModel", new );
         
         //car.AddComponent(ClientRendererRegistry.CyberCarRenderer);
@@ -38,9 +38,5 @@ public class Menu : Scene {
 
         cam.AddComponent(noClip);
         cam.Skybox = ClientSkyboxRegistry.EarthSkybox;
-    }
-
-    protected override void Update() {
-        base.Update();
     }
 }

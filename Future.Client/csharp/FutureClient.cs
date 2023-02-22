@@ -43,7 +43,7 @@ public class FutureClient : EaselGame {
         foreach (IRegistry registry in IRegistry.RegistryTypes) {
             registry.Initialize(this.Content);
         }
-        
+
         // BASE INITIALIZE
         base.Initialize();
     }

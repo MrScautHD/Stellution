@@ -1,13 +1,16 @@
 ﻿using Easel;
+using Easel.Graphics;
 using Future.Client.csharp;
 using Future.Client.csharp.scenes;
 using Pie.Windowing;
 
-GameSettings settings = new GameSettings();
-settings.Title = "Future (WIP)";
-settings.TitleBarFlags = TitleBarFlags.ShowGraphicsApi;
-settings.VSync = false;
-settings.Border = WindowBorder.Resizable;
+GameSettings settings = new GameSettings {
+    Title = "Future (WIP)",
+    Icon = new Bitmap("content/textures/logo/logo.bmp"),
+    TitleBarFlags = TitleBarFlags.ShowGraphicsApi,
+    VSync = false,
+    Border = WindowBorder.Resizable
+};
 
-using EaselGame game = new FutureClient(settings, new Menu());
+using FutureClient game = new FutureClient(settings, new Menu());
 game.Run();

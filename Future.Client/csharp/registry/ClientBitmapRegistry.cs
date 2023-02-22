@@ -11,9 +11,9 @@ public class ClientBitmapRegistry : Registry, IRegistry {
     public static readonly Dictionary<string, Bitmap> Bitmaps = new();
 
     // REGISTRIES
-    public static Bitmap EarthSkyboxMap { get; private set; }
+    //public static Bitmap Logo { get; private set; }
     
     public void Initialize(ContentManager content) {
-        //EarthSkyboxMap = this.RegisterLoad("earth_skybox", Bitmaps, content, "textures/sky/skybox/earth.bmp");
+        //Logo = this.RegisterLoad("logo", Bitmaps, content, "textures/logo/logo.bmp");
     }
 }
