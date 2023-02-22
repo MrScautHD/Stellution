@@ -12,9 +12,11 @@ public class ClientTextureRegistry : Registry, IRegistry {
 
     // REGISTRIES
     public static Texture2D CyberCarTexture { get; private set; }
+    public static Texture2D FemaleTexture { get; private set; }
     
     public void Initialize(ContentManager content) {
         CyberCarTexture = this.LoadTexture("cyber_car", Textures, content, SamplerState.PointClamp, "textures/entity/vehicle/cyber_car.png");
+        FemaleTexture = this.LoadTexture("female", Textures, content, SamplerState.PointClamp, "textures/entity/player/female.png");
     }
 
     protected Texture2D LoadTexture(string key, Dictionary<string, Texture2D> registryList, ContentManager content, SamplerState state, string path) {

@@ -13,9 +13,11 @@ public class ClientModelRegistry : Registry, IRegistry {
 
     // REGISTRIES
     public static Model CyberCarModel { get; private set; }
+    public static Model FemaleModel { get; private set; }
     
     public void Initialize(ContentManager content) {
         CyberCarModel = this.LoadModel("cyber_car", Models, content, "models/entity/vehicle/cyber_car.gltf", ClientTextureRegistry.CyberCarTexture);
+        FemaleModel = this.LoadModel("female", Models, content, "models/entity/player/female.gltf", ClientTextureRegistry.FemaleTexture);
     }
 
     protected Model LoadModel(string key, Dictionary<string, Model> registryList, ContentManager content, string path, Texture2D texture, bool flipUvs = false) {

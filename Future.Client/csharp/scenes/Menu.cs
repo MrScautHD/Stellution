@@ -1,6 +1,7 @@
+using System.Numerics;
+using Easel;
 using Easel.Entities;
 using Easel.Entities.Components;
-using Easel.GUI;
 using Easel.Scenes;
 using Future.Client.csharp.registry;
 using Future.Common.csharp.entity;
@@ -12,35 +13,20 @@ public class Menu : Scene {
     protected override void Initialize() {
         base.Initialize();
         
-        UI.Theme.Font = ClientFontRegistry.Fontoe;
-        
-        //UI.Add("hello", new Label(new Position(Anchor.CenterCenter), Translation.Lang.Get("gui.idiot"), 18, Color.White));
-        //UI.Add("test", new Button(new Position(Anchor.BottomCenter), new Size<int>(200, 50), Translation.Lang.Get("gui.fuck"), 10));
-        //UI.Add("testModel", new );
-        
-        //car.AddComponent(ClientRendererRegistry.CyberCarRenderer);
-        
-        
-       //CyberCar car = new CyberCar();
-        //this.AddEntity("cyber_car", car);
-        //this.GetEntity("cyber_car").AddComponent(new ModelRenderer(ClientModelRegistry.CyberCarModel));
+        if (!EaselGame.Instance.IsServer) {
+            Camera.Main.Skybox = ClientSkyboxRegistry.EarthSkybox;
+            Camera.Main.AddComponent(new NoClipCamera() {
+                MouseSensitivity =  0.005F,
+            });
+        }
 
-        CyberCar car2 = new CyberCar();
-        this.AddEntity("test", car2);
-        this.GetEntity("test").AddComponent(new ModelRenderer(ClientModelRegistry.CyberCarModel));
+        ModifiedEntity cyberCar = new ModifiedEntity("cyber_car");
+        this.AddEntity(cyberCar);
 
-        //if (this.Game.IsServer)
-
-        //Entity sun = this.GetEntity("Sun");
-        //sun.AddComponent(new ModelRenderer(ClientModelRegistry.CyberCarModel));
-
+        Transform transform = new Transform();
+        transform.Position = new Vector3(10, 0, 0);
         
-        Camera cam = this.GetEntity<Camera>("Main Camera");
-        
-        NoClipCamera noClip = new NoClipCamera();
-        noClip.MouseSensitivity = 0.01F;
-
-        cam.AddComponent(noClip);
-        cam.Skybox = ClientSkyboxRegistry.EarthSkybox;
+        ModifiedEntity player = new ModifiedEntity(transform, "player");
+        this.AddEntity(player);
     }
 }

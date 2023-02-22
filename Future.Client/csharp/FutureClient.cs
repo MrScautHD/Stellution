@@ -32,12 +32,13 @@ public class FutureClient : EaselGame {
         IRegistry.RegistryTypes.Add(new ClientTextureRegistry());
         IRegistry.RegistryTypes.Add(new ClientModelRegistry());
         IRegistry.RegistryTypes.Add(new ClientSkyboxRegistry());
+        IRegistry.RegistryTypes.Add(new ClientComponentRegistry());
     }
 
     protected override void Initialize() {
         // GAME PROPERTIES
         this.Content.ContentRootDir = "content";
-        Input.MouseState = MouseState.Locked;
+        Input.MouseState = MouseState.Visible;
         
         // INIT REGISTRY
         foreach (IRegistry registry in IRegistry.RegistryTypes) {
