@@ -7,13 +7,11 @@ namespace Future.Client.csharp.registry;
 
 public class ClientTranslationRegistry : Registry, IRegistry {
     
-    // REGISTRY LIST
     public static readonly Dictionary<string, Translation> Translations = new();
-
-    // REGISTRIES
+    
     public static Translation English { get; private set; }
     
-    public void Initialize(ContentManager content) {
+    public void InitializePre(ContentManager content) {
         English = this.Register("english", Translations, new Translation("english"));
     }
 }

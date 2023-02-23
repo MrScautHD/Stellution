@@ -7,14 +7,12 @@ namespace Future.Client.csharp.registry;
 
 public class ClientTextureRegistry : Registry, IRegistry {
     
-    // REGISTRY LIST
     public static readonly Dictionary<string, Texture2D> Textures = new();
-
-    // REGISTRIES
+    
     public static Texture2D CyberCarTexture { get; private set; }
     public static Texture2D FemaleTexture { get; private set; }
     
-    public void Initialize(ContentManager content) {
+    public void InitializePre(ContentManager content) {
         CyberCarTexture = this.LoadTexture("cyber_car", Textures, content, SamplerState.PointClamp, "textures/entity/vehicle/cyber_car.png");
         FemaleTexture = this.LoadTexture("female", Textures, content, SamplerState.PointClamp, "textures/entity/player/female.png");
     }

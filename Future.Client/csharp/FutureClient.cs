@@ -12,9 +12,6 @@ public class FutureClient : EaselGame {
 
     protected GameSettings _settings;
 
-    private double _timer;
-    private readonly double _delay = 1.0 / 60.0;
-    
     private ClientNetworkManager networkManager;
     
     public FutureClient(GameSettings settings, Scene scene) : base(settings, scene) {
@@ -33,6 +30,7 @@ public class FutureClient : EaselGame {
         IRegistry.RegistryTypes.Add(new ClientModelRegistry());
         IRegistry.RegistryTypes.Add(new ClientSkyboxRegistry());
         IRegistry.RegistryTypes.Add(new ClientEntityRendererRegistry());
+        IRegistry.RegistryTypes.Add(new ClientCameraInfoRegistry());
     }
 
     protected override void Initialize() {
@@ -42,33 +40,15 @@ public class FutureClient : EaselGame {
         
         // INIT REGISTRY
         foreach (IRegistry registry in IRegistry.RegistryTypes) {
-            registry.Initialize(this.Content);
+            registry.InitializePre(this.Content);
         }
 
         // BASE INITIALIZE
         base.Initialize();
-    }
-
-    protected override void Update() {
-        base.Update();
-
-        this._timer += Time.DeltaTime;
-
-        // UPDATE REGISTRY
-        if (this._timer >= this._delay) {
-            foreach (IRegistry registry in IRegistry.RegistryTypes) {
-                registry.FixedUpdate();
-                this._timer -= this._delay;
-            }
-        }
-    }
-
-    protected override void Draw() {
-        base.Draw();
         
-        // DRAW REGISTRY
+        // DELAYED REGISTRY
         foreach (IRegistry registry in IRegistry.RegistryTypes) {
-            registry.Draw();
+            registry.InitializeLate(this.Content);
         }
     }
 }

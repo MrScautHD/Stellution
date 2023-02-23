@@ -7,13 +7,11 @@ namespace Future.Client.csharp.registry;
 
 public class ClientSkyboxRegistry : Registry, IRegistry {
     
-    // REGISTRY LIST
     public static readonly Dictionary<string, Skybox> Skyboxes = new();
-
-    // REGISTRIES
+    
     public static Skybox EarthSkybox { get; private set; }
     
-    public void Initialize(ContentManager content) {
+    public void InitializePre(ContentManager content) {
         EarthSkybox = this.RegisterSkybox("earth", Skyboxes, content, "textures/sky/skybox/earth");
     }
 

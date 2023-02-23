@@ -7,7 +7,7 @@ namespace Future.Client.csharp.registry;
 
 public class ClientEntityRendererRegistry : Registry, IRegistry {
 
-    public void Initialize(ContentManager content) {
+    public void InitializePre(ContentManager content) {
         ModifiedEntity.Constructing += (obj, args) => this.Event(args.Entity);
     }
 

@@ -7,13 +7,11 @@ namespace Future.Client.csharp.registry;
 
 public class ClientFontRegistry : Registry, IRegistry {
     
-    // REGISTRY LIST
     public static readonly Dictionary<string, Font> Fonts = new();
-
-    // REGISTRIES
+    
     public static Font Fontoe { get; private set; }
     
-    public void Initialize(ContentManager content) {
+    public void InitializePre(ContentManager content) {
         Fontoe = this.RegisterLoad("fontoe", Fonts, content, "font/fontoe.ttf");
     }
 }

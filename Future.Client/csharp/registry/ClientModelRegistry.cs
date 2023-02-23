@@ -8,14 +8,12 @@ namespace Future.Client.csharp.registry;
 
 public class ClientModelRegistry : Registry, IRegistry {
     
-    // REGISTRY LIST
     public static readonly Dictionary<string, Model> Models = new();
-
-    // REGISTRIES
+    
     public static Model CyberCarModel { get; private set; }
     public static Model FemaleModel { get; private set; }
     
-    public void Initialize(ContentManager content) {
+    public void InitializePre(ContentManager content) {
         CyberCarModel = this.LoadModel("cyber_car", Models, content, "models/entity/vehicle/cyber_car.gltf", ClientTextureRegistry.CyberCarTexture);
         FemaleModel = this.LoadModel("female", Models, content, "models/entity/player/female.gltf", ClientTextureRegistry.FemaleTexture);
     }
