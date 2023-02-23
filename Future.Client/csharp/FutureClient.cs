@@ -38,7 +38,7 @@ public class FutureClient : EaselGame {
         this.Content.ContentRootDir = "content";
         Input.MouseState = MouseState.Visible;
         
-        // INIT REGISTRY
+        // REGISTRY
         foreach (IRegistry registry in IRegistry.RegistryTypes) {
             registry.InitializePre(this.Content);
         }

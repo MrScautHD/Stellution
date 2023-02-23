@@ -24,7 +24,7 @@ public class FutureServer : EaselGame {
     }
 
     protected override void Initialize() {
-        // INIT REGISTRY
+        // REGISTRY
         foreach (IRegistry registry in IRegistry.RegistryTypes) {
             registry.InitializePre(this.Content);
         }

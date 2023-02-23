@@ -1,14 +1,8 @@
-using System.Numerics;
-using Easel;
-using Easel.Entities;
-using Easel.Entities.Components;
-using Easel.Scenes;
-using Future.Client.csharp.registry;
-using Future.Common.csharp.entity;
+using Future.Common.csharp.scenes;
 
 namespace Future.Client.csharp.scenes;
 
-public class Menu : Scene {
+public class Menu : ModifiedScene {
     
     protected override void Initialize() {
         base.Initialize();

@@ -1,11 +1,10 @@
 using System.Numerics;
 using Easel.Entities;
-using Easel.Scenes;
 using Future.Common.csharp.entity;
 
 namespace Future.Common.csharp.scenes; 
 
-public class Earth : Scene {
+public class Earth : ModifiedScene {
     
     protected override void Initialize() {
         base.Initialize();
