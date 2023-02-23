@@ -11,10 +11,14 @@ public class ClientTextureRegistry : Registry, IRegistry {
     
     public static Texture2D CyberCarTexture { get; private set; }
     public static Texture2D FemaleTexture { get; private set; }
+    public static Texture2D LogoTexture { get; private set; }
+    public static Texture2D MenuBackgroundTexture { get; private set; }
     
     public void InitializePre(ContentManager content) {
         CyberCarTexture = this.LoadTexture("cyber_car", Textures, content, SamplerState.PointClamp, "textures/entity/vehicle/cyber_car.png");
         FemaleTexture = this.LoadTexture("female", Textures, content, SamplerState.PointClamp, "textures/entity/player/female.png");
+        LogoTexture = this.LoadTexture("logo", Textures, content, SamplerState.PointClamp, "textures/logo/logo_transparent.png");
+        MenuBackgroundTexture = this.LoadTexture("menu_background", Textures, content, SamplerState.AnisotropicClamp, "textures/gui/menu_background.png");
     }
 
     protected Texture2D LoadTexture(string key, Dictionary<string, Texture2D> registryList, ContentManager content, SamplerState state, string path) {

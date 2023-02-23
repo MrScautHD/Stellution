@@ -1,7 +1,7 @@
 ﻿using Easel;
 using Easel.Graphics;
 using Future.Client.csharp;
-using Future.Common.csharp.scenes;
+using Future.Client.csharp.scenes;
 using Pie.Windowing;
 
 GameSettings settings = new GameSettings {
@@ -12,5 +12,5 @@ GameSettings settings = new GameSettings {
     Border = WindowBorder.Resizable
 };
 
-using FutureClient game = new FutureClient(settings, new Earth());
+using FutureClient game = new FutureClient(settings, new Menu());
 game.Run();

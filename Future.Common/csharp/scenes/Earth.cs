@@ -6,6 +6,10 @@ namespace Future.Common.csharp.scenes;
 
 public class Earth : ModifiedScene {
     
+    public override string SceneKey() {
+        return "earth";
+    }
+
     protected override void Initialize() {
         base.Initialize();
 

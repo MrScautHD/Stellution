@@ -8,14 +8,16 @@ namespace Future.Client.csharp.registry;
 
 public class ClientCameraInfoRegistry : Registry, IRegistry {
     
-    public void InitializeLate(ContentManager content) {
+    public void InitializePre(ContentManager content) {
         ModifiedScene.Initializing += (obj, args) => this.Event(args.Scene);
     }
     
     protected void Event(ModifiedScene scene) {
-        Camera.Main.Skybox = ClientSkyboxRegistry.EarthSkybox;
-        Camera.Main.AddComponent(new NoClipCamera() {
-            MouseSensitivity =  0.005F,
-        });
+        if (scene.SceneKey().Equals("earth")) {
+            Camera.Main.Skybox = ClientSkyboxRegistry.EarthSkybox;
+            Camera.Main.AddComponent(new NoClipCamera() {
+                MouseSensitivity =  0.005F,
+            });
+        }
     }
 }
