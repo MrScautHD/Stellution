@@ -7,4 +7,4 @@ settings.TargetFps = 60;
 settings.Server = true;
 
 using FutureServer server = new FutureServer(settings, new Earth());
-server.StartServer();
+server.Run();

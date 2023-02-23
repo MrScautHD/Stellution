@@ -38,23 +38,17 @@ public class FutureServer : EaselGame {
         }
     }
 
-    /**
-     * Don't use "Run"
-     */
-    public void StartServer() {
-        Logger.Info("Server Starting!");
+    public new void Run() {
+        base.Run();
         
+        Logger.Info("Server Starting!");
         this.networkManager.Start("localhost", "");
-        this.Run();
     }
 
-    /**
-     * Don't use "Close"
-     */
-    public void StopServer() {
-        Logger.Info("Server Closed!");
+    public new void Close() {
+        base.Close();
         
+        Logger.Info("Server Closed!");
         this.networkManager.Stop();
-        this.Close();
     }
 }
