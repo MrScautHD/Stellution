@@ -14,8 +14,8 @@ public class ClientModelRegistry : Registry, IRegistry {
     public static Model FemaleModel { get; private set; }
     
     public void InitializePre(ContentManager content) {
-        CyberCarModel = this.LoadModel("cyber_car", Models, content, "models/entity/vehicle/cyber_car.gltf", ClientTextureRegistry.CyberCarTexture);
-        FemaleModel = this.LoadModel("female", Models, content, "models/entity/player/female.gltf", ClientTextureRegistry.FemaleTexture);
+        CyberCarModel = this.LoadModel("cyber_car", Models, content, "models/entity/vehicle/cyber_car.glb", ClientTextureRegistry.CyberCarTexture);
+        FemaleModel = this.LoadModel("female", Models, content, "models/entity/player/female.glb", ClientTextureRegistry.FemaleTexture);
     }
 
     protected Model LoadModel(string key, Dictionary<string, Model> registryList, ContentManager content, string path, Texture2D texture, bool flipUvs = false) {
