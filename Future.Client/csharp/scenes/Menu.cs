@@ -8,7 +8,7 @@ namespace Future.Client.csharp.scenes;
 
 public class Menu : ModifiedScene {
 
-    public override string SceneKey() {
+    public override string SceneName() {
         return "menu";
     }
 

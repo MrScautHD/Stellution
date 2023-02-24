@@ -9,13 +9,13 @@ public class ModifiedEntity : Entity {
     
     public static event EventHandler<EntityConstructorArgs>? Constructing;
 
-    public ModifiedEntity(string entityKey, int initialCapacity = 16) : this(new Transform(), entityKey, initialCapacity) {
+    public ModifiedEntity(string entityKey, string? entityName = null, int initialCapacity = 16) : this(new Transform(), entityKey, entityName, initialCapacity) {
         
     }
 
-    public ModifiedEntity(Transform transform, string entityKey, int initialCapacity = 16) : base(transform, initialCapacity) {
+    public ModifiedEntity(Transform transform, string entityKey, string? entityName = null, int initialCapacity = 16) : base(entityName, transform, initialCapacity) {
         this.EntityKey = entityKey;
-        
+
         Constructing?.Invoke(null, new EntityConstructorArgs(this));
     }
 }

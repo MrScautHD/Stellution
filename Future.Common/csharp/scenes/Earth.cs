@@ -6,7 +6,7 @@ namespace Future.Common.csharp.scenes;
 
 public class Earth : ModifiedScene {
     
-    public override string SceneKey() {
+    public override string SceneName() {
         return "earth";
     }
 
