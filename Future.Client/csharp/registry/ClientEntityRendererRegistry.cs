@@ -17,7 +17,7 @@ public class ClientEntityRendererRegistry : Registry, IRegistry {
     }
 
     protected void AddComponent(ModifiedEntity entity, string entityKey, Component component) {
-        if (entity.Name.Equals(entityKey)) {
+        if (entity.Key.Equals(entityKey)) {
             entity.AddComponent(component);
         }
     }
