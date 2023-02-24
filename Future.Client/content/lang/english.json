@@ -1,3 +1,6 @@
 {
-  "gui.test": "FUCK IT WORKS!"
+  "gui.button.singleplayer": "Singleplayer",
+  "gui.button.multiplayer": "Multiplayer",
+  "gui.button.options": "Settings",
+  "gui.button.profile": "Profile"
 }

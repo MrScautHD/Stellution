@@ -22,7 +22,8 @@ public class Menu : ModifiedScene {
         //UI.Add("background", new Image(new Position(Anchor.CenterCenter), ClientTextureRegistry.MenuBackgroundTexture, new Size<int>(windowSize.Width, windowSize.Height)));
 
         UI.Add("logo", new Image(new Position(Anchor.TopRight), ClientTextureRegistry.LogoTexture, new Size<int>(250)));
-        UI.Add("label", new Label(new Position(Anchor.CenterCenter), "label", 20));
-        UI.Add("button", new Button(new Position(Anchor.CenterLeft), new Size<int>(200, 40), Translation.Lang.Get("gui.test")));
+        //UI.Add("label", new Label(new Position(Anchor.CenterCenter), "label", 20));
+        
+        UI.Add("button", new Button(new Position(Anchor.CenterCenter), new Size<int>(200, 40), Translation.Lang.Get("gui.button.singleplayer")));
     }
 }
