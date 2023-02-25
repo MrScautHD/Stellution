@@ -47,31 +47,6 @@
 - LiteNetLib (Network System)
 - Newtonsoft.Json (Json System)
 
-### Todo Lists
-🛠️ To-do-Dev
-https://project-future.notion.site/To-do-Dev-e80a74e5e2484fe088c4858bc890d3ed
-
-🛠️ To-do-Texturing / Modeling 
-https://project-future.notion.site/To-do-Texturing-Modeling-5c1184850da8485c8f84471a0847a885
-
-🛠️ To-do-Map Creating 
-https://project-future.notion.site/To-do-Map-Creating-c669cfe072cd4c9c9124624cfe6d9e20
-
-🛠️ To-do-Sound Design 
-https://project-future.notion.site/To-do-Sound-Design-3385aeeed4604125ab31cdd314c72311
-
-🛠️ To-do-Other 
-https://project-future.notion.site/To-do-Other-654ef6948b7e46deba592950caca9800
-
-🟠 Concepts 
-https://project-future.notion.site/Concepts-a10abe9f476646bbb05e451de265c6c6
-
-🔴 Rough Ideas 
-https://project-future.notion.site/Rough-Ideas-9c72ddf2c0b34469bcdebfc49bb008a3
-
-👾 Bugs 
-https://project-future.notion.site/Bugs-f2f38a456d9a44efb25b4e791d743650 
-
 ### Features
 ![grafik](https://user-images.githubusercontent.com/65916181/220327726-9d2da55a-e85d-4dc6-a45c-d7b0bf479ff6.png)
 ![grafik](https://user-images.githubusercontent.com/65916181/220327780-328a50de-def5-485a-b769-1f98b5c292ad.png)
