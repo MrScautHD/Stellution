@@ -43,7 +43,7 @@
 
 
 ### Libraries (https://www.nuget.org/packages)
-- Easel (Game Framework (Engine)) (Coming soon on nuget)
+- Easel (Game Framework (Engine))
 - LiteNetLib (Network System)
 - Newtonsoft.Json (Json System)
 
