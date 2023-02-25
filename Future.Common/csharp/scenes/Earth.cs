@@ -6,8 +6,7 @@ namespace Future.Common.csharp.scenes;
 
 public class Earth : ModifiedScene {
     
-    public override string SceneName() {
-        return "earth";
+    public Earth(int initialCapacity = 128) : base("earth", initialCapacity) {
     }
 
     protected override void Initialize() {

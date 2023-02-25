@@ -13,7 +13,7 @@ public class ClientCameraInfoRegistry : Registry, IRegistry {
     }
     
     protected void Event(ModifiedScene scene) {
-        if (scene.SceneName().Equals("earth")) {
+        if (scene.Name.Equals("earth")) {
             Camera.Main.Skybox = ClientSkyboxRegistry.EarthSkybox;
             Camera.Main.AddComponent(new NoClipCamera() {
                 MouseSensitivity =  0.005F,

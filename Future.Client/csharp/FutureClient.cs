@@ -1,8 +1,8 @@
 using Easel;
-using Easel.Core;
 using Easel.Scenes;
 using Future.Client.csharp.network;
 using Future.Client.csharp.registry;
+using Future.Common.csharp.file;
 using Future.Common.csharp.registry;
 using Pie.Windowing;
 
@@ -16,10 +16,9 @@ public class FutureClient : EaselGame {
     
     public FutureClient(GameSettings settings, Scene scene) : base(settings, scene) {
         this._settings = settings;
-        
+
         // LOGGER
-        Logger.InitializeLogFile("logs");
-        Logger.UseConsoleLogs();
+        GameLogger.Initialize("logs", "log");
 
         // REGISTRY
         IRegistry.RegistryTypes.Add(new ClientConfigRegistry());

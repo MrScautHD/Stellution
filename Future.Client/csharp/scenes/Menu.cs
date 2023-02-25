@@ -8,8 +8,7 @@ namespace Future.Client.csharp.scenes;
 
 public class Menu : ModifiedScene {
 
-    public override string SceneName() {
-        return "menu";
+    public Menu(int initialCapacity = 128) : base("menu", initialCapacity) {
     }
 
     protected override void Initialize() {

@@ -7,12 +7,9 @@ public abstract class ModifiedScene : Scene {
     
     public static event EventHandler<SceneInitializeArgs>? Initializing;
 
-    public ModifiedScene(string name = "", int initialCapacity = 128) : base(initialCapacity) {
-        this.Name = name != String.Empty ? name : this.SceneName();
+    protected ModifiedScene(string name, int initialCapacity = 128) : base(name, initialCapacity) {
     }
-    
-    public abstract string SceneName();
-    
+
     protected override void Initialize() {
         base.Initialize();
         

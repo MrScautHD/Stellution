@@ -8,8 +8,8 @@ namespace Future.Common.csharp.file;
 
 public class FileManager {
     
-    public string FileDirectory { get; private set; }
-    public string FileName { get; private set; }
+    public string FileDirectory { get; }
+    public string FileName { get; }
     
     private bool _encrypt;
     private string _encryptKey;

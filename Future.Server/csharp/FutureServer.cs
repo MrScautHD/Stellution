@@ -1,6 +1,7 @@
 using Easel;
 using Easel.Core;
 using Easel.Scenes;
+using Future.Common.csharp.file;
 using Future.Common.csharp.registry;
 using Future.Server.csharp.network;
 using Future.Server.csharp.registry;
@@ -16,8 +17,7 @@ public class FutureServer : EaselGame {
         this.networkManager = new ServerNetworkManager();
         
         // LOGGER
-        Logger.InitializeLogFile("logs");
-        Logger.UseConsoleLogs();
+        GameLogger.Initialize("logs", "log");
         
         // REGISTRY
         IRegistry.RegistryTypes.Add(new ServerConfigRegistry());
