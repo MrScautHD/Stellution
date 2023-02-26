@@ -10,7 +10,6 @@ public class ModifiedEntity : Entity {
     public static event EventHandler<EntityConstructorArgs>? Constructing;
 
     public ModifiedEntity(string entityKey, string? entityName = null, int initialCapacity = 16) : this(new Transform(), entityKey, entityName, initialCapacity) {
-        
     }
 
     public ModifiedEntity(Transform transform, string key, string? entityName = null, int initialCapacity = 16) : base(entityName, transform, initialCapacity) {
