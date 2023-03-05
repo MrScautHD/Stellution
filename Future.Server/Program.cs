@@ -2,9 +2,11 @@
 using Future.Common.csharp.scenes;
 using Future.Server.csharp;
 
-GameSettings settings = new GameSettings();
-settings.TargetFps = 60;
-settings.Server = true;
+GameSettings settings = new GameSettings() {
+    AutoGenerateContentDirectory = null,
+    TargetFps = 60,
+    Server = true
+};
 
 using FutureServer server = new FutureServer(settings, new Earth());
 server.Run();

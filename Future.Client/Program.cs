@@ -2,7 +2,6 @@
 using Easel.Graphics;
 using Future.Client.csharp;
 using Future.Client.csharp.scenes;
-using Future.Common.csharp.scenes;
 using Pie.Windowing;
 
 GameSettings settings = new GameSettings {
