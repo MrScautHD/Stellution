@@ -1,39 +1,24 @@
-using System.Collections.Generic;
-using Easel.Content;
+using Easel.Content.Builder;
 using Easel.Graphics;
 using Easel.Graphics.Materials;
 using Future.Common.csharp.registry;
 
 namespace Future.Client.csharp.registry; 
 
-public class ClientModelRegistry : Registry, IRegistry {
+public class ClientModelRegistry : Registry {
     
-    public static readonly Dictionary<string, Model> Models = new();
-    
-    public static Model CyberCarModel { get; private set; }
-    public static Model FemaleModel { get; private set; }
-    
-    public void InitializePre(ContentManager content) {
-        CyberCarModel = this.LoadModel("cyber_car", Models, content, "models/entity/vehicle/cyber_car.glb", ClientTextureRegistry.CyberCarTexture);
-        FemaleModel = this.LoadModel("female", Models, content, "models/entity/player/female.glb", ClientTextureRegistry.FemaleTexture);
-    }
+    public static readonly Model CyberCarModel = LoadModel(FutureClient.ContentBuilder, new ModelContent("models/entity/vehicle/cyber_car.glb", false), ClientMaterialRegistry.CyberCarMaterial);
+    public static readonly Model FemaleModel = LoadModel(FutureClient.ContentBuilder, new ModelContent("models/entity/player/female.glb", false), ClientMaterialRegistry.FemaleMaterial);
 
-    protected Model LoadModel(string key, Dictionary<string, Model> registryList, ContentManager content, string path, Texture2D texture, bool flipUvs = false) {
-        Model model = new Model(content.GetFullPath(path), flipUvs);
+    public static Model LoadModel(ContentBuilder builder, ModelContent modelContent, Material material) {
+        Model model = Load<Model>(builder, modelContent);
 
-        Material material = new StandardMaterial(texture, Texture2D.EmptyNormal, Texture2D.White); //TODO play around with this Values
+        for (int i = 0; i < model.Materials.Length; i++) {
+            ref Material modelMaterial = ref model.Materials[i];
 
-        for (int i = 0; i < model.Meshes.Length; i++) {
-            ref ModelMesh modelMesh = ref model.Meshes[i];
-
-            for (int j = 0; j < modelMesh.Meshes.Length; j++) {
-                ref Mesh mesh = ref modelMesh.Meshes[j];
-                
-                mesh.Material = material;
-            }
+            modelMaterial = material;
         }
-
-        registryList.Add(key, model);
+        
         return model;
     }
 }

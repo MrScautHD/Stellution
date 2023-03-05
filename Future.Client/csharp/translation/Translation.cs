@@ -13,7 +13,7 @@ public class Translation : FileManager {
     
     private Dictionary<string, string> _dictionary = new();
 
-    public Translation(string name) : base(FutureClient.Instance.Content.ContentRootDir + "/lang", name + ".json") {
+    public Translation(string contentName, string name) : base(contentName + "/lang", name + ".json") {
         this.ReadFile();
     }
     

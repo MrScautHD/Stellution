@@ -1,19 +1,25 @@
+using Easel;
 using Easel.Content;
+using Easel.Content.Builder;
 
 namespace Future.Common.csharp.registry; 
 
-public class Registry {
+public abstract class Registry {
 
-    protected T Register<T, B>(string key, Dictionary<string, B> registryList, T type) where T : B {
+    protected static T Register<T, B>(string key, Dictionary<string, B> registryList, T type) where T : B {
         registryList.Add(key, type);
         
         return type;
     }
     
-    protected T RegisterLoad<T>(string key, Dictionary<string, T> registryList, ContentManager content, string path) {
-        T type = content.Load<T>(path);
-        registryList.Add(key, type);
+    protected static T Load<T>(ContentBuilder builder, IContentType contentType) {
+        ContentDefinition definition = builder.Add(contentType).Build(DuplicateHandling.Ignore);
+        ContentManager content = EaselGame.Instance.Content;
 
+        content.AddContent(definition); // MAKE IT OVERRIDE ABLE
+        
+        T type = content.Load<T>(contentType.FriendlyName);
+        
         return type;
     }
 }

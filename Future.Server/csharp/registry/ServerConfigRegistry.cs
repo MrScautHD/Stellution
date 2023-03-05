@@ -14,6 +14,6 @@ public class ServerConfigRegistry : Registry, IRegistry {
     public static ServerPropertyConfig ServerProperty { get; private set; }
 
     public void InitializePre(ContentManager content) {
-        ServerProperty = this.Register("server_properties", Configs, new ServerPropertyConfig("config", "server-properties"));
+        ServerProperty = Register("server_properties", Configs, new ServerPropertyConfig("config", "server-properties"));
     }
 }

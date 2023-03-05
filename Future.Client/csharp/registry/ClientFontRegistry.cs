@@ -1,17 +1,10 @@
-using System.Collections.Generic;
-using Easel.Content;
+using Easel.Content.Builder;
 using Easel.GUI;
 using Future.Common.csharp.registry;
 
 namespace Future.Client.csharp.registry; 
 
-public class ClientFontRegistry : Registry, IRegistry {
-    
-    public static readonly Dictionary<string, Font> Fonts = new();
-    
-    public static Font Fontoe { get; private set; }
-    
-    public void InitializePre(ContentManager content) {
-        Fontoe = this.RegisterLoad("fontoe", Fonts, content, "font/fontoe.ttf");
-    }
+public class ClientFontRegistry : Registry {
+
+    public static readonly Font Fontoe = Load<Font>(FutureClient.ContentBuilder, new FontContent("font/fontoe.ttf"));
 }

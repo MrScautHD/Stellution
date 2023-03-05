@@ -13,6 +13,6 @@ public class ClientConfigRegistry : Registry, IRegistry {
     public static GraphicConfig GraphicConfig { get; private set; }
 
     public void InitializePre(ContentManager content) {
-        GraphicConfig = this.Register("graphic_config", Configs, new GraphicConfig("config", "graphic-config"));
+        GraphicConfig = Register("graphic_config", Configs, new GraphicConfig("config", "graphic-config"));
     }
 }
