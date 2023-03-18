@@ -13,7 +13,7 @@ public class ServerConfigRegistry : Registry, IRegistry {
     // REGISTRIES
     public static ServerPropertyConfig ServerProperty { get; private set; }
 
-    public void InitializePre(ContentManager content) {
+    public void Register(ContentManager content) {
         ServerProperty = Register("server_properties", Configs, new ServerPropertyConfig("config", "server-properties"));
     }
 }

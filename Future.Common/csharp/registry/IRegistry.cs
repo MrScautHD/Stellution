@@ -6,9 +6,6 @@ public interface IRegistry {
     
     public static readonly List<IRegistry> RegistryTypes = new();
 
-    virtual void InitializePre(ContentManager content) {
-    }
-    
-    virtual void InitializeLate(ContentManager content) {
+    virtual void Register(ContentManager content) {
     }
 }

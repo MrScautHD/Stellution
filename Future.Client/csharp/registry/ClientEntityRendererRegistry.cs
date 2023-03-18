@@ -7,13 +7,13 @@ namespace Future.Client.csharp.registry;
 
 public class ClientEntityRendererRegistry : Registry, IRegistry {
 
-    public void InitializePre(ContentManager content) {
+    public void Register(ContentManager content) {
         ModifiedEntity.Constructing += (obj, args) => this.Event(args.Entity);
     }
 
     protected void Event(ModifiedEntity entity) {
-        this.AddComponent(entity, "cyber_car", new ModelRenderer(ClientModelRegistry.CyberCarModel));
-        this.AddComponent(entity, "player", new ModelRenderer(ClientModelRegistry.FemaleModel));
+        this.AddComponent(entity, "cyber_car", new ModelRenderer(ClientModelRegistry.Get(ClientModelRegistry.CyberCarModel, ClientMaterialRegistry.CyberCarMaterial)));
+        this.AddComponent(entity, "player", new ModelRenderer(ClientModelRegistry.Get(ClientModelRegistry.FemaleModel, ClientMaterialRegistry.FemaleMaterial)));
     }
 
     protected void AddComponent(ModifiedEntity entity, string entityKey, Component component) {

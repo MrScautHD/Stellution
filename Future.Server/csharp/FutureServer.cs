@@ -26,16 +26,11 @@ public class FutureServer : EaselGame {
     protected override void Initialize() {
         // REGISTRY
         foreach (IRegistry registry in IRegistry.RegistryTypes) {
-            registry.InitializePre(this.Content);
+            registry.Register(this.Content);
         }
 
         // BASE INITIALIZE
         base.Initialize();
-        
-        // DELAYED REGISTRY
-        foreach (IRegistry registry in IRegistry.RegistryTypes) {
-            registry.InitializeLate(this.Content);
-        }
     }
 
     public new void Run() {

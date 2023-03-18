@@ -12,7 +12,7 @@ public class ClientConfigRegistry : Registry, IRegistry {
     
     public static GraphicConfig GraphicConfig { get; private set; }
 
-    public void InitializePre(ContentManager content) {
+    public void Register(ContentManager content) {
         GraphicConfig = Register("graphic_config", Configs, new GraphicConfig("config", "graphic-config"));
     }
 }

@@ -1,19 +1,27 @@
+using Easel.Content;
 using Easel.Content.Builder;
 using Easel.Graphics;
 using Future.Common.csharp.registry;
 
 namespace Future.Client.csharp.registry; 
 
-public class ClientTextureRegistry : Registry {
+public class ClientTextureRegistry : ContentRegistry, IContentRegistry {
     
-    public static readonly Texture2D CyberCarTexture = LoadTexture(FutureClient.ContentBuilder, SamplerState.PointClamp, new ImageContent("textures/entity/vehicle/cyber_car.png"));
-    public static readonly Texture2D FemaleTexture = LoadTexture(FutureClient.ContentBuilder, SamplerState.PointClamp, new ImageContent("textures/entity/player/female.png"));
-    public static readonly Texture2D LogoTexture = LoadTexture(FutureClient.ContentBuilder, SamplerState.PointClamp, new ImageContent("textures/logo/logo_transparent.png"));
-    public static readonly Texture2D MenuBackgroundTexture = LoadTexture(FutureClient.ContentBuilder, SamplerState.AnisotropicClamp, new ImageContent("textures/gui/menu_background.png"));
+    public static ImageContent CyberCarTexture { get; private set; }
+    public static ImageContent FemaleTexture { get; private set; }
+    public static ImageContent LogoTexture { get; private set; }
+    public static ImageContent MenuBackgroundTexture { get; private set; }
 
-    public static Texture2D LoadTexture(ContentBuilder builder, SamplerState state, ImageContent imageContent) {
-        Texture2D texture = Load<Texture2D>(builder, imageContent);
-        texture.SamplerState = state;
+    public void Load(ContentManager content) {
+        CyberCarTexture = this.Register(FutureClient.ContentBuilder, new ImageContent("textures/entity/vehicle/cyber_car.png"));
+        FemaleTexture = this.Register(FutureClient.ContentBuilder, new ImageContent("textures/entity/player/female.png"));
+        LogoTexture = this.Register(FutureClient.ContentBuilder, new ImageContent("textures/logo/logo_transparent.png"));
+        MenuBackgroundTexture = this.Register(FutureClient.ContentBuilder, new ImageContent("textures/gui/menu_background.png"));
+    }
+
+    public static Texture2D Get(ImageContent imageContent, SamplerState state = null) {
+        Texture2D texture = ContentRegistry.Get<Texture2D>(imageContent);
+        texture.SamplerState = state ?? SamplerState.PointClamp;
         
         return texture;
     }
