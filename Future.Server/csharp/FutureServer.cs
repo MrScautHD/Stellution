@@ -13,23 +13,20 @@ public class FutureServer : EaselGame {
     private ServerNetworkManager networkManager;
 
     public FutureServer(GameSettings settings, Scene scene) : base(settings, scene) {
+        
         // NETWORK
         this.networkManager = new ServerNetworkManager();
         
         // LOGGER
         GameLogger.Initialize("logs", "log");
-        
-        // REGISTRY
-        IRegistry.RegistryTypes.Add(new ServerConfigRegistry());
     }
 
     protected override void Initialize() {
+        
         // REGISTRY
-        foreach (IRegistry registry in IRegistry.RegistryTypes) {
-            registry.Register(this.Content);
-        }
+        ServerRegistry registry = new ServerRegistry();
+        registry.Initialize(this.Content);
 
-        // BASE INITIALIZE
         base.Initialize();
     }
 

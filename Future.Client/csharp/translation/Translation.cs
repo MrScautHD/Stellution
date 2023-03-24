@@ -9,7 +9,7 @@ public class Translation : FileManager {
     /**
      * Set this to your LANG.
      */
-    public static Translation Lang = ClientTranslationRegistry.English;
+    public static Translation Lang = ClientRegistry.EnglishTranslation;
     
     private Dictionary<string, string> _dictionary = new();
 

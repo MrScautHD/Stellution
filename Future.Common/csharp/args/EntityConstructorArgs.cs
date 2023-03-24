@@ -1,6 +1,6 @@
 using Future.Common.csharp.entity;
 
-namespace Future.Common.csharp.events; 
+namespace Future.Common.csharp.args; 
 
 public struct EntityConstructorArgs {
     

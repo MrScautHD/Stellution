@@ -1,6 +1,8 @@
 using System.Numerics;
 using BulletSharp;
 using Easel.Entities;
+using Easel.Entities.Components;
+using Easel.Math;
 using Easel.Physics;
 using Future.Common.csharp.entity;
 
@@ -25,6 +27,9 @@ public class Earth : ModifiedScene {
         
         ModifiedEntity player = new ModifiedEntity(transform, "player");
         this.AddEntity(player);
+
+        Entity light = this.GetEntity("Sun");
+        light.GetComponent<DirectionalLight>().Color = Color.Blue;
     }
     
     protected override void Update() {

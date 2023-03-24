@@ -1,6 +1,6 @@
 using Future.Common.csharp.scenes;
 
-namespace Future.Common.csharp.events; 
+namespace Future.Common.csharp.args; 
 
 public class SceneInitializeArgs {
     

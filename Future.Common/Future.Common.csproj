@@ -13,11 +13,11 @@
 
     <ItemGroup>
       <PackageReference Include="LiteNetLib" Version="1.0.0-rc.3" />
-      <PackageReference Include="Newtonsoft.Json" Version="13.0.3-beta1" />
+      <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="csharp\registry\types" />
+      <Folder Include="csharp\events" />
     </ItemGroup>
 
 </Project>
