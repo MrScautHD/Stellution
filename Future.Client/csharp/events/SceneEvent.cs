@@ -12,11 +12,14 @@ public class SceneEvent {
     }
 
     protected void Event(ModifiedScene scene) {
-        if (scene.Name.Equals("earth")) {
-            Camera.Main.Skybox = ClientRegistry.EarthSkybox;
-            Camera.Main.AddComponent(new NoClipCamera() {
-                MouseSensitivity =  0.005F,
-            });
+        switch (scene.Name) {
+            
+            case "earth":
+                Camera.Main.Skybox = ClientRegistry.EarthSkybox;
+                Camera.Main.AddComponent(new NoClipCamera() {
+                    MouseSensitivity =  0.005F,
+                }); 
+                break;
         }
     }
 }

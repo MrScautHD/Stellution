@@ -25,12 +25,15 @@ public class ClientRegistry : IRegistry {
     
     // TEXTURES
     public static Texture2D CyberCarTexture => TextureGetter("textures/entity/vehicle/cyber_car");
+    public static Texture2D FemaleTexture => TextureGetter("textures/entity/player/female");
     
     // MODELS
     public static Model CyberCarModel => ModelGetter("models/entity/vehicle/cyber_car", CyberCarMaterial);
+    public static Model FemaleModel => ModelGetter("models/entity/player/female", CyberCarMaterial);
     
     // MATERIALS
     public static TranslucentStandardMaterial CyberCarMaterial { get; private set; }
+    public static TranslucentStandardMaterial FemaleMaterial { get; private set; }
 
     // SKYBOXES
     public static Skybox EarthSkybox { get; private set; }
@@ -46,17 +49,19 @@ public class ClientRegistry : IRegistry {
             
             // FONTS
             .Add(new FontContent("font/fontoe.ttf"))
-            
-            // MODELS
-            .Add(new ModelContent("models/entity/vehicle/cyber_car.glb", false))
-            
+
             // BITMAPS
             .Add(new ImageContent("textures/sky/skybox/earth/earth_top.bmp"))
             .Add(new ImageContent("textures/sky/skybox/earth/earth_side.bmp"))
             .Add(new ImageContent("textures/sky/skybox/earth/earth_bottom.bmp"))
             
+            // MODELS
+            .Add(new ModelContent("models/entity/vehicle/cyber_car.glb", false))
+            .Add(new ModelContent("models/entity/player/female.glb", false))
+            
             // TEXTURES
             .Add(new ImageContent("textures/entity/vehicle/cyber_car.png"))
+            .Add(new ImageContent("textures/entity/player/female.png"))
             
             .Build();
 
@@ -65,6 +70,9 @@ public class ClientRegistry : IRegistry {
         // MATERIALS & TEXTURE STATES
         CyberCarTexture.SamplerState = SamplerState.PointClamp;
         CyberCarMaterial = new TranslucentStandardMaterial(Texture2D.Black, CyberCarTexture, Texture2D.White);
+        
+        FemaleTexture.SamplerState = SamplerState.PointClamp;
+        FemaleMaterial = new TranslucentStandardMaterial(Texture2D.Black, FemaleTexture, Texture2D.White);
 
         // SKYBOXES
         EarthSkybox = new Skybox(SkyEarthSide, SkyEarthSide, SkyEarthTop, SkyEarthBottom, SkyEarthSide, SkyEarthSide);

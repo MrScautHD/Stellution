@@ -25,8 +25,8 @@ public class Earth : ModifiedScene {
         Transform transform = new Transform();
         transform.Position = new Vector3(10, 0, 0);
         
-        //ModifiedEntity player = new ModifiedEntity(transform, "player");
-        //this.AddEntity(player);
+        ModifiedEntity player = new ModifiedEntity(transform, "player");
+        this.AddEntity(player);
 
         Entity light = this.GetEntity("Sun");
         light.GetComponent<DirectionalLight>().Color = Color.Blue;
