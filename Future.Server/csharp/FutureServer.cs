@@ -24,6 +24,7 @@ public class FutureServer : EaselGame {
     protected override void Initialize() {
         
         // REGISTRY
+        Logger.Debug("Initializing Registries...");
         ServerRegistry registry = new ServerRegistry();
         registry.Initialize(this.Content);
 

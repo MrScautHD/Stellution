@@ -16,18 +16,18 @@ public class ClientRegistry : IRegistry {
     public static ContentManager Content => EaselGame.Instance.Content;
 
     // FONTS
-    public static Font FontoeFont => Content.Load<Font>("font/fontoe.ttf");
+    public static Font FontoeFont => Content.Load<Font>("font/fontoe");
 
     // BITMAPS
-    public static Bitmap SkyEarthTop => Content.Load<Bitmap>("textures/sky/skybox/earth/earth_top.bmp");
-    public static Bitmap SkyEarthSide => Content.Load<Bitmap>("textures/sky/earth/skybox/earth_side.bmp");
-    public static Bitmap SkyEarthBottom => Content.Load<Bitmap>("textures/sky/earth/skybox/earth_bottom.bmp");
+    public static Bitmap SkyEarthTop => Content.Load<Bitmap>("textures/sky/skybox/earth/earth_top");
+    public static Bitmap SkyEarthSide => Content.Load<Bitmap>("textures/sky/skybox/earth/earth_side");
+    public static Bitmap SkyEarthBottom => Content.Load<Bitmap>("textures/sky/skybox/earth/earth_bottom");
     
     // TEXTURES
-    public static Texture2D CyberCarTexture => TextureGetter("textures/entity/vehicle/cyber_car.png");
+    public static Texture2D CyberCarTexture => TextureGetter("textures/entity/vehicle/cyber_car");
     
     // MODELS
-    public static Model CyberCarModel => ModelGetter("models/entity/vehicle/cyber_car.glb", CyberCarMaterial);
+    public static Model CyberCarModel => ModelGetter("models/entity/vehicle/cyber_car", CyberCarMaterial);
     
     // MATERIALS
     public static TranslucentStandardMaterial CyberCarMaterial { get; private set; }
@@ -64,7 +64,7 @@ public class ClientRegistry : IRegistry {
 
         // MATERIALS & TEXTURE STATES
         CyberCarTexture.SamplerState = SamplerState.PointClamp;
-        CyberCarMaterial = new TranslucentStandardMaterial(CyberCarTexture);
+        CyberCarMaterial = new TranslucentStandardMaterial(CyberCarTexture, CyberCarTexture, CyberCarTexture);
 
         // SKYBOXES
         EarthSkybox = new Skybox(SkyEarthSide, SkyEarthSide, SkyEarthTop, SkyEarthBottom, SkyEarthSide, SkyEarthSide);

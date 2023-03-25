@@ -1,4 +1,5 @@
 using Easel;
+using Easel.Core;
 using Easel.Scenes;
 using Future.Client.csharp.network;
 using Future.Client.csharp.registry;
@@ -21,6 +22,7 @@ public class FutureClient : EaselGame {
     protected override void Initialize() {
         
         // REGISTRY
+        Logger.Debug("Initializing Registries...");
         ClientRegistry registry = new ClientRegistry();
         registry.Initialize(this.Content);
 
