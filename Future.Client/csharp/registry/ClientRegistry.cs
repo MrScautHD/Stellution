@@ -64,7 +64,7 @@ public class ClientRegistry : IRegistry {
 
         // MATERIALS & TEXTURE STATES
         CyberCarTexture.SamplerState = SamplerState.PointClamp;
-        CyberCarMaterial = new TranslucentStandardMaterial(CyberCarTexture, CyberCarTexture, CyberCarTexture);
+        CyberCarMaterial = new TranslucentStandardMaterial(Texture2D.Black, CyberCarTexture, Texture2D.White);
 
         // SKYBOXES
         EarthSkybox = new Skybox(SkyEarthSide, SkyEarthSide, SkyEarthTop, SkyEarthBottom, SkyEarthSide, SkyEarthSide);
@@ -83,7 +83,7 @@ public class ClientRegistry : IRegistry {
     /**
      * Use this to get the "TEXTURES" with the right "Sample-State".
      */
-    public static Texture2D TextureGetter(string path, SamplerState state = null) {
+    protected static Texture2D TextureGetter(string path, SamplerState state = null) {
         Texture2D texture = Content.Load<Texture2D>(path);
         texture.SamplerState = state ?? SamplerState.PointClamp;
 

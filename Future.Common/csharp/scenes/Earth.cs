@@ -18,15 +18,15 @@ public class Earth : ModifiedScene {
         
         Rigidbody rigidbody = new Rigidbody(1, new BoxShape(3));
 
-        ModifiedEntity cyberCar = new ModifiedEntity("cyber_car", "test");
-        cyberCar.AddComponent(rigidbody);
+        ModifiedEntity cyberCar = new ModifiedEntity("cyber_car", "cyber_car");
+        //cyberCar.AddComponent(rigidbody);
         this.AddEntity(cyberCar);
 
         Transform transform = new Transform();
         transform.Position = new Vector3(10, 0, 0);
         
-        ModifiedEntity player = new ModifiedEntity(transform, "player");
-        this.AddEntity(player);
+        //ModifiedEntity player = new ModifiedEntity(transform, "player");
+        //this.AddEntity(player);
 
         Entity light = this.GetEntity("Sun");
         light.GetComponent<DirectionalLight>().Color = Color.Blue;
