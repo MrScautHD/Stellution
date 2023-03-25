@@ -12,8 +12,8 @@ public class EntityConstructorEvent {
     }
     
     protected void Event(ModifiedEntity entity) {
-        this.AddComponent(entity, "cyber_car", () => new ModelRenderer(ClientRegistry.CyberCarModel));
-        this.AddComponent(entity, "player", () => new ModelRenderer(ClientRegistry.FemaleModel));
+        this.AddComponent(entity, "cyber_car", () => new ModelRenderer(ModelRegistry.CyberCar));
+        this.AddComponent(entity, "player", () => new ModelRenderer(ModelRegistry.Female));
     }
 
     protected void AddComponent(ModifiedEntity entity, string entityKey, Func<Component> component) {

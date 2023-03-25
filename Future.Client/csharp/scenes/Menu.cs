@@ -12,7 +12,7 @@ public class Menu : ModifiedScene {
     protected override void Initialize() {
         base.Initialize();
 
-        UI.DefaultStyle.Font = ClientRegistry.FontoeFont;
+        UI.DefaultStyle.Font = FontRegistry.Fontoe;
 
         //Size windowSize = EaselGame.Instance.Window.Size;
         //UI.Add("background", new Image(new Position(Anchor.CenterCenter), ClientTextureRegistry.MenuBackgroundTexture, new Size<int>(windowSize.Width, windowSize.Height)));

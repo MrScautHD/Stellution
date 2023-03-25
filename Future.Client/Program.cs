@@ -6,7 +6,7 @@ using Pie.Windowing;
 
 GameSettings settings = new GameSettings {
     Title = "Future (WIP)",
-    Icon = new Bitmap("content/textures/logo/logo.bmp"),
+    Icon = new Bitmap("content/bitmaps/logo/logo.bmp"),
     AutoGenerateContentDirectory = null,
     TitleBarFlags = TitleBarFlags.ShowGraphicsApi,
     VSync = false,

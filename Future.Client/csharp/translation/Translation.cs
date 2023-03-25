@@ -9,11 +9,11 @@ public class Translation : FileManager {
     /**
      * Set this to your LANG.
      */
-    public static Translation Lang = ClientRegistry.EnglishTranslation;
+    public static Translation Lang = TranslationRegistry.English;
     
     private Dictionary<string, string> _dictionary = new();
 
-    public Translation(string contentName, string name) : base(contentName + "/lang", name + ".json") {
+    public Translation(string definitionName, string name) : base(definitionName, name + ".json") {
         this.ReadFile();
     }
     

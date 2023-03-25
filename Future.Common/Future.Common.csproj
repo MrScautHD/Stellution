@@ -18,6 +18,7 @@
 
     <ItemGroup>
       <Folder Include="csharp\events" />
+      <Folder Include="csharp\registry\types" />
     </ItemGroup>
 
 </Project>

@@ -15,7 +15,7 @@ public class SceneEvent {
         switch (scene.Name) {
             
             case "earth":
-                Camera.Main.Skybox = ClientRegistry.EarthSkybox;
+                Camera.Main.Skybox = SkyboxRegistry.EarthSkybox;
                 Camera.Main.AddComponent(new NoClipCamera() {
                     MouseSensitivity =  0.005F,
                 }); 

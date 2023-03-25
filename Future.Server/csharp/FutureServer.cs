@@ -19,14 +19,18 @@ public class FutureServer : EaselGame {
         
         // LOGGER
         GameLogger.Initialize("logs", "log");
+        
+        // REGISTER
+        Registry.RegistryTypes.Add(new ServerConfigRegistry());
     }
 
     protected override void Initialize() {
         
         // REGISTRY
         Logger.Debug("Initializing Registries...");
-        ServerRegistry registry = new ServerRegistry();
-        registry.Initialize(this.Content);
+        foreach (IRegistry registry in Registry.RegistryTypes) {
+            registry.Initialize(this.Content);
+        }
 
         base.Initialize();
     }
