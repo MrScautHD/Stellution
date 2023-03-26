@@ -14,7 +14,7 @@ public class Registry {
     /**
      * Use this to get the "TEXTURES" with the right "Sample-State".
      */
-    protected static Texture2D TextureGetter(string definitionName, string friendlyName, SamplerState state = null) {
+    protected static Texture2D TextureGetter(string definitionName, string friendlyName, SamplerState? state = null) {
         Texture2D texture = Content.Load<Texture2D>(definitionName, friendlyName);
         texture.SamplerState = state ?? SamplerState.PointClamp;
 
@@ -26,13 +26,13 @@ public class Registry {
      */
     protected static Model ModelGetter(string definitionName, string friendlyName, Material material) {
         Model model = Content.Load<Model>(definitionName, friendlyName);
-        
-        for (int i = 0; i < model.Materials.Length; i++) {
-            ref Material modelMaterial = ref model.Materials[i];
 
-            modelMaterial = material;
+        foreach (ModelMesh modelMesh in model.Meshes) {
+            for (int i = 0; i < modelMesh.Meshes.Length; i++) {
+                modelMesh.Meshes[i].Material = material;
+            }
         }
-        
+
         return model;
     }
 }

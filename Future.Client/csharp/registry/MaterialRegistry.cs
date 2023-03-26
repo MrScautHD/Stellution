@@ -7,11 +7,11 @@ namespace Future.Client.csharp.registry;
 
 public class MaterialRegistry : Registry, IRegistry {
     
-    public static StandardMaterial CyberCar { get; private set; }
+    public static TranslucentStandardMaterial CyberCar { get; private set; }
     public static TranslucentStandardMaterial Female { get; private set; }
     
     public void Initialize(ContentManager content) {
-        CyberCar = new StandardMaterial(TextureRegistry.CyberCar);
-        Female = new TranslucentStandardMaterial(Texture2D.Black, TextureRegistry.Female, Texture2D.White);
+        CyberCar = new TranslucentStandardMaterial(TextureRegistry.CyberCar) { BlendState = BlendState.AlphaBlend };
+        Female = new TranslucentStandardMaterial(TextureRegistry.Female) { BlendState = BlendState.AlphaBlend } ;
     }
 }
