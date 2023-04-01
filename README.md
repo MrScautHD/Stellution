@@ -48,8 +48,7 @@
 - [Newtonsoft.Json (Json System)](https://github.com/JamesNK/Newtonsoft.Json)
 
 ### Features
-![grafik](https://user-images.githubusercontent.com/65916181/220327726-9d2da55a-e85d-4dc6-a45c-d7b0bf479ff6.png)
++ Hovering Cars
++ Open World
++ PVP
 ![grafik](https://user-images.githubusercontent.com/65916181/220327780-328a50de-def5-485a-b769-1f98b5c292ad.png)
-![grafik](https://user-images.githubusercontent.com/65916181/220328086-e538b03b-143b-47d0-b607-4ba06e95842e.png)
-![grafik](https://user-images.githubusercontent.com/65916181/220327971-595f20f0-14c0-4639-a4df-c0d8ed9c5557.png)
-
