@@ -43,9 +43,9 @@
 
 
 ### Libraries (https://www.nuget.org/packages)
-- Easel (Game Framework (Engine))
-- LiteNetLib (Network System)
-- Newtonsoft.Json (Json System)
+- [Easel (Game Framework (Engine))](https://github.com/piegfx/Easel)
+- [LiteNetLib (Network System)](https://github.com/RevenantX/LiteNetLib)
+- [Newtonsoft.Json (Json System)](https://github.com/JamesNK/Newtonsoft.Json)
 
 ### Features
 ![grafik](https://user-images.githubusercontent.com/65916181/220327726-9d2da55a-e85d-4dc6-a45c-d7b0bf479ff6.png)
