@@ -1,1 +1,1 @@
-Not done!
+Not done! (HOW TO CONTRIBUTE)
