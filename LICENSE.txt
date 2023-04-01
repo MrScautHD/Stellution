@@ -1,19 +1,22 @@
-                            Project-Future License 1.0
-                                    10/2022
+                            Project-Future License 1.1
+                                    04/2023
 
-The Project-Future License protects the Project-Future Project and dedicated servers.
+The Project-Future License protects the Project-Future Project and our Contributor.
 
 1. Any assets from the Project-Future Project’s source files published on GitHub may
-not be used in any other public projects (see 2.1. for usage in server),
-unless explicitly stated otherwise by the Project-Future Project’s
-owner or by this license (Project-Future License 1.0).
+   not be used in any other public projects (see 2.1. for usage in server),
+   unless explicitly stated otherwise by the Project-Future Project’s
+   owner or by this license (Project-Future License 1.0).
 
 2. Usage of source files in other public projects:
 
-  1. The Project-Future Game are just allowed to Download on Offical Websites or
-  Launchers that we (The Project-Future) uploaded!
+  1. The Project-Future game are just allowed to Download on Offical Websites or
+     Launchers, that uploaded by us!
 
   2. The Game is unmodified (excluding modification of config-files) and
-  available in its entirety.
+     available in its entirety.
 
-3. All other rights reserved unless otherwise explicitly stated.
+3. Every Contributor that contribute to this Project accept that all (scripts, assets...) own by him,
+   after the contribution Project-Future is the new owner of it!
+
+4. All other rights reserved unless otherwise explicitly stated.
