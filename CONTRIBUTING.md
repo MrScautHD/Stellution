@@ -23,5 +23,6 @@ Pull Requests not meeting these guidelines are also welcomed, but we may have to
 All Pull Requests automatically become subject to Project-Future's licence. If you're interested in the legal stuff, it's here: https://github.com/MrScautHD/Future/blob/Game/LICENSE.txt
 
 Donate
+======
 
 Project-Future is a large project with many Contributors working on it around the clock, it costs money to run such a large project as this, so please consider [becoming a patron.](https://www.google.com/search?client=firefox-b-d&q=test)
