@@ -7,7 +7,6 @@
 <p align="center" >Work in Progress!</p>
 
 <div align="center" >
-
 <a href="https://github.com/MrScautHD/Future">
 <img alt="GitHub branch checks state" src="https://img.shields.io/github/checks-status/MrScautHD/Future/Game?color=yellow&label=BUILD&style=for-the-badge">
 </a>
@@ -20,35 +19,20 @@
 <a href="https://github.com/MrScautHD/Future/blob/Game/LICENSE.txt">
 <img alt="Custom badge" src="https://img.shields.io/endpoint?color=darkred&label=LICENSE&logo=C&logoColor=red&style=for-the-badge&url=https%3A%2F%2Fcdn.discordapp.com%2Fattachments%2F921462744782372904%2F1048924842134614106%2Flabel.json">
 </a>
-
 </div>
 
-<a href="https://discord.gg/Xb2nPmN">
-  <p align="center">
-      <img src="https://img.shields.io/discord/698598471896268931?    color=blue&label=Discord&logo=discord&logoColor=ffffff&style=for-the-badge" alt="Discord" width="191"/> 
-  </p>
-</a>
-
-<p align="center" style="margin-bottom: 0px !important;">
-  <img width="800" src="media/cross-platform.gif" alt="adf" align="center">
-</p>
-
-<p align="center" style="margin-bottom: 0px !important;">
-  <h2 align="center" style="margin-top: 0px;">Supported platforms</h2>
-</p>
-
-<p align="center" style="margin-bottom: 0px !important;">
-  <img width="500" src="https://cdn.discordapp.com/attachments/921462744782372904/1077220722046406756/platforms.png" alt="Platforms" align="center">
-</p>
-
-
-### Libraries (https://www.nuget.org/packages)
+Libraries (https://www.nuget.org/packages)
+==========================================
 - [Easel (Game Framework (Engine))](https://github.com/piegfx/Easel)
 - [LiteNetLib (Network System)](https://github.com/RevenantX/LiteNetLib)
 - [Newtonsoft.Json (Json System)](https://github.com/JamesNK/Newtonsoft.Json)
 
-### Features
+Features
+=========
 + Hovering Cars
 + Open World
 + PVP
+
+Pictures
+========
 ![grafik](https://user-images.githubusercontent.com/65916181/220327780-328a50de-def5-485a-b769-1f98b5c292ad.png)
