@@ -1,12 +1,11 @@
-                            Project-Future License 1.1
+                            Project-Future License 1.2
                                     04/2023
 
 The Project-Future License protects the Project-Future Project and our Contributor.
 
 1. Any assets from the Project-Future Project’s source files published on GitHub may
-   not be used in any other public projects (see 2.1. for usage in server),
-   unless explicitly stated otherwise by the Project-Future Project’s
-   owner or by this license (Project-Future License 1.0).
+   not be used in any other public projects, unless explicitly stated otherwise by the Project-Future Project’s
+   owner or by this license (Project-Future License 1.2).
 
 2. Usage of source files in other public projects:
 
