@@ -8,6 +8,7 @@ Pull Requests
 
 Project-Future is an open source project and Pull Requests from any competent coder are extremely welcome - we could use the help!
 
+
 Pull Requests meeting the following guidelines can be merged:
 
 1. Please make one sensibly-named commit, which describes the aspect you are fixing.
