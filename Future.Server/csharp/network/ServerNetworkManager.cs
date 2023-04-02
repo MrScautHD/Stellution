@@ -26,7 +26,7 @@ public class ServerNetworkManager : INetEventListener {
     }
 
     public void Update() {
-        this._server.PollEvents();
+        //this._server.PollEvents();
         
         if (this._ourPeer != null) {
             //_serverBall.transform.Translate(1f * Time.fixedDeltaTime, 0f, 0f);

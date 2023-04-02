@@ -38,9 +38,7 @@ public class FutureServer : EaselGame {
     protected override void Update() {
         base.Update();
 
-        if (this.ServerNetworkManager != null) {
-            this.ServerNetworkManager.Update();
-        }
+        this.ServerNetworkManager.Update();
     }
 
     public new void Run() {

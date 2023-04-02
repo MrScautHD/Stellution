@@ -1,4 +1,5 @@
 using Easel.GUI;
+using Easel.Math;
 using Future.Client.csharp.registry;
 using Future.Common.csharp.scenes;
 
@@ -14,9 +15,8 @@ public class Menu : ModifiedScene {
 
         UI.DefaultStyle.Font = FontRegistry.Fontoe;
 
-        //Size windowSize = EaselGame.Instance.Window.Size;
-        //UI.Add("background", new Image(new Position(Anchor.CenterCenter), ClientTextureRegistry.MenuBackgroundTexture, new Size<int>(windowSize.Width, windowSize.Height)));
-
+        UI.Add(new Panel("test", new Position(Anchor.CenterCenter), new Size<int>(90)));
+        
         //UI.Add("logo", new Image(new Position(Anchor.TopRight), ClientTextureRegistry.Get(ClientTextureRegistry.LogoTexture), new Size<int>(250)));
         //UI.Add("label", new Label(new Position(Anchor.CenterCenter), "label", 20));
 

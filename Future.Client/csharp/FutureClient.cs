@@ -41,6 +41,6 @@ public class FutureClient : EaselGame {
         
         base.Initialize();
         
-        //this.NetworkManager.Connect("localhost", 9050);
+        this.NetworkManager.Connect("localhost", 9050);
     }
 }
