@@ -46,12 +46,13 @@ public class FutureClient : EaselGame {
         }
         
         base.Initialize();
+        
+        // TODO Make a Multiplayer Menu
         this.NetworkManager.Connect("127.0.0.1:7777");
     }
 
     protected override void Update() {
         base.Update();
-        
         this.FixedUpdateCalculator();
     }
     
@@ -62,7 +63,7 @@ public class FutureClient : EaselGame {
     private void FixedUpdateCalculator() {
         this._timer += Time.DeltaTime;
         
-        if (this._timer > this._delay) {
+        if (this._timer >= this._delay) {
             this.FixedUpdate();
             this._timer -= this._delay;
         }
