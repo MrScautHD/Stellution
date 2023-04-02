@@ -11,13 +11,13 @@
 [<img src="https://user-images.githubusercontent.com/65916181/229357115-d601e227-e80a-459d-974e-92905e192b08.png" width="125" height="40">](https://discord.gg/7XKw6YQa76)
 
 
-Libraries (https://www.nuget.org/packages)
+📚 Libraries (https://www.nuget.org/packages)
 ==========================================
 - [Easel (Game Engine)](https://github.com/piegfx/Easel)
 - [Riptide (Network System)](https://github.com/RiptideNetworking/Riptide)
 - [Newtonsoft.Json (Json System)](https://github.com/JamesNK/Newtonsoft.Json)
 
-Features
+💡 Features
 =========
 + Hovering Cars
 + Open World
