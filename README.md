@@ -2,7 +2,7 @@
   <img width="200" src="https://cdn.discordapp.com/attachments/921462744782372904/1048911188941090816/logo.png" alt="Logo" align="center">
 </p>
 
-<h1 align="center" style="margin-top: 0px;">Project-Future</h1>
+<h1 align="center" style="margin-top: 0px;">Welcome to Project-Future 🎉</h1>
 
 ![grafik](https://user-images.githubusercontent.com/65916181/220327780-328a50de-def5-485a-b769-1f98b5c292ad.png)
 
