@@ -12,7 +12,10 @@ public class FutureClient : EaselGame {
     
     protected GameSettings Settings;
     protected ClientNetworkManager NetworkManager;
-    
+
+    private float _timer;
+    private readonly float _delay = 1.0F / 60.0F;
+
     public FutureClient(GameSettings settings, Scene scene) : base(settings, scene) {
         this.Settings = settings;
 
@@ -48,6 +51,20 @@ public class FutureClient : EaselGame {
 
     protected override void Update() {
         base.Update();
+        
+        this.FixedUpdateCalculator();
+    }
+    
+    protected void FixedUpdate() {
         this.NetworkManager.FixedUpdate();
+    }
+    
+    private void FixedUpdateCalculator() {
+        this._timer += Time.DeltaTime;
+        
+        if (this._timer > this._delay) {
+            this.FixedUpdate();
+            this._timer -= this._delay;
+        }
     }
 }
