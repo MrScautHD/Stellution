@@ -4,8 +4,6 @@
 
 <h1 align="center" style="margin-top: 0px;">Project-Future</h1>
 
-<p align="center" >Beyond the Past!</p>
-
 ![grafik](https://user-images.githubusercontent.com/65916181/220327780-328a50de-def5-485a-b769-1f98b5c292ad.png)
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Q5Q6K0XC0)
