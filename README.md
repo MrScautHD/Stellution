@@ -25,6 +25,9 @@
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/Q5Q6K0XC0)
 
+[<img src="https://user-images.githubusercontent.com/65916181/229357115-d601e227-e80a-459d-974e-92905e192b08.png" width="125" height="40">](https://discord.gg/7XKw6YQa76)
+
+
 Libraries (https://www.nuget.org/packages)
 ==========================================
 - [Easel (Game Engine)](https://github.com/piegfx/Easel)
