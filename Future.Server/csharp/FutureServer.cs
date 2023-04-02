@@ -10,12 +10,12 @@ namespace Future.Server.csharp;
 
 public class FutureServer : EaselGame {
     
-    private ServerNetworkManager networkManager;
+    protected ServerNetworkManager ServerNetworkManager;
 
     public FutureServer(GameSettings settings, Scene scene) : base(settings, scene) {
         
         // NETWORK
-        this.networkManager = new ServerNetworkManager();
+        this.ServerNetworkManager = new ServerNetworkManager();
         
         // LOGGER
         GameLogger.Initialize("logs", "log");
@@ -35,17 +35,25 @@ public class FutureServer : EaselGame {
         base.Initialize();
     }
 
+    protected override void Update() {
+        base.Update();
+
+        if (this.ServerNetworkManager != null) {
+            this.ServerNetworkManager.Update();
+        }
+    }
+
     public new void Run() {
         base.Run();
         
         Logger.Info("Server Starting!");
-        this.networkManager.Start("localhost", "");
+        this.ServerNetworkManager.Start(9050);
     }
 
     public new void Close() {
         base.Close();
         
         Logger.Info("Server Closed!");
-        this.networkManager.Stop();
+        this.ServerNetworkManager.Stop();
     }
 }

@@ -16,10 +16,11 @@ public class Earth : ModifiedScene {
     protected override void Initialize() {
         base.Initialize();
         
-        Rigidbody rigidbody = new Rigidbody(1, new BoxShape(3));
+        Rigidbody rigidbody = new Rigidbody(2, new BoxShape(3));
+        rigidbody.Enabled = true;
 
         ModifiedEntity cyberCar = new ModifiedEntity("cyber_car", "cyber_car");
-        //cyberCar.AddComponent(rigidbody);
+        cyberCar.AddComponent(rigidbody);
         this.AddEntity(cyberCar);
 
         Transform transform = new Transform();
@@ -33,7 +34,8 @@ public class Earth : ModifiedScene {
     }
     
     protected override void Update() {
-        base.Update();
+        Physics.Update();
         
+        base.Update();
     }
 }

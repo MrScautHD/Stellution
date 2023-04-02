@@ -38,7 +38,9 @@ public class FutureClient : EaselGame {
         foreach (IRegistry registry in Registry.RegistryTypes) {
             registry.Initialize(this.Content);
         }
-
+        
         base.Initialize();
+        
+        //this.NetworkManager.Connect("localhost", 9050);
     }
 }
