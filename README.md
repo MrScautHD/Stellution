@@ -21,10 +21,12 @@
 </a>
 </div>
 
+![grafik](https://user-images.githubusercontent.com/65916181/220327780-328a50de-def5-485a-b769-1f98b5c292ad.png)
+
 Libraries (https://www.nuget.org/packages)
 ==========================================
-- [Easel (Game Framework (Engine))](https://github.com/piegfx/Easel)
-- [LiteNetLib (Network System)](https://github.com/RevenantX/LiteNetLib)
+- [Easel (Game Engine)](https://github.com/piegfx/Easel)
+- [Riptide (Network System)](https://github.com/RiptideNetworking/Riptide)
 - [Newtonsoft.Json (Json System)](https://github.com/JamesNK/Newtonsoft.Json)
 
 Features
@@ -32,7 +34,3 @@ Features
 + Hovering Cars
 + Open World
 + PVP
-
-Pictures
-========
-![grafik](https://user-images.githubusercontent.com/65916181/220327780-328a50de-def5-485a-b769-1f98b5c292ad.png)
