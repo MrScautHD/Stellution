@@ -13,15 +13,15 @@ public class FutureServer : EaselGame {
     protected ServerNetworkManager ServerNetworkManager;
 
     public FutureServer(GameSettings settings, Scene scene) : base(settings, scene) {
+
+        // LOGGER
+        GameLogger.Initialize("logs", "log");
+
+        // REGISTER
+        Registry.RegistryTypes.Add(new ServerConfigRegistry());
         
         // NETWORK
         this.ServerNetworkManager = new ServerNetworkManager();
-        
-        // LOGGER
-        GameLogger.Initialize("logs", "log");
-        
-        // REGISTER
-        Registry.RegistryTypes.Add(new ServerConfigRegistry());
     }
 
     protected override void Initialize() {
@@ -37,21 +37,16 @@ public class FutureServer : EaselGame {
 
     protected override void Update() {
         base.Update();
-
-        this.ServerNetworkManager.Update();
+        this.ServerNetworkManager.FixedUpdate();
     }
 
     public new void Run() {
+        this.ServerNetworkManager.Start(7777, 10);
         base.Run();
-        
-        Logger.Info("Server Starting!");
-        this.ServerNetworkManager.Start(9050);
     }
 
     public new void Close() {
-        base.Close();
-        
-        Logger.Info("Server Closed!");
         this.ServerNetworkManager.Stop();
+        base.Close();
     }
 }

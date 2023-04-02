@@ -15,7 +15,7 @@ public class FutureClient : EaselGame {
     
     public FutureClient(GameSettings settings, Scene scene) : base(settings, scene) {
         this.Settings = settings;
-        
+
         // LOGGER
         GameLogger.Initialize("logs", "log");
         
@@ -29,6 +29,9 @@ public class FutureClient : EaselGame {
         Registry.RegistryTypes.Add(new ModelRegistry());
         Registry.RegistryTypes.Add(new SkyboxRegistry());
         Registry.RegistryTypes.Add(new ClientEventRegistry());
+        
+        // NETWORK
+        this.NetworkManager = new ClientNetworkManager();
     }
 
     protected override void Initialize() {
@@ -40,7 +43,11 @@ public class FutureClient : EaselGame {
         }
         
         base.Initialize();
-        
-        this.NetworkManager.Connect("localhost", 9050);
+        this.NetworkManager.Connect("127.0.0.1:7777");
+    }
+
+    protected override void Update() {
+        base.Update();
+        this.NetworkManager.FixedUpdate();
     }
 }
