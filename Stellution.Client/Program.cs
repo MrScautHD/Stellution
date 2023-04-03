@@ -5,7 +5,7 @@ using Pie.Windowing;
 using Stellution.Client.csharp;
 
 GameSettings settings = new GameSettings {
-    Title = "Future (WIP)",
+    Title = "Stellution (WIP)",
     Icon = new Bitmap("content/bitmaps/logo/logo.bmp"),
     AutoGenerateContentDirectory = null,
     TitleBarFlags = TitleBarFlags.ShowGraphicsApi,
