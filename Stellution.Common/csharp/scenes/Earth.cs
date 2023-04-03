@@ -15,7 +15,7 @@ public class Earth : ModifiedScene {
 
     protected override void Initialize() {
         base.Initialize();
-        
+
         Rigidbody rigidbody = new Rigidbody(2, new BoxShape(3));
         rigidbody.Enabled = true;
 
@@ -35,7 +35,7 @@ public class Earth : ModifiedScene {
     
     protected override void Update() {
         Physics.Update();
-        
+
         base.Update();
     }
 }

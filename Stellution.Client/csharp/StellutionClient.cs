@@ -32,7 +32,7 @@ public class StellutionClient : EaselGame {
         Registry.RegistryTypes.Add(new ModelRegistry());
         Registry.RegistryTypes.Add(new SkyboxRegistry());
         Registry.RegistryTypes.Add(new ClientEventRegistry());
-        
+
         // NETWORK
         this.NetworkManager = new ClientNetworkManager();
     }
