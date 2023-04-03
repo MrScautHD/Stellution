@@ -1,12 +1,12 @@
-Contribute to Project-Future
+Contribute to Stellution
 ===================
 
-If you wish to actually inspect Project-Future, submit PRs, you're in the right place!
+If you wish to actually inspect Stellution, submit PRs, you're in the right place!
 
 Pull Requests
 =============
 
-Project-Future is an open source project and Pull Requests from any competent coder are extremely welcome - we could use the help!
+Stellution is an open source project and Pull Requests from any competent coder are extremely welcome - we could use the help!
 
 Pull Requests meeting the following guidelines can be merged:
 
@@ -20,9 +20,8 @@ Pull Requests meeting the following guidelines can be merged:
 
 Pull Requests not meeting these guidelines are also welcomed, but we may have to manually merge them, which means that you may not be automatically accredited as the author in the changelog....
 
-All Pull Requests automatically become subject to Project-Future's licence. If you're interested in the legal stuff, it's here: https://github.com/MrScautHD/Future/blob/Game/LICENSE.txt
+All Pull Requests automatically become subject to Stellution's licence. If you're interested in the legal stuff, it's here: https://github.com/MrScautHD/Stellution/blob/Game/LICENSE.txt
 
 Donate
 ======
-
-Project-Future is a large project with many Contributors working on it around the clock, it costs money to run such a large project as this, so please consider [becoming a patron.](https://www.google.com/search?client=firefox-b-d&q=test)
+Stellution is a large project with many Contributors working on it around the clock, it costs money to run such a large project as this, so please consider [becoming a patron.](https://www.google.com/search?client=firefox-b-d&q=test)
