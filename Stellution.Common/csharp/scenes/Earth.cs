@@ -1,5 +1,6 @@
 using System.Numerics;
 using BulletSharp;
+using Easel;
 using Easel.Entities;
 using Easel.Entities.Components;
 using Easel.Math;
@@ -15,6 +16,9 @@ public class Earth : ModifiedScene {
 
     protected override void Initialize() {
         base.Initialize();
+        Physics.Initialize(new PhysicsInitializeSettings() {
+            Gravity = new Vector3(0, 0.9F, 0)
+        });
 
         Rigidbody rigidbody = new Rigidbody(2, new BoxShape(3));
         rigidbody.Enabled = true;
@@ -34,7 +38,7 @@ public class Earth : ModifiedScene {
     }
     
     protected override void Update() {
-        Physics.Update();
+        Physics.Timestep(Time.DeltaTime);
 
         base.Update();
     }
