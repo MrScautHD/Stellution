@@ -1,6 +1,8 @@
 using System.Numerics;
+using System.Reflection;
 using BulletSharp;
 using Easel;
+using Easel.Core;
 using Easel.Entities;
 using Easel.Entities.Components;
 using Easel.Math;
@@ -16,21 +18,17 @@ public class Earth : ModifiedScene {
 
     protected override void Initialize() {
         base.Initialize();
-        Physics.Initialize(new PhysicsInitializeSettings() {
-            Gravity = new Vector3(0, 0.9F, 0)
-        });
-
-        Rigidbody rigidbody = new Rigidbody(2, new BoxShape(3));
-        rigidbody.Enabled = true;
-
-        ModifiedEntity cyberCar = new ModifiedEntity("cyber_car", "cyber_car");
-        cyberCar.AddComponent(rigidbody);
-        this.AddEntity(cyberCar);
-
-        Transform transform = new Transform();
-        transform.Position = new Vector3(10, 0, 0);
+        Physics.Initialize(new PhysicsInitializeSettings());
         
-        ModifiedEntity player = new ModifiedEntity(transform, "player");
+        Transform carPos = new Transform() { Position = new Vector3(0, 9, 0) };
+        RigidEntity cyberCar = new RigidEntity(carPos, 2, new BoxShape(3), "cyber_car", "cyber_car");
+        this.AddEntity(cyberCar);
+        
+        RigidEntity groundEntity = new RigidEntity(0, new BoxShape(10000, 1, 10000), "ground", "ground");
+        this.AddEntity(groundEntity);
+        
+        Transform playPos = new Transform() { Position = new Vector3(10, 0, 0) };
+        ModifiedEntity player = new ModifiedEntity(playPos, "player");
         this.AddEntity(player);
 
         Entity light = this.GetEntity("Sun");
@@ -40,6 +38,20 @@ public class Earth : ModifiedScene {
     protected override void Update() {
         Physics.Timestep(Time.DeltaTime);
 
+        RigidEntity cyberCar = (RigidEntity) this.GetEntity("cyber_car");
+        Vector3 pos = cyberCar.Transform.Position;
+        
+        this.Hover(cyberCar, new Vector3(pos.X + 3, pos.Y - 3, pos.Z), 4);
+        this.Hover(cyberCar, new Vector3(pos.X - 3, pos.Y - 3, pos.Z), 4);
+        this.Hover(cyberCar, new Vector3(pos.X, pos.Y - 3, pos.Z + 3), 4);
+        this.Hover(cyberCar, new Vector3(pos.X, pos.Y - 3, pos.Z - 3), 4);
+
         base.Update();
+    }
+
+    public void Hover(RigidEntity entity, Vector3 pos, float hoverHeight) {
+        if (Physics.Raycast(pos, -Vector3.UnitY, 4, out RayHit hit)) {
+            entity.GetBulletRigidBody().ApplyForce(new Vector3(0, 9.85F, 0), pos);
+        }
     }
 }
