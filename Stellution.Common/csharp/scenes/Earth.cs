@@ -64,14 +64,14 @@ public class Earth : ModifiedScene {
                 // How much force is available for the offset?
                 availableForce -= cappedDampenForce;
 
-                entity.GetBulletRigidBody().ApplyForce(Vector3.UnitY * cappedDampenForce, pos);
+                entity.BulletBody.ApplyForce(Vector3.UnitY * cappedDampenForce, pos);
             }
             
             // Find upward force scaled by distance left to target height, and cap that amount
             float cappedOffsetForce = Math.Min(0.99F * (10 - (entity.Transform.Position.Y)), availableForce);
             //ogger.Error(hit.HitPosition.Y + " ");
 
-            entity.GetBulletRigidBody().ApplyForce(Vector3.UnitY * cappedOffsetForce, pos);
+            entity.BulletBody.ApplyForce(Vector3.UnitY * cappedOffsetForce, pos);
         }
     }
 }
