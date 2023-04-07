@@ -17,20 +17,14 @@ public class StellutionServer : EaselGame {
 
     public StellutionServer(GameSettings settings, Scene scene) : base(settings, scene) {
         Instance = this;
-        
-        // LOGGER
+        this.NetworkManager = new ServerNetworkManager();
         GameLogger.Initialize("logs", "log");
 
         // REGISTER
         Registry.RegistryTypes.Add(new ServerConfigRegistry());
-        
-        // NETWORK
-        this.NetworkManager = new ServerNetworkManager();
     }
 
     protected override void Initialize() {
-        
-        // REGISTRY
         Logger.Debug("Initializing Registries...");
         foreach (IRegistry registry in Registry.RegistryTypes) {
             registry.Initialize(this.Content);

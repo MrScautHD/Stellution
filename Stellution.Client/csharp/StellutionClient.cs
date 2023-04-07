@@ -19,8 +19,7 @@ public class StellutionClient : EaselGame {
 
     public StellutionClient(GameSettings settings, Scene scene) : base(settings, scene) {
         Instance = this;
-
-        // LOGGER
+        this.NetworkManager = new ClientNetworkManager();
         GameLogger.Initialize("logs", "log");
         
         // REGISTER
@@ -33,14 +32,9 @@ public class StellutionClient : EaselGame {
         Registry.RegistryTypes.Add(new ModelRegistry());
         Registry.RegistryTypes.Add(new SkyboxRegistry());
         Registry.RegistryTypes.Add(new ClientEventRegistry());
-
-        // NETWORK
-        this.NetworkManager = new ClientNetworkManager();
     }
 
     protected override void Initialize() {
-        
-        // REGISTRY
         Logger.Debug("Initializing Registries...");
         foreach (IRegistry registry in Registry.RegistryTypes) {
             registry.Initialize(this.Content);
@@ -48,7 +42,7 @@ public class StellutionClient : EaselGame {
         
         base.Initialize();
         
-        // TODO Make a Multiplayer Menu
+        //TODO CREATE UI FOR IT
         this.NetworkManager.Connect("127.0.0.1:7777");
     }
 
