@@ -11,7 +11,7 @@ namespace Stellution.Server.csharp;
 
 public class StellutionServer : EaselGame {
     
-    public static StellutionServer Instance { get; private set; }
+    public new static StellutionServer Instance { get; private set; }
     
     public ServerNetworkManager NetworkManager { get; private set; }
 
@@ -38,7 +38,7 @@ public class StellutionServer : EaselGame {
         
         base.Initialize();
         
-        // START SERVER
+        // START NETWORK
         JsonNode serverProperty = ServerConfigRegistry.ServerProperty.ReadJsonAsNode();
         this.NetworkManager.Start(serverProperty["port"].GetValue<ushort>(), serverProperty["max_client_count"].GetValue<ushort>());
     }

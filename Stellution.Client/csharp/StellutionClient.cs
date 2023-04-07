@@ -10,7 +10,7 @@ namespace Stellution.Client.csharp;
 
 public class StellutionClient : EaselGame {
     
-    public static StellutionClient Instance { get; private set; }
+    public new static StellutionClient Instance { get; private set; }
     
     public ClientNetworkManager NetworkManager { get; private set; }
 
