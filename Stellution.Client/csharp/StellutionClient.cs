@@ -10,14 +10,12 @@ namespace Stellution.Client.csharp;
 
 public class StellutionClient : EaselGame {
     
-    protected GameSettings Settings;
     protected ClientNetworkManager NetworkManager;
 
     private float _timer;
     private readonly float _delay = 1.0F / 60.0F;
 
     public StellutionClient(GameSettings settings, Scene scene) : base(settings, scene) {
-        this.Settings = settings;
 
         // LOGGER
         GameLogger.Initialize("logs", "log");
