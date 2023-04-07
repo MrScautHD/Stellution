@@ -11,9 +11,12 @@ namespace Stellution.Server.csharp;
 
 public class StellutionServer : EaselGame {
     
-    protected ServerNetworkManager ServerNetworkManager;
+    public static StellutionServer Instance { get; private set; }
+    
+    public ServerNetworkManager NetworkManager { get; private set; }
 
     public StellutionServer(GameSettings settings, Scene scene) : base(settings, scene) {
+        Instance = this;
         
         // LOGGER
         GameLogger.Initialize("logs", "log");
@@ -22,7 +25,7 @@ public class StellutionServer : EaselGame {
         Registry.RegistryTypes.Add(new ServerConfigRegistry());
         
         // NETWORK
-        this.ServerNetworkManager = new ServerNetworkManager();
+        this.NetworkManager = new ServerNetworkManager();
     }
 
     protected override void Initialize() {
@@ -32,21 +35,21 @@ public class StellutionServer : EaselGame {
         foreach (IRegistry registry in Registry.RegistryTypes) {
             registry.Initialize(this.Content);
         }
-
+        
         base.Initialize();
         
         // START SERVER
         JsonNode serverProperty = ServerConfigRegistry.ServerProperty.ReadJsonAsNode();
-        this.ServerNetworkManager.Start(serverProperty["port"].GetValue<ushort>(), serverProperty["max_client_count"].GetValue<ushort>());
+        this.NetworkManager.Start(serverProperty["port"].GetValue<ushort>(), serverProperty["max_client_count"].GetValue<ushort>());
     }
 
     protected override void Update() {
         base.Update();
-        this.ServerNetworkManager.FixedUpdate();
+        this.NetworkManager.FixedUpdate();
     }
 
     public new void Close() {
-        this.ServerNetworkManager.Stop();
+        this.NetworkManager.Stop();
         base.Close();
     }
 }

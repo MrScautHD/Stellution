@@ -5,24 +5,24 @@ namespace Stellution.Client.csharp.network;
 
 public class ClientNetworkManager {
 
-    private Riptide.Client _client;
+    public Riptide.Client Client { get; private set; }
 
     public ClientNetworkManager() {
         RiptideLogger.Initialize(Logger.Debug, Logger.Info, Logger.Warn, Logger.Error, false);
     }
 
     public void FixedUpdate() {
-        this._client.Update();
+        this.Client.Update();
     }
 
     public void Connect(string hostAddress) {
-        this._client = new Riptide.Client();
-        this._client.Connect(hostAddress);
+        this.Client = new Riptide.Client();
+        this.Client.Connect(hostAddress);
     }
 
     public void Disconnect() {
-        if (this._client.IsConnected) {
-            this._client.Disconnect();
+        if (this.Client.IsConnected) {
+            this.Client.Disconnect();
         }
     }
 }
