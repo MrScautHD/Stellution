@@ -1,3 +1,4 @@
+using System.Text.Json.Nodes;
 using Easel;
 using Easel.Core;
 using Easel.Scenes;
@@ -13,7 +14,7 @@ public class StellutionServer : EaselGame {
     protected ServerNetworkManager ServerNetworkManager;
 
     public StellutionServer(GameSettings settings, Scene scene) : base(settings, scene) {
-
+        
         // LOGGER
         GameLogger.Initialize("logs", "log");
 
@@ -33,16 +34,15 @@ public class StellutionServer : EaselGame {
         }
 
         base.Initialize();
+        
+        // START SERVER
+        JsonNode serverProperty = ServerConfigRegistry.ServerProperty.ReadJsonAsNode();
+        this.ServerNetworkManager.Start(serverProperty["port"].GetValue<ushort>(), serverProperty["max_client_count"].GetValue<ushort>());
     }
 
     protected override void Update() {
         base.Update();
         this.ServerNetworkManager.FixedUpdate();
-    }
-
-    public new void Run() {
-        this.ServerNetworkManager.Start(7777, 10);
-        base.Run();
     }
 
     public new void Close() {
