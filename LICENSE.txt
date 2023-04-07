@@ -9,7 +9,7 @@ The Stellution License protects the Stellution Project and our Contributors.
 
 2. Usage of source files in other public projects:
 
-  1. The Project-Future game are just allowed to Download on Offical Websites or
+  1. The Stellution game are just allowed to Download on Offical Websites or
      Launchers, that uploaded by us!
 
   2. The Game is unmodified (excluding modification of config-files) and
