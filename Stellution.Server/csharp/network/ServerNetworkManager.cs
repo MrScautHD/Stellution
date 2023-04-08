@@ -8,8 +8,4 @@ public class ServerNetworkManager : Riptide.Server {
     public ServerNetworkManager() {
         RiptideLogger.Initialize(Logger.Debug, Logger.Info, Logger.Warn, Logger.Error, false);
     }
-
-    public void FixedUpdate() {
-        this.Update();
-    }
 }
