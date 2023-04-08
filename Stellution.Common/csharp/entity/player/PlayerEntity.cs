@@ -15,6 +15,13 @@ public class PlayerEntity : RigidEntity {
     public PlayerEntity(Transform transform, string? entityName = null, int initialCapacity = 16) : base(transform, "player", entityName, initialCapacity) {
     }
 
+    protected override void Initialize() {
+        base.Initialize();
+        
+        this.Rigidbody.LockX = true;
+        this.Rigidbody.LockZ = true;
+    }
+
     protected override float GetMass() {
         return 2;
     }

@@ -15,7 +15,7 @@ public abstract class RigidEntity : ModifiedEntity {
         this.AddComponent(this.Rigidbody);
     }
     
-    public RigidEntity(Vector3 position, string key, string? entityName = null, int initialCapacity = 16) : base(key, entityName, initialCapacity) {
+    public RigidEntity(Vector3 position, string key, string? entityName = null, int initialCapacity = 16) : base(position, key, entityName, initialCapacity) {
         this.Rigidbody = new Rigidbody(this.GetMass(), this.GetCollisionShape());
         this.AddComponent(this.Rigidbody);
     }

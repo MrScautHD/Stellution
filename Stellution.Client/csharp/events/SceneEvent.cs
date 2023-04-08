@@ -18,7 +18,7 @@ public class SceneEvent {
                 Camera.Main.Skybox = SkyboxRegistry.EarthSkybox;
                 Camera.Main.AddComponent(new NoClipCamera() {
                     MouseSensitivity =  0.005F,
-                }); 
+                });
                 break;
         }
     }

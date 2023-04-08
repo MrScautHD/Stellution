@@ -20,7 +20,6 @@ public class ModifiedEntity : Entity {
     }
     
     public ModifiedEntity(Vector3 position, string key, string? entityName = null, int initialCapacity = 16) : this(new Transform() { Position = position }, key, entityName, initialCapacity) {
-        this.Key = key;
     }
 
     public ModifiedEntity(Transform transform, string key, string? entityName = null, int initialCapacity = 16) : base(entityName, transform, initialCapacity) {
