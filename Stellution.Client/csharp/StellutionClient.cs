@@ -52,7 +52,7 @@ public class StellutionClient : EaselGame {
     }
     
     protected void FixedUpdate() {
-        this.NetworkManager.FixedUpdate();
+        this.NetworkManager.Update();
     }
     
     private void FixedUpdateCalculator() {

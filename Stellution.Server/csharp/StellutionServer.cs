@@ -37,11 +37,6 @@ public class StellutionServer : EaselGame {
         this.NetworkManager.Start(serverProperty["port"].GetValue<ushort>(), serverProperty["max_client_count"].GetValue<ushort>());
     }
 
-    protected override void Update() {
-        base.Update();
-        this.NetworkManager.FixedUpdate();
-    }
-
     public new void Close() {
         this.NetworkManager.Stop();
         base.Close();

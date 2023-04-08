@@ -1,31 +1,31 @@
+using System.Numerics;
 using BulletSharp;
 using Easel.Entities;
 using Easel.Physics;
 
 namespace Stellution.Common.csharp.entity; 
 
-public class RigidEntity : ModifiedEntity {
+public abstract class RigidEntity : ModifiedEntity {
 
     public Rigidbody Rigidbody { get; private set; }
     public RigidBody BulletBody => this.Rigidbody.BulletBody;
-    
-    public RigidEntity(Rigidbody rigidbody, string entityKey, string? entityName = null, int initialCapacity = 16) : base(entityKey, entityName, initialCapacity) {
-        this.Rigidbody = rigidbody;
-        this.AddComponent(rigidbody);
+
+    public RigidEntity(string key, string? entityName = null, int initialCapacity = 16) : base(key, entityName, initialCapacity) {
+        this.Rigidbody = new Rigidbody(this.GetMass(), this.GetCollisionShape());
+        this.AddComponent(this.Rigidbody);
     }
     
-    public RigidEntity(Transform transform, Rigidbody rigidbody, string entityKey, string? entityName = null, int initialCapacity = 16) : base(transform, entityKey, entityName, initialCapacity) {
-        this.Rigidbody = rigidbody;
-        this.AddComponent(rigidbody);
-    }
-    
-    public RigidEntity(float mass, CollisionShape collisionShape, string entityKey, string? entityName = null, int initialCapacity = 16) : base(entityKey, entityName, initialCapacity) {
-        this.Rigidbody = new Rigidbody(mass, collisionShape);
+    public RigidEntity(Vector3 position, string key, string? entityName = null, int initialCapacity = 16) : base(key, entityName, initialCapacity) {
+        this.Rigidbody = new Rigidbody(this.GetMass(), this.GetCollisionShape());
         this.AddComponent(this.Rigidbody);
     }
 
-    public RigidEntity(Transform transform, float mass, CollisionShape collisionShape, string key, string? entityName = null, int initialCapacity = 16) : base(transform, key, entityName, initialCapacity) {
-        this.Rigidbody = new Rigidbody(mass, collisionShape);
+    public RigidEntity(Transform transform, string key, string? entityName = null, int initialCapacity = 16) : base(transform, key, entityName, initialCapacity) {
+        this.Rigidbody = new Rigidbody(this.GetMass(), this.GetCollisionShape());
         this.AddComponent(this.Rigidbody);
     }
+
+    protected abstract float GetMass();
+    
+    protected abstract CollisionShape GetCollisionShape();
 }

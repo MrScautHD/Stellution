@@ -7,7 +7,8 @@ namespace Stellution.Client.csharp.scenes;
 
 public class Menu : ModifiedScene {
 
-    public Menu(int initialCapacity = 128) : base("menu", initialCapacity) {
+    public Menu() : base("menu") {
+        
     }
 
     protected override void Initialize() {
