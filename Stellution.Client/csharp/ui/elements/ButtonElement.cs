@@ -1,5 +1,4 @@
 using System;
-using Easel;
 using Easel.Graphics;
 using Easel.Graphics.Renderers;
 using Easel.GUI;
