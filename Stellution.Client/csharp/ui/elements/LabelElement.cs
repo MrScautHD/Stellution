@@ -14,7 +14,6 @@ public class LabelElement : UIElement {
     protected Color ShadowColor;
     protected Vector2T<int> ShadowPos;
     
-    // EASEL wait on adding Font Options to disable MSAA on text
     public LabelElement(string name, string text, Position position, uint fontSize, bool shadow = false, Color? color = null) : base(name, position, Size<int>.Zero) {
         this.Text = text;
         this.FontSize = fontSize;
@@ -27,8 +26,7 @@ public class LabelElement : UIElement {
         this.Size = UI.DefaultStyle.Font.MeasureStringBBCode(this.FontSize, this.Text);
         
         if (this.Shadow) {
-            int shadowOffset = (int) Math.Round(Math.Max(Size.Width, Size.Height) * 0.0215f);
-            
+            int shadowOffset = (int) Math.Round(Math.Max(this.Size.Width, this.Size.Height) * 0.0215F);
             this.ShadowPos.X = this.CalculatedScreenPos.X + shadowOffset;
             this.ShadowPos.Y = this.CalculatedScreenPos.Y + shadowOffset;
 
