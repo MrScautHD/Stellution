@@ -1,8 +1,8 @@
 ﻿using Easel;
 using Easel.Graphics;
-using Stellution.Common.csharp.scenes;
 using Pie.Windowing;
 using Stellution.Client.csharp;
+using Stellution.Client.csharp.scenes;
 
 GameSettings settings = new GameSettings {
     Title = "Stellution (WIP)",
@@ -13,5 +13,5 @@ GameSettings settings = new GameSettings {
     Border = WindowBorder.Resizable
 };
 
-using StellutionClient game = new StellutionClient(settings, new Earth());
+using StellutionClient game = new StellutionClient(settings, new Menu());
 game.Run();
