@@ -19,6 +19,7 @@ public class Menu : ModifiedScene {
 
         UI.Add(new Panel("test", new Position(Anchor.CenterCenter), new Size<int>(90)));
         UI.Add(new ImageElement("image", TextureRegistry.Female, new Position(Anchor.CenterCenter), new Size<int>(500)));
+        UI.Add(new LabelElement("label", "IT WORKS!", new Position(Anchor.BottomCenter), 50, true, Color.Aqua));
         
         //UI.Add("logo", new Image(new Position(Anchor.TopRight), ClientTextureRegistry.Get(ClientTextureRegistry.LogoTexture), new Size<int>(250)));
         //UI.Add("label", new Label(new Position(Anchor.CenterCenter), "label", 20));
