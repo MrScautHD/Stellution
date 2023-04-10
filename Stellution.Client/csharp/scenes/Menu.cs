@@ -1,3 +1,4 @@
+using Easel.Core;
 using Easel.Graphics;
 using Easel.GUI;
 using Easel.Math;
@@ -20,7 +21,12 @@ public class Menu : ModifiedScene {
         UI.DefaultStyle.Font = FontRegistry.Fontoe;
 
         UI.Add(new ImageElement("image", TextureRegistry.Female, new Position(Anchor.CenterCenter), new Size<int>(500)));
-        UI.Add(new ButtonElement("button", Texture2D.Missing, "BUTTON", 80, new Position(Anchor.CenterLeft), new Size<int>(400), true, null, Color.Aqua));
+        UI.Add(new ButtonElement("button", Texture2D.Missing, "BUTTON", 80, new Position(Anchor.CenterLeft), new Size<int>(400), true, null, Color.Aqua, 
+            () => {
+                Logger.Error("CLICKED");
+                return true;
+            }));
+        
         UI.Add(new LabelElement("label", Translation.Lang.Get("gui.button.singleplayer"), new Position(Anchor.CenterRight), 40, true, Color.Aqua));
     }
 }

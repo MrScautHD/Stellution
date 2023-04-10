@@ -19,13 +19,14 @@ public class ButtonElement : UIElement {
     protected Vector2T<int> FontPos;
     protected Vector2T<int> FontShadowPos;
 
-    public ButtonElement(string name, Texture2D texture, string text, uint fontSize, Position position, Size<int> size, bool fontShadow = false, Color? color = null, Color? fontColor = null) : base(name, position, size) {
+    public ButtonElement(string name, Texture2D texture, string text, uint fontSize, Position position, Size<int> size, bool fontShadow = false, Color? color = null, Color? fontColor = null, Func<bool> clickFunc = null) : base(name, position, size) {
         this.Texture = texture;
         this.Text = text;
         this.FontSize = fontSize;
         this.FontShadow = fontShadow;
         this.Color = color ?? Color.White;
         this.SetFontColor(fontColor ?? Color.White);
+        this.Click += (element) => clickFunc?.Invoke();
     }
 
     protected override void Draw(SpriteRenderer renderer) {
