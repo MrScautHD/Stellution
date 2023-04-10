@@ -46,10 +46,9 @@ public class ButtonElement : UIElement {
         this.FontPos.Y = this.CalculatedScreenPos.Y + this.Size.Height / 2 - size.Height / 2;
         
         if (this.FontShadow) {
-            int shadowOffset = (int) Math.Round(Math.Max(size.Width, size.Height) * 0.028F);
-            this.FontShadowPos.X = FontPos.X + shadowOffset;
-            this.FontShadowPos.Y = FontPos.Y + shadowOffset;
-
+            this.FontShadowPos.X = this.FontPos.X;
+            this.FontShadowPos.Y = this.CalculatedScreenPos.Y + this.Size.Height / 2 - size.Height / 3;
+            
             UI.DefaultStyle.Font.DrawBBCode(renderer, this.FontSize, this.Text, this.FontShadowPos, this.FontShadowColor);
         }
         

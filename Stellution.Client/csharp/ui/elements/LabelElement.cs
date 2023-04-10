@@ -1,4 +1,3 @@
-using System;
 using Easel.Graphics.Renderers;
 using Easel.GUI;
 using Easel.Math;
@@ -26,9 +25,8 @@ public class LabelElement : UIElement {
         this.Size = UI.DefaultStyle.Font.MeasureStringBBCode(this.FontSize, this.Text);
         
         if (this.Shadow) {
-            int shadowOffset = (int) Math.Round(Math.Max(this.Size.Width, this.Size.Height) * 0.0215F);
-            this.ShadowPos.X = this.CalculatedScreenPos.X + shadowOffset;
-            this.ShadowPos.Y = this.CalculatedScreenPos.Y + shadowOffset;
+            this.ShadowPos.X = this.CalculatedScreenPos.X;
+            this.ShadowPos.Y = this.CalculatedScreenPos.Y + this.Size.Height / 5;
 
             UI.DefaultStyle.Font.DrawBBCode(renderer, this.FontSize, this.Text, this.ShadowPos, this.ShadowColor);
         }
