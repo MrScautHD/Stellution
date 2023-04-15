@@ -10,7 +10,7 @@ public class ImageElement : UIElement {
     public Texture2D Texture;
     public Color Color;
     
-    public ImageElement(string name, Texture2D texture, Position position, Size<int>? size, Color? color = null) : base(name, position, size ?? texture.Size) {
+    public ImageElement(string name, Texture2D texture, Position position, Size<int>? size = null, Color? color = null) : base(name, position, size ?? texture.Size) {
         this.Texture = texture;
         this.Color = color ?? Color.White;
     }
