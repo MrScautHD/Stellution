@@ -11,4 +11,8 @@
       <ProjectReference Include="..\Stellution.Common\Stellution.Common.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="csharp\network\messages" />
+    </ItemGroup>
+
 </Project>

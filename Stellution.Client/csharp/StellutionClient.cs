@@ -11,15 +11,14 @@ namespace Stellution.Client.csharp;
 public class StellutionClient : EaselGame {
     
     public new static StellutionClient Instance { get; private set; }
-    
-    public ClientNetworkManager NetworkManager { get; private set; }
+    public static ClientNetworkManager NetworkManager { get; private set; }
 
     private float _timer;
     private readonly float _delay = 1.0F / 60.0F;
 
     public StellutionClient(GameSettings settings, Scene scene) : base(settings, scene) {
         Instance = this;
-        this.NetworkManager = new ClientNetworkManager();
+        NetworkManager = new ClientNetworkManager();
         GameLogger.Initialize("logs", "log");
         
         // REGISTER
@@ -41,9 +40,6 @@ public class StellutionClient : EaselGame {
         }
         
         base.Initialize();
-        
-        //TODO CREATE UI FOR IT
-        this.NetworkManager.Connect("127.0.0.1:7777");
     }
 
     protected override void Update() {
@@ -52,7 +48,7 @@ public class StellutionClient : EaselGame {
     }
     
     protected void FixedUpdate() {
-        this.NetworkManager.Update();
+        NetworkManager.Update();
     }
     
     private void FixedUpdateCalculator() {

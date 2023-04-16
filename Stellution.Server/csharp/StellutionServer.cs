@@ -13,11 +13,11 @@ public class StellutionServer : EaselGame {
     
     public new static StellutionServer Instance { get; private set; }
     
-    public ServerNetworkManager NetworkManager { get; private set; }
+    public static ServerNetworkManager NetworkManager { get; private set; }
 
     public StellutionServer(GameSettings settings, Scene scene) : base(settings, scene) {
         Instance = this;
-        this.NetworkManager = new ServerNetworkManager();
+        NetworkManager = new ServerNetworkManager();
         GameLogger.Initialize("logs", "log");
 
         // REGISTER
@@ -34,11 +34,11 @@ public class StellutionServer : EaselGame {
         
         // START NETWORK
         JsonNode serverProperty = ServerConfigRegistry.ServerProperty.ReadJsonAsNode();
-        this.NetworkManager.Start(serverProperty["port"].GetValue<ushort>(), serverProperty["max_client_count"].GetValue<ushort>());
+        NetworkManager.Start(serverProperty["port"].GetValue<ushort>(), serverProperty["max_client_count"].GetValue<ushort>());
     }
 
     public new void Close() {
-        this.NetworkManager.Stop();
+        NetworkManager.Stop();
         base.Close();
     }
 }
