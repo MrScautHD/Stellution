@@ -1,5 +1,4 @@
 using Easel;
-using Easel.Physics;
 using Easel.Scenes;
 using Stellution.Common.csharp.args;
 
@@ -18,7 +17,7 @@ public abstract class ModifiedScene : Scene {
         base.Initialize();
         
         if (this._physic) {
-            Physics.Initialize(new PhysicsInitializeSettings());
+            //Physics.Initialize(new PhysicsInitializeSettings());
         }
 
         Initializing?.Invoke(null, new SceneInitializeArgs(this));
@@ -28,7 +27,7 @@ public abstract class ModifiedScene : Scene {
         base.Update();
         
         if (this._physic) {
-            Physics.Timestep(Time.DeltaTime);
+            //Physics.Timestep(Time.DeltaTime);
         }
     }
 }

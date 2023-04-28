@@ -1,7 +1,9 @@
 using System.Numerics;
-using BulletSharp;
 using Easel.Entities;
 using Easel.Physics;
+using Easel.Physics.Shapes;
+using JoltPhysicsSharp;
+using BoxShape = Easel.Physics.Shapes.BoxShape;
 
 namespace Stellution.Common.csharp.entity.vehicle; 
 
@@ -20,8 +22,8 @@ public class CyberCarEntity : RigidEntity {
         return 10;
     }
 
-    protected override CollisionShape GetCollisionShape() {
-        return new BoxShape(3);
+    protected override IShape GetCollisionShape() {
+        return new BoxShape(new Vector3(3));
     }
 
     protected override void Update() {
@@ -39,7 +41,10 @@ public class CyberCarEntity : RigidEntity {
         }*/
 
         //Physics.Raycast(pos, -Vector3.UnitY, 4, out RayHit hit);
+        
 
+        // TODO FIX THIS
+        /**
         if (Physics.Raycast(pos, -Vector3.UnitY, 10, out RayHit hit)) {
             float availableForce = 99;
             
@@ -50,14 +55,14 @@ public class CyberCarEntity : RigidEntity {
                 // How much force is available for the offset?
                 availableForce -= cappedDampenForce;
 
-                this.BulletBody.ApplyForce(Vector3.UnitY * cappedDampenForce, pos);
+                this.Rigidbody.ApplyForce(Vector3.UnitY * cappedDampenForce);
             }
             
             // Find upward force scaled by distance left to target height, and cap that amount
             float cappedOffsetForce = Math.Min(0.99F * (10 - (this.Position.Y)), availableForce);
             //ogger.Error(hit.HitPosition.Y + " ");
             
-            this.BulletBody.ApplyForce(Vector3.UnitY * cappedOffsetForce, pos);
-        }
+            this.Rigidbody.ApplyForce(Vector3.UnitY * cappedOffsetForce);
+        }**/
     }
 }

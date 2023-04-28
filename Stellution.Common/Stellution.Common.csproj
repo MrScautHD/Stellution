@@ -8,7 +8,6 @@
 
     <ItemGroup>
         <ProjectReference Include="..\Easel\Easel\Easel.csproj" />
-        <ProjectReference Include="..\Easel\Easel.Physics\Easel.Physics.csproj" />
     </ItemGroup>
 
     <ItemGroup>

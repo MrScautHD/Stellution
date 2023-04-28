@@ -1,6 +1,6 @@
 using System.Numerics;
-using BulletSharp;
 using Easel.Entities;
+using Easel.Physics.Shapes;
 
 namespace Stellution.Common.csharp.entity.player; 
 
@@ -18,16 +18,16 @@ public class PlayerEntity : RigidEntity {
     protected override void Initialize() {
         base.Initialize();
         
-        this.Rigidbody.LockX = true;
-        this.Rigidbody.LockZ = true;
+        //this.Rigidbody.LockX = true;
+        //this.Rigidbody.LockZ = true;
     }
 
     protected override float GetMass() {
         return 2;
     }
 
-    protected override CollisionShape GetCollisionShape() {
-        return new CapsuleShape(1, 2.5F);
+    protected override IShape GetCollisionShape() {
+        return new BoxShape(new Vector3(1, 2.5F, 1));
     }
 
     protected override void Update() {

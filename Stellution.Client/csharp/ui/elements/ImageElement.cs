@@ -1,3 +1,4 @@
+using System.Numerics;
 using Easel.Graphics;
 using Easel.Graphics.Renderers;
 using Easel.GUI;
@@ -17,6 +18,6 @@ public class ImageElement : UIElement {
 
     protected override void Draw(SpriteRenderer renderer) {
         Vector2T<float> scale = new Vector2T<float>(this.Size.Width / (float) this.Texture.Size.Width, this.Size.Height / (float) this.Texture.Size.Height);
-        renderer.Draw(this.Texture, (Vector2T<float>) this.CalculatedScreenPos, null, this.Color, 0, Vector2T<float>.Zero, scale);
+        renderer.Draw(this.Texture, (Vector2) this.CalculatedScreenPos, null, this.Color, 0, (Vector2) Vector2T<float>.Zero, (Vector2)scale);
     }
 }

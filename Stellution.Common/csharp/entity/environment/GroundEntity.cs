@@ -1,6 +1,6 @@
 using System.Numerics;
-using BulletSharp;
 using Easel.Entities;
+using Easel.Physics.Shapes;
 
 namespace Stellution.Common.csharp.entity.environment; 
 
@@ -19,7 +19,7 @@ public class GroundEntity : RigidEntity {
         return 0;
     }
 
-    protected override CollisionShape GetCollisionShape() {
-        return new BoxShape(100000, 1, 100000);
+    protected override IShape GetCollisionShape() {
+        return new BoxShape(new Vector3(100000, 1, 100000));
     }
 }

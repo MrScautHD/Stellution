@@ -16,7 +16,7 @@ public class Earth : ModifiedScene {
 
     protected override void Initialize() {
         base.Initialize();
-
+        
         // GROUND
         RigidEntity groundEntity = new GroundEntity();
         this.AddEntity(groundEntity);

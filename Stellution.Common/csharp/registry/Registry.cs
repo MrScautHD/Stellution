@@ -12,7 +12,7 @@ public class Registry {
     public static readonly List<IRegistry> RegistryTypes = new();
 
     /**
-     * Use this to get the "TEXTURES" with the right "Sample-State".
+     * Use this to get the "TEXTURE" with the right "Sample-State".
      */
     protected static Texture2D TextureGetter(string definitionName, string friendlyName, SamplerState? state = null) {
         Texture2D texture = Content.Load<Texture2D>(definitionName, friendlyName);
@@ -22,7 +22,7 @@ public class Registry {
     }
 
     /**
-     * Use this to get the "MODEL" with the right Material.
+     * Use this to get the "MODEL" with the right "Material".
      */
     protected static Model ModelGetter(string definitionName, string friendlyName, Material material) {
         Model model = Content.Load<Model>(definitionName, friendlyName);

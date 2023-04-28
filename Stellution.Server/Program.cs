@@ -5,7 +5,7 @@ using Stellution.Server.csharp;
 GameSettings settings = new GameSettings() {
     AutoGenerateContentDirectory = null,
     TargetFps = 60,
-    Server = true
+    //Server = true
 };
 
 using StellutionServer server = new StellutionServer(settings, new Earth());
