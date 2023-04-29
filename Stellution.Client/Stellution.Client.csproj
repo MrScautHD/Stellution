@@ -3,7 +3,7 @@
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net7.0</TargetFramework>
-        <ImplicitUsings>false</ImplicitUsings>
+        <ImplicitUsings>disable</ImplicitUsings>
         <Nullable>disable</Nullable>
         <AssemblyName>Stellution.Client</AssemblyName>
         <RootNamespace>Stellution.Client</RootNamespace>
