@@ -14,17 +14,17 @@ public abstract class RigidEntity : ModifiedEntity {
     
     public RigidEntity(string key, string? entityName = null, int initialCapacity = 16) : base(key, entityName, initialCapacity) {
         this.Rigidbody = new Rigidbody(this.GetCollisionShape(), new RigidbodyInitSettings());
-        this.AddComponent(this.Rigidbody);
+        //this.AddComponent(this.Rigidbody);
     }
     
     public RigidEntity(Vector3 position, string key, string? entityName = null, int initialCapacity = 16) : base(position, key, entityName, initialCapacity) {
         this.Rigidbody = new Rigidbody(this.GetCollisionShape(), new RigidbodyInitSettings());
-        this.AddComponent(this.Rigidbody);
+        //this.AddComponent(this.Rigidbody);
     }
 
     public RigidEntity(Transform transform, string key, string? entityName = null, int initialCapacity = 16) : base(transform, key, entityName, initialCapacity) {
         this.Rigidbody = new Rigidbody(this.GetCollisionShape(), new RigidbodyInitSettings());
-        this.AddComponent(this.Rigidbody);
+        //this.AddComponent(this.Rigidbody);
     }
 
     protected abstract float GetMass();

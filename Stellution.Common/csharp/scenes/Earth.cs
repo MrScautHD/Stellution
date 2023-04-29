@@ -1,7 +1,4 @@
 using System.Numerics;
-using Easel.Entities;
-using Easel.Entities.Components;
-using Easel.Math;
 using Stellution.Common.csharp.entity;
 using Stellution.Common.csharp.entity.environment;
 using Stellution.Common.csharp.entity.player;
@@ -29,8 +26,6 @@ public class Earth : ModifiedScene {
         CyberCarEntity cyberCar = new CyberCarEntity(new Vector3(0, 16, 0));
         this.AddEntity(cyberCar);
 
-        // LIGHT COLOR
-        Entity light = this.GetEntity("Sun");
-        light.GetComponent<DirectionalLight>().Color = Color.Blue;
+        // TODO ADD LIGHT COLOR BACK DirectionalLight
     }
 }

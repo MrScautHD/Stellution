@@ -1,4 +1,3 @@
-using Easel.Content;
 using Stellution.Client.csharp.translation;
 using Stellution.Common.csharp.registry;
 
@@ -10,7 +9,7 @@ public class TranslationRegistry : Registry, IRegistry {
     
     public static Translation English { get; private set; }
 
-    public void Initialize(ContentManager content) {
+    public void Initialize() {
         English = new Translation(DefinitionName, "english");
     }
 }

@@ -36,27 +36,14 @@ public class StellutionClient : EaselGame {
     protected override void Initialize() {
         Logger.Debug("Initializing Registries...");
         foreach (IRegistry registry in Registry.RegistryTypes) {
-            registry.Initialize(this.Content);
+            registry.Initialize();
         }
         
         base.Initialize();
     }
 
-    protected override void Update() {
-        base.Update();
-        this.FixedUpdateCalculator();
-    }
-    
-    protected void FixedUpdate() {
+    protected override void FixedUpdate() {
+        base.FixedUpdate();
         NetworkManager.Update();
-    }
-    
-    private void FixedUpdateCalculator() {
-        this._timer += Time.DeltaTime;
-        
-        if (this._timer >= this._delay) {
-            this.FixedUpdate();
-            this._timer -= this._delay;
-        }
     }
 }

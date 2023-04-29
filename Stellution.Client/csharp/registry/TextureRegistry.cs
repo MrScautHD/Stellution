@@ -1,4 +1,3 @@
-using Easel.Content;
 using Easel.Content.Builder;
 using Easel.Graphics;
 using Stellution.Common.csharp.registry;
@@ -17,7 +16,7 @@ public class TextureRegistry : Registry, IRegistry {
     public static Texture2D CyberCar => TextureGetter(DefinitionName, "entity/vehicle/cyber_car");
     public static Texture2D Female => TextureGetter(DefinitionName, "entity/player/female");
 
-    public void Initialize(ContentManager content) {
+    public void Initialize() {
         ContentDefinition definition = new ContentBuilder(DefinitionName)
             .Add(new ImageContent("logo/logo.png"))
             .Add(new ImageContent("logo/logo_banner.png"))
@@ -26,6 +25,16 @@ public class TextureRegistry : Registry, IRegistry {
             .Add(new ImageContent("entity/player/female.png"))
             .Build();
 
-        content.AddContent(definition);
+        //Content.AddContent(definition);
+    }
+    
+    /**
+     * Use this to get the "TEXTURE" with the right "Sample-State".
+     */
+    protected static Texture2D TextureGetter(string definitionName, string friendlyName, SamplerState? state = null) {
+        Texture2D texture = Content.Load<Texture2D>(definitionName, friendlyName);
+        texture.SamplerState = state ?? SamplerState.PointClamp;
+
+        return texture;
     }
 }

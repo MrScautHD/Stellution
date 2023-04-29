@@ -1,6 +1,7 @@
 using System.Text.Json.Nodes;
 using Easel;
 using Easel.Core;
+using Easel.Physics;
 using Easel.Scenes;
 using Stellution.Common.csharp.file;
 using Stellution.Common.csharp.registry;
@@ -27,7 +28,7 @@ public class StellutionServer : EaselGame {
     protected override void Initialize() {
         Logger.Debug("Initializing Registries...");
         foreach (IRegistry registry in Registry.RegistryTypes) {
-            registry.Initialize(this.Content);
+            registry.Initialize();
         }
         
         base.Initialize();

@@ -1,4 +1,3 @@
-using Easel.Content;
 using Easel.Content.Builder;
 using Easel.GUI;
 using Stellution.Common.csharp.registry;
@@ -11,11 +10,11 @@ public class FontRegistry : Registry, IRegistry {
     
     public static Font Fontoe => Content.Load<Font>(DefinitionName, "fontoe");
 
-    public void Initialize(ContentManager content) {
+    public void Initialize() {
         ContentDefinition definition = new ContentBuilder(DefinitionName)
-            .Add(new FontContent("fontoe.ttf"))
+            .Add(new FontContent("fontoe.ttf", new FontOptions() { IsAntialiased = false}))
             .Build();
 
-        content.AddContent(definition);
+        Content.AddContent(definition);
     }
 }

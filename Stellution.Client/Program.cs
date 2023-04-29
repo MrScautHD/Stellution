@@ -2,7 +2,6 @@
 using Easel.Graphics;
 using Pie.Windowing;
 using Stellution.Client.csharp;
-using Stellution.Client.csharp.scenes;
 using Stellution.Common.csharp.scenes;
 
 GameSettings settings = new GameSettings {
