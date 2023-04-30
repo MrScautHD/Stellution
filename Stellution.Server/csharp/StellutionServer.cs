@@ -1,7 +1,6 @@
 using System.Text.Json.Nodes;
 using Easel;
 using Easel.Core;
-using Easel.Physics;
 using Easel.Scenes;
 using Stellution.Common.csharp.file;
 using Stellution.Common.csharp.registry;
@@ -36,6 +35,11 @@ public class StellutionServer : EaselGame {
         // START NETWORK
         JsonNode serverProperty = ServerConfigRegistry.ServerProperty.ReadJsonAsNode();
         NetworkManager.Start(serverProperty["port"].GetValue<ushort>(), serverProperty["max_client_count"].GetValue<ushort>());
+    }
+
+    protected override void FixedUpdate() {
+        base.FixedUpdate();
+        NetworkManager.Update();
     }
 
     public new void Close() {

@@ -1,3 +1,5 @@
+using Easel;
+using Easel.Content;
 using Easel.Content.Builder;
 using Easel.Graphics;
 using Stellution.Common.csharp.registry;
@@ -7,6 +9,7 @@ namespace Stellution.Client.csharp.registry;
 public class TextureRegistry : Registry, IRegistry {
 
     public static readonly string DefinitionName = "content/textures";
+    public static ContentManager Content => EaselGame.Instance.Content;
 
     public static Texture2D Logo => TextureGetter(DefinitionName, "logo/logo");
     public static Texture2D LogoBanner => TextureGetter(DefinitionName, "logo/logo_banner");
@@ -25,7 +28,7 @@ public class TextureRegistry : Registry, IRegistry {
             .Add(new ImageContent("entity/player/female.png"))
             .Build();
 
-        //Content.AddContent(definition);
+        Content.AddContent(definition);
     }
     
     /**

@@ -1,3 +1,5 @@
+using Easel;
+using Easel.Content;
 using Easel.Content.Builder;
 using Easel.Graphics;
 using Stellution.Common.csharp.registry;
@@ -7,6 +9,7 @@ namespace Stellution.Client.csharp.registry;
 public class BitmapRegistry : Registry, IRegistry {
 
     public static readonly string DefinitionName = "content/bitmaps";
+    public static ContentManager Content => EaselGame.Instance.Content;
     
     public static Bitmap SkyEarthTop => Content.Load<Bitmap>(DefinitionName, "sky/skybox/earth/earth_top");
     public static Bitmap SkyEarthSide => Content.Load<Bitmap>(DefinitionName, "sky/skybox/earth/earth_side");

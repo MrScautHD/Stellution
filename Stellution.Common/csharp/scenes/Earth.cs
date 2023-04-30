@@ -8,7 +8,7 @@ namespace Stellution.Common.csharp.scenes;
 
 public class Earth : ModifiedScene {
 
-    public Earth() : base("earth", true) {
+    public Earth() : base("earth") {
     }
 
     protected override void Initialize() {

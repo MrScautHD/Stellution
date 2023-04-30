@@ -1,3 +1,5 @@
+using Easel;
+using Easel.Content;
 using Easel.Content.Builder;
 using Easel.Graphics;
 using Easel.Graphics.Materials;
@@ -8,6 +10,7 @@ namespace Stellution.Client.csharp.registry;
 public class ModelRegistry : Registry, IRegistry {
     
     public static readonly string DefinitionName = "content/models";
+    public static ContentManager Content => EaselGame.Instance.Content;
 
     public static Model CyberCar => ModelGetter(DefinitionName, "entity/vehicle/cyber_car", MaterialRegistry.CyberCar);
     public static Model Female => ModelGetter(DefinitionName, "entity/player/female", MaterialRegistry.Female);

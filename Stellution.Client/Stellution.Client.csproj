@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
+    
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net7.0</TargetFramework>
@@ -8,11 +8,9 @@
         <AssemblyName>Stellution.Client</AssemblyName>
         <RootNamespace>Stellution.Client</RootNamespace>
     </PropertyGroup>
-
+    
     <ItemGroup>
-        <ProjectReference Include="..\Easel\Easel\Easel.csproj" />
         <ProjectReference Include="..\Stellution.Common\Stellution.Common.csproj" />
-        <ProjectReference Remove="..\Easel\Easel\Easel.Headless.csproj" />
     </ItemGroup>
 
     <ItemGroup>
@@ -24,4 +22,5 @@
     <ItemGroup>
         <Folder Include="csharp\util" />
     </ItemGroup>
+    
 </Project>

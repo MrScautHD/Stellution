@@ -1,5 +1,5 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
+    
     <PropertyGroup>
         <OutputType>Exe</OutputType>
         <TargetFramework>net7.0</TargetFramework>
@@ -14,5 +14,5 @@
     <ItemGroup>
         <Folder Include="csharp\network\messages" />
     </ItemGroup>
-
+    
 </Project>
