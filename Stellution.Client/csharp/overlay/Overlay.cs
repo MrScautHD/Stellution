@@ -19,7 +19,7 @@ public abstract class Overlay {
         this.Font = font;
     }
     
-    public abstract void Draw(SpriteRenderer renderer);
+    public abstract void Draw();
 
     public void DrawImage(Texture2D texture, Position position, Size<int> size, Color? color = null) {
         Rectangle<int> viewport = new Rectangle<int>(Vector2T<int>.Zero, this.Graphics.MainTarget.Size);

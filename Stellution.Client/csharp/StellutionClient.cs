@@ -56,7 +56,7 @@ public class StellutionClient : EaselGame {
         
         foreach (Overlay overlay in OverlayRegistry.Overlays.Values) {
             if (overlay.Enabled) {
-                overlay.Draw(this.Graphics.SpriteRenderer);
+                overlay.Draw();
             }
         }
     }
