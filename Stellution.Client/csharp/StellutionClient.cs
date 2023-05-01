@@ -51,8 +51,6 @@ public class StellutionClient : EaselGame {
 
     protected override void Draw() {
         base.Draw();
-
-        OverlayRegistry.TestOverlay.Enabled = true;
         
         foreach (Overlay overlay in OverlayRegistry.Overlays.Values) {
             if (overlay.Enabled) {
