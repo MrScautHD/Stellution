@@ -13,7 +13,7 @@ public class LabelElement : UIElement {
     protected Color ShadowColor;
     protected Vector2T<int> ShadowPos;
     
-    public LabelElement(string name, string text, Position position, uint fontSize, bool shadow = false, Color? color = null) : base(name, position, Size<int>.Zero) {
+    public LabelElement(string name, string text, Position position, uint fontSize, bool shadow = true, Color? color = null) : base(name, position, Size<int>.Zero) {
         this.Text = text;
         this.FontSize = fontSize;
         this.Shadow = shadow;

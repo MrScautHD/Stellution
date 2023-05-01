@@ -12,6 +12,6 @@ public class OverlayRegistry : Registry {
     public static TestOverlay TestOverlay { get; private set; }
     
     public override void Initialize() {
-        TestOverlay = this.Register("test", Overlays, new TestOverlay());
+        TestOverlay = this.Register("test", Overlays, new TestOverlay(FontRegistry.Fontoe));
     }
 }
