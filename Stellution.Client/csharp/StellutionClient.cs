@@ -2,6 +2,7 @@ using Easel;
 using Easel.Core;
 using Easel.Scenes;
 using Stellution.Client.csharp.network;
+using Stellution.Client.csharp.overlay;
 using Stellution.Client.csharp.registry;
 using Stellution.Common.csharp.file;
 using Stellution.Common.csharp.registry;
@@ -30,6 +31,7 @@ public class StellutionClient : EaselGame {
         Registry.RegistryTypes.Add(new MaterialRegistry());
         Registry.RegistryTypes.Add(new ModelRegistry());
         Registry.RegistryTypes.Add(new SkyboxRegistry());
+        Registry.RegistryTypes.Add(new OverlayRegistry());
         Registry.RegistryTypes.Add(new ClientEventRegistry());
     }
 
@@ -45,5 +47,15 @@ public class StellutionClient : EaselGame {
     protected override void FixedUpdate() {
         base.FixedUpdate();
         NetworkManager.Update();
+    }
+
+    protected override void Draw() {
+        base.Draw();
+        
+        foreach (Overlay overlay in OverlayRegistry.Overlays.Values) {
+            if (overlay.Enabled) {
+                overlay.Draw(this.Graphics.SpriteRenderer);
+            }
+        }
     }
 }

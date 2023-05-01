@@ -10,7 +10,7 @@ namespace Stellution.Common.csharp.entity;
 public abstract class RigidEntity : ModifiedEntity {
 
     public Rigidbody Rigidbody { get; }
-    public BodyInterface BodyInterface { get; }
+    public BodyInterface BodyInterface => this.Simulation.BodyInterface;
 
     protected RigidEntity(string key, string? entityName = null, int initialCapacity = 16) : this(new Transform(), key, entityName, initialCapacity) {
     }
@@ -20,7 +20,6 @@ public abstract class RigidEntity : ModifiedEntity {
 
     protected RigidEntity(Transform transform, string key, string? entityName = null, int initialCapacity = 16) : base(transform, key, entityName, initialCapacity) {
         this.Rigidbody = new Rigidbody(this.GetCollisionShape(), new RigidbodyInitSettings());
-        this.BodyInterface = this.Simulation.BodyInterface;
         this.AddComponent(this.Rigidbody);
     }
 

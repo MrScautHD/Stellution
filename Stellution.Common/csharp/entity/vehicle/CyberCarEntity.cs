@@ -1,9 +1,6 @@
 using System.Numerics;
 using Easel.Entities;
-using Easel.Physics;
 using Easel.Physics.Shapes;
-using JoltPhysicsSharp;
-using BoxShape = Easel.Physics.Shapes.BoxShape;
 
 namespace Stellution.Common.csharp.entity.vehicle; 
 
@@ -29,10 +26,11 @@ public class CyberCarEntity : RigidEntity {
     protected override void Update() {
         base.Update();
         
-        this.Hover(new Vector3(this.Position.X + 3, this.Position.Y - 3, this.Position.Z), 2F);
-        this.Hover(new Vector3(this.Position.X - 3, this.Position.Y - 3, this.Position.Z), 2F);
-        this.Hover(new Vector3(this.Position.X, this.Position.Y - 3, this.Position.Z + 3), 2F);
-        this.Hover(new Vector3(this.Position.X, this.Position.Y - 3, this.Position.Z - 3), 2F);
+        
+        //this.Hover(new Vector3(this.Position.X + 3, this.Position.Y - 3, this.Position.Z), 2F);
+        //this.Hover(new Vector3(this.Position.X - 3, this.Position.Y - 3, this.Position.Z), 2F);
+        //this.Hover(new Vector3(this.Position.X, this.Position.Y - 3, this.Position.Z + 3), 2F);
+        //this.Hover(new Vector3(this.Position.X, this.Position.Y - 3, this.Position.Z - 3), 2F);
     }
     
     public void Hover(Vector3 pos, float hoverHeight) {
