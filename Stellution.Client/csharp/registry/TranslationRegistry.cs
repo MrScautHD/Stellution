@@ -3,13 +3,13 @@ using Stellution.Common.csharp.registry;
 
 namespace Stellution.Client.csharp.registry; 
 
-public class TranslationRegistry : Registry, IRegistry {
+public class TranslationRegistry : Registry {
     
     public static readonly string DefinitionName = "content/lang";
     
     public static Translation English { get; private set; }
 
-    public void Initialize() {
+    public override void Initialize() {
         English = new Translation(DefinitionName, "english");
     }
 }

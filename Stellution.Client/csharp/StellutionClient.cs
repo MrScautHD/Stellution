@@ -37,7 +37,7 @@ public class StellutionClient : EaselGame {
 
     protected override void Initialize() {
         Logger.Debug("Initializing Registries...");
-        foreach (IRegistry registry in Registry.RegistryTypes) {
+        foreach (Registry registry in Registry.RegistryTypes) {
             registry.Initialize();
         }
         

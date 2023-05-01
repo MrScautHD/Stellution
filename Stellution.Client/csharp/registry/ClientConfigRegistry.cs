@@ -3,11 +3,11 @@ using Stellution.Common.csharp.registry;
 
 namespace Stellution.Client.csharp.registry; 
 
-public class ClientConfigRegistry : Registry, IRegistry {
+public class ClientConfigRegistry : Registry {
     
     public static GraphicConfig Graphic { get; private set; }
     
-    public void Initialize() {
+    public override void Initialize() {
         Graphic = new GraphicConfig("config", "graphic-config");
     }
 }

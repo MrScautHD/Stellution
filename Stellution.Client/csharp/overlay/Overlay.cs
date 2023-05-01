@@ -7,7 +7,7 @@ using Easel.Math;
 
 namespace Stellution.Client.csharp.overlay; 
 
-public abstract class Overlay : IOverlay {
+public abstract class Overlay {
 
     public bool Enabled;
 

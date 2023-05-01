@@ -6,7 +6,7 @@ using Stellution.Common.csharp.registry;
 
 namespace Stellution.Client.csharp.registry;
 
-public class TextureRegistry : Registry, IRegistry {
+public class TextureRegistry : Registry {
 
     public static readonly string DefinitionName = "content/textures";
     public static ContentManager Content => EaselGame.Instance.Content;
@@ -19,7 +19,7 @@ public class TextureRegistry : Registry, IRegistry {
     public static Texture2D CyberCar => TextureGetter(DefinitionName, "entity/vehicle/cyber_car");
     public static Texture2D Female => TextureGetter(DefinitionName, "entity/player/female");
 
-    public void Initialize() {
+    public override void Initialize() {
         ContentDefinition definition = new ContentBuilder(DefinitionName)
             .Add(new ImageContent("logo/logo.png"))
             .Add(new ImageContent("logo/logo_banner.png"))

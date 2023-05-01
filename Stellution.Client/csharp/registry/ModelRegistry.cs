@@ -7,7 +7,7 @@ using Stellution.Common.csharp.registry;
 
 namespace Stellution.Client.csharp.registry; 
 
-public class ModelRegistry : Registry, IRegistry {
+public class ModelRegistry : Registry {
     
     public static readonly string DefinitionName = "content/models";
     public static ContentManager Content => EaselGame.Instance.Content;
@@ -15,7 +15,7 @@ public class ModelRegistry : Registry, IRegistry {
     public static Model CyberCar => ModelGetter(DefinitionName, "entity/vehicle/cyber_car", MaterialRegistry.CyberCar);
     public static Model Female => ModelGetter(DefinitionName, "entity/player/female", MaterialRegistry.Female);
 
-    public void Initialize() {
+    public override void Initialize() {
         ContentDefinition definition = new ContentBuilder(DefinitionName)
             .Add(new ModelContent("entity/vehicle/cyber_car.glb", false))
             .Add(new ModelContent("entity/player/female.glb", false))

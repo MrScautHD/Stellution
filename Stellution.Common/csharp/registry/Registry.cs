@@ -1,8 +1,10 @@
 namespace Stellution.Common.csharp.registry; 
 
-public class Registry {
+public abstract class Registry {
     
-    public static readonly List<IRegistry> RegistryTypes = new();
+    public static readonly List<Registry> RegistryTypes = new();
+    
+    public abstract void Initialize();
     
     /**
      * Use it to register "TYPES" that not get managed by the ContentManager!
