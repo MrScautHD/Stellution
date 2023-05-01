@@ -25,5 +25,4 @@
 
 💸 Sponsors
 ============
-
 Please consider [SPONSOR](https://github.com/sponsors/MrScautHD) me to further help development and to allow faster issue triaging and new features to be implemented.
