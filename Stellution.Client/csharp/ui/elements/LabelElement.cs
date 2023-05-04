@@ -24,12 +24,7 @@ public class LabelElement : UIElement {
     protected override void Draw(SpriteRenderer renderer) {
         this.Size = UI.DefaultStyle.Font.MeasureStringBBCode(this.FontSize, this.Text);
         
-        if (this.Shadow) {
-            this.ShadowPos.X = this.CalculatedScreenPos.X;
-            this.ShadowPos.Y = this.CalculatedScreenPos.Y + this.Size.Height / 5;
-
-            UI.DefaultStyle.Font.DrawBBCode(renderer, this.FontSize, this.Text, this.ShadowPos, this.ShadowColor);
-        }
+        // TODO Add Shadow back!
         
         UI.DefaultStyle.Font.DrawBBCode(renderer, this.FontSize, this.Text, this.CalculatedScreenPos, this.Color);
     }
