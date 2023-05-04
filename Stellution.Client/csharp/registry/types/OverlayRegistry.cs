@@ -13,7 +13,7 @@ public class OverlayRegistry : Registry {
     public static MapEditorOverlay MapEditorOverlay { get; private set; }
 
     public override void Initialize() {
-        MapEditorOverlay = this.Register("map_editor", Overlays, new MapEditorOverlay(FontRegistry.Fontoe.Value));
-        CrosshairOverlay = this.Register("crosshair", Overlays, new CrosshairOverlay(FontRegistry.Fontoe.Value));
+        MapEditorOverlay = this.Register("map_editor", Overlays, new MapEditorOverlay());
+        CrosshairOverlay = this.Register("crosshair", Overlays, new CrosshairOverlay());
     }
 }

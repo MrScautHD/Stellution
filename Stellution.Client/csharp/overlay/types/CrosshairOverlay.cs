@@ -5,10 +5,8 @@ namespace Stellution.Client.csharp.overlay.types;
 
 public class CrosshairOverlay : Overlay {
     
-    public CrosshairOverlay(Font font) : base(font) {
-    }
-
     public override void Draw() {
         this.DrawImage(TextureRegistry.Crosshair.Value, new Position(Anchor.CenterCenter));
+        this.DrawText(FontRegistry.Fontoe.Value, "TEST", new Position(Anchor.BottomCenter), 18);
     }
 }

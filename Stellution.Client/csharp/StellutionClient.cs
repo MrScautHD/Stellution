@@ -51,9 +51,7 @@ public class StellutionClient : EaselGame {
 
     protected override void Update() {
         base.Update();
-
-        OverlayRegistry.MapEditorOverlay.Enabled = true;
-
+        
         foreach (Overlay overlay in OverlayRegistry.Overlays.Values) {
             if (overlay.Enabled) {
                 overlay.Update();
