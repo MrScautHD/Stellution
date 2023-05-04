@@ -9,8 +9,8 @@ public class ModelRegistry : ClientRegistry {
     
     public static readonly string DefinitionName = "content/models";
 
-    public static Lazy<Model> CyberCar = ModelGetter(DefinitionName, "entity/vehicle/cyber_car", MaterialRegistry.CyberCar);
-    public static Lazy<Model> Female = ModelGetter(DefinitionName, "entity/player/female", MaterialRegistry.Female);
+    public static readonly Lazy<Model> CyberCar = ModelGetter(DefinitionName, "entity/vehicle/cyber_car", MaterialRegistry.CyberCar);
+    public static readonly Lazy<Model> Female = ModelGetter(DefinitionName, "entity/player/female", MaterialRegistry.Female);
 
     public override void Initialize() {
         ContentDefinition definition = new ContentBuilder(DefinitionName)

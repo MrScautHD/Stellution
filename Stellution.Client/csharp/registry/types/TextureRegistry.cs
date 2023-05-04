@@ -9,16 +9,16 @@ public class TextureRegistry : ClientRegistry {
     public static readonly string DefinitionName = "content/textures";
 
     // LOGO
-    public static Lazy<Texture2D> Logo = TextureGetter(DefinitionName, "logo/logo");
-    public static Lazy<Texture2D> LogoBanner = TextureGetter(DefinitionName, "logo/logo_banner");
-    public static Lazy<Texture2D> CarBanner = TextureGetter(DefinitionName, "logo/car_banner");
+    public static readonly Lazy<Texture2D> Logo = TextureGetter(DefinitionName, "logo/logo");
+    public static readonly Lazy<Texture2D> LogoBanner = TextureGetter(DefinitionName, "logo/logo_banner");
+    public static readonly Lazy<Texture2D> CarBanner = TextureGetter(DefinitionName, "logo/car_banner");
 
     // ENTITY
-    public static Lazy<Texture2D> CyberCar = TextureGetter(DefinitionName, "entity/vehicle/cyber_car");
-    public static Lazy<Texture2D> Female = TextureGetter(DefinitionName, "entity/player/female");
+    public static readonly Lazy<Texture2D> CyberCar = TextureGetter(DefinitionName, "entity/vehicle/cyber_car");
+    public static readonly Lazy<Texture2D> Female = TextureGetter(DefinitionName, "entity/player/female");
 
     // OVERLAY
-    public static Lazy<Texture2D> Crosshair = TextureGetter(DefinitionName, "overlay/crosshair");
+    public static readonly Lazy<Texture2D> Crosshair = TextureGetter(DefinitionName, "overlay/crosshair");
     
     public override void Initialize() {
         ContentDefinition definition = new ContentBuilder(DefinitionName)
