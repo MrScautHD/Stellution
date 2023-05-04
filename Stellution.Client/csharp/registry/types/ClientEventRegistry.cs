@@ -1,7 +1,7 @@
 using Stellution.Client.csharp.events;
 using Stellution.Common.csharp.registry;
 
-namespace Stellution.Client.csharp.registry; 
+namespace Stellution.Client.csharp.registry.types; 
 
 public class ClientEventRegistry : Registry {
     

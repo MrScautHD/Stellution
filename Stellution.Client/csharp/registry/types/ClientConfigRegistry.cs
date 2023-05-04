@@ -1,7 +1,7 @@
 using Stellution.Client.csharp.config;
 using Stellution.Common.csharp.registry;
 
-namespace Stellution.Client.csharp.registry; 
+namespace Stellution.Client.csharp.registry.types; 
 
 public class ClientConfigRegistry : Registry {
     

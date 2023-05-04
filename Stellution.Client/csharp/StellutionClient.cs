@@ -3,7 +3,7 @@ using Easel.Core;
 using Easel.Scenes;
 using Stellution.Client.csharp.network;
 using Stellution.Client.csharp.overlay;
-using Stellution.Client.csharp.registry;
+using Stellution.Client.csharp.registry.types;
 using Stellution.Common.csharp.file;
 using Stellution.Common.csharp.registry;
 
@@ -43,10 +43,22 @@ public class StellutionClient : EaselGame {
         
         base.Initialize();
     }
-
+    
     protected override void FixedUpdate() {
         base.FixedUpdate();
         NetworkManager.Update();
+    }
+
+    protected override void Update() {
+        base.Update();
+
+        OverlayRegistry.MapEditorOverlay.Enabled = true;
+
+        foreach (Overlay overlay in OverlayRegistry.Overlays.Values) {
+            if (overlay.Enabled) {
+                overlay.Update();
+            }
+        }
     }
 
     protected override void Draw() {

@@ -1,7 +1,7 @@
 using Easel.Graphics;
 using Easel.GUI;
 using Easel.Math;
-using Stellution.Client.csharp.registry;
+using Stellution.Client.csharp.registry.types;
 using Stellution.Client.csharp.translation;
 using Stellution.Client.csharp.ui.elements;
 using Stellution.Common.csharp.scenes;
@@ -17,13 +17,13 @@ public class Menu : ModifiedScene {
     protected override void Initialize() {
         base.Initialize();
 
-        UI.DefaultStyle.Font = FontRegistry.Fontoe;
-        UI.DefaultStyle.BackgroundTexture = TextureRegistry.CarBanner;
+        UI.DefaultStyle.Font = FontRegistry.Fontoe.Value;
+        UI.DefaultStyle.BackgroundTexture = TextureRegistry.CarBanner.Value;
         
-        UI.Add(new ImageElement("car_banner", TextureRegistry.CarBanner, new Position(Anchor.CenterCenter)));
+        UI.Add(new ImageElement("car_banner", TextureRegistry.CarBanner.Value, new Position(Anchor.CenterCenter)));
         UI.Add(new ImageElement("black_shadow", Texture2D.Black, new Position(Anchor.CenterCenter), new Size<int>(1920, 1080), new Color(Color.Black, 200)));
 
-        UI.Add(new ImageElement("banner", TextureRegistry.LogoBanner, new Position(Anchor.CenterCenter)));
+        UI.Add(new ImageElement("banner", TextureRegistry.LogoBanner.Value, new Position(Anchor.CenterCenter)));
         
         
         UI.Add(new ButtonElement("button", Texture2D.Missing, "BUTTON", 160, new Position(Anchor.CenterLeft), new Size<int>(200, 50), true, null, Color.Aqua, 

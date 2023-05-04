@@ -1,7 +1,7 @@
 using Stellution.Client.csharp.translation;
 using Stellution.Common.csharp.registry;
 
-namespace Stellution.Client.csharp.registry; 
+namespace Stellution.Client.csharp.registry.types; 
 
 public class TranslationRegistry : Registry {
     

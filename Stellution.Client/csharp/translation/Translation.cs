@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Stellution.Client.csharp.registry;
+using Stellution.Client.csharp.registry.types;
 using Stellution.Common.csharp.file;
 
 namespace Stellution.Client.csharp.translation; 
