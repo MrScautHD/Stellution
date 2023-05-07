@@ -1,21 +1,18 @@
-                            Stellution License 1.2
-                                    04/2023
+                            Stellution License 1.3
+                                    05/2023
 
-The Stellution License protects the Stellution Project and our Contributors.
+The Stellution License serves as a safeguard for both the Stellution Project and its contributors.
 
 1. Any assets from the Stellution Project’s source files published on GitHub may
    not be used in any other public projects, unless explicitly stated otherwise by the Stellution Project’s
-   owner or by this license (Stellution License 1.2).
+   owner or by this license (Stellution License 1.3).
 
-2. Usage of source files in other public projects:
+2. The Stellution game just allowed to be uploaded by its owner.
 
-  1. The Stellution game are just allowed to Download on Offical Websites or
-     Launchers, that uploaded by us!
+3. If you are participating in multiplayer servers with no modification allowances,
+   making changes to the game is strictly prohibited, with the exception of modifying configuration files.
 
-  2. The Game is unmodified (excluding modification of config-files) and
-     available in its entirety.
+4. By contributing to this project, every contributor acknowledges that they hold the ownership rights to their contributions,
+   including scripts, content and assets. Upon contribution, The owner of Stellution Studios assumes ownership of these materials.
 
-3. Every Contributor that contribute to this Project accept that all (scripts, assets...) own by him,
-   after the contribution Stellution Stuidios is the new owner of it!
-
-4. All other rights reserved unless otherwise explicitly stated.
+5. All other rights reserved unless otherwise explicitly stated.
