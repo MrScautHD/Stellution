@@ -26,9 +26,7 @@ public abstract class Overlay {
         Size<int> imageSize = size ?? texture.Size;
         Vector2T<float> scale = new Vector2T<float>(imageSize.Width / (float) texture.Size.Width, imageSize.Height / (float) texture.Size.Height);
         
-        this.SpriteRenderer.Begin();
         this.SpriteRenderer.Draw(texture, (Vector2) position.CalculatePosition(this.Viewport, imageSize), null, color ?? Color.White, 0, (Vector2) Vector2T<float>.Zero, (Vector2) scale);
-        this.SpriteRenderer.End();
     }
     
     public void DrawText(Font font, string text, Position position, uint fontSize, Color? color = null) {
@@ -37,8 +35,6 @@ public abstract class Overlay {
         
         // TODO Add Shadow back!
 
-        this.SpriteRenderer.Begin();
         font.DrawBBCode(this.SpriteRenderer, fontSize, text, calculatedScreenPos, color ?? Color.White);
-        this.SpriteRenderer.End();
     }
 }
