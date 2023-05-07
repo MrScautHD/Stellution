@@ -4,7 +4,7 @@ using Easel.GUI;
 
 namespace Stellution.Client.csharp.registry.types; 
 
-public class FontRegistry : ClientRegistry {
+public class FontRegistry : ContentRegistry {
     
     public static readonly string DefinitionName = "content/font";
     

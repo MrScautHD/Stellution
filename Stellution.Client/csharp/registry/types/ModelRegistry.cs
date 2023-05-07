@@ -5,7 +5,7 @@ using Easel.Graphics.Materials;
 
 namespace Stellution.Client.csharp.registry.types; 
 
-public class ModelRegistry : ClientRegistry {
+public class ModelRegistry : ContentRegistry {
     
     public static readonly string DefinitionName = "content/models";
 

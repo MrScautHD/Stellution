@@ -19,9 +19,11 @@ public class MapEditor {
     public List<ModifiedEntity> GetEntitiesByKey(string key) {
         List<ModifiedEntity> entities = new List<ModifiedEntity>();
 
-        foreach (ModifiedEntity entity in this.Scene.GetAllEntities()) {
-            if (entity.Key == key) {
-                entities.Add(entity);
+        foreach (Entity entity in this.Scene.GetAllEntities()) {
+            if (entity is ModifiedEntity modifiedEntity) {
+                if (modifiedEntity.Key == key) {
+                    entities.Add(modifiedEntity);
+                }
             }
         }
 

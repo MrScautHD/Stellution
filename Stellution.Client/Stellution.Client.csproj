@@ -11,6 +11,7 @@
     
     <ItemGroup>
         <ProjectReference Include="..\Stellution.Common\Stellution.Common.csproj" />
+        <ProjectReference Include="..\Stellution.Server\Stellution.Server.csproj" />
     </ItemGroup>
 
     <ItemGroup>

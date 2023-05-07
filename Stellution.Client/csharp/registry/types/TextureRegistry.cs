@@ -4,7 +4,7 @@ using Easel.Graphics;
 
 namespace Stellution.Client.csharp.registry.types;
 
-public class TextureRegistry : ClientRegistry {
+public class TextureRegistry : ContentRegistry {
 
     public static readonly string DefinitionName = "content/textures";
 

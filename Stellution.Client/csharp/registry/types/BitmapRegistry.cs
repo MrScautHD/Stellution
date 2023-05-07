@@ -4,7 +4,7 @@ using Easel.Graphics;
 
 namespace Stellution.Client.csharp.registry.types; 
 
-public class BitmapRegistry : ClientRegistry {
+public class BitmapRegistry : ContentRegistry {
 
     public static readonly string DefinitionName = "content/bitmaps";
     
