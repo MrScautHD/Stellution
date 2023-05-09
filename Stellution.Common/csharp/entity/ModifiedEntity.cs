@@ -1,12 +1,12 @@
 using System.Numerics;
 using Easel.Entities;
-using Stellution.Common.csharp.args;
 
 namespace Stellution.Common.csharp.entity; 
 
 public class ModifiedEntity : Entity {
     
-    public static event EventHandler<EntityConstructorArgs>? Constructing;
+    public delegate void OnEntityConstruction(ModifiedEntity entity, string key);
+    public static event OnEntityConstruction? Constructing;
     
     public string Key { get; }
 
@@ -24,6 +24,6 @@ public class ModifiedEntity : Entity {
 
     public ModifiedEntity(Transform transform, string key, string? entityName = null, int initialCapacity = 16) : base(entityName, transform, initialCapacity) {
         this.Key = key;
-        Constructing?.Invoke(null, new EntityConstructorArgs(this));
+        Constructing?.Invoke(this, this.Key);
     }
 }

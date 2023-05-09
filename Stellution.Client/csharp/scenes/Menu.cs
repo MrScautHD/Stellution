@@ -26,12 +26,12 @@ public class Menu : ModifiedScene {
         UI.Add(new ImageElement("banner", TextureRegistry.LogoBanner.Value, new Position(Anchor.CenterCenter)));
         
         
-        UI.Add(new ButtonElement("button", Texture2D.Missing, "BUTTON", 160, new Position(Anchor.CenterLeft), new Size<int>(200, 50), true, null, Color.Aqua, 
+        UI.Add(new ButtonElement("multiplayer", Texture2D.Missing, "Multiplayer", 18, new Position(Anchor.CenterLeft), new Size<int>(200, 50), true, null, Color.Aqua, 
             () => {
                 StellutionClient.NetworkManager.Connect("127.0.0.1:7777");
                 return true;
             }));
-        
+
         UI.Add(new LabelElement("label", Translation.Lang.Get("gui.button.singleplayer"), new Position(Anchor.CenterRight), 60, true, Color.Aqua));
     }
 }

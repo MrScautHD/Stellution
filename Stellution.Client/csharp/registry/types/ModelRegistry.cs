@@ -9,8 +9,8 @@ public class ModelRegistry : ContentRegistry {
     
     public static readonly string DefinitionName = "content/models";
 
-    public static readonly Lazy<Model> CyberCar = ModelGetter(DefinitionName, "entity/vehicle/cyber_car", MaterialRegistry.CyberCar);
-    public static readonly Lazy<Model> Female = ModelGetter(DefinitionName, "entity/player/female", MaterialRegistry.Female);
+    public static readonly Lazy<Model> CyberCar = Get(DefinitionName, "entity/vehicle/cyber_car", MaterialRegistry.CyberCar);
+    public static readonly Lazy<Model> Female = Get(DefinitionName, "entity/player/female", MaterialRegistry.Female);
 
     public override void Initialize() {
         ContentDefinition definition = new ContentBuilder(DefinitionName)
@@ -24,7 +24,7 @@ public class ModelRegistry : ContentRegistry {
     /**
      * Use this to get the "MODEL" with the right "Material".
      */
-    protected static Lazy<Model> ModelGetter(string definitionName, string path, Material material) {
+    protected static Lazy<Model> Get(string definitionName, string path, Material material) {
         Lazy<Model> lazy = new Lazy<Model>(() => {
             Model model = Content.Load<Model>(definitionName, path);
 

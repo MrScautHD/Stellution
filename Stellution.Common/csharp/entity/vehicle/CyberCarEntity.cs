@@ -1,6 +1,8 @@
 using System.Numerics;
 using Easel.Entities;
 using Easel.Physics.Shapes;
+using JoltPhysicsSharp;
+using BoxShape = Easel.Physics.Shapes.BoxShape;
 
 namespace Stellution.Common.csharp.entity.vehicle; 
 
@@ -34,11 +36,14 @@ public class CyberCarEntity : RigidEntity {
     }
     
     public void Hover(Vector3 pos, float hoverHeight) {
+
+        
         /*if (Physics.Raycast(pos, -Vector3.UnitY, 4, out RayHit hit)) {
             entity.GetBulletRigidBody().ApplyForce(new Vector3(0, (entity.Gravity.Y * -1) + entity.Rigidbody.LinearVelocity.Y, 0), pos);
         }
 
         //Physics.Raycast(pos, -Vector3.UnitY, 4, out RayHit hit);
+    
 
         // TODO FIX THIS
         

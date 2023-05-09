@@ -12,11 +12,11 @@ public abstract class Overlay {
     public bool Enabled;
 
     protected Rectangle<int> Viewport;
-
+    
     protected EaselGraphics Graphics => EaselGame.Instance.Graphics;
     protected SpriteRenderer SpriteRenderer => EaselGame.Instance.Graphics.SpriteRenderer;
 
-    public abstract void Draw();
+    public abstract void Draw(SpriteRenderer renderer);
 
     public virtual void Update() {
         this.Viewport = new Rectangle<int>(Vector2T<int>.Zero, this.Graphics.MainTarget.Size);

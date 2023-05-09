@@ -9,14 +9,15 @@ namespace Stellution.Client.csharp.events;
 public class SceneEvent {
 
     public SceneEvent() {
-        ModifiedScene.Initializing += (obj, args) => this.Event(args.Scene);
+        ModifiedScene.Initializing += this.OnInitializing;
     }
 
-    protected void Event(ModifiedScene scene) {
+    private void OnInitializing(ModifiedScene scene, string name) {
         switch (scene.Name) {
             
             case "earth":
                 OverlayRegistry.CrosshairOverlay.Enabled = true;
+                OverlayRegistry.DebugOverlay.Enabled = true;
                 
                 // LIGHT
                 Entity sun = scene.GetEntity("Sun");
