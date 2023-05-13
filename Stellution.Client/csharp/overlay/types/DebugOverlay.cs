@@ -1,6 +1,7 @@
 using System;
 using Easel;
 using Easel.Entities;
+using Easel.Graphics;
 using Easel.Graphics.Renderers;
 using Easel.GUI;
 using Easel.Math;
@@ -13,6 +14,7 @@ namespace Stellution.Client.csharp.overlay.types;
 public class DebugOverlay : Overlay {
 
     private int _lines;
+    private readonly int _lineSpace;
     private readonly uint _fontSize;
 
     public static string CpuInfo = SystemInfo.CpuInfo;
@@ -20,6 +22,7 @@ public class DebugOverlay : Overlay {
     public static string OsInfo = Environment.OSVersion.VersionString;
 
     public DebugOverlay() {
+        this._lineSpace = 2;
         this._fontSize = 18;
     }
 
@@ -50,7 +53,9 @@ public class DebugOverlay : Overlay {
 
     public void DrawLine(string text, Color? color = null) {
         if (text != "") {
-            Position pos = new Position(new Vector2T<int>(5, 5 + (int)this._fontSize * this._lines));
+            Position pos = new Position(new Vector2T<int>(5, 5 + (int) (this._fontSize + this._lineSpace) * this._lines));
+            
+            this.DrawImage(Texture2D.White, pos);
             this.DrawText(FontRegistry.Fontoe.Value, text, pos, this._fontSize, color ?? Color.White);
         }
 

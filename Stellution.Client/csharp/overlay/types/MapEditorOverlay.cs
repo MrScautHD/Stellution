@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Easel;
 using Easel.Core;
 using Easel.Graphics;
