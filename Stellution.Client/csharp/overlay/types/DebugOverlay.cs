@@ -1,7 +1,6 @@
 using System;
 using Easel;
 using Easel.Entities;
-using Easel.Graphics;
 using Easel.Graphics.Renderers;
 using Easel.GUI;
 using Easel.Math;
@@ -15,7 +14,7 @@ public class DebugOverlay : Overlay {
 
     private int _lines;
     private readonly int _lineSpace;
-    private readonly uint _fontSize;
+    private int _fontSize;
 
     public static string CpuInfo = SystemInfo.CpuInfo;
     public static string MemoryInfo = SystemInfo.MemoryInfo;
@@ -33,17 +32,17 @@ public class DebugOverlay : Overlay {
         this.DrawLine("    Logical threads: " + SystemInfo.LogicalThreads, Color.Aqua);
         this.DrawLine("    OS: " + OsInfo, Color.Aqua);
         this.DrawLine("    Graphic API: " + this.Graphics.PieGraphics.Api.ToFriendlyString(), Color.Aqua);
-        this.DrawLine("");
+        this.DrawLine();
         this.DrawLine("Render information:", Color.DarkRed);
         this.DrawLine("    FPS: " + Metrics.FPS, Color.Red);
         this.DrawLine("    Total Frames: " + Metrics.TotalFrames, Color.Red);
         this.DrawLine("    Window Size: " + StellutionClient.Instance.Window.Size, Color.Red);
-        this.DrawLine("");
+        this.DrawLine();
         this.DrawLine("World information:", Color.DarkGreen);
         this.DrawLine("    XYZ: " + (int) Camera.Main.Transform.Position.X + " / " + (int) Camera.Main.Transform.Position.Y + " / " + (int) Camera.Main.Transform.Position.Z, Color.Green);
         this.DrawLine("    Active Scene: " + SceneManager.ActiveScene.Name, Color.Green);
         this.DrawLine("    Active Entities: " + SceneManager.ActiveScene.GetAllEntities().Length, Color.Green);
-        this.DrawLine("");
+        this.DrawLine();
         this.DrawLine("Network information:", Color.Orange);
         this.DrawLine("    MS: " + (StellutionClient.NetworkManager.IsConnected ? StellutionClient.NetworkManager.SmoothRTT : "0"), Color.Yellow);
         this.DrawLine("    Client ID: " + (StellutionClient.NetworkManager.IsConnected ? StellutionClient.NetworkManager.Id : "0"), Color.Yellow);
@@ -51,18 +50,17 @@ public class DebugOverlay : Overlay {
         this.ClearLines();
     }
 
-    public void DrawLine(string text, Color? color = null) {
-        if (text != "") {
-            Position pos = new Position(new Vector2T<int>(5, 5 + (int) (this._fontSize + this._lineSpace) * this._lines));
+    private void DrawLine(string text = "", Color? color = null) {
+        if (text != String.Empty) {
+            Position pos = new Position(new Vector2T<int>(5, 5 + (int) (18 + this._lineSpace) * this._lines));
             
-            this.DrawImage(Texture2D.White, pos);
-            this.DrawText(FontRegistry.Fontoe.Value, text, pos, this._fontSize, color ?? Color.White);
+            this.DrawText(FontRegistry.Fontoe.Value, text, pos, 18, color ?? Color.White);
         }
-
+        
         this._lines += 1;
     }
-
-    public void ClearLines() {
+    
+    private void ClearLines() {
         this._lines = 0;
     }
 }

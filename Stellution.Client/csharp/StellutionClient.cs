@@ -14,6 +14,8 @@ public class StellutionClient : EaselGame {
     public new static StellutionClient Instance { get; private set; }
     public static ClientNetworkManager NetworkManager { get; private set; }
     public static GameSettings Settings { get; private set; }
+    
+    public static readonly string Version = "1.0.0";
         
     public StellutionClient(GameSettings settings, Scene scene) : base(settings, scene) {
         Instance = this;
@@ -61,12 +63,14 @@ public class StellutionClient : EaselGame {
     protected override void Draw() {
         base.Draw();
         
+        this.Graphics.SpriteRenderer.Begin();
+        
         foreach (Overlay overlay in OverlayRegistry.Overlays.Values) {
             if (overlay.Enabled) {
-                this.Graphics.SpriteRenderer.Begin();
                 overlay.Draw(this.Graphics.SpriteRenderer);
-                this.Graphics.SpriteRenderer.End();
             }
         }
+        
+        this.Graphics.SpriteRenderer.End();
     }
 }
