@@ -24,9 +24,9 @@ public class ModelRegistry : ContentRegistry {
     /**
      * Use this to get the "MODEL" with the right "Material".
      */
-    protected static Lazy<Model> Get(string definitionName, string path, Material material) {
+    protected static Lazy<Model> Get(string definition, string path, Material material) {
         Lazy<Model> lazy = new Lazy<Model>(() => {
-            Model model = Content.Load<Model>(definitionName, path);
+            Model model = Content.Load<Model>(definition, path);
 
             foreach (ModelMesh modelMesh in model.Meshes) {
                 for (int i = 0; i < modelMesh.Meshes.Length; i++) {

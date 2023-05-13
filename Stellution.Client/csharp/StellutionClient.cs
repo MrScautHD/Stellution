@@ -13,13 +13,12 @@ public class StellutionClient : EaselGame {
     
     public new static StellutionClient Instance { get; private set; }
     public static ClientNetworkManager NetworkManager { get; private set; }
-
-    private float _timer;
-    private readonly float _delay = 1.0F / 60.0F;
-
+    public static GameSettings Settings { get; private set; }
+        
     public StellutionClient(GameSettings settings, Scene scene) : base(settings, scene) {
         Instance = this;
         NetworkManager = new ClientNetworkManager();
+        Settings = settings;
         GameLogger.Initialize("logs", "log");
         
         // REGISTER

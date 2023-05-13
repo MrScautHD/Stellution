@@ -22,6 +22,7 @@ public abstract class Overlay {
         this.Viewport = new Rectangle<int>(Vector2T<int>.Zero, this.Graphics.MainTarget.Size);
     }
 
+    // TODO FIX PERFORMANCE PROBLEMS!
     public void DrawImage(Texture2D texture, Position position, Size<int>? size = null, Color? color = null) {
         Size<int> imageSize = size ?? texture.Size;
         Vector2T<float> scale = new Vector2T<float>(imageSize.Width / (float) texture.Size.Width, imageSize.Height / (float) texture.Size.Height);

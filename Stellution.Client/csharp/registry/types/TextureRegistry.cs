@@ -38,9 +38,9 @@ public class TextureRegistry : ContentRegistry {
     /**
      * Use this to get the "TEXTURE" with the right "Sample-State".
      */
-    protected static Lazy<Texture2D> Get(string definitionName, string path, SamplerState? state = null) {
+    protected static Lazy<Texture2D> Get(string definition, string path, SamplerState? state = null) {
         Lazy<Texture2D> lazy = new Lazy<Texture2D>(() => {
-            Texture2D texture = Content.Load<Texture2D>(definitionName, path);
+            Texture2D texture = Content.Load<Texture2D>(definition, path);
             texture.SamplerState = state ?? SamplerState.PointClamp;
 
             return texture;
