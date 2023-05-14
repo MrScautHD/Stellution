@@ -11,7 +11,9 @@ GameSettings settings = new GameSettings {
     AutoGenerateContentDirectory = null,
     TitleBarFlags = TitleBarFlags.ShowGraphicsApi,
     VSync = false,
-    Border = WindowBorder.Resizable
+    Border = WindowBorder.Resizable,
+    Size = new Size<int>(1920, 1080),
+    Fullscreen = true
 };
 
 using StellutionClient game = new StellutionClient(settings, new Earth());

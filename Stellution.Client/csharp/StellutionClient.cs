@@ -1,3 +1,5 @@
+using System;
+using System.Reflection;
 using Easel;
 using Easel.Core;
 using Easel.Scenes;
@@ -13,6 +15,7 @@ namespace Stellution.Client.csharp;
 public class StellutionClient : EaselGame {
     
     public new static StellutionClient Instance { get; private set; }
+    public new static readonly Version Version = Assembly.GetExecutingAssembly().GetName().Version;
     public static ClientNetworkManager NetworkManager { get; private set; }
 
     public StellutionClient(GameSettings settings, Scene scene) : base(settings, scene) {
@@ -43,6 +46,7 @@ public class StellutionClient : EaselGame {
         base.Initialize();
     }
     
+    //TODO: This is not fixed right now Easel work on it but with a own Thread!
     protected override void FixedUpdate() {
         base.FixedUpdate();
         NetworkManager.Update();

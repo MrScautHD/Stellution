@@ -1,4 +1,5 @@
 using System;
+using System.Numerics;
 using System.Text;
 using Easel;
 using Easel.Core;
@@ -28,7 +29,10 @@ public class DebugOverlay : Overlay {
 
     public override void Draw() {
         StringBuilder builder = new StringBuilder();
-        this.AddText(builder, "Stellution " + EaselGame.Version, "aqua");
+        
+        this.AddText(builder, "Stellution " + StellutionClient.Version, "aqua");
+        this.AddText(builder, "Easel " + EaselGame.Version, "aqua");
+        this.AddText(builder, "Pie " + PieMetrics.Version, "aqua");
         this.AddText(builder);
         this.AddText(builder, "System information:", "blue");
         this.AddText(builder, "    CPU: " + CpuInfo, "aqua");
@@ -39,8 +43,13 @@ public class DebugOverlay : Overlay {
         this.AddText(builder, "    Log: " + Logger.LogFilePath, "aqua");
         this.AddText(builder);
         this.AddText(builder, "Render information:", "darkred");
-        this.AddText(builder, "    FPS: " + Metrics.FPS, "red");
+        this.AddText(builder, "    FPS: " + Metrics.FPS + " (dt: " + MathF.Round(Time.DeltaTime * 1000, 1) + "ms)", "red");
         this.AddText(builder, "    Total Frames: " + Metrics.TotalFrames, "red");
+        this.AddText(builder, "    Total VBuffers: " + PieMetrics.VertexBufferCount, "red");
+        this.AddText(builder, "    Total IBuffers: " + PieMetrics.IndexBufferCount, "red");
+        this.AddText(builder, "    Total CBuffers: " + PieMetrics.UniformBufferCount, "red");
+        this.AddText(builder, "    Draws: " + PieMetrics.DrawCalls, "red");
+        this.AddText(builder, "    Tris: " + PieMetrics.TriCount, "red");
         this.AddText(builder, "    Window Size: " + StellutionClient.Instance.Window.Size, "red");
         this.AddText(builder);
         this.AddText(builder, "World information:", "darkgreen");
@@ -56,13 +65,16 @@ public class DebugOverlay : Overlay {
     }
 
     protected override void OnKeyPress(Key key) {
+#if DEBUG
         if (key == Key.F2) {
             this.Enabled ^= true;
         }
+#endif
     }
 
     // TODO: Easel need to fix the memory issues!
     private void DrawLines(StringBuilder builder) {
+        this.SpriteRenderer.DrawRectangle(Vector2.Zero, new Size<float>(600, 600), 0, 0, new Color(Color.Black, 0.2f), Color.White, 0, Vector2.Zero);
         this.DrawText(FontRegistry.Fontoe.Value, builder.ToString(), this._position, this._fontSize);
     }
 

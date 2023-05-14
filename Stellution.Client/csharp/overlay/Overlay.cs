@@ -38,12 +38,12 @@ public abstract class Overlay {
         this.SpriteRenderer.Draw(texture, (Vector2) position.CalculatePosition(this.Viewport, imageSize), null, color ?? Color.White, 0, (Vector2) Vector2T<float>.Zero, (Vector2) scale);
     }
     
+    // TODO: Easel need to fix the memory issues!
     public void DrawText(Font font, string text, Position position, uint fontSize, Color? color = null) {
-        Size<int> size = font.MeasureStringBBCode(fontSize, text);
+        Size<int> size = font.MeasureString(fontSize, text);
         Vector2T<int> calculatedScreenPos = position.CalculatePosition(this.Viewport, size);
         
-        // TODO Add Shadow back!
-
+        // TODO: Add Shadow back!
         font.DrawBBCode(this.SpriteRenderer, fontSize, text, calculatedScreenPos, color ?? Color.White);
     }
 }
