@@ -58,7 +58,7 @@ public class DebugOverlay : Overlay {
         this.AddText(builder, "    Active Entities: " + SceneManager.ActiveScene.GetAllEntities().Length, "green");
         this.AddText(builder);
         this.AddText(builder, "Network information:", "orange");
-        this.AddText(builder, "    MS: " + (StellutionClient.NetworkManager.IsConnected ? StellutionClient.NetworkManager.SmoothRTT : "0"), "yellow");
+        this.AddText(builder, "    RTT: " + (StellutionClient.NetworkManager.IsConnected ? StellutionClient.NetworkManager.SmoothRTT : "0"), "yellow");
         this.AddText(builder, "    Client ID: " + (StellutionClient.NetworkManager.IsConnected ? StellutionClient.NetworkManager.Id : "0"), "yellow");
         
         this.DrawLines(builder);
