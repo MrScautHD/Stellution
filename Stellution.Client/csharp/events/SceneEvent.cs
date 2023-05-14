@@ -17,7 +17,6 @@ public class SceneEvent {
             
             case "earth":
                 OverlayRegistry.CrosshairOverlay.Enabled = true;
-                OverlayRegistry.DebugOverlay.Enabled = true;
                 
                 // LIGHT
                 Entity sun = scene.GetEntity("Sun");

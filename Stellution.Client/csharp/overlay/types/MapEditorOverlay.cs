@@ -1,7 +1,6 @@
 using Easel;
 using Easel.Core;
 using Easel.Graphics;
-using Easel.Graphics.Renderers;
 using Easel.GUI;
 using Easel.Math;
 using Pie.Windowing;
@@ -11,7 +10,7 @@ namespace Stellution.Client.csharp.overlay.types;
 
 public class MapEditorOverlay : Overlay {
 
-    public override void Draw(SpriteRenderer renderer) {
+    public override void Draw() {
         this.DrawText(FontRegistry.Fontoe.Value, "Map Editor", new Position(Anchor.TopLeft), 29);
         this.DrawImage(Texture2D.Black, new Position(Anchor.TopLeft), new Size<int>(105 * 2, 177 * 2));
     }

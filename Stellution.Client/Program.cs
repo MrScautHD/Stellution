@@ -1,5 +1,6 @@
 ﻿using Easel;
 using Easel.Graphics;
+using Easel.Math;
 using Pie.Windowing;
 using Stellution.Client.csharp;
 using Stellution.Common.csharp.scenes;

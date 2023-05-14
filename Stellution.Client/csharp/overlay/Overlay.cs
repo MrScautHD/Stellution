@@ -4,6 +4,7 @@ using Easel.Graphics;
 using Easel.Graphics.Renderers;
 using Easel.GUI;
 using Easel.Math;
+using Pie.Windowing;
 
 namespace Stellution.Client.csharp.overlay; 
 
@@ -16,13 +17,20 @@ public abstract class Overlay {
     protected EaselGraphics Graphics => EaselGame.Instance.Graphics;
     protected SpriteRenderer SpriteRenderer => EaselGame.Instance.Graphics.SpriteRenderer;
 
-    public abstract void Draw(SpriteRenderer renderer);
+    protected Overlay() {
+        Input.NewKeyDown += this.OnKeyPress;
+    }
+
+    public abstract void Draw();
 
     public virtual void Update() {
         this.Viewport = new Rectangle<int>(Vector2T<int>.Zero, this.Graphics.MainTarget.Size);
     }
 
-    // TODO FIX PERFORMANCE PROBLEMS!
+    protected virtual void OnKeyPress(Key key) {
+        
+    }
+
     public void DrawImage(Texture2D texture, Position position, Size<int>? size = null, Color? color = null) {
         Size<int> imageSize = size ?? texture.Size;
         Vector2T<float> scale = new Vector2T<float>(imageSize.Width / (float) texture.Size.Width, imageSize.Height / (float) texture.Size.Height);

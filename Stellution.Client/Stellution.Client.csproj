@@ -20,7 +20,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Folder Include="csharp\util" />
+        <Folder Include="csharp\particle\types\" />
     </ItemGroup>
     
 </Project>
