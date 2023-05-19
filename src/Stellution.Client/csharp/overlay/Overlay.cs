@@ -40,7 +40,7 @@ public abstract class Overlay {
     
     // TODO: Easel need to fix the memory issues!
     public void DrawText(Font font, string text, Position position, uint fontSize, Color? color = null) {
-        Size<int> size = font.MeasureString(fontSize, text);
+        Size<int> size = font.MeasureStringBBCode(fontSize, text);
         Vector2T<int> calculatedScreenPos = position.CalculatePosition(this.Viewport, size);
         
         // TODO: Add Shadow back!

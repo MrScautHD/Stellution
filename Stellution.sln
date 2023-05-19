@@ -1,10 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stellution.Client", "Stellution.Client\Stellution.Client.csproj", "{75FD13DE-EAAD-46DC-896D-704940829CFD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stellution.Client", "src\Stellution.Client\Stellution.Client.csproj", "{75FD13DE-EAAD-46DC-896D-704940829CFD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stellution.Common", "Stellution.Common\Stellution.Common.csproj", "{A87C0CA8-88BB-48EA-AE3B-87197A8684BA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stellution.Common", "src\Stellution.Common\Stellution.Common.csproj", "{A87C0CA8-88BB-48EA-AE3B-87197A8684BA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stellution.Server", "Stellution.Server\Stellution.Server.csproj", "{29BD766F-A22E-4138-9BB3-A31E241573A4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Stellution.Server", "src\Stellution.Server\Stellution.Server.csproj", "{29BD766F-A22E-4138-9BB3-A31E241573A4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

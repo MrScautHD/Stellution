@@ -1,9 +1,10 @@
 ﻿using Easel;
 using Easel.Graphics;
-using Easel.Math;
 using Pie.Windowing;
 using Stellution.Client.csharp;
 using Stellution.Common.csharp.scenes;
+
+//VideoMode videoMode = Monitor.PrimaryMonitor.VideoMode;
 
 GameSettings settings = new GameSettings {
     Title = "Stellution (WIP)",
@@ -12,8 +13,9 @@ GameSettings settings = new GameSettings {
     TitleBarFlags = TitleBarFlags.ShowGraphicsApi,
     VSync = false,
     Border = WindowBorder.Resizable,
-    Size = new Size<int>(1920, 1080),
-    Fullscreen = true
+    /*
+    Size = new Size<int>(videoMode.Size.Width, videoMode.Size.Height),
+    Fullscreen = false*/
 };
 
 using StellutionClient game = new StellutionClient(settings, new Earth());

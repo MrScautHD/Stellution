@@ -2,6 +2,7 @@ using System;
 using System.Reflection;
 using Easel;
 using Easel.Core;
+using Easel.Math;
 using Easel.Scenes;
 using Pie.Windowing;
 using Stellution.Client.csharp.network;
@@ -16,11 +17,13 @@ public class StellutionClient : EaselGame {
     
     public new static StellutionClient Instance { get; private set; }
     public new static readonly Version Version = Assembly.GetExecutingAssembly().GetName().Version;
+    public static GameSettings Settings { get; private set; }
     public static ClientNetworkManager NetworkManager { get; private set; }
 
     public StellutionClient(GameSettings settings, Scene scene) : base(settings, scene) {
         Instance = this;
         NetworkManager = new ClientNetworkManager();
+        Settings = settings;
         GameLogger.Initialize("logs", "log");
         Input.NewKeyDown += this.OnKeyDown;
         
@@ -77,7 +80,13 @@ public class StellutionClient : EaselGame {
 
     protected void OnKeyDown(Key key) {
         if (key == Key.F11) {
-            this.Window.SetFullscreen(!this.Window.Fullscreen, this.Window.Size);
+            if (this.Window.Fullscreen) {
+                this.Window.SetFullscreen(false, Settings.Size);
+            }
+            else {
+                VideoMode videoMode = Monitor.PrimaryMonitor.VideoMode;
+                this.Window.SetFullscreen(true, new Size<int>(videoMode.Size.Width, videoMode.Size.Height));
+            }
         }
     }
 }
