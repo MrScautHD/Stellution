@@ -4,8 +4,6 @@ using Pie.Windowing;
 using Stellution.Client.csharp;
 using Stellution.Common.csharp.scenes;
 
-//VideoMode videoMode = Monitor.PrimaryMonitor.VideoMode;
-
 GameSettings settings = new GameSettings {
     Title = "Stellution (WIP)",
     Icon = new Bitmap("content/bitmaps/logo/logo.bmp"),
