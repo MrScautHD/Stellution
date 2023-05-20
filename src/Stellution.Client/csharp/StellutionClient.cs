@@ -50,11 +50,6 @@ public class StellutionClient : EaselGame {
         base.Initialize();
     }
 
-    //TODO: This is not fixed right now Easel work on it but with a own Thread!
-    protected override void FixedUpdate() {
-        base.FixedUpdate();
-    }
-
     protected override void Update() {
         base.Update();
         NetworkManager.Update();
