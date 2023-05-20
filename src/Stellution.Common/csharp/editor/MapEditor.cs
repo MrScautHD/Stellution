@@ -21,7 +21,7 @@ public class MapEditor {
 
         foreach (Entity entity in this.Scene.GetAllEntities()) {
             if (entity is ModifiedEntity modifiedEntity) {
-                if (modifiedEntity.Key == key) {
+                if (modifiedEntity.GetKey() == key) {
                     entities.Add(modifiedEntity);
                 }
             }

@@ -10,7 +10,7 @@ public class MaterialRegistry : Registry {
     public static TranslucentStandardMaterial Female { get; private set; }
     
     public override void Initialize() {
-        CyberCar = new TranslucentStandardMaterial(TextureRegistry.CyberCar.Value) { BlendState = BlendState.AlphaBlend };
-        Female = new TranslucentStandardMaterial(TextureRegistry.Female.Value) { BlendState = BlendState.AlphaBlend } ;
+        CyberCar = new TranslucentStandardMaterial(TextureRegistry.CyberCar.Value);
+        Female = new TranslucentStandardMaterial(TextureRegistry.Female.Value);
     }
 }

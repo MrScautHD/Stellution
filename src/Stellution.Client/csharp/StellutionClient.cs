@@ -10,6 +10,7 @@ using Stellution.Client.csharp.overlay;
 using Stellution.Client.csharp.registry.types;
 using Stellution.Common.csharp.file;
 using Stellution.Common.csharp.registry;
+using Monitor = Pie.Windowing.Monitor;
 
 namespace Stellution.Client.csharp; 
 
@@ -19,7 +20,7 @@ public class StellutionClient : EaselGame {
     public new static readonly Version Version = Assembly.GetExecutingAssembly().GetName().Version;
     public static GameSettings Settings { get; private set; }
     public static ClientNetworkManager NetworkManager { get; private set; }
-
+    
     public StellutionClient(GameSettings settings, Scene scene) : base(settings, scene) {
         Instance = this;
         NetworkManager = new ClientNetworkManager();
@@ -48,16 +49,16 @@ public class StellutionClient : EaselGame {
         
         base.Initialize();
     }
-    
+
     //TODO: This is not fixed right now Easel work on it but with a own Thread!
     protected override void FixedUpdate() {
         base.FixedUpdate();
-        NetworkManager.Update();
     }
 
     protected override void Update() {
         base.Update();
-        
+        NetworkManager.Update();
+
         foreach (Overlay overlay in OverlayRegistry.Overlays.Values) {
             if (overlay.Enabled) {
                 overlay.Update();

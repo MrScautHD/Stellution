@@ -1,4 +1,3 @@
-using System.Numerics;
 using Easel.Entities;
 using Easel.Entities.Components;
 using Easel.Physics.Shapes;
@@ -12,18 +11,18 @@ public abstract class RigidEntity : ModifiedEntity {
     public Rigidbody Rigidbody { get; }
     public BodyInterface BodyInterface => this.Simulation.BodyInterface;
 
-    protected RigidEntity(string key, string? entityName = null, int initialCapacity = 16) : this(new Transform(), key, entityName, initialCapacity) {
-    }
-    
-    protected RigidEntity(Vector3 position, string key, string? entityName = null, int initialCapacity = 16) : this(new Transform() { Position =  position }, key, entityName, initialCapacity) {
-    }
-
-    protected RigidEntity(Transform transform, string key, string? entityName = null, int initialCapacity = 16) : base(transform, key, entityName, initialCapacity) {
-        this.Rigidbody = new Rigidbody(this.GetCollisionShape(), new RigidbodyInitSettings());
+    protected RigidEntity(Transform transform, string? entityName = null, int initialCapacity = 16) : base(transform, entityName, initialCapacity) {
+        this.Rigidbody = new Rigidbody(this.GetCollisionShape(), new RigidbodyInitSettings() {
+            BodyType = this.GetBodyType()
+        });
         this.AddComponent(this.Rigidbody);
     }
 
     protected abstract float GetMass();
     
     protected abstract IShape GetCollisionShape();
+
+    public virtual BodyType GetBodyType() {
+        return BodyType.Dynamic;
+    }
 }

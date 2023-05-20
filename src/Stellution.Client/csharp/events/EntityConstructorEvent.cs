@@ -17,7 +17,7 @@ public class EntityConstructorEvent {
     }
 
     private void AddComponent(ModifiedEntity entity, string key, Func<Component> component) {
-        if (entity.Key.Equals(key)) {
+        if (entity.GetKey().Equals(key)) {
             entity.AddComponent(component.Invoke());
         }
     }

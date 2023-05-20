@@ -3,27 +3,34 @@ using Easel.Entities;
 
 namespace Stellution.Common.csharp.entity; 
 
-public class ModifiedEntity : Entity {
+public abstract class ModifiedEntity : Entity {
     
     public delegate void OnEntityConstruction(ModifiedEntity entity, string key);
     public static event OnEntityConstruction? Constructing;
-    
-    public string Key { get; }
 
     public Vector3 Position {
         get => this.Transform.Position;
         set => this.Transform.Position = value;
     }
 
-    public ModifiedEntity(string key, string? entityName = null, int initialCapacity = 16) : this(new Transform(), key, entityName, initialCapacity) {
-        
+    public Quaternion Rotation {
+        get => this.Transform.Rotation;
+        set => this.Transform.Rotation = value;
     }
     
-    public ModifiedEntity(Vector3 position, string key, string? entityName = null, int initialCapacity = 16) : this(new Transform() { Position = position }, key, entityName, initialCapacity) {
+    public Vector3 Scale {
+        get => this.Transform.Scale;
+        set => this.Transform.Scale = value;
+    }
+    
+    public Vector3 Origin {
+        get => this.Transform.Origin;
+        set => this.Transform.Origin = value;
     }
 
-    public ModifiedEntity(Transform transform, string key, string? entityName = null, int initialCapacity = 16) : base(entityName, transform, initialCapacity) {
-        this.Key = key;
-        Constructing?.Invoke(this, this.Key);
+    protected ModifiedEntity(Transform transform, string? entityName = null, int initialCapacity = 16) : base(entityName, transform, initialCapacity) {
+        Constructing?.Invoke(this, this.GetKey());
     }
+
+    public abstract string GetKey();
 }
