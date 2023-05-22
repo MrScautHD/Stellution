@@ -21,6 +21,11 @@ public class CyberCarEntity : RigidEntity {
         return new BoxShape(new Vector3(3));
     }
 
+    protected override void FixedUpdate() {
+        base.FixedUpdate();
+        this.Hover(this.Position, 3);
+    }
+
     protected override void Update() {
         base.Update();
         
@@ -32,16 +37,20 @@ public class CyberCarEntity : RigidEntity {
     
     public void Hover(Vector3 pos, float hoverHeight) {
         
-        /*if (Physics.Raycast(pos, -Vector3.UnitY, 4, out RayHit hit)) {
+        /*
+        if (Physics.Raycast(pos, -Vector3.UnitY, 4, out RayHit hit)) {
             entity.GetBulletRigidBody().ApplyForce(new Vector3(0, (entity.Gravity.Y * -1) + entity.Rigidbody.LinearVelocity.Y, 0), pos);
-        }
+        }*/
 
         //Physics.Raycast(pos, -Vector3.UnitY, 4, out RayHit hit);
     
 
         // TODO FIX THIS
         
-        if (Physics.Raycast(pos, -Vector3.UnitY, 10, out RayHit hit)) {
+        if (true /*this.Simulation.PhysicsSystem.NarrowPhaseQuery.CastRay(pos, -Vector3.UnitY, out RayCastResult hit)*/) {
+
+            //Logger.Error(hit.BodyID + "");
+            
             float availableForce = 99;
             
             if (this.Rigidbody.LinearVelocity.Y < 0) {
@@ -59,6 +68,6 @@ public class CyberCarEntity : RigidEntity {
             //ogger.Error(hit.HitPosition.Y + " ");
             
             this.Rigidbody.ApplyForce(Vector3.UnitY * cappedOffsetForce);
-        }*/
+        }
     }
 }

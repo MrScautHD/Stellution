@@ -11,7 +11,7 @@ public class PlayerEntity : RigidEntity {
 
     protected override void Initialize() {
         base.Initialize();
-        
+
         //this.Rigidbody.LockX = true;
         //this.Rigidbody.LockZ = true;
     }

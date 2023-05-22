@@ -1,4 +1,3 @@
-using Easel.Graphics;
 using Easel.Graphics.Materials;
 using Stellution.Common.csharp.registry;
 

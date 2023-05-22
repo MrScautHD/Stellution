@@ -16,12 +16,17 @@ public class Earth : ModifiedScene {
         base.Initialize();
         
         // GROUND
-        RigidEntity groundEntity = new GroundEntity(new Transform() { Position = new Vector3(10, 0, 10) });
+        RigidEntity groundEntity = new GroundEntity(new Transform() { Position = new Vector3(0, 0, 0) });
         this.AddEntity(groundEntity);
-        
+
         // PLAYER
-        PlayerEntity player = new PlayerEntity(new Transform() { Position = new Vector3(0, 23, 0) });
-        this.AddEntity(player);
+        for (int i = 0; i < 900; i++) {
+            PlayerEntity player = new PlayerEntity(new Transform() { Position = new Vector3(0, i, 0) });
+            this.AddEntity(player);
+        }
+        
+        PlayerEntity player2 = new PlayerEntity(new Transform() { Position = new Vector3(8, 16, 0) });
+        this.AddEntity(player2);
 
         // CYBER CAR
         CyberCarEntity cyberCar = new CyberCarEntity(new Transform() { Position = new Vector3(0, 16, 0) });

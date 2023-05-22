@@ -20,9 +20,13 @@ public class GroundEntity : RigidEntity {
     }
 
     protected override IShape GetCollisionShape() {
-        return new BoxShape(new Vector3(100000, 1, 100000));
+        return new BoxShape(new Vector3(1600, 1, 1600));
     }
-    
+
+    public override float GetRestitution() {
+        return 0;
+    }
+
     public override BodyType GetBodyType() {
         return BodyType.Static;
     }

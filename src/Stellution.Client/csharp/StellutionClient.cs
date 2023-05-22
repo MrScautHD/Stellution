@@ -10,7 +10,6 @@ using Stellution.Client.csharp.overlay;
 using Stellution.Client.csharp.registry.types;
 using Stellution.Common.csharp.file;
 using Stellution.Common.csharp.registry;
-using Monitor = Pie.Windowing.Monitor;
 
 namespace Stellution.Client.csharp; 
 
@@ -50,6 +49,10 @@ public class StellutionClient : EaselGame {
         base.Initialize();
     }
 
+    protected override void FixedUpdate() {
+        base.FixedUpdate();
+    }
+
     protected override void Update() {
         base.Update();
         NetworkManager.Update();
@@ -75,14 +78,14 @@ public class StellutionClient : EaselGame {
     }
 
     protected void OnKeyDown(Key key) {
-        if (key == Key.F11) {
-            if (this.Window.Fullscreen) {
-                this.Window.SetFullscreen(false, Settings.Size);
+        /*if (key == Key.F11) {
+            if (this.Window.FullscreenMode == FullscreenMode.BorderlessFullscreen) {
+                this.Window.FullscreenMode = FullscreenMode.Windowed
             }
             else {
                 VideoMode videoMode = Monitor.PrimaryMonitor.VideoMode;
                 this.Window.SetFullscreen(true, new Size<int>(videoMode.Size.Width, videoMode.Size.Height));
             }
-        }
+        }*/
     }
 }

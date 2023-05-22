@@ -13,7 +13,8 @@ public abstract class RigidEntity : ModifiedEntity {
 
     protected RigidEntity(Transform transform, string? entityName = null, int initialCapacity = 16) : base(transform, entityName, initialCapacity) {
         this.Rigidbody = new Rigidbody(this.GetCollisionShape(), new RigidbodyInitSettings() {
-            BodyType = this.GetBodyType()
+            BodyType = this.GetBodyType(),
+            Restitution = this.GetRestitution(),
         });
         this.AddComponent(this.Rigidbody);
     }
@@ -21,6 +22,10 @@ public abstract class RigidEntity : ModifiedEntity {
     protected abstract float GetMass();
     
     protected abstract IShape GetCollisionShape();
+
+    public virtual float GetRestitution() {
+        return 0;
+    }
 
     public virtual BodyType GetBodyType() {
         return BodyType.Dynamic;
