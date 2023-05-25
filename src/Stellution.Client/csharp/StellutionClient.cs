@@ -2,7 +2,6 @@ using System;
 using System.Reflection;
 using Easel;
 using Easel.Core;
-using Easel.Math;
 using Easel.Scenes;
 using Pie.Windowing;
 using Stellution.Client.csharp.network;
@@ -78,14 +77,16 @@ public class StellutionClient : EaselGame {
     }
 
     protected void OnKeyDown(Key key) {
-        /*if (key == Key.F11) {
+        if (key == Key.F11) {
+            this.Window.FullscreenMode = FullscreenMode.ExclusiveFullscreen;
+            /*
             if (this.Window.FullscreenMode == FullscreenMode.BorderlessFullscreen) {
                 this.Window.FullscreenMode = FullscreenMode.Windowed
             }
             else {
                 VideoMode videoMode = Monitor.PrimaryMonitor.VideoMode;
                 this.Window.SetFullscreen(true, new Size<int>(videoMode.Size.Width, videoMode.Size.Height));
-            }
-        }*/
+            }*/
+        }
     }
 }

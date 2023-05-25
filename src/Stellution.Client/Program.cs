@@ -1,6 +1,5 @@
 ﻿using Easel;
 using Easel.Graphics;
-using Pie;
 using Pie.Windowing;
 using Stellution.Client.csharp;
 using Stellution.Common.csharp.scenes;
@@ -11,7 +10,10 @@ GameSettings settings = new GameSettings {
     AutoGenerateContentDirectory = null,
     TitleBarFlags = TitleBarFlags.ShowGraphicsApi,
     VSync = false,
-    FullscreenMode = FullscreenMode.Windowed
+    
+    //Size = new Size<int>(-1, -1),
+    FullscreenMode = FullscreenMode.Windowed,
+    Resizable = true,
 
     //Size = new Size<int>(videoMode.Size.Width, videoMode.Size.Height),
 };

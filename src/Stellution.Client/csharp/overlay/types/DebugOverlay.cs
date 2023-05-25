@@ -64,6 +64,10 @@ public class DebugOverlay : Overlay {
         this.DrawLines(builder);
     }
 
+    public override Anchor? GetAnchor() {
+        return Anchor.TopLeft;
+    }
+
     protected override void OnKeyPress(Key key) {
 #if DEBUG
         if (key == Key.F2) {

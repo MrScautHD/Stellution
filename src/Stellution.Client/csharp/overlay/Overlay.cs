@@ -5,17 +5,29 @@ using Easel.Graphics.Renderers;
 using Easel.GUI;
 using Easel.Math;
 using Pie.Windowing;
+using Stellution.Client.csharp.registry.types;
 
 namespace Stellution.Client.csharp.overlay; 
 
 public abstract class Overlay {
 
-    public bool Enabled;
+    private bool _enabled;
 
     protected Rectangle<int> Viewport;
-    
+
     protected EaselGraphics Graphics => EaselGame.Instance.Graphics;
     protected SpriteRenderer SpriteRenderer => EaselGame.Instance.Graphics.SpriteRenderer;
+
+    public bool Enabled {
+        get => this._enabled;
+
+        set {
+            this._enabled = value;
+            if (value) {
+                this.DisableOverlapping();
+            }
+        }
+    }
 
     protected Overlay() {
         Input.NewKeyDown += this.OnKeyPress;
@@ -26,9 +38,23 @@ public abstract class Overlay {
     public virtual void Update() {
         this.Viewport = new Rectangle<int>(Vector2T<int>.Zero, this.Graphics.MainTarget.Size);
     }
+    
+    public virtual Anchor? GetAnchor() {
+        return null;
+    }
 
     protected virtual void OnKeyPress(Key key) {
         
+    }
+
+    private void DisableOverlapping() {
+        foreach (Overlay overlay in OverlayRegistry.Overlays.Values) {
+            if (overlay != this) {
+                if (overlay.GetAnchor() == this.GetAnchor()) {
+                    overlay.Enabled = false;
+                }
+            }
+        }
     }
 
     public void DrawImage(Texture2D texture, Position position, Size<int>? size = null, Color? color = null) {

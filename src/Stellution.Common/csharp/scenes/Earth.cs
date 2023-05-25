@@ -20,10 +20,10 @@ public class Earth : ModifiedScene {
         this.AddEntity(groundEntity);
 
         // PLAYER
-        for (int i = 0; i < 900; i++) {
-            PlayerEntity player = new PlayerEntity(new Transform() { Position = new Vector3(0, i, 0) });
+        //for (int i = 0; i < 900; i++) {
+            PlayerEntity player = new PlayerEntity(new Transform() { Position = new Vector3(0, 16, 0) });
             this.AddEntity(player);
-        }
+       // }
         
         PlayerEntity player2 = new PlayerEntity(new Transform() { Position = new Vector3(8, 16, 0) });
         this.AddEntity(player2);

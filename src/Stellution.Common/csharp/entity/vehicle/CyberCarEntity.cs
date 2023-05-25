@@ -1,6 +1,8 @@
 using System.Numerics;
 using Easel.Entities;
 using Easel.Physics.Shapes;
+using JoltPhysicsSharp;
+using BoxShape = Easel.Physics.Shapes.BoxShape;
 
 namespace Stellution.Common.csharp.entity.vehicle; 
 
@@ -28,6 +30,7 @@ public class CyberCarEntity : RigidEntity {
 
     protected override void Update() {
         base.Update();
+        this.Hover(Vector3.One, 1);
         
         //this.Hover(new Vector3(this.Position.X + 3, this.Position.Y - 3, this.Position.Z), 2F);
         //this.Hover(new Vector3(this.Position.X - 3, this.Position.Y - 3, this.Position.Z), 2F);
@@ -47,7 +50,7 @@ public class CyberCarEntity : RigidEntity {
 
         // TODO FIX THIS
         
-        if (true /*this.Simulation.PhysicsSystem.NarrowPhaseQuery.CastRay(pos, -Vector3.UnitY, out RayCastResult hit)*/) {
+        if (true/*this.Simulation.PhysicsSystem.NarrowPhaseQuery.CastRay(pos, -Vector3.UnitY, out RayCastResult hit)*/) {
 
             //Logger.Error(hit.BodyID + "");
             

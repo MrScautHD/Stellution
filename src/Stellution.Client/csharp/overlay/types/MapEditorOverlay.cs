@@ -1,5 +1,3 @@
-using Easel;
-using Easel.Core;
 using Easel.Graphics;
 using Easel.GUI;
 using Easel.Math;
@@ -19,11 +17,13 @@ public class MapEditorOverlay : Overlay {
         this.DrawImage(texture, position, size, color);
     }
 
-    public override void Update() {
-        base.Update();
+    public override Anchor? GetAnchor() {
+        return Anchor.TopLeft;
+    }
 
-        if (Input.KeyPressed(Key.Up)) {
-            Logger.Error("UPPP WORKS!");
+    protected override void OnKeyPress(Key key) {
+        if (key == Key.F8) {
+            this.Enabled ^= true;
         }
     }
 }
