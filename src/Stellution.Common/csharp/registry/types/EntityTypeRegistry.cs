@@ -14,8 +14,8 @@ public class EntityTypeRegistry : Registry {
     public static EntityType CyberCarEntity { get; private set; }
 
     public override void Initialize() {
-        GroundEntity = this.Register("cyber_car", Entities, new EntityType(typeof(GroundEntity)));
-        PlayerEntity = this.Register("cyber_car", Entities, new EntityType(typeof(PlayerEntity)));
+        GroundEntity = this.Register("ground", Entities, new EntityType(typeof(GroundEntity)));
+        PlayerEntity = this.Register("player", Entities, new EntityType(typeof(PlayerEntity)));
         CyberCarEntity = this.Register("cyber_car", Entities, new EntityType(typeof(CyberCarEntity)));
     }
 }

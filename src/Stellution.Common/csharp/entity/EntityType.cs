@@ -2,9 +2,9 @@ namespace Stellution.Common.csharp.entity;
 
 public class EntityType {
 
-    private Type _type;
+    public Type Type;
 
     public EntityType(Type type) {
-        this._type = type;
+        this.Type = type;
     }
 }

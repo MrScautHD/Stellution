@@ -8,7 +8,9 @@ using Easel.Math;
 using Pie.Windowing;
 using Stellution.Client.csharp.registry.types;
 using Stellution.Common.csharp.editor;
+using Stellution.Common.csharp.entity;
 using Stellution.Common.csharp.entity.vehicle;
+using Stellution.Common.csharp.registry.types;
 
 namespace Stellution.Client.csharp.overlay.types; 
 
@@ -48,15 +50,18 @@ public class MapEditorOverlay : Overlay {
                 Position = new Vector3(positionX, positionY, positionZ)
             };
 
+            foreach (EntityType entityType in EntityTypeRegistry.Entities.Values) {
+                
+                Type type = typeof(Entity).MakeGenericType(entityType.Type);
+                
+                Entity myObject = (Entity) Activator.CreateInstance(type);
+                
+                this._mapEditor.AddEntity(myObject);
+            }
+
             CyberCarEntity entity = new CyberCarEntity(transform);
             this._mapEditor.AddEntity(entity);
         }
-    }
-
-    private Entity[] GetAllRegistryEntities() {
-
-        //return types;
-        return null;
     }
 
     protected override void OnKeyPress(Key key) {
