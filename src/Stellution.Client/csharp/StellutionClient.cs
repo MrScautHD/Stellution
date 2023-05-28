@@ -9,6 +9,7 @@ using Stellution.Client.csharp.overlay;
 using Stellution.Client.csharp.registry.types;
 using Stellution.Common.csharp.file;
 using Stellution.Common.csharp.registry;
+using Stellution.Common.csharp.registry.types;
 
 namespace Stellution.Client.csharp; 
 

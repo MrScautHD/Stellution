@@ -14,9 +14,5 @@
         <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
         <PackageReference Include="RiptideNetworking.Riptide" Version="2.0.0" />
     </ItemGroup>
-
-    <ItemGroup>
-        <Folder Include="csharp\registry\types" />
-    </ItemGroup>
     
 </Project>

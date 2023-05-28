@@ -4,6 +4,7 @@ using Easel.Core;
 using Easel.Scenes;
 using Stellution.Common.csharp.file;
 using Stellution.Common.csharp.registry;
+using Stellution.Common.csharp.registry.types;
 using Stellution.Server.csharp.network;
 using Stellution.Server.csharp.registry;
 
@@ -22,6 +23,7 @@ public class StellutionServer : EaselGame {
 
         // REGISTER
         Registry.RegistryTypes.Add(new ServerConfigRegistry());
+        Registry.RegistryTypes.Add(new EntityTypeRegistry());
     }
 
     protected override void Initialize() {
