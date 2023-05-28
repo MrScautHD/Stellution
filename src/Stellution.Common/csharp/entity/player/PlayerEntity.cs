@@ -20,10 +20,6 @@ public class PlayerEntity : RigidEntity {
         return "player";
     }
 
-    protected override float GetMass() {
-        return 2;
-    }
-
     protected override IShape GetCollisionShape() {
         return new BoxShape(new Vector3(0.5F, 1.5F, 0.5F));
     }

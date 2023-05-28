@@ -9,14 +9,11 @@ namespace Stellution.Common.csharp.entity.vehicle;
 public class CyberCarEntity : RigidEntity {
     
     public CyberCarEntity(Transform transform, string? entityName = null, int initialCapacity = 16) : base(transform, entityName, initialCapacity) {
+
     }
     
     public override string GetKey() {
         return "cyber_car";
-    }
-    
-    protected override float GetMass() {
-        return 10;
     }
 
     protected override IShape GetCollisionShape() {
@@ -25,19 +22,13 @@ public class CyberCarEntity : RigidEntity {
 
     protected override void FixedUpdate() {
         base.FixedUpdate();
-        this.Hover(this.Position, 3);
-    }
 
-    protected override void Update() {
-        base.Update();
-        this.Hover(Vector3.One, 1);
-        
-        //this.Hover(new Vector3(this.Position.X + 3, this.Position.Y - 3, this.Position.Z), 2F);
+        this.Hover(new Vector3(this.Position.X + 3, this.Position.Y - 3, this.Position.Z), 2F);
         //this.Hover(new Vector3(this.Position.X - 3, this.Position.Y - 3, this.Position.Z), 2F);
         //this.Hover(new Vector3(this.Position.X, this.Position.Y - 3, this.Position.Z + 3), 2F);
         //this.Hover(new Vector3(this.Position.X, this.Position.Y - 3, this.Position.Z - 3), 2F);
     }
-    
+
     public void Hover(Vector3 pos, float hoverHeight) {
         
         /*
@@ -47,12 +38,32 @@ public class CyberCarEntity : RigidEntity {
 
         //Physics.Raycast(pos, -Vector3.UnitY, 4, out RayHit hit);
     
-
-        // TODO FIX THIS
         
-        if (true/*this.Simulation.PhysicsSystem.NarrowPhaseQuery.CastRay(pos, -Vector3.UnitY, out RayCastResult hit)*/) {
+        //this.Rigidbody.ApplyForce(new Vector3(0, 140, 0));
 
-            //Logger.Error(hit.BodyID + "");
+        
+        //Logger.Info(this.BodyInterface.GetPosition(this.Handle).ToString());
+        
+        
+        //this.Rigidbody.ApplyForce(new Vector3(0, 12 * 200000, 0));
+        
+        //Logger.Info(this.Rigidbody.LinearVelocity.Y.ToString());
+        
+        //this.Rigidbody.ApplyForce(new Vector3(0, 17.5F , 0));
+        
+        //Logger.Error(this.PhysicsSystem.NarrowPhaseQuery.CastRay(this.Position, 1000 * -Vector3.UnitY, out RayCastResult test).ToString());
+
+        if (this.PhysicsSystem.NarrowPhaseQuery.CastRay(this.Position, -Vector3.UnitY, out RayCastResult hit)) {
+            
+            
+
+            //this.Rigidbody.ApplyForce(new Vector3(0, 140, 0));
+        }
+
+
+        /*if (this.NarrowPhaseQuery.CastRay(pos, -Vector3.UnitY, out RayCastResult hit)) {
+            
+            Logger.Error(hit.BodyID + " ");
             
             float availableForce = 99;
             
@@ -71,6 +82,6 @@ public class CyberCarEntity : RigidEntity {
             //ogger.Error(hit.HitPosition.Y + " ");
             
             this.Rigidbody.ApplyForce(Vector3.UnitY * cappedOffsetForce);
-        }
+        }*/
     }
 }

@@ -1,12 +1,26 @@
+using System;
+using System.Numerics;
+using Easel.Core;
+using Easel.Entities;
 using Easel.Graphics;
 using Easel.GUI;
 using Easel.Math;
 using Pie.Windowing;
 using Stellution.Client.csharp.registry.types;
+using Stellution.Common.csharp.editor;
+using Stellution.Common.csharp.entity.vehicle;
 
 namespace Stellution.Client.csharp.overlay.types; 
 
 public class MapEditorOverlay : Overlay {
+
+    private MapEditor _mapEditor;
+    
+    private int _viewDistance = 15;
+
+    public MapEditorOverlay() {
+        this._mapEditor = new MapEditor();
+    }
 
     public override void Draw() {
         this.DrawText(FontRegistry.Fontoe.Value, "Map Editor", new Position(Anchor.TopLeft), 29);
@@ -19,6 +33,30 @@ public class MapEditorOverlay : Overlay {
 
     public override Anchor? GetAnchor() {
         return Anchor.TopLeft;
+    }
+
+    protected override void OnMousePress(MouseButton button) {
+        if (button == MouseButton.Right) {
+            Vector3 camPos = Camera.Main.Transform.Position;
+            Vector3 camRot = Camera.Main.Transform.Forward;
+
+            float positionX = camPos.X + camRot.X * this._viewDistance;
+            float positionY = camPos.Y + camRot.Y * this._viewDistance;
+            float positionZ = camPos.Z + camRot.Z * this._viewDistance;
+
+            Transform transform = new Transform() {
+                Position = new Vector3(positionX, positionY, positionZ)
+            };
+
+            CyberCarEntity entity = new CyberCarEntity(transform);
+            this._mapEditor.AddEntity(entity);
+        }
+    }
+
+    private Entity[] GetAllRegistryEntities() {
+
+        //return types;
+        return null;
     }
 
     protected override void OnKeyPress(Key key) {

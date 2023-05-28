@@ -19,17 +19,11 @@ public class Earth : ModifiedScene {
         RigidEntity groundEntity = new GroundEntity(new Transform() { Position = new Vector3(0, 0, 0) });
         this.AddEntity(groundEntity);
 
-        // PLAYER
-        //for (int i = 0; i < 900; i++) {
-            PlayerEntity player = new PlayerEntity(new Transform() { Position = new Vector3(0, 16, 0) });
-            this.AddEntity(player);
-       // }
-        
         PlayerEntity player2 = new PlayerEntity(new Transform() { Position = new Vector3(8, 16, 0) });
         this.AddEntity(player2);
 
         // CYBER CAR
-        CyberCarEntity cyberCar = new CyberCarEntity(new Transform() { Position = new Vector3(0, 16, 0) });
+        CyberCarEntity cyberCar = new CyberCarEntity(new Transform() { Position = new Vector3(0, 100, 0) });
         this.AddEntity(cyberCar);
 
         // TODO ADD LIGHT COLOR BACK DirectionalLight

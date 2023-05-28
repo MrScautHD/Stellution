@@ -15,16 +15,8 @@ public class GroundEntity : RigidEntity {
         return "ground";
     }
 
-    protected override float GetMass() {
-        return 0;
-    }
-
     protected override IShape GetCollisionShape() {
         return new BoxShape(new Vector3(1600, 1, 1600));
-    }
-
-    public override float GetRestitution() {
-        return 0;
     }
 
     public override BodyType GetBodyType() {

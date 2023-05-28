@@ -1,3 +1,4 @@
+using System.Numerics;
 using Easel.Entities;
 using Easel.Scenes;
 using Stellution.Common.csharp.entity;

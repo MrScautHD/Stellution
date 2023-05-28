@@ -31,6 +31,7 @@ public abstract class Overlay {
 
     protected Overlay() {
         Input.NewKeyDown += this.OnKeyPress;
+        Input.MouseDown += this.OnMousePress;
     }
 
     public abstract void Draw();
@@ -44,6 +45,10 @@ public abstract class Overlay {
     }
 
     protected virtual void OnKeyPress(Key key) {
+        
+    }
+    
+    protected virtual void OnMousePress(MouseButton button) {
         
     }
 

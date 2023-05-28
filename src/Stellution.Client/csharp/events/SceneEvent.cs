@@ -1,3 +1,4 @@
+using Easel.Core;
 using Easel.Entities;
 using Easel.Entities.Components;
 using Easel.Math;
@@ -24,6 +25,7 @@ public class SceneEvent {
                 
                 // CAMERA
                 Camera.Main.Skybox = SkyboxRegistry.EarthSkybox;
+                Camera.Main.FieldOfView = EaselMath.ToRadians(70);
                 Camera.Main.AddComponent(new NoClipCamera() {
                     MouseSensitivity =  0.005F,
                 });
