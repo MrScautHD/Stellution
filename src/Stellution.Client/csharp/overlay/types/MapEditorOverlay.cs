@@ -1,7 +1,4 @@
-using System;
 using System.Numerics;
-using System.Reflection;
-using Easel.Core;
 using Easel.Entities;
 using Easel.Graphics;
 using Easel.GUI;
@@ -9,10 +6,6 @@ using Easel.Math;
 using Pie.Windowing;
 using Stellution.Client.csharp.registry.types;
 using Stellution.Common.csharp.editor;
-using Stellution.Common.csharp.entity;
-using Stellution.Common.csharp.entity.environment;
-using Stellution.Common.csharp.entity.player;
-using Stellution.Common.csharp.entity.types;
 using Stellution.Common.csharp.entity.vehicle;
 using Stellution.Common.csharp.registry.types;
 
