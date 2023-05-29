@@ -6,7 +6,6 @@ using Easel.Math;
 using Pie.Windowing;
 using Stellution.Client.csharp.registry.types;
 using Stellution.Common.csharp.editor;
-using Stellution.Common.csharp.entity.vehicle;
 using Stellution.Common.csharp.registry.types;
 
 namespace Stellution.Client.csharp.overlay.types; 
@@ -47,9 +46,9 @@ public class MapEditorOverlay : Overlay {
                 Position = new Vector3(positionX, positionY, positionZ)
             };
 
-            CyberCarEntity entity = EntityPrefabRegistry.CyberCarEntity.Invoke();
+            Entity entity = PrefabRegistry.Entities["cyber_car"].Invoke();
             entity.Transform = transform;
-                
+
             this._mapEditor.AddEntity(entity);
         }
     }

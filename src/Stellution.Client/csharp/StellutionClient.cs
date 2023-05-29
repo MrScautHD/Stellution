@@ -38,7 +38,7 @@ public class StellutionClient : EaselGame {
         Registry.RegistryTypes.Add(new SkyboxRegistry());
         Registry.RegistryTypes.Add(new OverlayRegistry());
         Registry.RegistryTypes.Add(new ClientEventRegistry());
-        Registry.RegistryTypes.Add(new EntityPrefabRegistry());
+        Registry.RegistryTypes.Add(new PrefabRegistry());
     }
 
     protected override void Initialize() {

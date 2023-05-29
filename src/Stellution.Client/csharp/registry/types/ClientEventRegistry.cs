@@ -5,8 +5,8 @@ namespace Stellution.Client.csharp.registry.types;
 
 public class ClientEventRegistry : Registry {
     
-    public static EntityConstructorEvent? EntityConstructor { get; private set; }
-    public static SceneEvent? Scene { get; private set; }
+    public static EntityConstructorEvent EntityConstructor { get; private set; }
+    public static SceneEvent Scene { get; private set; }
     
     public override void Initialize() {
         EntityConstructor = new EntityConstructorEvent();

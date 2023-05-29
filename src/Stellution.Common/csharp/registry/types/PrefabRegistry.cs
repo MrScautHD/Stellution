@@ -5,13 +5,13 @@ using Stellution.Common.csharp.entity.vehicle;
 
 namespace Stellution.Common.csharp.registry.types; 
 
-public class EntityPrefabRegistry : Registry {
+public class PrefabRegistry : Registry {
     
     public static readonly Dictionary<string, Func<Entity>> Entities = new();
     
-    public static Func<GroundEntity>? GroundEntity { get; private set; }
-    public static Func<PlayerEntity>? PlayerEntity { get; private set; }
-    public static Func<CyberCarEntity>? CyberCarEntity { get; private set; }
+    public static Func<GroundEntity> GroundEntity { get; private set; }
+    public static Func<PlayerEntity> PlayerEntity { get; private set; }
+    public static Func<CyberCarEntity> CyberCarEntity { get; private set; }
 
     public override void Initialize() {
         GroundEntity = this.Register("ground", Entities, () => new GroundEntity(new Transform()));

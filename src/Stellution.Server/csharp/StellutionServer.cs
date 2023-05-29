@@ -23,7 +23,7 @@ public class StellutionServer : EaselGame {
 
         // REGISTER
         Registry.RegistryTypes.Add(new ServerConfigRegistry());
-        Registry.RegistryTypes.Add(new EntityPrefabRegistry());
+        Registry.RegistryTypes.Add(new PrefabRegistry());
     }
 
     protected override void Initialize() {
