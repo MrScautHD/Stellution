@@ -1,4 +1,3 @@
-using System.Numerics;
 using Easel.Entities;
 using Easel.Scenes;
 using Stellution.Common.csharp.entity;
@@ -34,7 +33,7 @@ public class MapEditor {
     public Entity[] GetAllEntities() {
         return this.Scene.GetAllEntities();
     }
-
+    
     public void AddEntity(Entity entity) {
         this.Scene.AddEntity(entity);
     }

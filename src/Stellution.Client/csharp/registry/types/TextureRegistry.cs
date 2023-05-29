@@ -20,8 +20,6 @@ public class TextureRegistry : ContentRegistry {
     // OVERLAY
     public static readonly Lazy<Texture2D> Crosshair = Get(DefinitionName, "overlay/crosshair");
     
-    // GUI
-    
     public override void Initialize() {
         ContentDefinition definition = new ContentBuilder(DefinitionName)
             .Add(new ImageContent("logo/logo.png"))
