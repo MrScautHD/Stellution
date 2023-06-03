@@ -50,10 +50,6 @@ public class StellutionClient : EaselGame {
         base.Initialize();
     }
 
-    protected override void FixedUpdate() {
-        base.FixedUpdate();
-    }
-
     protected override void Update() {
         base.Update();
         NetworkManager.Update();
@@ -78,17 +74,11 @@ public class StellutionClient : EaselGame {
         this.Graphics.SpriteRenderer.End();
     }
 
+    // TODO WORK IN PROGRESS!
     protected void OnKeyDown(Key key) {
         if (key == Key.F11) {
-            this.Window.FullscreenMode = FullscreenMode.ExclusiveFullscreen;
-            /*
-            if (this.Window.FullscreenMode == FullscreenMode.BorderlessFullscreen) {
-                this.Window.FullscreenMode = FullscreenMode.Windowed
-            }
-            else {
-                VideoMode videoMode = Monitor.PrimaryMonitor.VideoMode;
-                this.Window.SetFullscreen(true, new Size<int>(videoMode.Size.Width, videoMode.Size.Height));
-            }*/
+            FullscreenMode currentMode = Window.FullscreenMode;
+            Window.FullscreenMode = currentMode != FullscreenMode.Windowed ? FullscreenMode.Windowed : FullscreenMode.BorderlessFullscreen;
         }
     }
 }

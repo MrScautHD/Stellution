@@ -3,6 +3,7 @@ using Easel.Entities;
 using Easel.Entities.Components;
 using Easel.Math;
 using Stellution.Client.csharp.registry.types;
+using Stellution.Client.csharp.util;
 using Stellution.Common.csharp.scenes;
 
 namespace Stellution.Client.csharp.events; 
@@ -25,7 +26,7 @@ public class SceneEvent {
                 
                 // CAMERA
                 Camera.Main.Skybox = SkyboxRegistry.EarthSkybox;
-                Camera.Main.FieldOfView = EaselMath.ToRadians(70);
+                CameraHelper.SetFov(70);
                 Camera.Main.AddComponent(new NoClipCamera() {
                     MouseSensitivity =  0.005F,
                 });

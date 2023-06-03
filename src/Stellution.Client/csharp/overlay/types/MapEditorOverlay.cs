@@ -1,10 +1,13 @@
-using System.Numerics;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Easel.Entities;
 using Easel.Graphics;
 using Easel.GUI;
 using Easel.Math;
 using Pie.Windowing;
 using Stellution.Client.csharp.registry.types;
+using Stellution.Client.csharp.util;
 using Stellution.Common.csharp.editor;
 using Stellution.Common.csharp.registry.types;
 
@@ -13,16 +16,17 @@ namespace Stellution.Client.csharp.overlay.types;
 public class MapEditorOverlay : Overlay {
 
     private MapEditor _mapEditor;
-    
-    private int _viewDistance = 15;
+    private readonly int _distance = 15;
+    private Dictionary<string, Action> _buttons;
 
     public MapEditorOverlay() {
         this._mapEditor = new MapEditor();
+        this._buttons = new();
     }
 
     public override void Draw() {
-        this.DrawText(FontRegistry.Fontoe.Value, "Map Editor", new Position(Anchor.TopLeft), 29);
         this.DrawImage(Texture2D.Black, new Position(Anchor.TopLeft), new Size<int>(105 * 2, 177 * 2));
+        this.DrawText(FontRegistry.Fontoe.Value, "Map Editor", new Position(Anchor.TopLeft), 29);
     }
 
     protected void DrawButton(Texture2D texture, Position position, Size<int> size, Color color) {
@@ -35,22 +39,22 @@ public class MapEditorOverlay : Overlay {
 
     protected override void OnMousePress(MouseButton button) {
         if (button == MouseButton.Right) {
-            Vector3 camPos = Camera.Main.Transform.Position;
-            Vector3 camRot = Camera.Main.Transform.Forward;
 
-            float positionX = camPos.X + camRot.X * this._viewDistance;
-            float positionY = camPos.Y + camRot.Y * this._viewDistance;
-            float positionZ = camPos.Z + camRot.Z * this._viewDistance;
-
-            Transform transform = new Transform() {
-                Position = new Vector3(positionX, positionY, positionZ)
+            Entity entity = PrefabRegistry.Entities.ElementAt(2).Value.Invoke();
+            entity.Transform = new Transform() {
+                Position = CameraHelper.ReachDistance(this._distance)
             };
-
-            Entity entity = PrefabRegistry.Entities["cyber_car"].Invoke();
-            entity.Transform = transform;
 
             this._mapEditor.AddEntity(entity);
         }
+    }
+
+    public void OnButtonPress(string key) {
+        this._buttons[key].Invoke();
+    }
+
+    public void AddButton(string key, Action func) {
+        this._buttons.Add(key, func);
     }
 
     protected override void OnKeyPress(Key key) {

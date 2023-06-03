@@ -16,6 +16,7 @@ public class StellutionServer : EaselGame {
     
     public static ServerNetworkManager NetworkManager { get; private set; }
 
+    // TRY TO START THE SERVER WITH: Process.Start("D:/projects/Stellution/src/Stellution.Server/bin/Debug/net7.0/Stellution.Server.exe");
     public StellutionServer(GameSettings settings, Scene scene) : base(settings, scene) {
         Instance = this;
         NetworkManager = new ServerNetworkManager();
