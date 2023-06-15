@@ -1,3 +1,4 @@
+
 <p align="center" style="margin-bottom: 0px !important;">
   <img width="512" src="https://cdn.discordapp.com/attachments/1023302205031321690/1092469232484225105/logobanner.png" alt="Logo" align="center">
 </p>
@@ -22,6 +23,11 @@
 + Hovering Cars
 + Open World
 + PVP
+
+🤝 Partners
+============
+- [Beyond-Earth](https://www.curseforge.com/minecraft/mc-mods/beyond-earth)
+- [7-App](https://discord.gg/bZDz5NYqjV)
 
 💸 Sponsors
 ============
