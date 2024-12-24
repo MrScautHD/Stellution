@@ -1,5 +1,5 @@
 Code is covered by MIT License:
-=========================================================================
+=======================================================================
 MIT License
 
 Copyright (c) 2024 Elias Springer (@MrScautHD)
@@ -23,7 +23,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 Assets are covered by CC BY-NC-ND License:
-=========================================================================
+=======================================================================
 
 Attribution-NonCommercial-NoDerivatives 4.0 International
 
